@@ -23,7 +23,7 @@ namespace AppTestMVC.Tests.Controllers
 
             // Declarar
             ViewDataDictionary viewData = result.ViewData;
-            Assert.AreEqual("Testing my first deploy on AppHarbor.com", viewData["Message"]);
+            Assert.AreEqual("Testing my first deploy on AppHarbor.com -- Cambio en controller", viewData["Message"]);
         }
 
         [TestMethod]
