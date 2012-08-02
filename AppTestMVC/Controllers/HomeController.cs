@@ -11,7 +11,7 @@ namespace AppTestMVC.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "ASP.NET MVC";
+            ViewData["Message"] = "Testing my first deploy on AppHarbor.com";
 
             return View();
         }
