@@ -1,0 +1,73 @@
+﻿@{
+    //ViewBag.Title = "Index";
+}
+
+<div id="AlbumBox">
+    <div id="AlbumHeader">
+        Rate music
+    </div>   
+    <div id="AlbumInlineBorder">
+    </div>
+    <div class="AlbumRotation">
+        <img alt="Previous Album" src="../../Images/PreviousAlbumButtom.png" />
+    </div>
+    <div id="AlbumContainer">
+        <div id="AlbumCover">
+            <img id="CoverImage" alt="" width="135" height="135" src="" />
+        </div>
+        <div id="AlbumData">
+            <p id="AlbumTitle">Model.AlbumName</p>
+            <p id="AlbumYear">Model.Year</p>
+            <p id="AlbumArtistName">Model.ArtistName</p>
+            <div id="RateContainer">
+                <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
+            </div>
+            <p id="AlbumComments">Model.Comments</p>
+        </div>
+        <div id="AlbumActions">
+            <p>View general rate</p>
+            <p>View my friends rates</p>
+            <p>View people like me rates</p>
+        </div>
+    </div>
+    <div class="AlbumRotation">
+        <img alt="Next Album" src="../../Images/NextAlbumButtom.png" />
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".AlbumRotation").click(DownloadAlbum);
+        });
+
+        function DownloadAlbum () {
+            // We're using a Knockout model. This clears out the existing Orders.
+            //viewModel.Orders([]);
+            $.ajax({
+                url: "/api/AlbumsRest",
+                accepts: "application/json",
+                cache: false,
+                statusCode: {
+                    200: function (data) {
+                        var src = '../../Images/Covers/' + data['CoverUrl'];
+                        $("#CoverImage").attr("src", src);
+                        $("#AlbumTitle").html(data['AlbumName']);
+                        $("#AlbumYear").html(data['Year']);
+                        $("#AlbumArtistName").html(data['ArtistName']);
+                        $("#AlbumComments").html(data['Comments']);
+                        //viewModel.Orders(data);
+                    },
+                    401: function (jqXHR, textStatus, errorThrown) {
+                        self.location = '/Account/Login/';
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            DownloadAlbum();
+        });
+</script>
+}

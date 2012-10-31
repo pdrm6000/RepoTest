@@ -1,0 +1,11 @@
+﻿
+
+
+
+Despliegue en apphabor
+
+poner link (<a>) a los botones next y previous
+
+poner animacion al cambio de album
+poner loading en el next previous
+implementar knockout

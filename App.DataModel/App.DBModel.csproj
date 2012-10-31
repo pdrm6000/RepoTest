@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{976C7A43-40DF-476C-AF2F-C6028D7AE019}</ProjectGuid>
+    <ProjectGuid>{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App.Domain</RootNamespace>
-    <AssemblyName>App.Domain</AssemblyName>
+    <RootNamespace>App.DataModel</RootNamespace>
+    <AssemblyName>App.DataModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,31 +31,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServiceContracts\IAlbumsCollectorAppService.cs" />
-    <Compile Include="DomainServices\Contracts\IRandomAlbumSelector.cs" />
-    <Compile Include="DomainServices\Implementations\RandomAlbumSelector.cs" />
-    <Compile Include="DomainServices\Implementations\AlbumDTOGeneratorService.cs" />
-    <Compile Include="DomainServices\Contracts\IAlbumDTOGeneratorService.cs" />
-    <Compile Include="Model\Album.cs" />
-    <Compile Include="Model\Artist.cs" />
+    <Compile Include="DataModel\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryContracts\IAlbumsRepository.cs" />
-    <Compile Include="RepositoryContracts\IArtistRepository.cs" />
-    <Compile Include="RepositoryContracts\IBaseRepository.cs" />
-    <Compile Include="ValueObjects\DTO\AlbumDTO.cs" />
-    <Compile Include="ValueObjects\EntityContract\IEntity.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.Domain\App.Domain.csproj">
+      <Project>{976C7A43-40DF-476C-AF2F-C6028D7AE019}</Project>
+      <Name>App.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
