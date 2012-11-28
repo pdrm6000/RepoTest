@@ -9,20 +9,20 @@
     <div id="AlbumInlineBorder">
     </div>
     <div class="AlbumRotation">
-        <img alt="Previous Album" src="../../Images/PreviousAlbumButtom.png" />
+        <a href="#" id="PreviousAlbum"><img alt="Previous Album" src="../../Images/PreviousAlbumButtom.png" /></a>
     </div>
     <div id="AlbumContainer">
         <div id="AlbumCover">
-            <img id="CoverImage" alt="" width="135" height="135" src="" />
+            <img id="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: ImageUrl }"/>
         </div>
         <div id="AlbumData">
-            <p id="AlbumTitle">Model.AlbumName</p>
-            <p id="AlbumYear">Model.Year</p>
-            <p id="AlbumArtistName">Model.ArtistName</p>
+            <p id="AlbumTitle" data-bind="text: AlbumName"></p>
+            <p id="AlbumYear" data-bind="text: Year"></p>
+            <p id="AlbumArtistName" data-bind="text: ArtistName"></p>
             <div id="RateContainer">
                 <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
             </div>
-            <p id="AlbumComments">Model.Comments</p>
+            <p id="AlbumComments" data-bind="text: Comments"></p>
         </div>
         <div id="AlbumActions">
             <p>View general rate</p>
@@ -31,43 +31,61 @@
         </div>
     </div>
     <div class="AlbumRotation">
-        <img alt="Next Album" src="../../Images/NextAlbumButtom.png" />
+        <a href="#" id="NextAlbum"><img src="../../Images/NextAlbumButtom.png" /></a>
     </div>
 </div>
 
 @section scripts
 {
     <script type="text/javascript">
-        $(function () {
-            $(".AlbumRotation").click(DownloadAlbum);
-        });
 
-        function DownloadAlbum () {
-            // We're using a Knockout model. This clears out the existing Orders.
-            //viewModel.Orders([]);
+
+        function AlbumViewModel(album,year,artist,comments,image) {
+            this.AlbumName = ko.observable(album);
+            this.Year = ko.observable(year);
+            this.ArtistName = ko.observable(artist);
+            this.Comments = ko.observable(comments);
+            this.ImageUrl = ko.observable('../../Images/Covers/' + image);
+        }
+
+        function DownloadAlbum() {
             $.ajax({
                 url: "/api/AlbumsRest",
                 accepts: "application/json",
                 cache: false,
-                statusCode: {
-                    200: function (data) {
-                        var src = '../../Images/Covers/' + data['CoverUrl'];
-                        $("#CoverImage").attr("src", src);
-                        $("#AlbumTitle").html(data['AlbumName']);
-                        $("#AlbumYear").html(data['Year']);
-                        $("#AlbumArtistName").html(data['ArtistName']);
-                        $("#AlbumComments").html(data['Comments']);
-                        //viewModel.Orders(data);
-                    },
-                    401: function (jqXHR, textStatus, errorThrown) {
-                        self.location = '/Account/Login/';
+                statusCode:
+                    {
+                        200: function (data) {
+                            ko.applyBindings(new AlbumViewModel(
+                            data['AlbumName'],
+                            data['Year'],
+                            data['ArtistName'],
+                            data['Comments'],
+                            data['CoverUrl']
+                        ));
+                        },
+                        401: function (jqXHR, textStatus, errorThrown) {
+                            self.location = '/Account/Login/';
+                            alert('');
+                        }
                     }
+                ,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Error');
                 }
             });
         }
+        
+        $(function () {
+            $("#NextAlbum").click(DownloadAlbum);
+        });
+        
+        $(function () {
+            $("#PreviousAlbum").click(DownloadAlbum);
+        });
 
         $(document).ready(function () {
             DownloadAlbum();
         });
-</script>
+    </script>
 }

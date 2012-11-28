@@ -5,11 +5,11 @@ namespace AppTest.Controllers
 {
     public class AlbumsController : Controller
     {
-        private readonly IDataCollector _dataCollector;
+        //private readonly IDataCollector _dataCollector;
 
         public AlbumsController(IDataCollector datacollector)
         {
-            _dataCollector = datacollector;
+            //_dataCollector = datacollector;
         }
 
         public ActionResult Index()
