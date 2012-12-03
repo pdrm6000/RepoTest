@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Configuration;
-using System.Reflection;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 
 
 namespace App.CrossCutting.Provider

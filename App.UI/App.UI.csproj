@@ -158,6 +158,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -192,11 +194,14 @@
     <Content Include="Images\NextAlbumButtom.png" />
     <Content Include="Images\PreviousAlbumButtom.png" />
     <Content Include="Images\Rate.jpg" />
+    <Content Include="Scripts\albumBinding.js" />
     <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.cslider.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
@@ -208,6 +213,7 @@
     <Content Include="Scripts\knockout.debug.js" />
     <Content Include="Scripts\knockout.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\modernizr.custom.28468.js" />
     <Content Include="Scripts\upshot.compat.knockout.js" />
     <Content Include="Scripts\upshot.js" />
     <Content Include="Scripts\upshot.knockout.extensions.js" />

@@ -1,91 +1,76 @@
 ﻿@{
     //ViewBag.Title = "Index";
 }
-
-<div id="AlbumBox">
-    <div id="AlbumHeader">
+<div class="AlbumBox">
+    <div class="AlbumHeader">
         Rate music
-    </div>   
-    <div id="AlbumInlineBorder">
+    </div>
+    <div class="AlbumInlineBorder">
     </div>
     <div class="AlbumRotation">
-        <a href="#" id="PreviousAlbum"><img alt="Previous Album" src="../../Images/PreviousAlbumButtom.png" /></a>
+        <a href="#" id="PreviousAlbum">
+            <img alt="Previous Album" src="../../Images/PreviousAlbumButtom.png" /></a>
     </div>
-    <div id="AlbumContainer">
-        <div id="AlbumCover">
-            <img id="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: ImageUrl }"/>
-        </div>
-        <div id="AlbumData">
-            <p id="AlbumTitle" data-bind="text: AlbumName"></p>
-            <p id="AlbumYear" data-bind="text: Year"></p>
-            <p id="AlbumArtistName" data-bind="text: ArtistName"></p>
-            <div id="RateContainer">
-                <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
+    <div class="AlbumContainer">
+        <div id="da-slider" class="da-slider">
+            <div class="da-slide">
+                <div id="CurrentAlbumData" class="AlbumCover">
+                    <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: ImageUrl }" />
+                </div>
+                <div class="AlbumData">
+                    <p class="AlbumTitle" data-bind="text: AlbumName">
+                    </p>
+                    <p class="AlbumYear" data-bind="text: Year">
+                    </p>
+                    <p class="AlbumArtistName" data-bind="text: ArtistName">
+                    </p>
+                    <p class="RateContainer">
+                        <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
+                    </p>
+                    <p class="AlbumComments" data-bind="text: Comments">
+                    </p>
+                </div>
+                <div class="AlbumActions">
+                    <p>
+                        View general rate</p>
+                    <p>
+                        View my friends rates</p>
+                    <p>
+                        View people like me rates</p>
+                </div>
             </div>
-            <p id="AlbumComments" data-bind="text: Comments"></p>
-        </div>
-        <div id="AlbumActions">
-            <p>View general rate</p>
-            <p>View my friends rates</p>
-            <p>View people like me rates</p>
+            <!--
+            <div class="da-slide">
+                <div class="AlbumCover">
+                    <img class="CoverImage" alt="" width="135" height="135"  />
+                </div>
+                <div class="AlbumData">
+                    <p class="AlbumTitle">dssdsd
+                    </p>
+                    <p class="AlbumYear">dsdsdsd
+                    </p>
+                    <p class="AlbumArtistName">sddsd
+                    </p>
+                    <div class="RateContainer">
+                        <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
+                    </div>
+                    <p class="AlbumComments">dsdsd
+                    </p>
+                </div>
+                <div class="AlbumActions">
+                    <p>
+                        View general rate</p>
+                    <p>
+                        View my friends rates</p>
+                    <p>
+                        View people like me rates</p>
+                </div>
+            </div>
+            -->
         </div>
     </div>
     <div class="AlbumRotation">
-        <a href="#" id="NextAlbum"><img src="../../Images/NextAlbumButtom.png" /></a>
+        <a href="#" id="NextAlbum">
+            <img src="../../Images/NextAlbumButtom.png" /></a>
     </div>
 </div>
-
-@section scripts
-{
-    <script type="text/javascript">
-
-
-        function AlbumViewModel(album,year,artist,comments,image) {
-            this.AlbumName = ko.observable(album);
-            this.Year = ko.observable(year);
-            this.ArtistName = ko.observable(artist);
-            this.Comments = ko.observable(comments);
-            this.ImageUrl = ko.observable('../../Images/Covers/' + image);
-        }
-
-        function DownloadAlbum() {
-            $.ajax({
-                url: "/api/AlbumsRest",
-                accepts: "application/json",
-                cache: false,
-                statusCode:
-                    {
-                        200: function (data) {
-                            ko.applyBindings(new AlbumViewModel(
-                            data['AlbumName'],
-                            data['Year'],
-                            data['ArtistName'],
-                            data['Comments'],
-                            data['CoverUrl']
-                        ));
-                        },
-                        401: function (jqXHR, textStatus, errorThrown) {
-                            self.location = '/Account/Login/';
-                            alert('');
-                        }
-                    }
-                ,
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert('Error');
-                }
-            });
-        }
-        
-        $(function () {
-            $("#NextAlbum").click(DownloadAlbum);
-        });
-        
-        $(function () {
-            $("#PreviousAlbum").click(DownloadAlbum);
-        });
-
-        $(document).ready(function () {
-            DownloadAlbum();
-        });
-    </script>
-}

@@ -882,7 +882,7 @@ tr.pager td
 }
 
 
-#AlbumBox
+.AlbumBox
 {
     width: 515px;
     height: 200px;
@@ -894,7 +894,7 @@ tr.pager td
     border-radius: 3px;
 }
 
-#AlbumHeader
+.AlbumHeader
 {
     width: 505px;
     height: 40px;
@@ -906,7 +906,7 @@ tr.pager td
     padding-left: 10px;
 }
 
-#AlbumInlineBorder
+.AlbumInlineBorder
 {
     width: 100%;
     height: 1px;
@@ -914,7 +914,7 @@ tr.pager td
     float: none;
 }
 
-#AlbumContainer
+.AlbumContainer
 {
     width: 465px;
     height: 160px;
@@ -936,23 +936,25 @@ tr.pager td
     background: none;   
 }
 
-#AlbumCover
+.AlbumCover
 {
     width: 150px;
     height: 160px;
     float: left;
     margin-top: 10px;
+    position: relative;
 }
 
-#AlbumData
+.AlbumData
 {
     width: 175px;
     height: 160px;
     float: left;
     margin-top: 15px;
+    position: relative;
 }
 
-#AlbumActions
+.AlbumActions
 {
     width: 140px;
     height: 160px;
@@ -964,36 +966,40 @@ tr.pager td
     line-height: 5px;
 }
 
-#AlbumTitle
+.AlbumTitle
 {
     font-family: 'Carrois Gothic', sans-serif;
     font-size : 20px;
     color: #C4C4C4;
     line-height: 0px;
+    position: relative;
 }
-#AlbumYear
+.AlbumYear
 {
     font-family: 'Carrois Gothic', sans-serif;
     font-size : 15px;
     color: #626262;
     line-height: 0px;
+    position: relative;
 }
-#AlbumArtistName
+.AlbumArtistName
 {
     font-family: 'Carrois Gothic', sans-serif;
     font-size : 16px;
     color: #FF8E00;
     line-height: 0px;
+    position: relative;
 }
-#AlbumComments
+.AlbumComments
 {
     font-family: 'Carrois Gothic', sans-serif;
     font-size : 12px;
     color: #7A7A7A;
     line-height: 0px;
+    position: relative;
 }
 
-#RateContainer
+.RateContainer
 {
     width: 100%;
     height: 15px;

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using App.DataModel.DataModel;
 using App.Domain.RepositoryContracts;
-using App.DBModel.DataModel;
 using System.Linq.Expressions;
 using App.Domain.ValueObjects.EntityContract;
 

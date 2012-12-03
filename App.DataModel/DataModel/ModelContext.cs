@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using App.Domain.Model;
 
-namespace App.DBModel.DataModel
+namespace App.DataModel.DataModel
 {
 
     public class ModelContext : DbContext
