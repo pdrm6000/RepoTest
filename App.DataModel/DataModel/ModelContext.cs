@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using App.Domain.Model;
 
-namespace App.DataModel.DataModel
+namespace App.DBModel.DataModel
 {
 
     public class ModelContext : DbContext

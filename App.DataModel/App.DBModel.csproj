@@ -8,10 +8,14 @@
     <ProjectGuid>{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App.DataModel</RootNamespace>
-    <AssemblyName>App.DataModel</AssemblyName>
+    <RootNamespace>App.DBModel</RootNamespace>
+    <AssemblyName>App.DBModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

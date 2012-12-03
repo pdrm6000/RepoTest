@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using App.DataModel.DataModel;
+using App.DBModel.DataModel;
 using App.Domain.Model;
 using App.Repositories.BaseTypes;
 using App.Domain.RepositoryContracts;

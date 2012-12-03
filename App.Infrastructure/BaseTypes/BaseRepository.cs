@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
-using App.DataModel.DataModel;
+using App.DBModel.DataModel;
 using App.Domain.RepositoryContracts;
 using System.Linq.Expressions;
 using App.Domain.ValueObjects.EntityContract;
