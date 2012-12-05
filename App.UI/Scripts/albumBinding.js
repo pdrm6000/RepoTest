@@ -36,7 +36,6 @@ function DownloadAlbum() {
 }   
 
 function NextAlbum() {
-    //$("#CurrentAlbumData").animate({ left: "+=700" }, 1200);
     var options = {};
     $("#CurrentAlbumData").effect('drop', options, 1000);
 }
