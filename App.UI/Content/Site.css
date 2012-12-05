@@ -892,6 +892,7 @@ tr.pager td
     float: none;
     border: 1px #2A2A2A solid;
     border-radius: 3px;
+    position: relative;
 }
 
 .AlbumHeader
@@ -919,6 +920,8 @@ tr.pager td
     width: 465px;
     height: 160px;
     float: left;
+    position: relative;
+    z-index: 160;
 }
 
 .AlbumRotation
@@ -929,6 +932,7 @@ tr.pager td
     vertical-align: middle;
     text-align: center;
     margin-top: 40px;
+    z-index: 150;
 }
 
 .AlbumRotation a 
@@ -1006,4 +1010,13 @@ tr.pager td
     float: left;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+.AlbumToggler      
+{
+    width: 465px;
+    height: 160px;
+    float: left;
+    position: relative;
+    overflow: hidden;
 }

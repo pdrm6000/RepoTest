@@ -11,35 +11,35 @@
         <a href="#" id="PreviousAlbum">
             <img alt="Previous Album" src="../../Images/PreviousAlbumButtom.png" /></a>
     </div>
-    <div class="AlbumContainer">
-        <div id="da-slider" class="da-slider">
-            <div class="da-slide">
-                <div id="CurrentAlbumData" class="AlbumCover">
-                    <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: ImageUrl }" />
-                </div>
-                <div class="AlbumData">
-                    <p class="AlbumTitle" data-bind="text: AlbumName">
-                    </p>
-                    <p class="AlbumYear" data-bind="text: Year">
-                    </p>
-                    <p class="AlbumArtistName" data-bind="text: ArtistName">
-                    </p>
-                    <p class="RateContainer">
-                        <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
-                    </p>
-                    <p class="AlbumComments" data-bind="text: Comments">
-                    </p>
-                </div>
-                <div class="AlbumActions">
-                    <p>
-                        View general rate</p>
-                    <p>
-                        View my friends rates</p>
-                    <p>
-                        View people like me rates</p>
-                </div>
+    <div class="AlbumToggler">
+        <div id="CurrentAlbumData" class="AlbumContainer">
+            <div class="AlbumCover">
+                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: ImageUrl }" />
             </div>
-            <!--
+            <div class="AlbumData">
+                <p class="AlbumTitle" data-bind="text: AlbumName">
+                </p>
+                <p class="AlbumYear" data-bind="text: Year">
+                </p>
+                <p class="AlbumArtistName" data-bind="text: ArtistName">
+                </p>
+                <p class="RateContainer">
+                    <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
+                </p>
+                <p class="AlbumComments" data-bind="text: Comments">
+                </p>
+            </div>
+            <div class="AlbumActions">
+                <p>
+                    View general rate</p>
+                <p>
+                    View my friends rates</p>
+                <p>
+                    View people like me rates</p>
+            </div>
+        </div>
+    </div>
+    <!--
             <div class="da-slide">
                 <div class="AlbumCover">
                     <img class="CoverImage" alt="" width="135" height="135"  />
@@ -67,8 +67,6 @@
                 </div>
             </div>
             -->
-        </div>
-    </div>
     <div class="AlbumRotation">
         <a href="#" id="NextAlbum">
             <img src="../../Images/NextAlbumButtom.png" /></a>

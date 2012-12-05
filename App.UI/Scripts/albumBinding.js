@@ -33,11 +33,21 @@ function DownloadAlbum() {
             alert('Error');
         }
     });
+}   
+
+function NextAlbum() {
+    //$("#CurrentAlbumData").animate({ left: "+=700" }, 1200);
+    var options = {};
+    $("#CurrentAlbumData").effect('drop', options, 1000);
+}
+
+function DownloadNextAlbum() {
+    DownloadAlbum();
+    NextAlbum();
 }
 
 $(function () {
-    $("#NextAlbum").click(DownloadAlbum);
-    //function () { $("#CurrentAlbumData").animate({ left: "+=700" }, 1200) }
+    $("#NextAlbum").click(DownloadNextAlbum);
 });
 
 $(function () {
