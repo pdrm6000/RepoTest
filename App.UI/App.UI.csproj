@@ -215,6 +215,7 @@
     <Content Include="Scripts\knockout.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\modernizr.custom.28468.js" />
+    <Content Include="Scripts\prototype.js" />
     <Content Include="Scripts\upshot.compat.knockout.js" />
     <Content Include="Scripts\upshot.js" />
     <Content Include="Scripts\upshot.knockout.extensions.js" />

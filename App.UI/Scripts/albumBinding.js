@@ -1,4 +1,6 @@
-﻿
+﻿// could be used separeted viewmodels using masterVM and $parent
+// http://stackoverflow.com/questions/9293761/knockoutjs-multiple-view-models-in-a-single-view
+
 function AlbumViewModel(album, year, artist, comments, image) {
     this.AlbumName = ko.observable(album);
     this.Year = ko.observable(year);
@@ -7,42 +9,60 @@ function AlbumViewModel(album, year, artist, comments, image) {
     this.ImageUrl = ko.observable('../../Images/Covers/' + image);
 }
 
+function NextAlbumViewModel(album, year, artist, comments, image) {  
+    this.NextAlbumName = ko.observable(album);
+    this.NextYear = ko.observable(year);
+    this.NextArtistName = ko.observable(artist);
+    this.NextComments = ko.observable(comments);
+    this.NextImageUrl = ko.observable('../../Images/Covers/' + image);
+}
+
+function BindCurrentAlbum(album) {
+    ko.applyBindings(new AlbumViewModel(
+                            album.AlbumName,
+                            album.Year,
+                            album.ArtistName,
+                            album.Comments,
+                            album.CoverUrl
+                        ), document.getElementById('CurrentAlbumData'));
+}
+
+function BindNextAlbum(album) {
+    ko.applyBindings(new NextAlbumViewModel(
+                            album.AlbumName,
+                            album.Year,
+                            album.ArtistName,
+                            album.Comments,
+                            album.CoverUrl
+                        ), document.getElementById('NextAlbumData'));
+}
+
 function DownloadAlbum() {
-    $.ajax({
+    return $.ajax({
         url: "../api/AlbumsRest",
         accepts: "application/json",
         cache: false,
-        statusCode:
-                    {
-                        200: function (data) {
-                            ko.applyBindings(new AlbumViewModel(
-                            data['AlbumName'],
-                            data['Year'],
-                            data['ArtistName'],
-                            data['Comments'],
-                            data['CoverUrl']
-                        ));
-                        },
-                        401: function (jqXHR, textStatus, errorThrown) {
-                            self.location = '/Account/Login/';
-                            alert('');
-                        }
-                    }
-                ,
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert('Error');
+            alert('Error: '+ textStatus);
         }
     });
-}   
+}
+  
 
-function NextAlbum() {
+function SlideOutCurrentAlbum() {
     var options = {};
     $("#CurrentAlbumData").effect('drop', options, 1000);
 }
 
+function SlideInNextAlbum() {
+
+}
+
 function DownloadNextAlbum() {
-    DownloadAlbum();
-    NextAlbum();
+    var nextAlbum = DownloadAlbum();
+    nextAlbum.done(function (data) { BindNextAlbum(data); });
+    SlideOutCurrentAlbum();
+    SlideInNextAlbum();
 }
 
 $(function () {
@@ -54,9 +74,9 @@ $(function () {
 });
 
 $(document).ready(function () {
-    DownloadAlbum();
+    var currentAlbum = DownloadAlbum();
+    currentAlbum.success(function (data) { BindCurrentAlbum(data); });
 });
 
-$(function () {
-    $('#da-slider').cslider();
-});
+
+

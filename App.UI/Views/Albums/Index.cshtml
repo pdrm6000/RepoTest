@@ -38,35 +38,33 @@
                     View people like me rates</p>
             </div>
         </div>
-    </div>
-    <!--
-            <div class="da-slide">
-                <div class="AlbumCover">
-                    <img class="CoverImage" alt="" width="135" height="135"  />
-                </div>
-                <div class="AlbumData">
-                    <p class="AlbumTitle">dssdsd
-                    </p>
-                    <p class="AlbumYear">dsdsdsd
-                    </p>
-                    <p class="AlbumArtistName">sddsd
-                    </p>
-                    <div class="RateContainer">
-                        <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
-                    </div>
-                    <p class="AlbumComments">dsdsd
-                    </p>
-                </div>
-                <div class="AlbumActions">
-                    <p>
-                        View general rate</p>
-                    <p>
-                        View my friends rates</p>
-                    <p>
-                        View people like me rates</p>
-                </div>
+        <div id="NextAlbumData" class="AlbumContainer">
+            <div class="AlbumCover">
+                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: NextImageUrl }" />
             </div>
-            -->
+            <div class="AlbumData">
+                <p class="AlbumTitle" data-bind="text: NextAlbumName">
+                </p>
+                <p class="AlbumYear" data-bind="text: NextYear">
+                </p>
+                <p class="AlbumArtistName" data-bind="text: NextArtistName">
+                </p>
+                <p class="RateContainer">
+                    <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
+                </p>
+                <p class="AlbumComments" data-bind="text: NextComments">
+                </p>
+            </div>
+            <div class="AlbumActions">
+                <p>
+                    View general rate</p>
+                <p>
+                    View my friends rates</p>
+                <p>
+                    View people like me rates</p>
+            </div>
+        </div>
+    </div>
     <div class="AlbumRotation">
         <a href="#" id="NextAlbum">
             <img src="../../Images/NextAlbumButtom.png" /></a>
