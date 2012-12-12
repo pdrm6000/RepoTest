@@ -1,43 +1,49 @@
-﻿// could be used separeted viewmodels using masterVM and $parent
+﻿// could be used applyBindings only in one zone of the page, example:
 // http://stackoverflow.com/questions/9293761/knockoutjs-multiple-view-models-in-a-single-view
 
-function AlbumViewModel(album, year, artist, comments, image) {
-    this.AlbumName = ko.observable(album);
-    this.Year = ko.observable(year);
-    this.ArtistName = ko.observable(artist);
-    this.Comments = ko.observable(comments);
-    this.ImageUrl = ko.observable('../../Images/Covers/' + image);
-}
 
-function NextAlbumViewModel(album, year, artist, comments, image) {
-    this.NextAlbumName = ko.observable(album);
-    this.NextYear = ko.observable(year);
-    this.NextArtistName = ko.observable(artist);
-    this.NextComments = ko.observable(comments);
-    this.NextImageUrl = ko.observable('../../Images/Covers/' + image);
+var MasterVM = {
+    NextAlbumVM: {
+        NextAlbumName : ko.observable(),
+        NextYear : ko.observable(),
+        NextArtistName : ko.observable(),
+        NextComments : ko.observable(),
+        NextImageUrl : ko.observable()
+    },
+    CurrentAlbumVM: {
+        CurrentAlbumName: ko.observable(),
+        CurrentYear: ko.observable(),
+        CurrentArtistName: ko.observable(),
+        CurrentComments: ko.observable(),
+        CurrentImageUrl: ko.observable()
+    },
+    IsLoading: ko.observable()
+};
+
+function BindAlbum() {
+    ko.applyBindings(MasterVM);
 }
 
 function BindCurrentAlbum(album) {
-    ko.applyBindings(new AlbumViewModel(
-                            album.AlbumName,
-                            album.Year,
-                            album.ArtistName,
-                            album.Comments,
-                            album.CoverUrl
-                        ), document.getElementById('CurrentAlbumData'));
+    MasterVM.CurrentAlbumVM.CurrentAlbumName(album.AlbumName);
+    MasterVM.CurrentAlbumVM.CurrentYear(album.Year);
+    MasterVM.CurrentAlbumVM.CurrentArtistName(album.ArtistName);
+    MasterVM.CurrentAlbumVM.CurrentComments(album.Comments);
+    MasterVM.CurrentAlbumVM.CurrentImageUrl('../../Images/Covers/' + album.CoverUrl);
+    MasterVM.IsLoading(false);
 }
 
 function BindNextAlbum(album) {
-    ko.applyBindings(new NextAlbumViewModel(
-                            album.AlbumName,
-                            album.Year,
-                            album.ArtistName,
-                            album.Comments,
-                            album.CoverUrl
-                        ), document.getElementById('NextAlbumData'));
+    MasterVM.NextAlbumVM.NextAlbumName(album.AlbumName);
+    MasterVM.NextAlbumVM.NextYear(album.Year);
+    MasterVM.NextAlbumVM.NextArtistName(album.ArtistName);
+    MasterVM.NextAlbumVM.NextComments(album.Comments);
+    MasterVM.NextAlbumVM.NextImageUrl('../../Images/Covers/' + album.CoverUrl);
+    MasterVM.IsLoading(false);
 }
 
 function DownloadAlbum() {
+    MasterVM.IsLoading(true);
     return $.ajax({
         url: "../api/AlbumsRest",
         accepts: "application/json",
@@ -81,6 +87,7 @@ $(function () {
 });
 
 $(document).ready(function () {
+    BindAlbum();
     var currentAlbum = DownloadAlbum();
     currentAlbum.done(function (data) { BindCurrentAlbum(data); });
 });

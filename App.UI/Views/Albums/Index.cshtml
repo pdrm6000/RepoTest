@@ -1,11 +1,10 @@
 ﻿@{
     //ViewBag.Title = "Index";
 }
-
-<div id="IsLoadingBox"><p data-bind="text: IsLoading"></p></div>
 <div class="AlbumBox">
     <div class="AlbumHeader">
         Rate music
+        <div class="LoadingImg" data-bind="visible: IsLoading"><img src="../../Images/ajax-loader.gif"/></div>
     </div>
     <div class="AlbumInlineBorder">
     </div>
@@ -16,19 +15,19 @@
     <div class="AlbumToggler">
         <div id="CurrentAlbumData" class="AlbumContainer">
             <div class="AlbumCover">
-                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: ImageUrl }" />
+                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: CurrentAlbumVM.CurrentImageUrl }" />
             </div>
             <div class="AlbumData">
-                <p class="AlbumTitle" data-bind="text: AlbumName">
+                <p class="AlbumTitle" data-bind="text: CurrentAlbumVM.CurrentAlbumName">
                 </p>
-                <p class="AlbumYear" data-bind="text: Year">
+                <p class="AlbumYear" data-bind="text: CurrentAlbumVM.CurrentYear">
                 </p>
-                <p class="AlbumArtistName" data-bind="text: ArtistName">
+                <p class="AlbumArtistName" data-bind="text: CurrentAlbumVM.CurrentArtistName">
                 </p>
                 <p class="RateContainer">
                     <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
                 </p>
-                <p class="AlbumComments" data-bind="text: Comments">
+                <p class="AlbumComments" data-bind="text: CurrentAlbumVM.CurrentComments">
                 </p>
             </div>
             <div class="AlbumActions">
@@ -45,19 +44,19 @@
         </div>
         <div id="NextAlbumData" class="AlbumContainer">
             <div class="AlbumCover">
-                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: NextImageUrl }" />
+                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: NextAlbumVM.NextImageUrl }" />
             </div>
             <div class="AlbumData">
-                <p class="AlbumTitle" data-bind="text: NextAlbumName">
+                <p class="AlbumTitle" data-bind="text: NextAlbumVM.NextAlbumName">
                 </p>
-                <p class="AlbumYear" data-bind="text: NextYear">
+                <p class="AlbumYear" data-bind="text: NextAlbumVM.NextYear">
                 </p>
-                <p class="AlbumArtistName" data-bind="text: NextArtistName">
+                <p class="AlbumArtistName" data-bind="text: NextAlbumVM.NextArtistName">
                 </p>
                 <p class="RateContainer">
                     <img alt="" width="115" height="15" src="../../Images/Rate.jpg" />
                 </p>
-                <p class="AlbumComments" data-bind="text: NextComments">
+                <p class="AlbumComments" data-bind="text: NextAlbumVM.NextComments">
                 </p>
             </div>
             <div class="AlbumActions">

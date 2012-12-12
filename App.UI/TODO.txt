@@ -3,6 +3,6 @@
 
 
 
-poner loading en el next previous
+habilitar previous
 Despliegue en apphabor
 Implementar single page application SPA
