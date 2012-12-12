@@ -21,7 +21,7 @@ namespace AppTest
             IDependencyInitializer initializer = new Initialization(); //create initializer
             initializer.RegisterDependencies(UnityInstanceProvider.Container); //register dependencies
             Bootstrapper.Initialise(UnityInstanceProvider.Container); // register controller and apicontrollers
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters); 
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using App.CrossCutting.IoC;
+﻿using App.CrossCutting.IoC;
 
 namespace App.DistributedServices
 {
@@ -10,7 +6,7 @@ namespace App.DistributedServices
     {
         public void RegisterDependencies(Microsoft.Practices.Unity.IUnityContainer container)
         {
-            IDependencyInitializer initializer = new App.ApplicationService.Initialization();
+            IDependencyInitializer initializer = new ApplicationService.Initialization();
             initializer.RegisterDependencies(container);
         }
     }

@@ -2,9 +2,7 @@
 
 
 
-Despliegue en apphabor
 
-poner animacion al cambio de album
 poner loading en el next previous
-
+Despliegue en apphabor
 Implementar single page application SPA

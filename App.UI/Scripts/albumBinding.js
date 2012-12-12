@@ -9,7 +9,7 @@ function AlbumViewModel(album, year, artist, comments, image) {
     this.ImageUrl = ko.observable('../../Images/Covers/' + image);
 }
 
-function NextAlbumViewModel(album, year, artist, comments, image) {  
+function NextAlbumViewModel(album, year, artist, comments, image) {
     this.NextAlbumName = ko.observable(album);
     this.NextYear = ko.observable(year);
     this.NextArtistName = ko.observable(artist);
@@ -43,26 +43,33 @@ function DownloadAlbum() {
         accepts: "application/json",
         cache: false,
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert('Error: '+ textStatus);
+            alert('Error: ' + textStatus);
         }
     });
 }
-  
+
 
 function SlideOutCurrentAlbum() {
-    var options = {};
-    $("#CurrentAlbumData").effect('drop', options, 1000);
+    var options = { mode: "hide" };
+    $("#CurrentAlbumData").effect('slide', options, 500, SlideInNextAlbum);
 }
 
 function SlideInNextAlbum() {
-
+    var options = { direction: "right" };
+    $("#NextAlbumData").effect('slide', options, 500, ChangeStyles);
 }
 
 function DownloadNextAlbum() {
     var nextAlbum = DownloadAlbum();
     nextAlbum.done(function (data) { BindNextAlbum(data); });
     SlideOutCurrentAlbum();
-    SlideInNextAlbum();
+}
+
+function ChangeStyles() {
+    $("#NextAlbumData").attr("id", "tmp");
+    $("#CurrentAlbumData").attr("id", "tmp2");
+    $("#tmp").attr("id", "CurrentAlbumData");
+    $("#tmp2").attr("id", "NextAlbumData");
 }
 
 $(function () {
@@ -70,13 +77,30 @@ $(function () {
 });
 
 $(function () {
-    $("#PreviousAlbum").click(DownloadAlbum);
+    //$("#PreviousAlbum").click(DownloadAlbum);
 });
 
 $(document).ready(function () {
     var currentAlbum = DownloadAlbum();
-    currentAlbum.success(function (data) { BindCurrentAlbum(data); });
+    currentAlbum.done(function (data) { BindCurrentAlbum(data); });
 });
+
+
+
+
+
+
+
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds) {
+            break;
+        }
+    }
+}
+
+
 
 
 
