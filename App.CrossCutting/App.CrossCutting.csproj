@@ -54,12 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\CacheService.cs" />
+    <Compile Include="Caching\ICacheService.cs" />
     <Compile Include="IoC\IDependencyInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\UnityInstanceProvider.cs" />
     <Compile Include="Provider\UnityInstanceProviderServiceBehavior.cs" />
     <Compile Include="Provider\UnityServiceHost.cs" />
     <Compile Include="Provider\UnityServiceHostFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.Domain\App.Domain.csproj">
+      <Project>{976C7A43-40DF-476C-AF2F-C6028D7AE019}</Project>
+      <Name>App.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

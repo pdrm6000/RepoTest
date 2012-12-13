@@ -1,4 +1,5 @@
-﻿using App.Domain.AppServiceContracts;
+﻿using System.Threading;
+using App.Domain.AppServiceContracts;
 using App.Domain.DomainServices.Contracts;
 using App.Domain.RepositoryContracts;
 using App.Domain.Model;
@@ -41,6 +42,8 @@ namespace App.ApplicationService.Services
                 var artist = _artistsRepository.GetById(album.ArtistId);
                 result = _albumDTOGeneratorService.GetAlbumDTO(album, artist);
             }
+            //TODO: store in cache
+            Thread.Sleep(500); //Testing loading spinner
             return result;
         }
     }

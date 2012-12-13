@@ -65,17 +65,20 @@ function SlideInNextAlbum() {
     $("#NextAlbumData").effect('slide', options, 500, ChangeStyles);
 }
 
+function ProcessDownloadedAlbum(data) {
+    BindNextAlbum(data);
+    SlideOutCurrentAlbum();
+}
+
 function DownloadNextAlbum() {
     var nextAlbum = DownloadAlbum();
-    nextAlbum.done(function (data) { BindNextAlbum(data); });
-    SlideOutCurrentAlbum();
+    nextAlbum.done(function (data) { ProcessDownloadedAlbum(data); });
 }
 
 function ChangeStyles() {
     $("#NextAlbumData").attr("id", "tmp");
-    $("#CurrentAlbumData").attr("id", "tmp2");
+    $("#CurrentAlbumData").attr("id", "NextAlbumData");
     $("#tmp").attr("id", "CurrentAlbumData");
-    $("#tmp2").attr("id", "NextAlbumData");
 }
 
 $(function () {
