@@ -4,11 +4,11 @@
 
 var MasterVM = {
     NextAlbumVM: {
-        NextAlbumName : ko.observable(),
-        NextYear : ko.observable(),
-        NextArtistName : ko.observable(),
-        NextComments : ko.observable(),
-        NextImageUrl : ko.observable()
+        NextAlbumName: ko.observable(),
+        NextYear: ko.observable(),
+        NextArtistName: ko.observable(),
+        NextComments: ko.observable(),
+        NextImageUrl: ko.observable()
     },
     CurrentAlbumVM: {
         CurrentAlbumName: ko.observable(),
@@ -20,26 +20,48 @@ var MasterVM = {
     IsLoading: ko.observable()
 };
 
+var myBinder = new Binder();
+var BoxOut = '#AlbumData0';
+var BoxIn = '#AlbumData1';
+   
+
+function Binder() {
+    
+    this.BindingUsed = '0';
+    this.GetBindingFunction = GetBindFunctionToUse;
+    this.BindAlbum = BindCurrentAlbum;
+    function BindCurrentAlbum(album) {
+        MasterVM.CurrentAlbumVM.CurrentAlbumName(album.AlbumName);
+        MasterVM.CurrentAlbumVM.CurrentYear(album.Year);
+        MasterVM.CurrentAlbumVM.CurrentArtistName(album.ArtistName);
+        MasterVM.CurrentAlbumVM.CurrentComments(album.Comments);
+        MasterVM.CurrentAlbumVM.CurrentImageUrl('../../Images/Covers/' + album.CoverUrl);
+        MasterVM.IsLoading(false);
+    }
+
+    function BindNextAlbum(album) {
+        MasterVM.NextAlbumVM.NextAlbumName(album.AlbumName);
+        MasterVM.NextAlbumVM.NextYear(album.Year);
+        MasterVM.NextAlbumVM.NextArtistName(album.ArtistName);
+        MasterVM.NextAlbumVM.NextComments(album.Comments);
+        MasterVM.NextAlbumVM.NextImageUrl('../../Images/Covers/' + album.CoverUrl);
+        MasterVM.IsLoading(false);
+    }
+
+    function GetBindFunctionToUse() {
+        if (this.BindingUsed == 0) {
+            this.BindingUsed = 1;
+            return BindNextAlbum;
+        }
+        else {
+            this.BindingUsed = 0;
+            return BindCurrentAlbum;
+        }
+    }
+}
+
 function BindAlbum() {
     ko.applyBindings(MasterVM);
-}
-
-function BindCurrentAlbum(album) {
-    MasterVM.CurrentAlbumVM.CurrentAlbumName(album.AlbumName);
-    MasterVM.CurrentAlbumVM.CurrentYear(album.Year);
-    MasterVM.CurrentAlbumVM.CurrentArtistName(album.ArtistName);
-    MasterVM.CurrentAlbumVM.CurrentComments(album.Comments);
-    MasterVM.CurrentAlbumVM.CurrentImageUrl('../../Images/Covers/' + album.CoverUrl);
-    MasterVM.IsLoading(false);
-}
-
-function BindNextAlbum(album) {
-    MasterVM.NextAlbumVM.NextAlbumName(album.AlbumName);
-    MasterVM.NextAlbumVM.NextYear(album.Year);
-    MasterVM.NextAlbumVM.NextArtistName(album.ArtistName);
-    MasterVM.NextAlbumVM.NextComments(album.Comments);
-    MasterVM.NextAlbumVM.NextImageUrl('../../Images/Covers/' + album.CoverUrl);
-    MasterVM.IsLoading(false);
 }
 
 function DownloadAlbum() {
@@ -54,31 +76,32 @@ function DownloadAlbum() {
     });
 }
 
-
 function SlideOutCurrentAlbum() {
     var options = { mode: "hide" };
-    $("#CurrentAlbumData").effect('slide', options, 500, SlideInNextAlbum);
+    $(BoxOut).effect('slide', options, 500, SlideInNextAlbum);
 }
 
 function SlideInNextAlbum() {
     var options = { direction: "right" };
-    $("#NextAlbumData").effect('slide', options, 500, ChangeStyles);
+    $(BoxIn).effect('slide', options, 500);
+    ChangeBoxes();
+}
+
+function ChangeBoxes() {
+    var boxTmp = BoxOut;
+    BoxOut = this.BoxIn;
+    BoxIn = boxTmp;
 }
 
 function ProcessDownloadedAlbum(data) {
-    BindNextAlbum(data);
+    var bindFunc = myBinder.GetBindingFunction();
+    bindFunc(data);
     SlideOutCurrentAlbum();
 }
 
 function DownloadNextAlbum() {
     var nextAlbum = DownloadAlbum();
     nextAlbum.done(function (data) { ProcessDownloadedAlbum(data); });
-}
-
-function ChangeStyles() {
-    $("#NextAlbumData").attr("id", "tmp");
-    $("#CurrentAlbumData").attr("id", "NextAlbumData");
-    $("#tmp").attr("id", "CurrentAlbumData");
 }
 
 $(function () {
@@ -92,25 +115,5 @@ $(function () {
 $(document).ready(function () {
     BindAlbum();
     var currentAlbum = DownloadAlbum();
-    currentAlbum.done(function (data) { BindCurrentAlbum(data); });
+    currentAlbum.done(function (data) { myBinder.BindAlbum(data); });
 });
-
-
-
-
-
-
-
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds) {
-            break;
-        }
-    }
-}
-
-
-
-
-

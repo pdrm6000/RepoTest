@@ -206,8 +206,6 @@
     <Content Include="Images\Covers\physicalgraffiti.jpg" />
     <Content Include="Images\Covers\riseofthefenix.jpg" />
     <Content Include="Images\Covers\wastinglight.jpg" />
-    <Content Include="Images\image_341746.gif" />
-    <Content Include="Images\loadinfo.net.gif" />
     <Content Include="Images\NextAlbumButtom.png" />
     <Content Include="Images\PreviousAlbumButtom.png" />
     <Content Include="Images\Rate.jpg" />

@@ -2,7 +2,6 @@
 
 
 
-crear la cache
 habilitar previous
 Despliegue en apphabor
 Implementar single page application SPA
