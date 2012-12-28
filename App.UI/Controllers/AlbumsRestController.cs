@@ -1,6 +1,8 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using App.Domain.AppServiceContracts;
 using App.Domain.ValueObjects.DTO;
+using AppTest.Metadata;
 
 namespace AppTest.Controllers
 {
@@ -13,9 +15,21 @@ namespace AppTest.Controllers
             _albumsCollectorAppService = albumsCollectorAppService;
         }
 
-        public AlbumDTO Get()
+        public string Get()
         {
-            return _albumsCollectorAppService.GetAlbumRamdon();
+            return "Not Implemented method";
+        }
+
+        [HttpGet]
+        public AlbumDTO Next()
+        {
+            return _albumsCollectorAppService.GetNextAlbum(Guid.Parse(Request.Properties[SessionIdHandler.SessionIdToken].ToString()));
+        }
+
+        [HttpGet]
+        public AlbumDTO Previous()
+        {
+            return _albumsCollectorAppService.GetPreviousAlbum(Guid.Parse(Request.Properties[SessionIdHandler.SessionIdToken].ToString()));
         }
     }
 }

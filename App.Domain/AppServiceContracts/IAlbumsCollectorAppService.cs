@@ -1,4 +1,5 @@
-﻿using App.Domain.Model;
+﻿using System;
+using App.Domain.Model;
 using App.Domain.ValueObjects.DTO;
 
 namespace App.Domain.AppServiceContracts
@@ -7,6 +8,7 @@ namespace App.Domain.AppServiceContracts
     {
         Album GetAlbumById(int id);
         int AddAlbum(Album album);
-        AlbumDTO GetAlbumRamdon();
+        AlbumDTO GetNextAlbum(Guid guid);
+        AlbumDTO GetPreviousAlbum(Guid guid);
     }
 }

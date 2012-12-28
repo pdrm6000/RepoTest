@@ -56,6 +56,7 @@
     <Compile Include="RepositoryContracts\IAlbumsRepository.cs" />
     <Compile Include="RepositoryContracts\IArtistRepository.cs" />
     <Compile Include="RepositoryContracts\IBaseRepository.cs" />
+    <Compile Include="ValueObjects\Caching\UserAlbumsNavigation.cs" />
     <Compile Include="ValueObjects\DTO\AlbumDTO.cs" />
     <Compile Include="ValueObjects\EntityContract\IEntity.cs" />
   </ItemGroup>

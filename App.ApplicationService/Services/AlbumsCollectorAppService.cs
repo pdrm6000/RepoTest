@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
+using App.CrossCutting.Caching;
 using App.Domain.AppServiceContracts;
 using App.Domain.DomainServices.Contracts;
 using App.Domain.RepositoryContracts;
@@ -13,13 +15,15 @@ namespace App.ApplicationService.Services
         private readonly IArtistsRepository _artistsRepository;
         private readonly IAlbumDTOGeneratorService _albumDTOGeneratorService;
         private readonly IRandomAlbumSelector _randomAlbumSelector;
+        private readonly IAlbumsNavigationCache _albumsNavigationCache;
 
-        public AlbumsCollectorAppService(IAlbumsRepository albumRepository, IArtistsRepository artistsRepository, IAlbumDTOGeneratorService albumDTOGeneratorService, IRandomAlbumSelector randomAlbumSelector)
+        public AlbumsCollectorAppService(IAlbumsRepository albumRepository, IArtistsRepository artistsRepository, IAlbumDTOGeneratorService albumDTOGeneratorService, IRandomAlbumSelector randomAlbumSelector, IAlbumsNavigationCache albumsNavigationCache)
         {
             _albumsRepository = albumRepository;
             _artistsRepository = artistsRepository;
             _albumDTOGeneratorService = albumDTOGeneratorService;
             _randomAlbumSelector = randomAlbumSelector;
+            _albumsNavigationCache = albumsNavigationCache;
         }
 
         public Album GetAlbumById(int id)
@@ -32,8 +36,15 @@ namespace App.ApplicationService.Services
             return _albumsRepository.Add(album);
         }
 
-        public AlbumDTO GetAlbumRamdon()
+        /// <summary>
+        /// Next album is selected using ramdon function (if not cache)
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public AlbumDTO GetNextAlbum(Guid guid)
         {
+            if (_albumsNavigationCache.CanUseCache(guid))
+                return _albumsNavigationCache.GetNextAlbum(guid);
             var result = new AlbumDTO();
             var albumId = _randomAlbumSelector.GetAlbumId();
             var album = _albumsRepository.GetById(albumId);
@@ -42,9 +53,19 @@ namespace App.ApplicationService.Services
                 var artist = _artistsRepository.GetById(album.ArtistId);
                 result = _albumDTOGeneratorService.GetAlbumDTO(album, artist);
             }
-            //TODO: store in cache
+            _albumsNavigationCache.AddAlbum(guid, result);
             Thread.Sleep(500); //Testing loading spinner
             return result;
+        }
+
+        /// <summary>
+        /// Previous albums are always taked from cache
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public AlbumDTO GetPreviousAlbum(Guid guid)
+        {
+            return _albumsNavigationCache.GetPreviousAlbum(guid);
         }
     }
 }

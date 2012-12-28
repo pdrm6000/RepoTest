@@ -1,7 +1,9 @@
 ﻿using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AppTest.App_Start;
 using Microsoft.Practices.Unity;
 using App.CrossCutting.Provider;
 using App.CrossCutting.IoC;
@@ -21,6 +23,7 @@ namespace AppTest
             IDependencyInitializer initializer = new Initialization(); //create initializer
             initializer.RegisterDependencies(UnityInstanceProvider.Container); //register dependencies
             Bootstrapper.Initialise(UnityInstanceProvider.Container); // register controller and apicontrollers
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

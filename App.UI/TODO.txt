@@ -1,7 +1,6 @@
 ﻿
 
 
-
-habilitar previous
+pasar todo a .net 4.5
 Despliegue en apphabor
 Implementar single page application SPA

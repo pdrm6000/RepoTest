@@ -1,4 +1,5 @@
-﻿using App.Domain.AppServiceContracts;
+﻿using System;
+using App.Domain.AppServiceContracts;
 using App.Domain.Model;
 using App.Domain.ValueObjects.DTO;
 
@@ -26,7 +27,7 @@ namespace App.DistributedServices.Services
 
         public AlbumDTO GetAlbumRamdon()
         {
-            return _albumsCollectorAppService.GetAlbumRamdon();
+            return _albumsCollectorAppService.GetNextAlbum(Guid.NewGuid());
         }
     }
 }

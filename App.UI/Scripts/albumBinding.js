@@ -23,10 +23,12 @@ var MasterVM = {
 var myBinder = new Binder();
 var BoxOut = '#AlbumData0';
 var BoxIn = '#AlbumData1';
-   
+var CurrentAlbumAnimation = 'left';
+var NextAlbumAnimation = 'right';
+var AreControlsLocked = false;
 
 function Binder() {
-    
+
     this.BindingUsed = '0';
     this.GetBindingFunction = GetBindFunctionToUse;
     this.BindAlbum = BindCurrentAlbum;
@@ -64,10 +66,10 @@ function BindAlbum() {
     ko.applyBindings(MasterVM);
 }
 
-function DownloadAlbum() {
+function DownloadAlbum(action) {
     MasterVM.IsLoading(true);
     return $.ajax({
-        url: "../api/AlbumsRest",
+        url: "../api/AlbumsRest/" + action,
         accepts: "application/json",
         cache: false,
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -77,14 +79,34 @@ function DownloadAlbum() {
 }
 
 function SlideOutCurrentAlbum() {
-    var options = { mode: "hide" };
+    var options = { mode: "hide", direction: CurrentAlbumAnimation };
     $(BoxOut).effect('slide', options, 500, SlideInNextAlbum);
 }
 
 function SlideInNextAlbum() {
-    var options = { direction: "right" };
-    $(BoxIn).effect('slide', options, 500);
+    var options = { direction: NextAlbumAnimation };
+    $(BoxIn).effect('slide', options, 500, UnlockControls);
     ChangeBoxes();
+}
+
+function AnimationNoPreviousData() {
+    $(BoxOut).animate({ "left": "+=40px" }, 150, AnimationNoPreviousDataStepTwo);
+}
+
+function AnimationNoPreviousDataStepTwo() {
+    $(BoxOut).animate({ "left": "-=40px" }, 150, UnlockControls);
+}
+
+function AnimationNoNextData() {
+    $(BoxOut).animate({ "left": "-=40px" }, 150, AnimationNoNextDataStepTwo);
+}
+
+function AnimationNoNextDataStepTwo() {
+    $(BoxOut).animate({ "left": "+=40px" }, 150, UnlockControls);
+}
+
+function UnlockControls() {
+    AreControlsLocked = false;
 }
 
 function ChangeBoxes() {
@@ -93,27 +115,59 @@ function ChangeBoxes() {
     BoxIn = boxTmp;
 }
 
-function ProcessDownloadedAlbum(data) {
-    var bindFunc = myBinder.GetBindingFunction();
-    bindFunc(data);
-    SlideOutCurrentAlbum();
+function ProcessNextAlbumDownloaded(data) {
+    if (data == null) {
+        MasterVM.IsLoading(false);
+        AnimationNoNextData();
+    } else {
+        var bindFunc = myBinder.GetBindingFunction();
+        bindFunc(data);
+        CurrentAlbumAnimation = 'left';
+        NextAlbumAnimation = 'right';
+        SlideOutCurrentAlbum();
+    }
+}
+
+function ProcessPreviousAlbumDownloaded(data) {
+    if (data == null) {
+        MasterVM.IsLoading(false);
+        AnimationNoPreviousData();
+    } else {
+        var bindFunc = myBinder.GetBindingFunction();
+        bindFunc(data);
+        CurrentAlbumAnimation = 'right';
+        NextAlbumAnimation = 'left';
+        SlideOutCurrentAlbum();
+    }
 }
 
 function DownloadNextAlbum() {
-    var nextAlbum = DownloadAlbum();
-    nextAlbum.done(function (data) { ProcessDownloadedAlbum(data); });
+    var nextAlbum = DownloadAlbum('Next');
+    nextAlbum.done(function (data) { ProcessNextAlbumDownloaded(data); });
+}
+
+function DownloadPreviousAlbum() {
+    var nextAlbum = DownloadAlbum('Previous');
+    nextAlbum.done(function (data) { ProcessPreviousAlbumDownloaded(data); });
+}
+
+function TryDownload(downloadFunction) {
+    if (!AreControlsLocked) {
+        AreControlsLocked = true;
+        downloadFunction();
+    }
 }
 
 $(function () {
-    $("#NextAlbum").click(DownloadNextAlbum);
+    $("#NextAlbum").click(function () { TryDownload(DownloadNextAlbum); });
 });
 
 $(function () {
-    //$("#PreviousAlbum").click(DownloadAlbum);
+    $("#PreviousAlbum").click(function () { TryDownload(DownloadPreviousAlbum); });
 });
 
 $(document).ready(function () {
     BindAlbum();
-    var currentAlbum = DownloadAlbum();
+    var currentAlbum = DownloadAlbum('Next');
     currentAlbum.done(function (data) { myBinder.BindAlbum(data); });
 });
