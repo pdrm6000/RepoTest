@@ -159,6 +159,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\AlbumsRestController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Metadata\SessionIdHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,7 +214,8 @@
     <Content Include="Images\NextAlbumButtom.png" />
     <Content Include="Images\PreviousAlbumButtom.png" />
     <Content Include="Images\Rate.jpg" />
-    <Content Include="Scripts\albumBinding.js" />
+    <Content Include="Scripts\app\albumBinding.js" />
+    <Content Include="Scripts\app\viewsRenderer.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
     <Content Include="Scripts\jquery.cslider.js" />
@@ -230,6 +232,8 @@
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\modernizr.custom.28468.js" />
     <Content Include="Scripts\prototype.js" />
+    <Content Include="Scripts\sammy.js" />
+    <Content Include="Scripts\sammy.template.js" />
     <Content Include="Scripts\upshot.compat.knockout.js" />
     <Content Include="Scripts\upshot.js" />
     <Content Include="Scripts\upshot.knockout.extensions.js" />
@@ -297,7 +301,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Albums\Index.cshtml" />
+    <Content Include="Templates\Config.html" />
+    <Content Include="Templates\Index.html" />
+    <None Include="Views\Albums\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Albums\Config.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

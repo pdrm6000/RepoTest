@@ -7,8 +7,8 @@ namespace AppTest
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery*"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery")
+                .Include("~/Scripts/jquery*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui*"));
@@ -20,8 +20,12 @@ namespace AppTest
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bindings").Include(
-            "~/Scripts/albumBinding.js"));
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+            "~/Scripts/app/viewsRenderer.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/sammy").Include(
+            "~/Scripts/sammy.js",
+            "~/Scripts/sammy.template.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/site.css"));

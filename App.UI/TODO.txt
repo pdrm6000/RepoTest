@@ -1,6 +1,8 @@
 ﻿
 
 
-pasar todo a .net 4.5
+
 Despliegue en apphabor
 Implementar single page application SPA
+	- Implementar sammy
+	- Organizar Model-View y Viewmodels
