@@ -158,16 +158,46 @@ function TryDownload(downloadFunction) {
     }
 }
 
-$(function () {
-    $("#NextAlbum").click(function () { TryDownload(DownloadNextAlbum); });
-});
 
-$(function () {
-    $("#PreviousAlbum").click(function () { TryDownload(DownloadPreviousAlbum); });
-});
 
-$(document).ready(function () {
+function Init() {
+    MasterVM = {
+        NextAlbumVM: {
+            NextAlbumName: ko.observable(),
+            NextYear: ko.observable(),
+            NextArtistName: ko.observable(),
+            NextComments: ko.observable(),
+            NextImageUrl: ko.observable()
+        },
+        CurrentAlbumVM: {
+            CurrentAlbumName: ko.observable(),
+            CurrentYear: ko.observable(),
+            CurrentArtistName: ko.observable(),
+            CurrentComments: ko.observable(),
+            CurrentImageUrl: ko.observable()
+        },
+        IsLoading: ko.observable()
+    };
+
+    myBinder = new Binder();
+    BoxOut = '#AlbumData0';
+    BoxIn = '#AlbumData1';
+    CurrentAlbumAnimation = 'left';
+    NextAlbumAnimation = 'right';
+    AreControlsLocked = false;
+    
+    $(function () {
+        $("#NextAlbum").click(function () { TryDownload(DownloadNextAlbum); });
+    });
+
+    $(function () {
+        $("#PreviousAlbum").click(function () { TryDownload(DownloadPreviousAlbum); });
+    });
     BindAlbum();
     var currentAlbum = DownloadAlbum('Next');
     currentAlbum.done(function (data) { myBinder.BindAlbum(data); });
-});
+}
+
+
+
+

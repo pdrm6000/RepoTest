@@ -1,10 +1,10 @@
 ﻿(function ($) {
 
     var app = $.sammy('#main', function () {
-        this.use('Template','html');
+        this.use('Template', 'html');
       
         this.get('#/', function (context) {
-            this.partial('Templates/Index.html');
+            this.partial('Templates/Test.html');
         });
         
         this.get('#/AlbumConfiguration', function (context) {
@@ -12,7 +12,8 @@
         });
         
         this.get('#/AlbumSelection', function (context) {
-            this.partial('Templates/Index.html');
+            this.partial('Templates/Index.html')
+                .then(Init);
         });
     });
 

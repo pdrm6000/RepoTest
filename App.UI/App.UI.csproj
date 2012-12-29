@@ -238,6 +238,7 @@
     <Content Include="Scripts\upshot.js" />
     <Content Include="Scripts\upshot.knockout.extensions.js" />
     <Content Include="Scripts\upshot.min.js" />
+    <Content Include="Templates\Test.html" />
     <Content Include="TODO.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
