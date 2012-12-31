@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>My Musicator</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
@@ -15,35 +15,29 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Your logo here", "Index", "Home")</p>
+                    <p class="site-title">My Musicator</p>
                 </div>
                 <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li><a href="#/">Home</a></li>
+                            <li><a href="#/AlbumsReview">Review</a></li>
+                            <li><a href="#/ArtistsDirectory">Artists</a></li>
+                            <li><a href="#/AlbumsDirectory">Albums</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
         <div id="body">
-            @RenderSection("featured", required: false)
             <section id ="main" class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
-            <a href="#/AlbumSelection" class="AlbumSelection"> AlbumSelection </a>
-            <br/>
-            <a href="#/AlbumConfiguration" class="AlbumConfiguration">AlbumsConfiguration </a>
         </div>
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p>&copy; @DateTime.Now.Year - My Musicator</p>
                 </div>
                 <div class="float-right">
                     <ul id="social">
@@ -60,7 +54,6 @@
         @Scripts.Render("~/Scripts/jquery.cslider.js")
         @Scripts.Render("~/bundles/sammy")
         @Scripts.Render("~/bundles/app")
-        <script src="../Scripts/app/albumBinding.js" type="text/javascript" charset="utf-8"></script>
         @RenderSection("scripts", required: false)
     </body>
 </html>

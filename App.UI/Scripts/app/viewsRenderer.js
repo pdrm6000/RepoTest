@@ -4,16 +4,20 @@
         this.use('Template', 'html');
       
         this.get('#/', function (context) {
-            this.partial('Templates/Test.html');
+            this.partial('Templates/Home/Index.html');
         });
         
-        this.get('#/AlbumConfiguration', function (context) {
-            this.partial('Templates/Config.html');
-        });
-        
-        this.get('#/AlbumSelection', function (context) {
-            this.partial('Templates/Index.html')
+        this.get('#/AlbumsReview', function (context) {
+            this.partial('Templates/Albums/Review.html')
                 .then(Init);
+        });
+        
+        this.get('#/AlbumsDirectory', function (context) {
+            this.partial('Templates/Albums/Config.html');
+        });
+
+        this.get('#/ArtistsDirectory', function (context) {
+            this.partial('Templates/Artists/Config.html');
         });
     });
 

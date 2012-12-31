@@ -21,7 +21,9 @@ namespace AppTest
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-            "~/Scripts/app/viewsRenderer.js"));
+            "~/Scripts/app/viewsRenderer.js",
+            "~/Scripts/app/albumBinding.js",
+            "~/Scripts/app/styles.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/sammy").Include(
             "~/Scripts/sammy.js",

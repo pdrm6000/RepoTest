@@ -2,30 +2,13 @@
 // http://stackoverflow.com/questions/9293761/knockoutjs-multiple-view-models-in-a-single-view
 
 
-var MasterVM = {
-    NextAlbumVM: {
-        NextAlbumName: ko.observable(),
-        NextYear: ko.observable(),
-        NextArtistName: ko.observable(),
-        NextComments: ko.observable(),
-        NextImageUrl: ko.observable()
-    },
-    CurrentAlbumVM: {
-        CurrentAlbumName: ko.observable(),
-        CurrentYear: ko.observable(),
-        CurrentArtistName: ko.observable(),
-        CurrentComments: ko.observable(),
-        CurrentImageUrl: ko.observable()
-    },
-    IsLoading: ko.observable()
-};
-
-var myBinder = new Binder();
-var BoxOut = '#AlbumData0';
-var BoxIn = '#AlbumData1';
-var CurrentAlbumAnimation = 'left';
-var NextAlbumAnimation = 'right';
-var AreControlsLocked = false;
+var MasterVM;
+var myBinder;
+var BoxOut;
+var BoxIn;
+var CurrentAlbumAnimation;
+var NextAlbumAnimation;
+var AreControlsLocked;
 
 function Binder() {
 
@@ -157,8 +140,6 @@ function TryDownload(downloadFunction) {
         downloadFunction();
     }
 }
-
-
 
 function Init() {
     MasterVM = {

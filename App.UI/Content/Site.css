@@ -10,8 +10,9 @@ body
     background-color: #fff;
     border-top: solid 10px #000;
     color: #333;
-    font-size: .85em;
-    font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
+    font-size: 18px;
+    font-family: Georgia , Verdana, Helvetica, Sans-Serif;
+    line-height: 1.5em;
     margin: 0;
     padding: 0;
 }
@@ -71,6 +72,7 @@ h1, h2, h3, h4, h5, h6
     color: #000;
     margin-bottom: 0;
     padding-bottom: 0;
+    font-family: 'Oswald';
 }
 
 h1
@@ -119,6 +121,7 @@ h5, h6
     background: url("../Images/accent.png") no-repeat;
     padding-left: 10px;
     padding-top: 30px;
+    height: 400px;
 }
 
 .featured + .main-content
@@ -140,7 +143,7 @@ footer
 .site-title
 {
     color: #c8c8c8;
-    font-family: Rockwell, Consolas, "Courier New" , Courier, monospace;
+    font-family: Georgia, Consolas, "Courier New" , Courier, monospace;
     font-size: 2.3em;
     margin: 20px 0;
 }
@@ -196,9 +199,11 @@ footer
 ----------------------------------------------------------*/
 ul#menu
 {
-    font-size: 1.3em;
-    font-weight: 600;
-    margin: 0;
+    font-family: 'Oswald' ,serif;
+    font-size: 20px;
+    font-weight: 100;
+    margin-top: 30px;
+    margin-bottom: 0px;
     text-align: right;
 }
 
@@ -207,18 +212,18 @@ ul#menu li
     display: inline;
     list-style: none;
     padding-left: 15px;
+    
 }
 
 ul#menu li a
 {
     background: none;
-    color: #999;
+    color: #b5b5b5;
     text-decoration: none;
 }
 
 ul#menu li a:hover
 {
-    color: #333;
     text-decoration: none;
 }
 
@@ -964,7 +969,7 @@ tr.pager td
     height: 160px;
     float: left;
     margin-top: 80px;
-    font-family: 'Carrois Gothic', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size : 12px;
     color: #CFCFCF;
     line-height: 5px;
@@ -972,7 +977,7 @@ tr.pager td
 
 .AlbumTitle
 {
-    font-family: 'Carrois Gothic', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size : 20px;
     color: #C4C4C4;
     line-height: 0px;
@@ -980,7 +985,7 @@ tr.pager td
 }
 .AlbumYear
 {
-    font-family: 'Carrois Gothic', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size : 15px;
     color: #626262;
     line-height: 0px;
@@ -988,7 +993,7 @@ tr.pager td
 }
 .AlbumArtistName
 {
-    font-family: 'Carrois Gothic', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size : 16px;
     color: #FF8E00;
     line-height: 0px;
@@ -996,7 +1001,7 @@ tr.pager td
 }
 .AlbumComments
 {
-    font-family: 'Carrois Gothic', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size : 12px;
     color: #7A7A7A;
     line-height: 0px;

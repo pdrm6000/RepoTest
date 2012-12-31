@@ -4,5 +4,8 @@
 
 Despliegue en apphabor
 Implementar single page application SPA
-	- Implementar sammy
+	- Seleccion fuente texto y crear logo
 	- Organizar Model-View y Viewmodels
+	- Crear la el metodo first para el init de Review
+	- Implementar Artist Directory
+	- Implementar Album Directory
