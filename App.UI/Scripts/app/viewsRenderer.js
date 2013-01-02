@@ -9,7 +9,7 @@
         
         this.get('#/AlbumsReview', function (context) {
             this.partial('Templates/Albums/Review.html')
-                .then(Init);
+                .then(window.albumApp.albumViewModel.init);
         });
         
         this.get('#/AlbumsDirectory', function (context) {

@@ -211,7 +211,9 @@
     <Content Include="Images\NextAlbumButtom.png" />
     <Content Include="Images\PreviousAlbumButtom.png" />
     <Content Include="Images\Rate.jpg" />
-    <Content Include="Scripts\app\albumBinding.js" />
+    <Content Include="Scripts\app\album.animation.js" />
+    <Content Include="Scripts\app\album.datacontext.js" />
+    <Content Include="Scripts\app\album.model.js" />
     <Content Include="Scripts\app\styles.js" />
     <Content Include="Scripts\app\viewsRenderer.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
@@ -301,6 +303,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\app\album.viewmodel.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
