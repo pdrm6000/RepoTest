@@ -1,49 +1,50 @@
-﻿window.albumApp.albumViewModel = (function (ko, datacontext) {
-    var myBinder;
+﻿window.albumApp.albumViewModel = (function (ko, datacontext, albumBinder) {
+
+    var myBinder = albumBinder;
     var areControlsLocked;
     var albums = datacontext.Albums,
         nextAlbum = function () {
-            tryDownload(datacontext.downloadNextAlbum).then(processNextAlbumDownloaded);
+            tryDownload(datacontext.downloadNextAlbum, processNextAlbumDownloaded);
         },
         previousAlbum = function () {
-            tryDownload(datacontext.downloadPreviousAlbum).then(processPreviousAlbumDownloaded);
+            tryDownload(datacontext.downloadPreviousAlbum, processPreviousAlbumDownloaded);
         },
         init = function () {
-            myBinder = new Binder();
+            myBinder.init();
             window.albumApp.reviewAnimator.init();
             areControlsLocked = false;
             ko.applyBindings(window.albumApp.albumViewModel);
-            tryDownload(datacontext.downloadNextAlbum).then(function (data) {
-                myBinder.BindAlbum(data, datacontext.Albums);
+            tryDownload(datacontext.downloadNextAlbum, function (data) {
+                myBinder.bindCurrentAlbum(data, albums);
                 areControlsLocked = false;
             });
         },
         processNextAlbumDownloaded = function (data) {
             if (data == null) {
-                datacontext.Albums.IsLoading(false);
+                albums.IsLoading(false);
                 window.albumApp.reviewAnimator.animationNoNextData();
             } else {
-                var bindFunc = myBinder.GetBindingFunction();
-                bindFunc(data, datacontext.Albums);
+                var bindFunc = myBinder.getBindingFunction();
+                bindFunc(data, albums);
                 window.albumApp.reviewAnimator.setLeftAnimation();
                 window.albumApp.reviewAnimator.slideOutCurrentAlbum();
             }
         },
         processPreviousAlbumDownloaded = function (data) {
             if (data == null) {
-                datacontext.Albums.IsLoading(false);
+                albums.IsLoading(false);
                 window.albumApp.reviewAnimator.animationNoPreviousData();
             } else {
-                var bindFunc = myBinder.GetBindingFunction();
-                bindFunc(data, datacontext.Albums);
+                var bindFunc = myBinder.getBindingFunction();
+                bindFunc(data, albums);
                 window.albumApp.reviewAnimator.setRightAnimation();
                 window.albumApp.reviewAnimator.slideOutCurrentAlbum();
             }
         },
-        tryDownload = function (downloadFunction) {
+        tryDownload = function (downloadFunction, callbackFunction) {
             if (!areControlsLocked) {
                 areControlsLocked = true;
-                return downloadFunction();
+                downloadFunction().then(callbackFunction);
             }
         },
         setAreControlsLocked = function (value) {
@@ -55,8 +56,8 @@
         nextAlbum: nextAlbum,
         previousAlbum: previousAlbum,
         init: init,
-        setAreControlsLocked : setAreControlsLocked
+        setAreControlsLocked: setAreControlsLocked
     };
 
-})(ko, albumApp.datacontext);
+})(ko, albumApp.datacontext, albumApp.albumBinder);
 
