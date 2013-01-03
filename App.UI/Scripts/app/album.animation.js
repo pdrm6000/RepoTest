@@ -1,9 +1,9 @@
-﻿window.albumApp.reviewAnimator = (function(ko) {
+﻿window.albumApp.reviewAnimator = (function() {
 
-    var BoxOut;
-    var BoxIn;
-    var CurrentAlbumAnimation;
-    var NextAlbumAnimation;
+    var boxOut;
+    var boxIn;
+    var currentAlbumAnimation;
+    var nextAlbumAnimation;
     
     var review = {
         slideOutCurrentAlbum: slideOutCurrentAlbum,
@@ -16,55 +16,55 @@
     return review;
 
     function init() {
-        BoxOut = '#AlbumData0';
-        BoxIn = '#AlbumData1';
+        boxOut = '#AlbumData0';
+        boxIn = '#AlbumData1';
         setLeftAnimation();
     }
 
     function slideOutCurrentAlbum() {
-        var options = { mode: "hide", direction: CurrentAlbumAnimation };
-        $(BoxOut).effect('slide', options, 500, slideInNextAlbum);
+        var options = { mode: "hide", direction: currentAlbumAnimation };
+        $(boxOut).effect('slide', options, 500, slideInNextAlbum);
     }
 
     function slideInNextAlbum() {
-        var options = { direction: NextAlbumAnimation };
-        $(BoxIn).effect('slide', options, 500, unlockControls);
+        var options = { direction: nextAlbumAnimation };
+        $(boxIn).effect('slide', options, 500, unlockControls);
         changeBoxes();
     }
 
     function animationNoPreviousData() {
-        $(BoxOut).animate({ "left": "+=40px" }, 150, animationNoPreviousDataStepTwo);
+        $(boxOut).animate({ "left": "+=40px" }, 150, animationNoPreviousDataStepTwo);
     }
 
     function animationNoPreviousDataStepTwo() {
-        $(BoxOut).animate({ "left": "-=40px" }, 150, unlockControls);
+        $(boxOut).animate({ "left": "-=40px" }, 150, unlockControls);
     }
 
     function animationNoNextData() {
-        $(BoxOut).animate({ "left": "-=40px" }, 150, animationNoNextDataStepTwo);
+        $(boxOut).animate({ "left": "-=40px" }, 150, animationNoNextDataStepTwo);
     }
 
     function animationNoNextDataStepTwo() {
-        $(BoxOut).animate({ "left": "+=40px" }, 150, unlockControls);
+        $(boxOut).animate({ "left": "+=40px" }, 150, unlockControls);
     }
 
     function unlockControls() {
-        window.albumApp.datacontext.setAreControlsLocked(false);
+        window.albumApp.albumViewModel.setAreControlsLocked(false);
     }
 
     function setLeftAnimation() {
-        CurrentAlbumAnimation = 'left';
-        NextAlbumAnimation = 'right';
+        currentAlbumAnimation = 'left';
+        nextAlbumAnimation = 'right';
     }
     
     function setRightAnimation() {
-        CurrentAlbumAnimation = 'right';
-        NextAlbumAnimation = 'left';
+        currentAlbumAnimation = 'right';
+        nextAlbumAnimation = 'left';
     }
     
     function changeBoxes() {
-        var boxTmp = BoxOut;
-        BoxOut = BoxIn;
-        BoxIn = boxTmp;
+        var boxTmp = boxOut;
+        boxOut = boxIn;
+        boxIn = boxTmp;
     }
-})(ko);
+})();
