@@ -1,5 +1,6 @@
 ﻿window.albumApp.artistViewModel = (function (ko, datacontext) {
 
+    var editedArtist;
     var artists = datacontext.Artists,
         addArtist = function() {
 
@@ -7,7 +8,8 @@
         deleteArtist = function() {
 
         },
-        editArtist = function(data, event) {
+        editArtist = function (data, event) {
+            editedArtist = data;
             artists.selectedArtist.id(data.Id);
             artists.selectedArtist.name(data.Name);
             artists.selectedArtist.imageUrl(data.ImageUrl);
@@ -23,11 +25,19 @@
             ko.utils.arrayPushAll(artists.artistsCollection, data);
             artistEffects();
         },
-        finishArtistEditing = function() {
+        finishArtistEditing = function () {
             datacontext.updateArtist(artists.selectedArtist.getArtistDTO()).then(notifyArtistEdited);
         },
-        notifyArtistEdited = function() {
-            alert('modificacion ok');
+        notifyArtistEdited = function () {
+            var index = artists.artistsCollection.indexOf(editedArtist);
+            var replaceArtist = {
+                Id: editedArtist.Id,
+                Name: artists.selectedArtist.name(),
+                ImageUrl: artists.selectedArtist.imageUrl(),
+                FullImageUrl: editedArtist.FullImageUrl
+            };
+            artists.artistsCollection.replace(artists.artistsCollection()[index], replaceArtist);
+            //Appear notifications alert('modificacion ok');
         };
 
 
