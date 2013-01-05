@@ -11,7 +11,7 @@ namespace AppTest
                 .Include("~/Scripts/jquery*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui*"));
+                        "~/Scripts/jquery-ui-1.9.2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -23,11 +23,13 @@ namespace AppTest
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/viewsRenderer.js",
                 "~/Scripts/app/styles.js",
-                "~/Scripts/app/album.datacontext.js",
-                "~/Scripts/app/album.binding.js",
-                "~/Scripts/app/album.model.js",
-                "~/Scripts/app/album.viewmodel.js",
-                "~/Scripts/app/album.animation.js"));
+                "~/Scripts/app/datacontext.js",
+                "~/Scripts/app/albumreview.binding.js",
+                "~/Scripts/app/albumreview.model.js",
+                "~/Scripts/app/albumreview.animation.js",
+                "~/Scripts/app/albumreview.viewmodel.js",
+                "~/Scripts/app/artist.model.js",
+                "~/Scripts/app/artist.viewmodel.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/sammy").Include(
             "~/Scripts/sammy.js",
@@ -37,18 +39,7 @@ namespace AppTest
                 "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
-                        "~/Content/themes/base/jquery.ui.core.css",
-                        "~/Content/themes/base/jquery.ui.resizable.css",
-                        "~/Content/themes/base/jquery.ui.selectable.css",
-                        "~/Content/themes/base/jquery.ui.accordion.css",
-                        "~/Content/themes/base/jquery.ui.autocomplete.css",
-                        "~/Content/themes/base/jquery.ui.button.css",
-                        "~/Content/themes/base/jquery.ui.dialog.css",
-                        "~/Content/themes/base/jquery.ui.slider.css",
-                        "~/Content/themes/base/jquery.ui.tabs.css",
-                        "~/Content/themes/base/jquery.ui.datepicker.css",
-                        "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+                        "~/Content/themes/base/jquery-ui.css"));
         }
     }
 }

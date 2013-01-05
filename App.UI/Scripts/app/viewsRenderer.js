@@ -9,7 +9,7 @@
         
         this.get('#/AlbumsReview', function (context) {
             this.partial('Templates/Albums/Review.html')
-                .then(window.albumApp.albumViewModel.init);
+                .then(window.albumApp.albumReviewViewModel.init);
         });
         
         this.get('#/AlbumsDirectory', function (context) {
@@ -17,7 +17,8 @@
         });
 
         this.get('#/ArtistsDirectory', function (context) {
-            this.partial('Templates/Artists/Config.html');
+            this.partial('Templates/Artists/Config.html')
+                .then(window.albumApp.artistViewModel.init);
         });
     });
 

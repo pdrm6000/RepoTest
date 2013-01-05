@@ -58,6 +58,7 @@
     <Compile Include="Initialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AlbumsCollectorAppService.cs" />
+    <Compile Include="Services\ArtistCollectorAppService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

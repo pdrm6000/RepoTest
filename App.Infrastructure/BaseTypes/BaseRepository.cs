@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using App.DBModel.DataModel;
+using App.Domain.Model;
 using App.Domain.RepositoryContracts;
 using System.Linq.Expressions;
 using App.Domain.ValueObjects.EntityContract;
@@ -28,8 +29,13 @@ namespace App.Repositories.BaseTypes
 
         public int Modify(TEntity item)
         {
-            DbSet.Attach(item);
-            return ModelContext.SaveChanges();
+            var original = DbSet.Find(item.Id);
+            if (original != null)
+            {
+                ModelContext.Entry(original).CurrentValues.SetValues(item);
+                return ModelContext.SaveChanges();
+            }
+            return 0;
         }
 
         public int Remove(TEntity item)

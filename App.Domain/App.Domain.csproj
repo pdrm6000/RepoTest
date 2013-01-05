@@ -49,10 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppServiceContracts\IAlbumsCollectorAppService.cs" />
+    <Compile Include="AppServiceContracts\IArtistCollectorAppService.cs" />
     <Compile Include="DomainServices\Contracts\IRandomAlbumSelector.cs" />
     <Compile Include="DomainServices\Implementations\RandomAlbumSelector.cs" />
     <Compile Include="DomainServices\Implementations\AlbumDTOGeneratorService.cs" />
     <Compile Include="DomainServices\Contracts\IAlbumDTOGeneratorService.cs" />
+    <Compile Include="Extensions\ArtistExtensions.cs" />
     <Compile Include="Model\Album.cs" />
     <Compile Include="Model\Artist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="RepositoryContracts\IBaseRepository.cs" />
     <Compile Include="ValueObjects\Caching\UserAlbumsNavigation.cs" />
     <Compile Include="ValueObjects\DTO\AlbumDTO.cs" />
+    <Compile Include="ValueObjects\DTO\ArtistDTO.cs" />
     <Compile Include="ValueObjects\EntityContract\IEntity.cs" />
   </ItemGroup>
   <ItemGroup />

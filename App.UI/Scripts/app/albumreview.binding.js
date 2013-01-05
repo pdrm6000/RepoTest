@@ -1,4 +1,4 @@
-﻿window.albumApp.albumBinder = (function () {
+﻿window.albumApp.albumReviewBinder = (function () {
 
     var bindingUsed = 0;
     

@@ -1,4 +1,4 @@
-﻿window.albumApp.reviewAnimator = (function() {
+﻿window.albumApp.albumReviewAnimator = (function() {
 
     var boxOut;
     var boxIn;
@@ -33,7 +33,7 @@
         $(boxOut).animate({ "left": "+=40px" }, 150, unlockControls);
     },
     unlockControls = function() {
-        window.albumApp.albumViewModel.setAreControlsLocked(false);
+        window.albumApp.albumReviewViewModel.setAreControlsLocked(false);
     },
     setLeftAnimation = function() {
         currentAlbumAnimation = 'left';

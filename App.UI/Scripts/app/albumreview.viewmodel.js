@@ -1,6 +1,7 @@
-﻿window.albumApp.albumViewModel = (function (ko, datacontext, albumBinder) {
+﻿window.albumApp.albumReviewViewModel = (function (ko, datacontext, albumReviewBinder, albumReviewAnimator) {
 
-    var myBinder = albumBinder;
+    var myBinder = albumReviewBinder;
+    var myReviewAnimator = albumReviewAnimator;
     var areControlsLocked;
     var albums = datacontext.Albums,
         nextAlbum = function () {
@@ -11,9 +12,9 @@
         },
         init = function () {
             myBinder.init();
-            window.albumApp.reviewAnimator.init();
+            myReviewAnimator.init();
             areControlsLocked = false;
-            ko.applyBindings(window.albumApp.albumViewModel);
+            ko.applyBindings(window.albumApp.albumReviewViewModel);
             tryDownload(datacontext.downloadNextAlbum, function (data) {
                 myBinder.bindCurrentAlbum(data, albums);
                 areControlsLocked = false;
@@ -22,23 +23,23 @@
         processNextAlbumDownloaded = function (data) {
             if (data == null) {
                 albums.IsLoading(false);
-                window.albumApp.reviewAnimator.animationNoNextData();
+                myReviewAnimator.animationNoNextData();
             } else {
                 var bindFunc = myBinder.getBindingFunction();
                 bindFunc(data, albums);
-                window.albumApp.reviewAnimator.setLeftAnimation();
-                window.albumApp.reviewAnimator.slideOutCurrentAlbum();
+                myReviewAnimator.setLeftAnimation();
+                myReviewAnimator.slideOutCurrentAlbum();
             }
         },
         processPreviousAlbumDownloaded = function (data) {
             if (data == null) {
                 albums.IsLoading(false);
-                window.albumApp.reviewAnimator.animationNoPreviousData();
+                myReviewAnimator.animationNoPreviousData();
             } else {
                 var bindFunc = myBinder.getBindingFunction();
                 bindFunc(data, albums);
-                window.albumApp.reviewAnimator.setRightAnimation();
-                window.albumApp.reviewAnimator.slideOutCurrentAlbum();
+                myReviewAnimator.setRightAnimation();
+                myReviewAnimator.slideOutCurrentAlbum();
             }
         },
         tryDownload = function (downloadFunction, callbackFunction) {
@@ -59,5 +60,5 @@
         setAreControlsLocked: setAreControlsLocked
     };
 
-})(ko, albumApp.datacontext, albumApp.albumBinder);
+})(ko, albumApp.datacontext, albumApp.albumReviewBinder, albumApp.albumReviewAnimator);
 
