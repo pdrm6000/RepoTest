@@ -2,6 +2,7 @@
     datacontext.Artists = new Artists();
     
     function Artists() {
+        this.isLoading = ko.observable(true);
         this.artistsCollection = ko.observableArray();
         this.selectedArtist = new Artist();
         this.clear = function() {

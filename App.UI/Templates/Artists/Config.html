@@ -1,28 +1,35 @@
-﻿<h2>Artist directory</h2>
-<br />
-<br />
-<div class="AlbumsDirContainer" data-bind="foreach: artists.artistsCollection">
-    <a href=".">
-        <div class="AlbumsDirItem" data-bind="attr: { style: FullImageUrl }, click: $parent.editArtist">
-            <div class="AlbumsDirArtist" data-bind="text: Name"></div>
+﻿<div id="ArtistsConfig">
+    <h2>Artist directory</h2>
+    <br />
+    <br />
+    <div class="AlbumsDirContainerFill">
+        <div data-bind="visible: artists.isLoading" style="text-align: center">
+            <img src="../../Images/ajax_loader_page.gif" />
         </div>
-    </a>
-</div>
-Select one artist to edit
-<br />
-Click add button to create new artist<br />
-Click delete button to remove artist selected
-
-
-<div id="editDialog" title="Dialog Title">
-    <div class="AlbumDirEditPhoto">
-        <img data-bind="attr: { src: artists.selectedArtist.fullImageUrl }" width="200" height="200" />
+        <div class="AlbumsDirContainer" data-bind="foreach: artists.artistsCollection">
+            <a href=".">
+                <div class="AlbumsDirItem" data-bind="attr: { style: FullImageUrl }, click: $parent.editArtist">
+                    <div class="AlbumsDirArtist" data-bind="text: Name"></div>
+                </div>
+            </a>
+        </div>
     </div>
-    <div class="AlbumDirEditRightPanel">
-        <p>Artist name</p>
-        <input type="text" data-bind="value: artists.selectedArtist.name"/>
-        <p>Image</p>
-        <input type="text" data-bind="value: artists.selectedArtist.imageUrl"/>
+    Select one artist to edit
+    <br />
+    Click add button to create new artist<br />
+    Click delete button to remove artist selected
 
+
+    <div id="editDialog" title="Dialog Title">
+        <div class="AlbumDirEditPhoto">
+            <img data-bind="attr: { src: artists.selectedArtist.fullImageUrl }" width="200" height="200" />
+        </div>
+        <div class="AlbumDirEditRightPanel">
+            <p>Artist name</p>
+            <input type="text" data-bind="value: artists.selectedArtist.name" />
+            <p>Image</p>
+            <input type="text" data-bind="value: artists.selectedArtist.imageUrl" />
+
+        </div>
     </div>
 </div>

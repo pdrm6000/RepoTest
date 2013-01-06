@@ -1,6 +1,4 @@
-﻿window.albumApp = window.albumApp || {};
-
-window.albumApp.datacontext = (function (ko) {
+﻿window.albumApp.datacontext = (function (ko) {
 
     downloadNextAlbum = function() {
         var nextAlbum = downloadAlbum('Next');

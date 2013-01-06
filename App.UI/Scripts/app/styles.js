@@ -16,7 +16,7 @@ artistEffects = function () {
     });
 }
 
-artistDialog = function () {
+createArtistDialog = function () {
     $("#editDialog").dialog({
         autoOpen: false,
         width: 600,

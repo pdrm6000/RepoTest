@@ -124,6 +124,11 @@ h5, h6
     min-height: 400px;
 }
 
+.min-height
+{
+    min-height: 450px;
+}
+
 .featured + .main-content
 {
     background: url("../Images/heroAccent.png") no-repeat;
@@ -1011,11 +1016,19 @@ tr.pager td
     padding-top: 4px;
 }
 
+.AlbumsDirContainerFill
+{
+    width: 780px;
+    min-height: 400px;
+    float: left;
+}
+
 .AlbumsDirContainer
 {
     width: 780px;
     float: left;
 }
+
 .AlbumsDirItem
 {
     width: 200px;
@@ -1052,4 +1065,11 @@ tr.pager td
     height: 100%;
     float: left;
     margin: 20px 0px;
+}
+
+
+.CornerLoading {
+    position: fixed;
+    top: 20px;
+    right: 10px;
 }

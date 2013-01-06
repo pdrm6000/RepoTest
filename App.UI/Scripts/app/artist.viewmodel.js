@@ -16,14 +16,16 @@
             $("#editDialog").dialog('open');
         },
         init = function() {
-            ko.applyBindings(window.albumApp.artistViewModel);
+            ko.applyBindings(window.albumApp.artistViewModel, document.getElementById("ArtistsConfig"));
+            artists.isLoading(true);
             artists.clear();
-            artistDialog();
+            createArtistDialog();
             datacontext.downloadAllArtists().then(processArtistsDownloaded);
         },
         processArtistsDownloaded = function(data) {
             ko.utils.arrayPushAll(artists.artistsCollection, data);
             artistEffects();
+            artists.isLoading(false);
         },
         finishArtistEditing = function () {
             datacontext.updateArtist(artists.selectedArtist.getArtistDTO()).then(notifyArtistEdited);

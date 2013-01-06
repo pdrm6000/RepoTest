@@ -6,5 +6,7 @@ Despliegue en apphabor
 Implementar single page application SPA
 	- crear logo
 	- Crear el metodo first para el init de Review
-	- Implementar Artist Directory
+	- Cambiar fuente de edit_artist
+	- Globos de notificacion al guardar artista
+	- Resiseño de albumreview 
 	- Implementar Album Directory

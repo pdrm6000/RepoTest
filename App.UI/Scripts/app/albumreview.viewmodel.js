@@ -14,7 +14,7 @@
             myBinder.init();
             myReviewAnimator.init();
             areControlsLocked = false;
-            ko.applyBindings(window.albumApp.albumReviewViewModel);
+            ko.applyBindings(window.albumApp.albumReviewViewModel, document.getElementById("AlbumsReview"));
             tryDownload(datacontext.downloadNextAlbum, function (data) {
                 myBinder.bindCurrentAlbum(data, albums);
                 areControlsLocked = false;
