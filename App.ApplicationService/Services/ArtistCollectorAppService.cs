@@ -27,5 +27,12 @@ namespace App.ApplicationService.Services
         {
             return _artistsRepository.Modify(value.ToArtist());
         }
+
+        public ArtistDTO AddArtist(ArtistDTO value)
+        {
+            var entity = value.ToArtist();
+            _artistsRepository.Add(entity);
+            return entity.ToArtistDTO();
+        }
     }
 }

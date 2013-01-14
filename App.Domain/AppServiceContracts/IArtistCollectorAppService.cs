@@ -7,5 +7,6 @@ namespace App.Domain.AppServiceContracts
     {
         IEnumerable<ArtistDTO> GetAll();
         int UpdateArtist(ArtistDTO value);
+        ArtistDTO AddArtist(ArtistDTO value);
     }
 }

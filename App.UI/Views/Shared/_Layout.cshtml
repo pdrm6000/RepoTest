@@ -31,7 +31,8 @@
     </header>
     <div id="body">
         <div class="min-height">
-            <section data-bind="visible: canShowView" id="main" class="content-wrapper main-content clear-fix">
+            <section id="mainHidden"  style="visibility: hidden; position: absolute"></section>
+            <section id="main" class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
         </div>

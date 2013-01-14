@@ -1,5 +1,11 @@
 ﻿<div id="ArtistsConfig">
-    <h2>Artist directory</h2>
+    <div class="ArtistTitle">
+        <h2>Artist directory</h2>
+        <a href="." class="float-right">
+            <img src="../../Images/delete.png" data-bind="click: addArtist" /></a>
+        <a href="." class="float-right">
+            <img src="../../Images/add.png" data-bind="click: addArtist" /></a>
+    </div>
     <br />
     <br />
     <div class="AlbumsDirContainerFill">
@@ -14,13 +20,16 @@
             </a>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
     Select one artist to edit
     <br />
     Click add button to create new artist<br />
     Click delete button to remove artist selected
 
 
-    <div id="editDialog" title="Dialog Title">
+    <div id="editDialog" title="Edit Artist">
         <div class="AlbumDirEditPhoto">
             <img data-bind="attr: { src: artists.selectedArtist.fullImageUrl }" width="200" height="200" />
         </div>
@@ -29,7 +38,15 @@
             <input type="text" data-bind="value: artists.selectedArtist.name" />
             <p>Image</p>
             <input type="text" data-bind="value: artists.selectedArtist.imageUrl" />
+        </div>
+    </div>
 
+    <div id="addDialog" title="Add new artist">
+        <div class="AlbumDirEditRightPanel">
+            <p>Artist name</p>
+            <input type="text" data-bind="value: artists.selectedArtist.name" />
+            <p>Image</p>
+            <input type="text" data-bind="value: artists.selectedArtist.imageUrl" />
         </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -30,8 +31,10 @@ namespace AppTest.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post(ArtistDTO artist)
         {
+            var newArtist = _artistCollectorAppService.AddArtist(artist);
+            return Request.CreateResponse<ArtistDTO>(HttpStatusCode.OK, newArtist);
         }
 
         // PUT api/<controller>/5

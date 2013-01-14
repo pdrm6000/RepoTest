@@ -1016,6 +1016,17 @@ tr.pager td
     padding-top: 4px;
 }
 
+.ArtistTitle
+{
+    width: 740px;
+    float: left;
+    margin-bottom: 50px;
+}
+.ArtistTitle h2
+{
+    float: left;
+}
+
 .AlbumsDirContainerFill
 {
     width: 780px;

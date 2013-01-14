@@ -3,7 +3,10 @@
     var editedArtist;
     var artists = datacontext.Artists,
         addArtist = function() {
-
+            artists.selectedArtist.id(0);
+            artists.selectedArtist.name('');
+            artists.selectedArtist.imageUrl('');
+            $("#addDialog").dialog('open');
         },
         deleteArtist = function() {
 
@@ -19,7 +22,8 @@
             ko.applyBindings(window.albumApp.artistViewModel, document.getElementById("ArtistsConfig"));
             artists.isLoading(true);
             artists.clear();
-            createArtistDialog();
+            createArtistDialog("#editDialog", finishArtistEditing, 600);
+            createArtistDialog("#addDialog", finishArtistAdding, 350);
             datacontext.downloadAllArtists().then(processArtistsDownloaded);
         },
         processArtistsDownloaded = function(data) {
@@ -29,6 +33,13 @@
         },
         finishArtistEditing = function () {
             datacontext.updateArtist(artists.selectedArtist.getArtistDTO()).then(notifyArtistEdited);
+        },
+        finishArtistAdding = function () {
+            datacontext.addArtist(artists.selectedArtist.getArtistDTO()).then(notifyArtistAdded);
+        },
+        notifyArtistAdded = function (data) {
+            artists.artistsCollection.push(data);
+            //Appear notifications alert('modificacion ok');
         },
         notifyArtistEdited = function () {
             var index = artists.artistsCollection.indexOf(editedArtist);

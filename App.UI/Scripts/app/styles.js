@@ -16,10 +16,10 @@ artistEffects = function () {
     });
 }
 
-createArtistDialog = function () {
-    $("#editDialog").dialog({
+createArtistDialog = function (windowTag, callBackFunction, width) {
+    $(windowTag).dialog({
         autoOpen: false,
-        width: 600,
+        width: width,
         modal: true,
         show: { effect: 'drop', direction: "up", duration: 350 },
         hide: { effect: 'drop', direction: "down", duration: 150 },
@@ -30,7 +30,7 @@ createArtistDialog = function () {
                 class: 'AlbumComments',
                 click: function () {
                     $(this).dialog("close");
-                    albumApp.artistViewModel.finishArtistEditing();
+                    callBackFunction();
                 }
             },
             "Cancel": {

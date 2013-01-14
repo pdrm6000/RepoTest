@@ -33,13 +33,24 @@
         var allArtists = downloadArtist('');
         return allArtists.done();
     },
+    addArtist = function (artist) {
+        return $.ajax({
+            url: "/api/ArtistsRest/Post/",
+            data: JSON.stringify(artist),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert('Error: ' + textStatus);
+            }
+        });
+    },
     updateArtist = function (artist) {
         return $.ajax({
             url: "/api/ArtistsRest/Put/" + artist.Id,
             data: JSON.stringify(artist),
             type: "PUT",
             contentType: "application/json;charset=utf-8",
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('Error: ' + textStatus);
             }
         });
@@ -50,6 +61,7 @@
         downloadPreviousAlbum: downloadPreviousAlbum,
         downloadAllArtists: downloadAllArtists,
         updateArtist: updateArtist,
+        addArtist: addArtist,
     };
     return datacontext;
 })(ko);
