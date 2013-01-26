@@ -8,5 +8,6 @@ namespace App.Domain.RepositoryContracts
 {
     public interface IArtistsRepository : IBaseRepository<Artist>
     {
+        IEnumerable<Artist> GetAllWithAlbums();
     }
 }

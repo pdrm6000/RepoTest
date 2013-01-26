@@ -21,5 +21,6 @@ namespace App.Domain.Model
         public int ArtistId { get; set; }
         [DataMember]
         public int Year { get; set; }
+
     }
 }

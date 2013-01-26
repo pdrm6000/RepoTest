@@ -30,7 +30,7 @@
         });
     },
     downloadAllArtists = function() {
-        var allArtists = downloadArtist('');
+        var allArtists = downloadArtist('GET');
         return allArtists.done();
     },
     addArtist = function (artist) {

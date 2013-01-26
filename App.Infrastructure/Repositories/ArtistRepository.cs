@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using App.DBModel.DataModel;
 using App.Domain.Model;
 using App.Repositories.BaseTypes;
@@ -16,6 +16,11 @@ namespace App.Repositories.Repositories
         {
             ModelContext = new ModelContext("DefaultConnection");
             DbSet = ModelContext.ArtistsSet;
+        }
+
+        public IEnumerable<Artist> GetAllWithAlbums()
+        {
+            return DbSet.Include(p => p.Albums).AsEnumerable();
         }
 
         public void Dispose()

@@ -8,6 +8,7 @@ namespace App.DBModel.DataModel
     {
         public ModelContext(string connString)
         {
+            //disable database autogeneration
             Database.SetInitializer<ModelContext>(null);
         }
 
@@ -16,14 +17,14 @@ namespace App.DBModel.DataModel
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Album>().ToTable("t_albums");
-            modelBuilder.Entity<Album>().Property(p => p.Id).HasColumnName("id");
-            modelBuilder.Entity<Album>().Property(p => p.Name).HasColumnName("name");
-            modelBuilder.Entity<Album>().Property(p => p.ArtistId).HasColumnName("artistid");
-            modelBuilder.Entity<Album>().Property(p => p.CoverUrl).HasColumnName("coverurl");
-            modelBuilder.Entity<Album>().Property(p => p.Year).HasColumnName("year");
-
             modelBuilder.Entity<Artist>().ToTable("t_artists");
+            modelBuilder.Entity<Artist>().HasKey(p => p.Id);
+
+            modelBuilder.Entity<Album>().ToTable("t_albums");
+            modelBuilder.Entity<Album>().HasKey(p => p.Id);
+
+            modelBuilder.Entity<Artist>().HasMany(c => c.Albums);
+
 
             base.OnModelCreating(modelBuilder);
         }

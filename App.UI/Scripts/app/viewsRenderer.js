@@ -39,10 +39,10 @@
             $("#main").empty();
             $("#main").append($("#mainHidden").html());
             $("#mainHidden").empty();
-            turnOffLoading();
+            renderView();
         };
 
-        function turnOffLoading() {
+        function renderView() {
             if (viewModelToInit != null)
                 viewModelToInit();
             window.albumApp.homeViewModel.isGlobalLoading(false);

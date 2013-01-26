@@ -6,7 +6,10 @@ Despliegue en apphabor
 Implementar single page application SPA
 	- crear logo
 	- Crear el metodo first para el init de Review
-	- Cambiar fuente de edit_artist
-	- Globos de notificacion al guardar artista
+	- alertas al guardar en album (bootstrap)
+	- usar require.js
+	- ravenDB
+	- usar brezze.js
+	- tooltips en menu (bootstrap)
 	- Resiseño de albumreview 
 	- Implementar Album Directory

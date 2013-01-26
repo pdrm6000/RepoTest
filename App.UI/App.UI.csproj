@@ -171,6 +171,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -203,6 +204,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\toastr.css" />
     <Content Include="DBscript.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -222,6 +224,8 @@
     <Content Include="Images\Covers\physicalgraffiti.jpg" />
     <Content Include="Images\Covers\riseofthefenix.jpg" />
     <Content Include="Images\Covers\wastinglight.jpg" />
+    <Content Include="Images\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Images\NextAlbumButtom.png" />
     <Content Include="Images\PreviousAlbumButtom.png" />
     <Content Include="Images\Rate.jpg" />
@@ -234,6 +238,7 @@
     <Content Include="Scripts\app\home.viewmodel.js" />
     <Content Include="Scripts\app\styles.js" />
     <Content Include="Scripts\app\viewsRenderer.js" />
+    <Content Include="Scripts\app\bootstrap.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
     <Content Include="Scripts\jquery.cslider.js" />
@@ -252,6 +257,7 @@
     <Content Include="Scripts\prototype.js" />
     <Content Include="Scripts\sammy.js" />
     <Content Include="Scripts\sammy.template.js" />
+    <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\upshot.compat.knockout.js" />
     <Content Include="Scripts\upshot.js" />
     <Content Include="Scripts\upshot.knockout.extensions.js" />

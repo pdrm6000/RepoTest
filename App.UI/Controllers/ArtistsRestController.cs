@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 using App.Domain.AppServiceContracts;
 using App.Domain.ValueObjects.DTO;
@@ -24,10 +23,10 @@ namespace AppTest.Controllers
             return _artistCollectorAppService.GetAll();
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        // GET api/<controller>
+        public IEnumerable<ArtistDTO> GetWithAlbums()
         {
-            return "value";
+            return _artistCollectorAppService.GetAllWithAlbums();
         }
 
         // POST api/<controller>
@@ -40,6 +39,7 @@ namespace AppTest.Controllers
         // PUT api/<controller>/5
         public void Put(int id, ArtistDTO value)
         {
+            Thread.Sleep(500);
             _artistCollectorAppService.UpdateArtist(value);
         }
 

@@ -17,5 +17,7 @@ namespace App.Domain.Model
         public string Name { get; set; }
         [DataMember]
         public string ImageUrl { get; set; }
+
+        public List<Album> Albums { get; set; } 
     }
 }

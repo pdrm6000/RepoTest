@@ -20,6 +20,12 @@ namespace AppTest
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/Scripts/app/bootstrap*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
+                        "~/Scripts/toastr*"));
+
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/home.viewmodel.js",
                 "~/Scripts/app/viewsRenderer.js",
@@ -36,8 +42,14 @@ namespace AppTest
             "~/Scripts/sammy.js",
             "~/Scripts/sammy.template.js"));
 
+
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/site.css"));
+                "~/Content/site.css",
+                "~/Content/bootstrap.css",
+                "~/Content/toastr.css"));
+
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery-ui.css"));

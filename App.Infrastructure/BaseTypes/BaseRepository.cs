@@ -12,8 +12,8 @@ namespace App.Repositories.BaseTypes
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, IEntity
     {
-        protected DbSet<TEntity> DbSet { get; set; }
-        protected ModelContext ModelContext { get; set; }
+        public DbSet<TEntity> DbSet { get; set; }
+        public ModelContext ModelContext { get; set; }
 
         public BaseRepository(DbSet<TEntity> context)
         {

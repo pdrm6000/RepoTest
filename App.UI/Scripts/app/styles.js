@@ -16,31 +16,11 @@ artistEffects = function () {
     });
 }
 
-createArtistDialog = function (windowTag, callBackFunction, width) {
-    $(windowTag).dialog({
-        autoOpen: false,
-        width: width,
-        modal: true,
-        show: { effect: 'drop', direction: "up", duration: 350 },
-        hide: { effect: 'drop', direction: "down", duration: 150 },
-        buttons: {
-            "Ok": {
-                priority: 'primary',
-                text: 'Ok',
-                class: 'AlbumComments',
-                click: function () {
-                    $(this).dialog("close");
-                    callBackFunction();
-                }
-            },
-            "Cancel": {
-                priority: 'secondary',
-                text: 'Cancel',
-                class: 'AlbumComments',
-                click: function () {
-                    $(this).dialog("close");
-                }
-            }
-        }
-    });
+function createAutoClosingAlert(selector, delay) {
+    $(selector).fadeIn(500);
+    window.setTimeout(function () { $(selector).fadeOut(500); }, delay);
 }
+
+//$('.alert .close').live("click", function (e) {
+//    $(this).parent().hide();
+//});

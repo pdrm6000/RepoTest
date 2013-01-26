@@ -20,7 +20,14 @@ namespace App.ApplicationService.Services
 
         public IEnumerable<ArtistDTO> GetAll()
         {
-            return _artistsRepository.GetAll().Select(x => x.ToArtistDTO());
+            var artist = _artistsRepository.GetAll();
+            return artist.Select(x => x.ToArtistDTO());
+        }
+
+        public IEnumerable<ArtistDTO> GetAllWithAlbums()
+        {
+            var artist = _artistsRepository.GetAllWithAlbums();
+            return artist.Select(x => x.ToArtistDTO());
         }
 
         public int UpdateArtist(ArtistDTO value)
