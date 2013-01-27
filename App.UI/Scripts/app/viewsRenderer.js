@@ -19,7 +19,7 @@
         });
 
         this.get('#/AlbumsDirectory', function (context) {
-            viewModelToInit = null;
+            viewModelToInit = window.albumApp.artistWithAlbumsViewModel.init;
             window.albumApp.homeViewModel.isGlobalLoading(true);
             this.partial('Templates/Albums/Config.html')
                 .then(startTransition);

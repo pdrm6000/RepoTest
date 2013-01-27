@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using App.Domain.AppServiceContracts;
 using App.Domain.Extensions;
 using App.Domain.RepositoryContracts;
@@ -24,10 +22,10 @@ namespace App.ApplicationService.Services
             return artist.Select(x => x.ToArtistDTO());
         }
 
-        public IEnumerable<ArtistDTO> GetAllWithAlbums()
+        public IEnumerable<ArtistWithAlbumsDTO> GetAllWithAlbums()
         {
             var artist = _artistsRepository.GetAllWithAlbums();
-            return artist.Select(x => x.ToArtistDTO());
+            return artist.Select(x => x.ToArtistWithAlbumsDTO());
         }
 
         public int UpdateArtist(ArtistDTO value)

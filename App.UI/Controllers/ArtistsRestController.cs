@@ -24,7 +24,7 @@ namespace AppTest.Controllers
         }
 
         // GET api/<controller>
-        public IEnumerable<ArtistDTO> GetWithAlbums()
+        public IEnumerable<ArtistWithAlbumsDTO> GetWithAlbums()
         {
             return _artistCollectorAppService.GetAllWithAlbums();
         }

@@ -33,7 +33,7 @@
         var allArtists = downloadArtist('GET');
         return allArtists.done();
     },
-    addArtist = function (artist) {
+    addArtist = function(artist) {
         return $.ajax({
             url: "/api/ArtistsRest/Post/",
             data: JSON.stringify(artist),
@@ -44,12 +44,22 @@
             }
         });
     },
-    updateArtist = function (artist) {
+    updateArtist = function(artist) {
         return $.ajax({
             url: "/api/ArtistsRest/Put/" + artist.Id,
             data: JSON.stringify(artist),
             type: "PUT",
             contentType: "application/json;charset=utf-8",
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert('Error: ' + textStatus);
+            }
+        });
+    },
+    downloadArtistsWithAlbums = function() {
+        return $.ajax({
+            url: "../api/ArtistsRest/GetWithAlbums",
+            accepts: "application/json",
+            cache: false,
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('Error: ' + textStatus);
             }
@@ -62,6 +72,7 @@
         downloadAllArtists: downloadAllArtists,
         updateArtist: updateArtist,
         addArtist: addArtist,
+        downloadArtistsWithAlbums: downloadArtistsWithAlbums,
     };
     return datacontext;
 })(ko);

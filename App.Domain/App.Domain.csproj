@@ -64,6 +64,7 @@
     <Compile Include="ValueObjects\Caching\UserAlbumsNavigation.cs" />
     <Compile Include="ValueObjects\DTO\AlbumDTO.cs" />
     <Compile Include="ValueObjects\DTO\ArtistDTO.cs" />
+    <Compile Include="ValueObjects\DTO\ArtistWithAlbumsDTO.cs" />
     <Compile Include="ValueObjects\EntityContract\IEntity.cs" />
   </ItemGroup>
   <ItemGroup />

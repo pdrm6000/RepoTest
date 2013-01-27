@@ -21,6 +21,27 @@ namespace App.Domain.Extensions
                        };
         }
 
+        public static ArtistWithAlbumsDTO ToArtistWithAlbumsDTO(this Artist artist)
+        {
+            return new ArtistWithAlbumsDTO()
+            {
+                Id = artist.Id,
+                Name = artist.Name,
+                Albums = artist.Albums.Select(a => a.ToAlbumEditingDTO())
+            };
+        }
+
+        public static AlbumEditingDTO ToAlbumEditingDTO(this Album album)
+        {
+            return new AlbumEditingDTO()
+            {
+                Id = album.Id,
+                AlbumName = album.Name,
+                CoverUrl = album.CoverUrl,
+                Year = album.Year
+            };
+        }
+
         public static Artist ToArtist(this ArtistDTO artistDTO)
         {
             return new Artist()

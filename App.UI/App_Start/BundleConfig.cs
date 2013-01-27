@@ -36,7 +36,9 @@ namespace AppTest
                 "~/Scripts/app/albumreview.animation.js",
                 "~/Scripts/app/albumreview.viewmodel.js",
                 "~/Scripts/app/artist.model.js",
-                "~/Scripts/app/artist.viewmodel.js"));
+                "~/Scripts/app/artist.viewmodel.js",
+                "~/Scripts/app/artist.albums.model.js",
+                "~/Scripts/app/artist.albums.viewmodel.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/sammy").Include(
             "~/Scripts/sammy.js",

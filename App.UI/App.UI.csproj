@@ -233,6 +233,8 @@
     <Content Include="Scripts\app\albumreview.binding.js" />
     <Content Include="Scripts\app\artist.viewmodel.js" />
     <Content Include="Scripts\app\artist.model.js" />
+    <Content Include="Scripts\app\artist.albums.model.js" />
+    <Content Include="Scripts\app\artist.albums.viewmodel.js" />
     <Content Include="Scripts\app\datacontext.js" />
     <Content Include="Scripts\app\albumreview.model.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
