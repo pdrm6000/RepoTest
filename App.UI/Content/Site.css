@@ -1,10 +1,4 @@
 ﻿
-header, footer, hgroup, nav, section
-{
-    display: block;
-}
-
-
 .float-left
 {
     float: left;
@@ -13,15 +7,6 @@ header, footer, hgroup, nav, section
 .float-right
 {
     float: right;
-}
-
-.clear-fix:after
-{
-    content: ".";
-    clear: both;
-    display: block;
-    height: 0;
-    visibility: hidden;
 }
 
 
@@ -34,31 +19,6 @@ header, footer, hgroup, nav, section
     max-width: 960px;
 }
 
-#body
-{
-    background-color: #efeeef;
-    clear: both;
-    padding-bottom: 35px;
-}
-
-.main-content
-{
-    background: url("../Images/accent.png") no-repeat;
-    padding-left: 10px;
-    padding-top: 30px;
-    min-height: 400px;
-}
-
-.min-height
-{
-    min-height: 450px;
-}
-
-.featured + .main-content
-{
-    background: url("../Images/heroAccent.png") no-repeat;
-}
-
 footer
 {
     clear: both;
@@ -66,6 +26,21 @@ footer
     font-size: .8em;
     height: 100px;
 }
+
+#body
+{
+    background-color: #efeeef;
+    clear: both;
+    padding-top: 30px;
+    padding-bottom: 35px;
+}
+
+.min-height
+{
+    min-height: 450px;
+}
+
+
 
 
 /* site title
