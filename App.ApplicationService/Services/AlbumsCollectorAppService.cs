@@ -3,6 +3,7 @@ using System.Threading;
 using App.CrossCutting.Caching;
 using App.Domain.AppServiceContracts;
 using App.Domain.DomainServices.Contracts;
+using App.Domain.Extensions;
 using App.Domain.RepositoryContracts;
 using App.Domain.Model;
 using App.Domain.ValueObjects.DTO;
@@ -31,9 +32,11 @@ namespace App.ApplicationService.Services
             return _albumsRepository.GetById(id);
         }
 
-        public int AddAlbum(Album album)
+        public AlbumEditingDTO AddAlbum(AlbumEditingDTO album)
         {
-            return _albumsRepository.Add(album);
+            var entity = album.ToAlbum();
+            _albumsRepository.Add(entity);
+            return entity.ToAlbumEditingDTO();
         }
 
         /// <summary>

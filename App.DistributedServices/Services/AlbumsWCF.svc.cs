@@ -20,11 +20,6 @@ namespace App.DistributedServices.Services
             return _albumsCollectorAppService.GetAlbumById(id);
         }
 
-        public int AddAlbum(Album album)
-        {
-            return _albumsCollectorAppService.AddAlbum(album);
-        }
-
         public AlbumDTO GetAlbumRamdon()
         {
             return _albumsCollectorAppService.GetNextAlbum(Guid.NewGuid());

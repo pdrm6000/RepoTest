@@ -7,7 +7,6 @@ namespace AppTest.Metadata
 {
     public interface IDataCollector
     {
-        int AddAlbum(Album album);
         Album GetAlbumById(int id);
         AlbumDTO GetAlbumRamdon();
     }

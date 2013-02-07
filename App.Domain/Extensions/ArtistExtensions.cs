@@ -38,7 +38,20 @@ namespace App.Domain.Extensions
                 Id = album.Id,
                 AlbumName = album.Name,
                 CoverUrl = album.CoverUrl,
-                Year = album.Year
+                Year = album.Year,
+                ArtistId = album.ArtistId
+            };
+        }
+
+        public static Album ToAlbum(this AlbumEditingDTO album)
+        {
+            return new Album()
+            {
+                Id = album.Id,
+                Name = album.AlbumName,
+                CoverUrl = album.CoverUrl,
+                Year = album.Year,
+                ArtistId = album.ArtistId
             };
         }
 

@@ -13,12 +13,6 @@
 
 /* main layout
 ----------------------------------------------------------*/
-.content-wrapper
-{
-    margin: 0 auto;
-    max-width: 960px;
-}
-
 footer
 {
     clear: both;
@@ -37,7 +31,7 @@ footer
 
 .min-height
 {
-    min-height: 450px;
+    min-height: 400px;
 }
 
 
@@ -328,4 +322,12 @@ ul#menu li a:hover
     position: fixed;
     top: 20px;
     right: 10px;
+}
+
+#ArtistCollection h2 {
+    margin-bottom: 15px;
+}
+
+#menu h1 {
+    font-family: Georgia;
 }

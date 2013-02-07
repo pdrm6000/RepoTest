@@ -12,12 +12,6 @@ namespace AppTest.Metadata
             return caller.Call<Album>(proxy => proxy.GetAlbumById(id));
         }
 
-        public int AddAlbum(Album album)
-        {
-            var caller = new WCFInvoker<IAlbumsWCF>();
-            return caller.Call<int>(proxy => proxy.AddAlbum(album));
-        }
-
         public AlbumDTO GetAlbumRamdon()
         {
             var caller = new WCFInvoker<IAlbumsWCF>();

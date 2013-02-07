@@ -26,6 +26,9 @@ namespace AppTest
             bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
                         "~/Scripts/toastr*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ko").Include(
+            "~/Scripts/knockout*"));
+
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/home.viewmodel.js",
                 "~/Scripts/app/viewsRenderer.js",

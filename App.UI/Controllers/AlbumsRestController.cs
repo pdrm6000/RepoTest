@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using App.Domain.AppServiceContracts;
 using App.Domain.ValueObjects.DTO;
@@ -18,6 +20,12 @@ namespace AppTest.Controllers
         public string Get()
         {
             return "Not Implemented method";
+        }
+
+        public HttpResponseMessage Post(AlbumEditingDTO album)
+        {
+            var newAlbum = _albumsCollectorAppService.AddAlbum(album);
+            return Request.CreateResponse<AlbumEditingDTO>(HttpStatusCode.OK, newAlbum);
         }
 
         [HttpGet]

@@ -12,9 +12,6 @@ namespace App.DistributedServices.Services
         Album GetAlbumById(int id);
 
         [OperationContract]
-        int AddAlbum(Album album);
-
-        [OperationContract]
         AlbumDTO GetAlbumRamdon();
     }
 }
