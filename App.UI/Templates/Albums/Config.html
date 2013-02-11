@@ -11,11 +11,12 @@
                 <div class="row-fluid pull-left">
                     <div class="breadcrumb" style="height: 45px">
                         <h2 class="pull-left" data-bind="text: Name"></h2>
-                        <a class="btn btn-mini pull-right" href="#"><i class="icon-minus"></i></a>
+                        <a data-bind="click: $parent.removeAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-minus"></i></a>
                         <a data-bind="click: $parent.addAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-plus"></i></a>
                     </div>
                     <div data-bind="foreach: Albums">
                         <div class="span3">
+                            <input type="checkbox" checked="false" data-bind="visible: $parent.isDeleting"/>
                             <img data-bind="attr: { src: FullCoverUrl }" width="170" height="170" class="img-polaroid" />
                             <div style="text-align: center; width: 100%">
                                 <div data-bind="text: AlbumName"></div>

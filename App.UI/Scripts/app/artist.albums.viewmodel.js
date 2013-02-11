@@ -12,9 +12,9 @@
             artistsWithAlbums.isLoading(false);
         },
         mapAlbumsCollection = {
-            'Albums': {
+            '': {
                 create: function (options) {
-                    return new artistsWithAlbums.getNewAlbumModel(options.data);
+                    return new artistsWithAlbums.getNewArtistModel(options.data);
                 }
             }
         },
@@ -47,6 +47,9 @@
             artist.Albums.push(vm);
             toastr.success('<h4>Completed</h4>Album added succesfully');
             toastr.clear(lastaddpopup);
+        },
+        removeAlbum = function (data) {
+            data.isDeleting(true);
         };
 
     return {
@@ -54,6 +57,7 @@
         init: init,
         addAlbum: addAlbum,
         finishAlbumAdding: finishAlbumAdding,
+        removeAlbum: removeAlbum
     };
 
 })(ko, albumApp.datacontext);

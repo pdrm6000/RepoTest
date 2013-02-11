@@ -5,6 +5,9 @@
         this.isLoading = ko.observable(true);
         this.artistCollection = ko.observableArray(); // overrided in mapping
         this.selectedAlbum = new album();
+        this.getNewArtistModel = function (data) {
+            return new artistModel(data);
+        };
         this.getNewAlbumModel = function (data) {
             return new albumModel(data);
         };
@@ -32,10 +35,26 @@
     };
 
     function albumModel(data) {
-        ko.mapping.fromJS(data, {}, this);
-        this.FullCoverUrl = ko.computed(function () {
-            return '../../Images/Covers/' + this.CoverUrl();
-        }, this);
+        var self = this;
+        ko.mapping.fromJS(data, {}, self);
+        self.FullCoverUrl = ko.computed(function () {
+            return '../../Images/Covers/' + self.CoverUrl();
+        }, self);
+    };
+    var mapping = {
+        '': {
+            create: function(options) {
+                return new albumModel(options.data);
+            }
+        }
+    };
+    function artistModel(data) {
+        var self = this;
+        self.Albums = ko.mapping.fromJS(data.Albums, mapping);
+        ko.mapping.fromJS(data, {}, self);
+        self.isDeleting = ko.observable(false);
+        //self.Albums = new albumModel(data.Albums);
+        
     };
 
 })(ko, albumApp.datacontext);
