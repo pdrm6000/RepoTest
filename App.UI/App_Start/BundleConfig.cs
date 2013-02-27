@@ -8,26 +8,26 @@ namespace AppTest
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery")
-                .Include("~/Scripts/jquery*"));
+                .Include("~/Scripts/lib/jquery*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-1.9.2.min.js"));
+                        "~/Scripts/lib/jquery-ui-1.9.2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/lib/jquery.unobtrusive*",
+                        "~/Scripts/lib/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Scripts/lib/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                        "~/Scripts/app/bootstrap*"));
+                        "~/Scripts/lib/bootstrap*"));
 
             bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
-                        "~/Scripts/toastr*"));
+                        "~/Scripts/lib/toastr*"));
 
             bundles.Add(new ScriptBundle("~/bundles/ko").Include(
-            "~/Scripts/knockout*"));
+                        "~/Scripts/lib/knockout*"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/home.viewmodel.js",
@@ -44,8 +44,8 @@ namespace AppTest
                 "~/Scripts/app/artist.albums.viewmodel.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/sammy").Include(
-            "~/Scripts/sammy.js",
-            "~/Scripts/sammy.template.js"));
+            "~/Scripts/lib/sammy.js",
+            "~/Scripts/lib/sammy.template.js"));
 
 
 
