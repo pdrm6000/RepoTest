@@ -258,6 +258,7 @@
     <Content Include="Scripts\lib\modernizr.custom.28468.js" />
     <Content Include="Scripts\lib\prototype.js" />
     <Content Include="Scripts\lib\require.js" />
+    <Content Include="Scripts\lib\requiresammy.js" />
     <Content Include="Scripts\lib\sammy.js" />
     <Content Include="Scripts\lib\sammy.template.js" />
     <Content Include="Scripts\lib\toastr.js" />

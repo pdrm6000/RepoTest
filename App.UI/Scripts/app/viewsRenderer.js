@@ -1,10 +1,10 @@
-﻿define("app/viewsRenderer", ["lib/jquery-1.8.3"], function ($) {
+﻿define("app/viewsRenderer", ['jquery', 'sammy'], function ($, sammy) {
     return {
         start: function () {
             var app = $.sammy('#mainHidden', function () {
                 var viewModelToInit;
                 this.use('Template', 'html');
-
+                console.log(sammy);
                 this.get('#/', function (context) {
                     viewModelToInit = null;
                     window.albumApp.homeViewModel.isGlobalLoading(true);

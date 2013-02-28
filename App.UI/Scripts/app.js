@@ -1,19 +1,21 @@
 ﻿requirejs.config({
-    baseUrl: 'Scripts',
+    baseUrl: 'Scripts/lib',
     paths: {
-        lib: 'lib',
-        app: 'app',
+        app: '../app',
+        "jquery": "/Scripts/lib/jquery-1.8.3",
+        //"sammy": "/Scripts/lib/sammy"
     },
     //shim: {
-    //    'lib/jquery-1.8.3': {
-    //        exports: 'lib/jquery-1.8.3'
+    //    "sammy": {
+    //        deps: ["jquery"],
+    //        exports: "Sammy"
     //    }
-    //},
+    //}
 });
 
 // Start the main app logic.
-requirejs(['app/viewsRenderer'],
-function (viewRenderer) {
+requirejs(['jquery', 'sammy', 'app/viewsRenderer'],
+function ($, sammy, viewRenderer) {
     viewRenderer.start();
     //jQuery, canvas and the app/sub module are all
     //loaded and can be used here now.
