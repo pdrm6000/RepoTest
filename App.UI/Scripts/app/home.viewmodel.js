@@ -1,17 +1,17 @@
-﻿window.albumApp = window.albumApp || {};
+﻿define("app/home.viewmodel", ['knockout-2.2.0'], function (ko) {
 
-window.albumApp.homeViewModel = (function (ko) {
-    var isGlobalLoading = ko.observable(true);
-    var canShowView = ko.computed(function() {
+    init = function () {
+        ko.applyBindings(self, document.getElementById("body"));
+    },
+    isGlobalLoading = ko.observable(true),
+    canShowView = ko.computed(function () {
         return !isGlobalLoading();
     }, this);
-    
-    return {
+
+    var self = {
+        init: init,
         isGlobalLoading: isGlobalLoading,
-        canShowView : canShowView,
+        canShowView: canShowView,
     };
-
-})(ko);
-
-
-ko.applyBindings(window.albumApp.homeViewModel, document.getElementById("body"));
+    return self;
+});

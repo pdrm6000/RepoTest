@@ -1,4 +1,4 @@
-﻿window.albumApp.datacontext = (function () {
+﻿define("app/datacontext", [], function () {
 
     downloadNextAlbum = function () {
         var nextAlbum = downloadAlbum('Next');
@@ -77,7 +77,7 @@
         });
     };
 
-    var datacontext = {
+    return {
         downloadNextAlbum: downloadNextAlbum,
         downloadPreviousAlbum: downloadPreviousAlbum,
         downloadAllArtists: downloadAllArtists,
@@ -86,5 +86,4 @@
         addAlbum: addAlbum,
         downloadArtistsWithAlbums: downloadArtistsWithAlbums,
     };
-    return datacontext;
-})();
+});
