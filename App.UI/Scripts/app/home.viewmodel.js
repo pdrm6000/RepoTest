@@ -1,4 +1,4 @@
-﻿define("app/home.viewmodel", ['knockout-2.2.0'], function (ko) {
+﻿define("app/home.viewmodel", ['knockout'], function (ko) {
 
     init = function () {
         ko.applyBindings(self, document.getElementById("body"));

@@ -252,7 +252,7 @@
     <Content Include="Scripts\lib\jquery.validate.min.js" />
     <Content Include="Scripts\lib\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\lib\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\lib\knockout-2.2.0.js" />
+    <Content Include="Scripts\lib\knockout.js" />
     <Content Include="Scripts\lib\knockout.mapping.js" />
     <Content Include="Scripts\lib\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\lib\modernizr.custom.28468.js" />

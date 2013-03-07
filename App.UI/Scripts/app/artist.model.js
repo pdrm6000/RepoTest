@@ -1,8 +1,8 @@
-﻿define("app/artist.model", ['knockout-2.2.0'], function (ko) {
+﻿define("app/artist.model", ['knockout'], function (ko) {
 
     isLoading = ko.observable(true),
     artistsCollection = ko.observableArray(),
-    selectedArtist = new Artist(),
+    selectedArtist = new artist(),
     clear = function () {
         artistsCollection.removeAll();
     };
@@ -13,7 +13,7 @@
         clear: clear
     };
 
-    function Artist() {
+    function artist() {
         this.id = ko.observable();
         this.name = ko.observable();
         this.imageUrl = ko.observable();

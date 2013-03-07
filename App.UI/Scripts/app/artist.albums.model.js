@@ -1,60 +1,64 @@
-﻿(function (ko, datacontext) {
-    datacontext.artistWithAlbums = new artistWithAlbums();
+﻿define("app/artist.albums.model", ['knockout', 'knockout.mapping'],
+    function (ko, koMapping) {
 
-    function artistWithAlbums() {
-        this.isLoading = ko.observable(true);
-        this.artistCollection = ko.observableArray(); // overrided in mapping
-        this.selectedAlbum = new album();
-        this.getNewArtistModel = function (data) {
+        isLoading = ko.observable(true),
+        artistCollection = ko.observableArray(), // overrided in mapping
+        selectedAlbum = new album(),
+        getNewArtistModel = function (data) {
             return new artistModel(data);
-        };
-        this.getNewAlbumModel = function (data) {
+        },
+        getNewAlbumModel = function (data) {
             return new albumModel(data);
         };
-    };
+        return {
+            isLoading: isLoading,
+            artistCollection: artistCollection,
+            selectedAlbum: selectedAlbum,
+            getNewArtistModel: getNewArtistModel,
+            getNewAlbumModel: getNewAlbumModel
+        };
 
-    function album() {
-        this.id = ko.observable();
-        this.name = ko.observable();
-        this.year = ko.observable();
-        this.artistId = ko.observable();
-        this.coverUrl = ko.observable();
-        this.artistName = ko.observable();
-        this.fullCoverUrl = ko.computed(function () {
-            return "../../Images/Covers/" + this.coverUrl();
-        }, this),
-        this.getAlbumDTO = function () {
-            return {
-                Id: this.id(),
-                AlbumName: this.name(),
-                Year: this.year(),
-                CoverUrl: this.coverUrl(),
-                ArtistId: this.artistId(),
+        function album() {
+            this.id = ko.observable();
+            this.name = ko.observable();
+            this.year = ko.observable();
+            this.artistId = ko.observable();
+            this.coverUrl = ko.observable();
+            this.artistName = ko.observable();
+            this.fullCoverUrl = ko.computed(function () {
+                return "../../Images/Covers/" + this.coverUrl();
+            }, this),
+            this.getAlbumDTO = function () {
+                return {
+                    Id: this.id(),
+                    AlbumName: this.name(),
+                    Year: this.year(),
+                    CoverUrl: this.coverUrl(),
+                    ArtistId: this.artistId(),
+                };
             };
         };
-    };
 
-    function albumModel(data) {
-        var self = this;
-        ko.mapping.fromJS(data, {}, self);
-        self.FullCoverUrl = ko.computed(function () {
-            return '../../Images/Covers/' + self.CoverUrl();
-        }, self);
-    };
-    var mapping = {
-        '': {
-            create: function(options) {
-                return new albumModel(options.data);
-            }
-        }
-    };
-    function artistModel(data) {
-        var self = this;
-        self.Albums = ko.mapping.fromJS(data.Albums, mapping);
-        ko.mapping.fromJS(data, {}, self);
-        self.isDeleting = ko.observable(false);
-        //self.Albums = new albumModel(data.Albums);
-        
-    };
+        function albumModel(data) {
+            var self = this;
+            koMapping.fromJS(data, {}, self);
+            self.FullCoverUrl = ko.computed(function () {
+                return '../../Images/Covers/' + self.CoverUrl();
+            }, self);
+        };
 
-})(ko, albumApp.datacontext);
+        function artistModel(data) {
+            var self = this;
+            var mapping = {
+                '': {
+                    create: function (options) {
+                        return new albumModel(options.data);
+                    }
+                }
+            };
+            self.Albums = koMapping.fromJS(data.Albums, mapping);
+            koMapping.fromJS(data, {}, self);
+            self.isDeleting = ko.observable(false);
+        };
+
+    });
