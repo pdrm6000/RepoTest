@@ -1,14 +1,14 @@
-﻿(function (ko, datacontext) {
-    datacontext.Albums = new Albums();
-    
-    function Albums(data) {
-        var self = this;
-        data = data || {};
-        self.NextAlbum = new nextAlbum();
-        self.CurrentAlbum = new currentAlbum();
-        self.IsLoading = ko.observable();
+﻿define("app/albumreview.model", ['knockout'], function (ko) {
+
+    NextAlbum = new nextAlbum(),
+    CurrentAlbum = new currentAlbum(),
+    IsLoading = ko.observable();
+    return {
+        NextAlbum: NextAlbum,
+        CurrentAlbum: CurrentAlbum,
+        IsLoading: IsLoading
     };
-    
+
     function currentAlbum() {
         this.CurrentAlbumName = ko.observable();
         this.CurrentYear = ko.observable();
@@ -16,6 +16,7 @@
         this.CurrentComments = ko.observable();
         this.CurrentImageUrl = ko.observable();
     };
+
     function nextAlbum() {
         this.NextAlbumName = ko.observable();
         this.NextYear = ko.observable();
@@ -23,5 +24,5 @@
         this.NextComments = ko.observable();
         this.NextImageUrl = ko.observable();
     };
-    
-})(ko, albumApp.datacontext);
+
+});

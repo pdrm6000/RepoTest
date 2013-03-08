@@ -239,7 +239,6 @@
     <Content Include="Scripts\app\datacontext.js" />
     <Content Include="Scripts\app\albumreview.model.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
-    <Content Include="Scripts\app\styles.js" />
     <Content Include="Scripts\app\viewsRenderer.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="Scripts\lib\jquery-1.8.3.js" />

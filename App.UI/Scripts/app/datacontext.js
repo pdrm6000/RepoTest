@@ -9,7 +9,6 @@
         return previousAlbum.done();
     },
     downloadAlbum = function (action) {
-        datacontext.Albums.IsLoading(true);
         return $.ajax({
             url: "../api/AlbumsRest/" + action,
             accepts: "application/json",

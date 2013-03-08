@@ -1,5 +1,5 @@
-﻿define("app/viewsRenderer", ['jquery', 'sammy', 'app/home.viewmodel', 'app/artist.viewModel', 'app/artist.albums.viewmodel'],
-    function ($, sammy, homeViewModel, artistViewModel, artistsWithAlbumsViewModel) {
+﻿define("app/viewsRenderer", ['jquery', 'sammy', 'app/home.viewmodel', 'app/artist.viewModel', 'app/artist.albums.viewmodel', 'app/albumreview.viewmodel'],
+    function ($, sammy, homeViewModel, artistViewModel, artistsWithAlbumsViewModel, albumReviewViewModel) {
         return {
             start: function () {
                 homeViewModel.init();
@@ -15,8 +15,8 @@
                     });
 
                     this.get('#/AlbumsReview', function (context) {
-                        viewModelToInit = window.albumApp.albumReviewViewModel.init;
-                        window.albumApp.homeViewModel.isGlobalLoading(true);
+                        viewModelToInit = albumReviewViewModel.init;
+                        homeViewModel.isGlobalLoading(true);
                         this.partial('Templates/Albums/Review.html')
                             .then(startTransition);
                     });
