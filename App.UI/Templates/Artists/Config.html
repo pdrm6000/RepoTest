@@ -1,35 +1,36 @@
 ﻿<div id="ArtistsConfig">
-    <div class="ArtistTitle">
-        <h1>Artist directory</h1>
-        <a href="." class="float-right">
-            <img src="../../Images/delete.png" /></a>
-        <a href="." class="float-right">
-            <img src="../../Images/add.png" data-bind="click: addArtist" /></a>
-    </div>
-    <br />
-    <br />
-    <div class="AlbumsDirContainerFill">
-        <div data-bind="visible: artists.isLoading" style="text-align: center">
-            <img src="../../Images/ajax_loader_page.gif" />
+    <div class="span9">
+        <div class="ArtistTitle">
+            <h1>Artist directory</h1>
+            <a href="." class="float-right">
+                <img src="../../Images/delete.png" /></a>
+            <a href="." class="float-right">
+                <img src="../../Images/add.png" data-bind="click: addArtist" /></a>
         </div>
-        <div class="AlbumsDirContainer" data-bind="foreach: artists.artistsCollection">
-            <a href=".">
-                <div class="AlbumsDirItem" data-bind="attr: { style: FullImageUrl }, click: $parent.editArtist">
-                    <div class="AlbumsDirArtist" data-bind="text: Name"></div>
-                </div>
-            </a>
+        <br />
+        <br />
+        <div class="AlbumsDirContainerFill">
+            <div data-bind="visible: artists.isLoading" style="text-align: center">
+                <img src="../../Images/ajax_loader_page.gif" />
+            </div>
+            <div class="AlbumsDirContainer" data-bind="foreach: artists.artistsCollection">
+                <a href=".">
+                    <div class="AlbumsDirItem" data-bind="attr: { style: FullImageUrl }, click: $parent.editArtist">
+                        <div class="AlbumsDirArtist" data-bind="text: Name"></div>
+                    </div>
+                </a>
+            </div>
         </div>
+        <br />
+        <br />
+        <br />
+        Select one artist to edit
+    <br />
+        Click add button to create new artist<br />
+        Click delete button to remove artist selected
     </div>
-    <br />
-    <br />
-    <br />
-    Select one artist to edit
-    <br />
-    Click add button to create new artist<br />
-    Click delete button to remove artist selected
 
-    
-    
+
     <div id="editAlert" class="hide">
         <h4>Saving artist</h4>
         Artist saved succesfully
