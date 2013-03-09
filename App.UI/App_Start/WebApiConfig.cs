@@ -1,8 +1,7 @@
 ﻿using System.Web.Http;
-using AppTest.Controllers;
-using AppTest.Metadata;
+using App.UI.Metadata;
 
-namespace AppTest.App_Start
+namespace App.UI.App_Start
 {
     public static class WebApiConfig
     {

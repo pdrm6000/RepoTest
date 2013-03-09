@@ -2,7 +2,7 @@
 using App.DistributedServices.Services;
 using App.Domain.ValueObjects.DTO;
 
-namespace AppTest.Metadata
+namespace App.UI.Metadata
 {
     public class DataCollector : IDataCollector
     {

@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Web.Http;
 using App.Domain.AppServiceContracts;
 using App.Domain.ValueObjects.DTO;
-using AppTest.Metadata;
+using App.UI.Metadata;
 
-namespace AppTest.Controllers
+namespace App.UI.Controllers
 {
     public class AlbumsRestController : ApiController
     {

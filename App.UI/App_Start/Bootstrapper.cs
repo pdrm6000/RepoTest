@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc3;
 
-namespace AppTest
+namespace App.UI.App_Start
 {
     public static class Bootstrapper
     {

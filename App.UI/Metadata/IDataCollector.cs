@@ -1,9 +1,7 @@
-﻿using System;
-using App.Domain.Model;
-using App.Domain.ValueObjects;
+﻿using App.Domain.Model;
 using App.Domain.ValueObjects.DTO;
 
-namespace AppTest.Metadata
+namespace App.UI.Metadata
 {
     public interface IDataCollector
     {

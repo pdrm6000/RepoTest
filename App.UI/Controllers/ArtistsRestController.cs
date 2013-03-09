@@ -6,7 +6,7 @@ using System.Web.Http;
 using App.Domain.AppServiceContracts;
 using App.Domain.ValueObjects.DTO;
 
-namespace AppTest.Controllers
+namespace App.UI.Controllers
 {
     public class ArtistsRestController : ApiController
     {
