@@ -231,15 +231,15 @@
     <Content Include="Images\PreviousAlbumButtom.png" />
     <Content Include="Images\Rate.jpg" />
     <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\app\albumreview.animation.js" />
-    <Content Include="Scripts\app\albumreview.binding.js" />
-    <Content Include="Scripts\app\artist.viewmodel.js" />
-    <Content Include="Scripts\app\artist.model.js" />
-    <Content Include="Scripts\app\artist.albums.model.js" />
-    <Content Include="Scripts\app\artist.albums.viewmodel.js" />
+    <Content Include="Scripts\app\albumsReview.animation.js" />
+    <Content Include="Scripts\app\albumsReview.binding.js" />
+    <Content Include="Scripts\app\artistsDirectory.js" />
+    <Content Include="Scripts\app\artistsDirectory.model.js" />
+    <Content Include="Scripts\app\albumsDirectory.model.js" />
+    <Content Include="Scripts\app\albumsDirectory.js" />
     <Content Include="Scripts\app\datacontext.js" />
-    <Content Include="Scripts\app\albumreview.model.js" />
-    <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="Scripts\app\albumsReview.model.js" />
+    <Content Include="Scripts\app\home.js" />
     <Content Include="Scripts\app\viewsRenderer.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="Scripts\lib\jquery-1.8.3.js" />
@@ -266,8 +266,8 @@
     <Content Include="Scripts\lib\upshot.js" />
     <Content Include="Scripts\lib\upshot.knockout.extensions.js" />
     <Content Include="Scripts\lib\upshot.min.js" />
-    <Content Include="Templates\Home\Index.html" />
-    <Content Include="Templates\Artists\Config.html" />
+    <Content Include="Templates\Home\home.html" />
+    <Content Include="Templates\Artists\artistsDirectory.html" />
     <Content Include="TODO.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -326,14 +326,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\Albums\Config.html" />
-    <Content Include="Templates\Albums\Review.html" />
+    <Content Include="Templates\Albums\albumsDirectory.html" />
+    <Content Include="Templates\Albums\albumsReview.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\app\albumreview.viewmodel.js" />
+    <Content Include="Scripts\app\albumsReview.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

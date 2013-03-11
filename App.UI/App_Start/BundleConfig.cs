@@ -28,20 +28,6 @@ namespace App.UI.App_Start
             bundles.Add(new ScriptBundle("~/bundles/ko").Include(
                         "~/Scripts/lib/knockout*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/app/home.viewmodel.js",
-                "~/Scripts/app/viewsRenderer.js",
-                "~/Scripts/app/styles.js",
-                "~/Scripts/app/datacontext.js",
-                "~/Scripts/app/albumreview.binding.js",
-                "~/Scripts/app/albumreview.model.js",
-                "~/Scripts/app/albumreview.animation.js",
-                "~/Scripts/app/albumreview.viewmodel.js",
-                "~/Scripts/app/artist.model.js",
-                "~/Scripts/app/artist.viewmodel.js",
-                "~/Scripts/app/artist.albums.model.js",
-                "~/Scripts/app/artist.albums.viewmodel.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/sammy").Include(
             "~/Scripts/lib/sammy.js",
             "~/Scripts/lib/sammy.template.js"));
