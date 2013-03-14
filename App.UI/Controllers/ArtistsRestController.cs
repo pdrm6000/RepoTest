@@ -8,6 +8,7 @@ using App.Domain.ValueObjects.DTO;
 
 namespace App.UI.Controllers
 {
+    //[HttpHeader("Access-Control-Allow-Origin", "*")]
     public class ArtistsRestController : ApiController
     {
         private readonly IArtistCollectorAppService _artistCollectorAppService;
@@ -20,7 +21,8 @@ namespace App.UI.Controllers
         // GET api/<controller>
         public IEnumerable<ArtistDTO> Get()
         {
-            return _artistCollectorAppService.GetAll();
+            var result = _artistCollectorAppService.GetAll();
+            return result;
         }
 
         // GET api/<controller>

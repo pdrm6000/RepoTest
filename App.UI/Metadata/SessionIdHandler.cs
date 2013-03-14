@@ -36,6 +36,8 @@ namespace App.UI.Metadata
             var response = await base.SendAsync(request, cancellationToken);
             // Set the session ID as a cookie in the response message.
             response.Headers.AddCookies(new[] { new CookieHeaderValue(SessionIdToken, sessionId) });
+            response.Headers.Add("Access-Control-Allow-Origin", "*");
+            response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
             return response;
         }
 

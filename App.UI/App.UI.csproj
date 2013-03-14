@@ -209,15 +209,18 @@
     <Content Include="DBscript.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Add.png" />
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\ajax_loader_page.gif" />
     <Content Include="Images\Artist\acdc.jpg" />
-    <Content Include="Images\Artist\foofighters.jpg" />
+    <Content Include="Images\Artist\foofighter.jpg" />
     <Content Include="Images\Artist\jackwhite.jpg" />
-    <Content Include="Images\Artist\ledzeppelin.jpg" />
+    <Content Include="Images\Artist\ledzepellin.jpg" />
     <Content Include="Images\Artist\linkinpark.jpg" />
+    <Content Include="Images\Artist\paparoach.jpg" />
     <Content Include="Images\Artist\tenaciousd.jpg" />
     <Content Include="Images\Artist\thebeatles.jpg" />
+    <Content Include="Images\Artist\whitestripes.jpg" />
     <Content Include="Images\Covers\abbeyroad.jpg" />
     <Content Include="Images\Covers\backinblack.jpg" />
     <Content Include="Images\Covers\blunderbuss.jpg" />
@@ -225,6 +228,7 @@
     <Content Include="Images\Covers\physicalgraffiti.jpg" />
     <Content Include="Images\Covers\riseofthefenix.jpg" />
     <Content Include="Images\Covers\wastinglight.jpg" />
+    <Content Include="Images\delete.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Images\NextAlbumButtom.png" />
@@ -334,6 +338,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\app\albumsReview.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Perfil1.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
