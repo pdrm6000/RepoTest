@@ -4,7 +4,7 @@
 Thumbs.db
 #Ignore files build by Visual Studio
 
-/packages
+
 *.dll
 *.obj
 *.exe
@@ -31,4 +31,4 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-!/Libraries/*.dll
+!/packages
