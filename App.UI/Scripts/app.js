@@ -2,7 +2,7 @@
     baseUrl: 'Scripts/lib',
     paths: {
         app: '../app',
-        "jquery": "/Scripts/lib/jquery-1.8.3",
+        "jquery": "./jquery-1.8.3",
     },
 });
 

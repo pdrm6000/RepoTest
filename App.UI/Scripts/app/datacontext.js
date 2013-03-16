@@ -10,7 +10,7 @@
     },
     downloadAlbum = function (action) {
         return $.ajax({
-            url: "../api/AlbumsRest/" + action,
+            url: "/api/AlbumsRest/" + action,
             accepts: "application/json",
             cache: false,
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -20,7 +20,7 @@
     },
     downloadArtist = function (action) {
         return $.ajax({
-            url: "../api/ArtistsRest/" + action,
+            url: "/api/ArtistsRest/" + action,
             accepts: "application/json",
             cache: false,
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -67,7 +67,7 @@
     },
     downloadArtistsWithAlbums = function () {
         return $.ajax({
-            url: "../api/ArtistsRest/GetWithAlbums",
+            url: "/api/ArtistsRest/GetWithAlbums",
             accepts: "application/json",
             cache: false,
             error: function (XMLHttpRequest, textStatus, errorThrown) {
