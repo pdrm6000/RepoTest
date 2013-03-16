@@ -39,3 +39,4 @@ _ReSharper*/
 !packages/*/*/*/*/*/*/*.dll
 !packages/*/*/*/*/*/*/*/*.dll
 !packages/*/*/*/*/*/*/*/*/*.dll
+!App.WebApp/App/durandal/amd/optimizer.exe
