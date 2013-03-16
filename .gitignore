@@ -31,4 +31,11 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-!/packages
+!packages/*/*.dll
+!packages/*/*/*.dll
+!packages/*/*/*/*.dll
+!packages/*/*/*/*/*.dll
+!packages/*/*/*/*/*/*.dll
+!packages/*/*/*/*/*/*/*.dll
+!packages/*/*/*/*/*/*/*/*.dll
+!packages/*/*/*/*/*/*/*/*/*.dll
