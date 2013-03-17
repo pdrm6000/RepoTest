@@ -166,8 +166,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Initialization.cs" />
-    <Compile Include="Metadata\DataCollector.cs" />
-    <Compile Include="Metadata\IDataCollector.cs" />
     <Compile Include="Metadata\WCFInvoker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -320,10 +318,6 @@
     <ProjectReference Include="..\App.CrossCutting\App.CrossCutting.csproj">
       <Project>{BA020EB8-218C-4978-A577-8769B07D1B47}</Project>
       <Name>App.CrossCutting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.DistributedServices\App.DistributedServices.csproj">
-      <Project>{A1892004-C522-47B5-9147-6D8C9BD1300E}</Project>
-      <Name>App.DistributedServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.Domain\App.Domain.csproj">
       <Project>{976C7A43-40DF-476C-AF2F-C6028D7AE019}</Project>

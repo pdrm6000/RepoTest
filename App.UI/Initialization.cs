@@ -10,10 +10,9 @@ namespace App.UI
         public void RegisterDependencies(IUnityContainer container)
         {
             container
-                .RegisterType<IDataCollector, DataCollector>()
                 .RegisterType<IAlbumsNavigationCache, AlbumsNavigationCache>()
                 .RegisterType<ICacheService, CacheService>(new ContainerControlledLifetimeManager());
-            IDependencyInitializer initializer = new App.DistributedServices.Initialization();
+            IDependencyInitializer initializer = new App.ApplicationService.Initialization();
             initializer.RegisterDependencies(container);
         }
     }
