@@ -335,6 +335,7 @@
     <Content Include="Scripts\app\albumsReview.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\AppUI_Production.pubxml" />
     <None Include="Properties\PublishProfiles\Perfil1.pubxml" />
   </ItemGroup>
   <PropertyGroup>

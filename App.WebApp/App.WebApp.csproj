@@ -194,6 +194,8 @@
     <Content Include="Content\images\icon.png" />
     <Content Include="Content\images\ios-startup-image-landscape.png" />
     <Content Include="Content\images\ios-startup-image-portrait.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\toastr.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\Add.png" />
@@ -283,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\WebAppProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\WebApp_Production.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
   </ItemGroup>
   <PropertyGroup>
@@ -304,6 +307,8 @@
           <DevelopmentServerPort>17577</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/AppWebApp</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/App.WebApp</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

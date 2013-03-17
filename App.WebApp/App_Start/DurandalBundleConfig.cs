@@ -25,6 +25,8 @@ namespace App.WebApp {
           .Include("~/Content/font-awesome.min.css")
 		  .Include("~/Content/durandal.css")
           .Include("~/Content/app.css")
+          .Include("~/Content/site.css")
+          .Include("~/Content/toastr.css")
         );
     }
 
