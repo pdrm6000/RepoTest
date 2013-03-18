@@ -22,13 +22,10 @@ define(function(require) {
         
         //configure routing
         router.useConvention();
-        router.mapNav('welcome');
-        router.mapNav('flickr');
-        router.mapNav('home');
-        router.mapNav('albumsReview');
-        router.mapNav('artistsDirectory');
-        router.mapNav('albumsDirectory');
-        router.mapNav('myPage');
+        router.mapNav('viewmodels/home', 'viewmodels/home', 'Home');
+        router.mapNav('viewmodels/albumsReview', 'viewmodels/albumsReview', 'Review');
+        router.mapNav('viewmodels/artistsDirectory', 'viewmodels/artistsDirectory', 'Artists');
+        router.mapNav('viewmodels/albumsDirectory', 'viewmodels/albumsDirectory', 'Albums');
         
         app.adaptToDevice();
         

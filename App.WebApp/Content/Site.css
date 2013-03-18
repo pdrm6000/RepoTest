@@ -13,6 +13,7 @@
 
 /* main layout
 ----------------------------------------------------------*/
+
 footer
 {
     clear: both;
@@ -21,7 +22,7 @@ footer
     height: 100px;
 }
 
-#body
+#applicationHost
 {
     background-color: #efeeef;
     clear: both;

@@ -32,7 +32,7 @@
         },
         processArtistsDownloaded = function (data) {
             ko.utils.arrayPushAll(artistModel.artistsCollection, data);
-            artistEffects();
+            //artistEffects();
             artistModel.isLoading(false);
         },
         finishArtistEditing = function () {
@@ -60,7 +60,7 @@
             toastr.success('<h4>Completed</h4>Artist saved succesfully');
             toastr.clear(lasteditpopup);
         },
-        artistEffects = function () {
+        viewAttached = function () {
             $(".AlbumsDirItem").hover(function () {
                 $(this).animate({ borderColor: "#5c5c5c" }, 150);
                 $(this).find(".AlbumsDirArtist").animate({ marginTop: 140, height: 60 }, 150);
@@ -79,6 +79,8 @@
             finishArtistEditing: finishArtistEditing,
             finishArtistAdding: finishArtistAdding,
             activate: init,
+            viewAttached: viewAttached,
+            afterBind : viewAttached,
         };
         return self;
     });

@@ -18,7 +18,7 @@
         this.name = ko.observable();
         this.imageUrl = ko.observable();
         this.fullImageUrl = ko.computed(function () {
-            return "../../Images/Artist/" + this.imageUrl();
+            return "./Images/Artist/" + this.imageUrl();
         }, this),
         this.getArtistDTO = function () {
             return {

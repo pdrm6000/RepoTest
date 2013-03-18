@@ -20,8 +20,8 @@ namespace App.WebApp {
       bundles.Add(
         new StyleBundle("~/Content/css")
           .Include("~/Content/ie10mobile.css")
-          .Include("~/Content/bootstrap.min.css")
-          .Include("~/Content/bootstrap-responsive.min.css")
+          .Include("~/Content/bootstrap.css")
+          .Include("~/Content/bootstrap-responsive.css")
           .Include("~/Content/font-awesome.min.css")
 		  .Include("~/Content/durandal.css")
           .Include("~/Content/app.css")
