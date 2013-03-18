@@ -20,7 +20,7 @@ define(function(require) {
         //Look for partial views in a 'views' folder in the root.
         viewLocator.useConvention();
         
-        //configure routing
+        //configure routingewq
         router.useConvention();
         router.mapNav('viewmodels/home', 'viewmodels/home', 'Home');
         router.mapNav('viewmodels/albumsReview', 'viewmodels/albumsReview', 'Review');

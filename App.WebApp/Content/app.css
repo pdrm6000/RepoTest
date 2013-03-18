@@ -1,6 +1,9 @@
 ﻿.splash {
+    position: fixed;
     text-align: center;
-    margin: 10% 0 0 0;
+    width: 100%;
+    padding: 10% 0 0 0;
+    height: 90%
 }
 
 .splash .message {
@@ -20,7 +23,6 @@
 
 .page-host {
     position: relative;
-    top: 40px;
 }
 
 .navbar-fixed-top {
