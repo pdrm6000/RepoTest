@@ -12,7 +12,7 @@ namespace App.WebApp {
           .Include("~/Scripts/jquery-{version}.js")
           .Include("~/Scripts/jquery-ui-1.9.2.min.js")
           .Include("~/Scripts/knockout-{version}.js")
-          //.Include("~/Scripts/knockout.mapping.js")
+          .Include("~/Scripts/knockout.mapping.js")
           .Include("~/Scripts/sammy-{version}.js")
           .Include("~/Scripts/bootstrap.min.js")
           .Include("~/Scripts/toastr.js")

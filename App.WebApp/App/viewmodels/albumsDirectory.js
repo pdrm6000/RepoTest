@@ -1,15 +1,14 @@
-﻿define("app/albumsDirectory", ['jquery', 'knockout', 'knockout.mapping', 'bootstrap', 'app/albumsDirectory.model', 'app/datacontext'],
-    function ($, ko, koMapping, bootstrap, artistsWithAlbums, datacontext) {
+﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext'],
+    function (artistsWithAlbums, datacontext) {
 
         var lastaddpopup;
         var vm =
-            init = function () {
+            activate = function () {
                 artistsWithAlbums.isLoading(true);
-                datacontext.downloadArtistsWithAlbums().then(processArtistsWithAlbums);
+                return datacontext.downloadArtistsWithAlbums().then(processArtistsWithAlbums);
             },
             processArtistsWithAlbums = function (data) {
-                artistsWithAlbums.artistCollection = koMapping.fromJS(data, mapAlbumsCollection);
-                ko.applyBindings(self, document.getElementById("AlbumsConfig"));
+                artistsWithAlbums.artistCollection = ko.mapping.fromJS(data, mapAlbumsCollection);
                 artistsWithAlbums.isLoading(false);
             },
             mapAlbumsCollection = {
@@ -44,7 +43,7 @@
                 var artist = ko.utils.arrayFirst(artistsWithAlbums.artistCollection(), function (item) {
                     return data.ArtistId === item.Id();
                 });
-                var vmLocal = koMapping.fromJS(data, mapAlbum);
+                var vmLocal = ko.mapping.fromJS(data, mapAlbum);
                 artist.Albums.push(vmLocal);
                 toastr.success('<h4>Completed</h4>Album added succesfully');
                 toastr.clear(lastaddpopup);
@@ -55,7 +54,7 @@
 
         var self = {
             artistsWithAlbums: artistsWithAlbums,
-            init: init,
+            activate: activate,
             addAlbum: addAlbum,
             finishAlbumAdding: finishAlbumAdding,
             removeAlbum: removeAlbum
@@ -63,4 +62,3 @@
         return self;
 
     });
-

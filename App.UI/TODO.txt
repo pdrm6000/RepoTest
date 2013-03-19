@@ -6,10 +6,13 @@ Despliegue en apphabor
 Implementar single page application SPA
 	- crear logo
 	- Crear el metodo first para el init de Review
-	- alertas al guardar en album (bootstrap)
-	- usar require.js
 	- ravenDB
 	- usar brezze.js
-	- tooltips en menu (bootstrap)
 	- Resiseño de albumreview 
-	- Implementar Album Directory
+
+
+
+	- hover de artists directory a partir de la segunda carga
+	- isActive en el menu
+	- el tooltip del menu no va muy bien
+	- segunda linea de albunes en albumsDirectory no se ve bien

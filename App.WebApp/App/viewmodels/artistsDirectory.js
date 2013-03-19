@@ -25,7 +25,7 @@
             artistModel.selectedArtist.imageUrl(data.ImageUrl);
             $("#editDialog").modal('show');
         },
-        init = function () {
+        activate = function () {
             artistModel.isLoading(true);
             artistModel.clear();
             return datacontext.downloadAllArtists().then(processArtistsDownloaded);
@@ -60,7 +60,7 @@
             toastr.success('<h4>Completed</h4>Artist saved succesfully');
             toastr.clear(lasteditpopup);
         },
-        viewAttached = function () {
+        viewAttached = function (view) {
             $(".AlbumsDirItem").hover(function () {
                 $(this).animate({ borderColor: "#5c5c5c" }, 150);
                 $(this).find(".AlbumsDirArtist").animate({ marginTop: 140, height: 60 }, 150);
@@ -78,7 +78,7 @@
             deleteArtist: deleteArtist,
             finishArtistEditing: finishArtistEditing,
             finishArtistAdding: finishArtistAdding,
-            activate: init,
+            activate: activate,
             viewAttached: viewAttached,
             afterBind : viewAttached,
         };

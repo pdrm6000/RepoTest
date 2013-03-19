@@ -1,5 +1,5 @@
-﻿define("app/albumsDirectory.model", ['knockout', 'knockout.mapping'],
-    function (ko, koMapping) {
+﻿define("viewmodels/albumsDirectory.model", [],
+    function () {
 
         isLoading = ko.observable(true),
         artistCollection = ko.observableArray(), // overrided in mapping
@@ -26,7 +26,7 @@
             this.coverUrl = ko.observable();
             this.artistName = ko.observable();
             this.fullCoverUrl = ko.computed(function () {
-                return "../../Images/Covers/" + this.coverUrl();
+                return "./Images/Covers/" + this.coverUrl();
             }, this),
             this.getAlbumDTO = function () {
                 return {
@@ -41,9 +41,9 @@
 
         function albumModel(data) {
             var self = this;
-            koMapping.fromJS(data, {}, self);
+            ko.mapping.fromJS(data, {}, self);
             self.FullCoverUrl = ko.computed(function () {
-                return '../../Images/Covers/' + self.CoverUrl();
+                return './Images/Covers/' + self.CoverUrl();
             }, self);
         };
 
@@ -56,8 +56,8 @@
                     }
                 }
             };
-            self.Albums = koMapping.fromJS(data.Albums, mapping);
-            koMapping.fromJS(data, {}, self);
+            self.Albums = ko.mapping.fromJS(data.Albums, mapping);
+            ko.mapping.fromJS(data, {}, self);
             self.isDeleting = ko.observable(false);
         };
 
