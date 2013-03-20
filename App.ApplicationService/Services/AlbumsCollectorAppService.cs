@@ -57,7 +57,6 @@ namespace App.ApplicationService.Services
                 result = _albumDTOGeneratorService.GetAlbumDTO(album, artist);
             }
             _albumsNavigationCache.AddAlbum(guid, result);
-            Thread.Sleep(500); //Testing loading spinner
             return result;
         }
 

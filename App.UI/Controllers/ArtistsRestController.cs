@@ -41,7 +41,6 @@ namespace App.UI.Controllers
         // PUT api/<controller>/5
         public void Put(int id, ArtistDTO value)
         {
-            Thread.Sleep(500);
             _artistCollectorAppService.UpdateArtist(value);
         }
 

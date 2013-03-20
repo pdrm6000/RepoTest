@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "App.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.CrossCutting", "App.CrossCutting\App.CrossCutting.csproj", "{BA020EB8-218C-4978-A577-8769B07D1B47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.WebApp", "App.WebApp\App.WebApp.csproj", "{095E5F49-523B-4680-802F-F3F6A3D088D6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI", "App.UI\App.UI.csproj", "{F6373638-6E43-436D-A67C-238DAE007B62}"
 EndProject
 Global
@@ -72,10 +70,6 @@ Global
 		{F6373638-6E43-436D-A67C-238DAE007B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6373638-6E43-436D-A67C-238DAE007B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6373638-6E43-436D-A67C-238DAE007B62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
