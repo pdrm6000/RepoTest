@@ -9,7 +9,7 @@ Implementar single page application SPA
 	- ravenDB
 	- usar brezze.js
 	- Resiseño de albumreview 
-	- Segunda pasada de bootstrapS
+	- Segunda pasada de bootstrap
 
 
 
