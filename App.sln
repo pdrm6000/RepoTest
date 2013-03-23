@@ -13,7 +13,54 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.CrossCutting", "App.Bac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI", "App.Backend\App.UI\App.UI.csproj", "{F6373638-6E43-436D-A67C-238DAE007B62}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{94A0A35A-FBE4-496B-A7F5-C66881ECC31E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApplication", "WebApplication", "{E7EC5211-6FA2-4ED4-8204-DB59B720F55B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.WebApp", "App.WebApp\App.WebApp.csproj", "{095E5F49-523B-4680-802F-F3F6A3D088D6}"
+EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://pablo6000.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = App.Backend\\App.Domain\\App.Domain.csproj
+		SccProjectTopLevelParentUniqueName0 = App.sln
+		SccProjectName0 = $/App.Backend/App.Domain
+		SccAuxPath0 = https://pablo6000.visualstudio.com/defaultcollection
+		SccLocalPath0 = App.Backend\\App.Domain
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = App.Backend\\App.ApplicationService\\App.ApplicationService.csproj
+		SccProjectTopLevelParentUniqueName1 = App.sln
+		SccProjectName1 = $/App.Backend/App.ApplicationService
+		SccAuxPath1 = https://pablo6000.visualstudio.com/defaultcollection
+		SccLocalPath1 = App.Backend\\App.ApplicationService
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = App.Backend\\App.DataModel\\App.DBModel.csproj
+		SccProjectTopLevelParentUniqueName2 = App.sln
+		SccProjectName2 = $/App.Backend/App.DataModel
+		SccAuxPath2 = https://pablo6000.visualstudio.com/defaultcollection
+		SccLocalPath2 = App.Backend\\App.DataModel
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = App.Backend\\App.Infrastructure\\App.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName3 = App.sln
+		SccProjectName3 = $/App.Backend/App.Infrastructure
+		SccAuxPath3 = https://pablo6000.visualstudio.com/defaultcollection
+		SccLocalPath3 = App.Backend\\App.Infrastructure
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = App.Backend\\App.CrossCutting\\App.CrossCutting.csproj
+		SccProjectTopLevelParentUniqueName4 = App.sln
+		SccProjectName4 = $/App.Backend/App.CrossCutting
+		SccAuxPath4 = https://pablo6000.visualstudio.com/defaultcollection
+		SccLocalPath4 = App.Backend\\App.CrossCutting
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName5 = App.Backend\\App.UI\\App.UI.csproj
+		SccProjectTopLevelParentUniqueName5 = App.sln
+		SccProjectName5 = $/App.Backend/App.UI
+		SccAuxPath5 = https://pablo6000.visualstudio.com/defaultcollection
+		SccLocalPath5 = App.Backend\\App.UI
+		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -43,9 +90,22 @@ Global
 		{F6373638-6E43-436D-A67C-238DAE007B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6373638-6E43-436D-A67C-238DAE007B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6373638-6E43-436D-A67C-238DAE007B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{095E5F49-523B-4680-802F-F3F6A3D088D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
+		{BA020EB8-218C-4978-A577-8769B07D1B47} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
+		{EDD36140-60EB-4982-A6F8-BBB6E347BFC3} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
+		{976C7A43-40DF-476C-AF2F-C6028D7AE019} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
+		{4A7E64CE-02C1-47CE-A679-236A89E3A938} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
+		{F6373638-6E43-436D-A67C-238DAE007B62} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
+		{095E5F49-523B-4680-802F-F3F6A3D088D6} = {E7EC5211-6FA2-4ED4-8204-DB59B720F55B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
