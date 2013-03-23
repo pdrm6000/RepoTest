@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI", "App.UI\App.UI.csp
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
+		SccNumberOfProjects = 7
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://pablo6000.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -28,18 +28,15 @@ Global
 		SccProjectUniqueName3 = App.DataModel\\App.DBModel.csproj
 		SccProjectName3 = App.DataModel
 		SccLocalPath3 = App.DataModel
-		SccProjectUniqueName4 = App.DistributedServices\\App.DistributedServices.csproj
-		SccProjectName4 = App.DistributedServices
-		SccLocalPath4 = App.DistributedServices
-		SccProjectUniqueName5 = App.Domain\\App.Domain.csproj
-		SccProjectName5 = App.Domain
-		SccLocalPath5 = App.Domain
-		SccProjectUniqueName6 = App.Infrastructure\\App.Infrastructure.csproj
-		SccProjectName6 = App.Infrastructure
-		SccLocalPath6 = App.Infrastructure
-		SccProjectUniqueName7 = App.UI\\App.UI.csproj
-		SccProjectName7 = App.UI
-		SccLocalPath7 = App.UI
+		SccProjectUniqueName4 = App.Domain\\App.Domain.csproj
+		SccProjectName4 = App.Domain
+		SccLocalPath4 = App.Domain
+		SccProjectUniqueName5 = App.Infrastructure\\App.Infrastructure.csproj
+		SccProjectName5 = App.Infrastructure
+		SccLocalPath5 = App.Infrastructure
+		SccProjectUniqueName6 = App.UI\\App.UI.csproj
+		SccProjectName6 = App.UI
+		SccLocalPath6 = App.UI
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
