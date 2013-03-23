@@ -1,0 +1,84 @@
+﻿<div>
+
+
+    <header>
+        <div class="navbar">
+            <div id="pagetop" class="container">
+                <div class="row-fluid">
+                    <div class="navbar-inner">
+                        <div class="span10">
+                            <div class="pull-left">
+                                <p class="site-title">My Musicator</p>
+                            </div>
+                            <div class="pull-right">
+                                <nav>
+                                    <ul id="menu">
+                                        <li><a href="#/viewmodels/home" rel="tooltip" title="Go to the main page">Home</a></li>
+                                        <li><a href="#/viewmodels/albumsReview" rel="tooltip" title="Review and rate albums">Review</a></li>
+                                        <li><a href="#/viewmodels/artistsDirectory" rel="tooltip" title="Go to artist directory">Artists</a></li>
+                                        <li><a href="#/viewmodels/albumsDirectory" rel="tooltip" title="Go to albums directory">Albums</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="loader pull-right" data-bind="css: { active: router.isNavigating }">
+                            <i class="icon-spinner icon-2x icon-spin"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--        <div class="navbar navbar-fixed-top">
+                    <div class="navbar-inner">
+                        <a class="brand" data-bind="attr: { href: router.visibleRoutes()[0].hash }">
+                            <i class="icon-home"></i>
+                            <span>Durandal</span>
+                        </a>
+                        <ul class="nav" data-bind="foreach: router.visibleRoutes">
+                            <li data-bind="css: { active: isActive }">
+                                <a data-bind="attr: { href: hash }, html: name"></a>
+                            </li>
+                        </ul>
+                        <div class="loader pull-right" data-bind="css: { active: router.isNavigating }">
+                            <i class="icon-spinner icon-2x icon-spin"></i>
+                        </div>
+                        <form class="navbar-search pull-right" data-bind="submit: search">
+                            <input type="text" class="search-query" placeholder="Search">
+                        </form>
+                    </div>
+                </div>-->
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                <div id="pagehoststyle" class="container-fluid page-host min-height">
+                    <!--ko compose: { 
+                            model: router.activeItem, //wiring the router
+                            afterCompose: router.afterCompose, //wiring the router
+                            transition:'entrance', //use the 'entrance' transition when switching views
+                            cacheViews:true //telling composition to keep views in the dom, and reuse them (only a good idea with singleton view models)
+                            }-->
+                    <!--/ko-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span10">
+                    <div class="pull-left">
+                        <p>&copy; 2013 - My Musicator</p>
+                    </div>
+                    <div class="pull-right">
+                        <ul id="social">
+                            <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
+                            <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

@@ -1,43 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain", "App.Domain\App.Domain.csproj", "{976C7A43-40DF-476C-AF2F-C6028D7AE019}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain", "App.Backend\App.Domain\App.Domain.csproj", "{976C7A43-40DF-476C-AF2F-C6028D7AE019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.ApplicationService", "App.ApplicationService\App.ApplicationService.csproj", "{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.ApplicationService", "App.Backend\App.ApplicationService\App.ApplicationService.csproj", "{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.DBModel", "App.DataModel\App.DBModel.csproj", "{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.DBModel", "App.Backend\App.DataModel\App.DBModel.csproj", "{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "App.Infrastructure\App.Infrastructure.csproj", "{4A7E64CE-02C1-47CE-A679-236A89E3A938}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "App.Backend\App.Infrastructure\App.Infrastructure.csproj", "{4A7E64CE-02C1-47CE-A679-236A89E3A938}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.CrossCutting", "App.CrossCutting\App.CrossCutting.csproj", "{BA020EB8-218C-4978-A577-8769B07D1B47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.CrossCutting", "App.Backend\App.CrossCutting\App.CrossCutting.csproj", "{BA020EB8-218C-4978-A577-8769B07D1B47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI", "App.UI\App.UI.csproj", "{F6373638-6E43-436D-A67C-238DAE007B62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI", "App.Backend\App.UI\App.UI.csproj", "{F6373638-6E43-436D-A67C-238DAE007B62}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = App.ApplicationService\\App.ApplicationService.csproj
-		SccProjectName1 = App.ApplicationService
-		SccLocalPath1 = App.ApplicationService
-		SccProjectUniqueName2 = App.CrossCutting\\App.CrossCutting.csproj
-		SccProjectName2 = App.CrossCutting
-		SccLocalPath2 = App.CrossCutting
-		SccProjectUniqueName3 = App.DataModel\\App.DBModel.csproj
-		SccProjectName3 = App.DataModel
-		SccLocalPath3 = App.DataModel
-		SccProjectUniqueName4 = App.Domain\\App.Domain.csproj
-		SccProjectName4 = App.Domain
-		SccLocalPath4 = App.Domain
-		SccProjectUniqueName5 = App.Infrastructure\\App.Infrastructure.csproj
-		SccProjectName5 = App.Infrastructure
-		SccLocalPath5 = App.Infrastructure
-		SccProjectUniqueName6 = App.UI\\App.UI.csproj
-		SccProjectName6 = App.UI
-		SccLocalPath6 = App.UI
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

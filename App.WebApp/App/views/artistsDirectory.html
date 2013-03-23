@@ -1,0 +1,85 @@
+﻿<div id="ArtistsConfig">
+    <div class="span10">
+        <div class="ArtistTitle">
+            <h1>Artist directory</h1>
+            <a href="." class="float-right">
+                <img src="./Images/delete.png" /></a>
+            <a href="." class="float-right">
+                <img src="./Images/add.png" data-bind="click: addArtist" /></a>
+        </div>
+        <br />
+        <br />
+        <div class="AlbumsDirContainerFill">
+            <div data-bind="visible: artists.isLoading" style="text-align: center">
+                <img src="./Images/ajax_loader_page.gif" />
+            </div>
+            <div class="AlbumsDirContainer" data-bind="foreach: artists.artistsCollection">
+                <a href=".">
+                    <div class="AlbumsDirItem" data-bind="attr: { style: FullImageUrl }, click: $parent.editArtist">
+                        <div class="AlbumsDirArtist" data-bind="text: Name"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        Select one artist to edit
+    <br />
+        Click add button to create new artist<br />
+        Click delete button to remove artist selected
+    </div>
+
+
+    <div id="editAlert" class="hide">
+        <h4>Saving artist</h4>
+        Artist saved succesfully
+    </div>
+
+
+
+    <div id="editDialog" style="width: 580px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit artist" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabelEdit">Edit artist</h3>
+        </div>
+        <div class="modal-body">
+            <div class="AlbumDirEditPhoto">
+                <img data-bind="attr: { src: artists.selectedArtist.fullImageUrl }" width="200" height="200" />
+            </div>
+            <div class="AlbumDirEditRightPanel">
+                <p>Artist name</p>
+                <input type="text" data-bind="value: artists.selectedArtist.name" />
+                <p>Image</p>
+                <input type="text" data-bind="value: artists.selectedArtist.imageUrl" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button data-bind="click: finishArtistEditing" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Save</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="addDialog" style="width: 340px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Add new artist" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabelAdd">Add new artist</h3>
+        </div>
+        <div class="modal-body">
+            <div class="AlbumDirEditRightPanel">
+                <p>Artist name</p>
+                <input type="text" data-bind="value: artists.selectedArtist.name" />
+                <p>Image</p>
+                <input type="text" data-bind="value: artists.selectedArtist.imageUrl" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button data-bind="click: finishArtistAdding" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Add</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>
+    </div>
+</div>

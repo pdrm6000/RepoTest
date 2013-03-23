@@ -1,0 +1,64 @@
+﻿<div id="AlbumsConfig">
+    <div class="span12">
+        <h1>Albums directory</h1>
+        <br />
+        <div data-bind="visible: artistsWithAlbums.isLoading" style="text-align: center">
+            <img src="./Images/ajax_loader_page.gif" />
+        </div>
+        <br />
+        <div id="ArtistCollection" data-bind="foreach: artistsWithAlbums.artistCollection">
+            <div class="row-fluid pull-left">
+                <div class="breadcrumb" style="height: 45px">
+                    <h2 class="pull-left" data-bind="text: Name"></h2>
+                    <a data-bind="click: $parent.removeAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-minus"></i></a>
+                    <a data-bind="click: $parent.addAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-plus"></i></a>
+                </div>
+                <div class="span12">
+                    <div data-bind="foreach: Albums">
+                        <div class="span3">
+                            <div style="width: 170px; height: 250px">
+                                <input type="checkbox" checked="false" data-bind="visible: $parent.isDeleting" />
+                                <img data-bind="attr: { src: FullCoverUrl }" width="170" height="170" class="img-polaroid" />
+                                <div style="text-align: center; width: 100%">
+                                    <div data-bind="text: AlbumName"></div>
+                                    <div data-bind="text: Year"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="addDialog" style="width: 340px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Add new album" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabelAdd">Add new album</h3>
+        </div>
+        <div class="modal-body">
+            <div class="AlbumDirEditRightPanel">
+                <p>Artist name</p>
+                <b><span data-bind="text: artistsWithAlbums.selectedAlbum.artistName" /></b>
+                <br />
+                <br />
+                <p>Album name</p>
+                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.name" />
+                <p>Cover</p>
+                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.coverUrl" />
+                <p>Year</p>
+                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.year" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button data-bind="click: finishAlbumAdding" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Add</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿<div id="AlbumsReview" class="AlbumBox">
+    <div class="AlbumHeader">
+        Rate music
+        <div class="LoadingImg" data-bind="visible: albums.IsLoading"><img src="./Images/ajax-loader.gif"/></div>
+    </div>
+    <div class="AlbumInlineBorder">
+    </div>
+    <div class="AlbumRotation">
+        <a href="#" data-bind="click: previousAlbum">
+            <img alt="Previous Album" src="./Images/PreviousAlbumButtom.png" /></a>
+    </div>
+    <div class="AlbumToggler">
+        <div id="AlbumData0" class="AlbumContainer">
+            <div class="AlbumCover">
+                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: albums.CurrentAlbum.CurrentImageUrl }" />
+            </div>
+            <div class="AlbumData">
+                <p class="AlbumTitle" data-bind="text: albums.CurrentAlbum.CurrentAlbumName">
+                </p>
+                <p class="AlbumYear" data-bind="text: albums.CurrentAlbum.CurrentYear">
+                </p>
+                <p class="AlbumArtistName" data-bind="text: albums.CurrentAlbum.CurrentArtistName">
+                </p>
+                <p class="RateContainer">
+                    <img alt="" width="115" height="15" src="./Images/Rate.jpg" />
+                </p>
+                <p class="AlbumComments" data-bind="text: albums.CurrentAlbum.CurrentComments">
+                </p>
+            </div>
+            <div class="AlbumActions">
+                <p>
+                    View general rate
+                </p>
+                <p>
+                    View my friends rates
+                </p>
+                <p>
+                    View people like me rates
+                </p>
+            </div>
+        </div>
+        <div id="AlbumData1" class="AlbumContainer">
+            <div class="AlbumCover">
+                <img class="CoverImage" alt="" width="135" height="135" data-bind="attr: { src: albums.NextAlbum.NextImageUrl }" />
+            </div>
+            <div class="AlbumData">
+                <p class="AlbumTitle" data-bind="text: albums.NextAlbum.NextAlbumName">
+                </p>
+                <p class="AlbumYear" data-bind="text: albums.NextAlbum.NextYear">
+                </p>
+                <p class="AlbumArtistName" data-bind="text: albums.NextAlbum.NextArtistName">
+                </p>
+                <p class="RateContainer">
+                    <img alt="" width="115" height="15" src="./Images/Rate.jpg" />
+                </p>
+                <p class="AlbumComments" data-bind="text: albums.NextAlbum.NextComments">
+                </p>
+            </div>
+            <div class="AlbumActions">
+                <p>
+                    View general rate
+                </p>
+                <p>
+                    View my friends rates
+                </p>
+                <p>
+                    View people like me rates
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="AlbumRotation">
+        <a href="#" data-bind="click: nextAlbum">
+            <img src="./Images/NextAlbumButtom.png" /></a>
+    </div>
+</div>
