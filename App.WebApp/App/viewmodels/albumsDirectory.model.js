@@ -26,7 +26,7 @@
             this.coverUrl = ko.observable();
             this.artistName = ko.observable();
             this.fullCoverUrl = ko.computed(function () {
-                return "./Images/Covers/" + this.coverUrl();
+                return "App.WebApp/Images/Covers/" + this.coverUrl();
             }, this),
             this.getAlbumDTO = function () {
                 return {
@@ -43,7 +43,7 @@
             var self = this;
             ko.mapping.fromJS(data, {}, self);
             self.FullCoverUrl = ko.computed(function () {
-                return './Images/Covers/' + self.CoverUrl();
+                return 'App.WebApp/Images/Covers/' + self.CoverUrl();
             }, self);
         };
 

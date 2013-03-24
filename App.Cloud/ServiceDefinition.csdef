@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="App.CloudSite" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-10.1.8">
-  <WebRole name="App.WebApp" vmsize="Small">
+  <WebRole name="App.UI" vmsize="Small">
     <Sites>
       <Site name="Web">
-        <VirtualApplication name="App.UI" physicalDirectory="..\..\..\App.Backend\App.UI">
+        <VirtualApplication name="App.WebApp" physicalDirectory="..\..\..\App.WebApp">
         </VirtualApplication>
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" />
@@ -15,6 +15,8 @@
     </Endpoints>
     <Imports>
       <Import moduleName="Diagnostics" />
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
     </Imports>
   </WebRole>
 </ServiceDefinition>

@@ -37,14 +37,20 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App.WebApp\App.WebApp.csproj">
-      <Name>App.WebApp</Name>
-      <Project>{095e5f49-523b-4680-802f-f3f6a3d088d6}</Project>
+    <ProjectReference Include="..\App.Backend\App.UI\App.UI.csproj">
+      <Name>App.UI</Name>
+      <Project>{f6373638-6e43-436d-a67c-238dae007b62}</Project>
       <Private>True</Private>
       <RoleType>Web</RoleType>
-      <RoleName>App.WebApp</RoleName>
+      <RoleName>App.UI</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Profiles" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\appmusicProduction.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

@@ -1,13 +1,13 @@
 ﻿<div id="AlbumsReview" class="AlbumBox">
     <div class="AlbumHeader">
         Rate music
-        <div class="LoadingImg" data-bind="visible: albums.IsLoading"><img src="./Images/ajax-loader.gif"/></div>
+        <div class="LoadingImg" data-bind="visible: albums.IsLoading"><img src="App.WebApp/Images/ajax-loader.gif"/></div>
     </div>
     <div class="AlbumInlineBorder">
     </div>
     <div class="AlbumRotation">
         <a href="#" data-bind="click: previousAlbum">
-            <img alt="Previous Album" src="./Images/PreviousAlbumButtom.png" /></a>
+            <img alt="Previous Album" src="App.WebApp/Images/PreviousAlbumButtom.png" /></a>
     </div>
     <div class="AlbumToggler">
         <div id="AlbumData0" class="AlbumContainer">
@@ -22,7 +22,7 @@
                 <p class="AlbumArtistName" data-bind="text: albums.CurrentAlbum.CurrentArtistName">
                 </p>
                 <p class="RateContainer">
-                    <img alt="" width="115" height="15" src="./Images/Rate.jpg" />
+                    <img alt="" width="115" height="15" src="App.WebApp/Images/Rate.jpg" />
                 </p>
                 <p class="AlbumComments" data-bind="text: albums.CurrentAlbum.CurrentComments">
                 </p>
@@ -51,7 +51,7 @@
                 <p class="AlbumArtistName" data-bind="text: albums.NextAlbum.NextArtistName">
                 </p>
                 <p class="RateContainer">
-                    <img alt="" width="115" height="15" src="./Images/Rate.jpg" />
+                    <img alt="" width="115" height="15" src="App.WebApp/Images/Rate.jpg" />
                 </p>
                 <p class="AlbumComments" data-bind="text: albums.NextAlbum.NextComments">
                 </p>
@@ -71,6 +71,6 @@
     </div>
     <div class="AlbumRotation">
         <a href="#" data-bind="click: nextAlbum">
-            <img src="./Images/NextAlbumButtom.png" /></a>
+            <img src="App.WebApp/Images/NextAlbumButtom.png" /></a>
     </div>
 </div>

@@ -3,15 +3,15 @@
         <div class="ArtistTitle">
             <h1>Artist directory</h1>
             <a href="." class="float-right">
-                <img src="./Images/delete.png" /></a>
+                <img src="App.WebApp/Images/delete.png" /></a>
             <a href="." class="float-right">
-                <img src="./Images/add.png" data-bind="click: addArtist" /></a>
+                <img src="App.WebApp/Images/add.png" data-bind="click: addArtist" /></a>
         </div>
         <br />
         <br />
         <div class="AlbumsDirContainerFill">
             <div data-bind="visible: artists.isLoading" style="text-align: center">
-                <img src="./Images/ajax_loader_page.gif" />
+                <img src="App.WebApp/Images/ajax_loader_page.gif" />
             </div>
             <div class="AlbumsDirContainer" data-bind="foreach: artists.artistsCollection">
                 <a href=".">

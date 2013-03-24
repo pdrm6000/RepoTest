@@ -1,6 +1,6 @@
 ﻿define("viewmodels/datacontext", [], function () {
 
-    var urlBase = "App.UI/api/";
+    var urlBase = "../api/";
 
     $(document).ajaxError(function (event, jqxhr, settings, exception) {
         if (settings.url == "ajax/missing.html") {

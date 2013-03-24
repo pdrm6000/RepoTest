@@ -20,7 +20,7 @@
             albumsVM.CurrentAlbum.CurrentYear(album.Year);
             albumsVM.CurrentAlbum.CurrentArtistName(album.ArtistName);
             albumsVM.CurrentAlbum.CurrentComments(album.Comments);
-            albumsVM.CurrentAlbum.CurrentImageUrl('./Images/Covers/' + album.CoverUrl);
+            albumsVM.CurrentAlbum.CurrentImageUrl('App.WebApp/Images/Covers/' + album.CoverUrl);
             albumsVM.IsLoading(false);
         },
         bindNextAlbum = function (album, albumsVM) {
@@ -28,7 +28,7 @@
             albumsVM.NextAlbum.NextYear(album.Year);
             albumsVM.NextAlbum.NextArtistName(album.ArtistName);
             albumsVM.NextAlbum.NextComments(album.Comments);
-            albumsVM.NextAlbum.NextImageUrl('./Images/Covers/' + album.CoverUrl);
+            albumsVM.NextAlbum.NextImageUrl('App.WebApp/Images/Covers/' + album.CoverUrl);
             albumsVM.IsLoading(false);
         };
 
