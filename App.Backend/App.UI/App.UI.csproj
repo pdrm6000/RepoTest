@@ -169,7 +169,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBscript.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="TODO.txt" />
