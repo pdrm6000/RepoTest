@@ -50,6 +50,26 @@
             },
             removeAlbum = function (data) {
                 data.isDeleting(true);
+                data.cancelVisible(true);
+                data.confirmVisible(true);
+                data.removeVisible(false);
+                data.addVisible(false);
+            },
+            confirmAlbumRemoving = function (data) {
+
+                data.isDeleting(false);
+                resetButtons(data);
+            },
+            cancelAlbumRemoving = function (data) {
+
+                data.isDeleting(false);
+                resetButtons(data);
+            },
+            resetButtons = function (data) {
+                data.cancelVisible(false);
+                data.confirmVisible(false);
+                data.removeVisible(true);
+                data.addVisible(true);
             };
 
         var self = {
@@ -57,7 +77,9 @@
             activate: activate,
             addAlbum: addAlbum,
             finishAlbumAdding: finishAlbumAdding,
-            removeAlbum: removeAlbum
+            removeAlbum: removeAlbum,
+            confirmAlbumRemoving: confirmAlbumRemoving,
+            cancelAlbumRemoving: cancelAlbumRemoving
         };
         return self;
 

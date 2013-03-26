@@ -10,8 +10,11 @@
             <div class="row-fluid pull-left">
                 <div class="breadcrumb" style="height: 45px">
                     <h2 class="pull-left" data-bind="text: Name"></h2>
-                    <a data-bind="click: $parent.removeAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-minus"></i></a>
-                    <a data-bind="click: $parent.addAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-plus"></i></a>
+                    <a id="removeAlbumButton" data-bind="visible: removeVisible, click: $parent.removeAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-minus"></i></a>
+                    <a id="addAlbumButton" data-bind="visible: addVisible, click: $parent.addAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-plus"></i></a>
+                    
+                    <a id="cancelRemovingButton" style="display: none;" data-bind="visible:cancelVisible, click: $parent.cancelAlbumRemoving" class="btn btn-mini pull-right" href="#"><i class="icon-remove"></i></a>            
+                    <a id="confirmRemovingButton" style="display: none;" data-bind="visible:confirmVisible, click: $parent.confirmAlbumRemoving" class="btn btn-mini pull-right" href="#"><i class="icon-ok"></i></a>
                 </div>
                 <div class="span12">
                     <div data-bind="foreach: Albums">
@@ -24,7 +27,7 @@
                                     <div data-bind="text: Year"></div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

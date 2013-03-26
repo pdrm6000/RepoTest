@@ -58,6 +58,10 @@
             };
             self.Albums = ko.mapping.fromJS(data.Albums, mapping);
             ko.mapping.fromJS(data, {}, self);
+            self.removeVisible = ko.observable(true);
+            self.addVisible = ko.observable(true);
+            self.cancelVisible = ko.observable(false);
+            self.confirmVisible = ko.observable(false);
             self.isDeleting = ko.observable(false);
         };
 
