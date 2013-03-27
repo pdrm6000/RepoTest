@@ -21,7 +21,7 @@
             url: urlBase + "AlbumsRest/" + action,
             accepts: "application/json",
             cache: false,
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert('Error: ' + textStatus);
             }
         });
@@ -62,6 +62,17 @@
             }
         });
     },
+    deleteAlbums = function (ids) {
+        return $.ajax({
+            url: urlBase + "AlbumsRest/Delete/",
+            data: JSON.stringify(ids),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert('Error: ' + textStatus);
+            }
+        });
+    },
     updateArtist = function (artist) {
         return $.ajax({
             url: urlBase + "ArtistsRest/Put/" + artist.Id,
@@ -92,5 +103,6 @@
         addArtist: addArtist,
         addAlbum: addAlbum,
         downloadArtistsWithAlbums: downloadArtistsWithAlbums,
+        deleteAlbums: deleteAlbums,
     };
 });

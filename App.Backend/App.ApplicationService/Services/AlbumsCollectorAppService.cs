@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using App.CrossCutting.Caching;
 using App.Domain.AppServiceContracts;
@@ -68,6 +69,19 @@ namespace App.ApplicationService.Services
         public AlbumDTO GetPreviousAlbum(Guid guid)
         {
             return _albumsNavigationCache.GetPreviousAlbum(guid);
+        }
+
+        public int DeleteAlbums(int[] ids)
+        {
+            var result = 0;
+            if (ids!=null && ids.ToList().Count>0)
+            {
+                foreach (var id in ids)
+                {
+                    result += _albumsRepository.Remove(id);
+                }
+            }
+            return result;
         }
     }
 }

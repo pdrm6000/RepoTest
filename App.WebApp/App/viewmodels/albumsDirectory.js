@@ -56,9 +56,18 @@
                 data.addVisible(false);
             },
             confirmAlbumRemoving = function (data) {
-
+                var dataFiltered = ko.utils.arrayFilter(data.Albums(), function (item) { return item.toDelete() == true; });
+                var dataFlat = ko.utils.arrayMap(dataFiltered, function (item) { return item.Id(); });
                 data.isDeleting(false);
                 resetButtons(data);
+                toastr.info('Deleting albums...');
+                datacontext.deleteAlbums(dataFlat).then(processAlbumsDeleted(dataFiltered, data.Albums));
+            },
+            processAlbumsDeleted = function (data, array) {
+                ko.utils.arrayForEach(data, function (item) {
+                    ko.utils.arrayRemoveItem(array, item);
+                });
+                toastr.success('<h4>Completed</h4>Albums deleted succesfully');
             },
             cancelAlbumRemoving = function (data) {
 

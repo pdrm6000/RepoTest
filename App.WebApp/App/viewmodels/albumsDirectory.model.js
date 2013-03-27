@@ -42,6 +42,7 @@
         function albumModel(data) {
             var self = this;
             ko.mapping.fromJS(data, {}, self);
+            self.toDelete = ko.observable(false);
             self.FullCoverUrl = ko.computed(function () {
                 return 'App.WebApp/Images/Covers/' + self.CoverUrl();
             }, self);

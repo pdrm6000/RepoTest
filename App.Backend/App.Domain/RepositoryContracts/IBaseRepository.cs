@@ -9,6 +9,7 @@ namespace App.Domain.RepositoryContracts
         int Add(TEntity item);
         int Modify(TEntity item);
         int Remove(TEntity item);
+        int Remove(int id);
         TEntity GetById(int id);
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> GetByCondition(Expression<Func<TEntity, bool>> predicate);

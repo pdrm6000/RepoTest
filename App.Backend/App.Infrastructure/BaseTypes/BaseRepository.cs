@@ -43,6 +43,18 @@ namespace App.Repositories.BaseTypes
             return ModelContext.SaveChanges();
         }
 
+        public int Remove(int id)
+        {
+            var item = DbSet.Find(id);
+            var result = 0;
+            if (item != null)
+            {
+                DbSet.Remove(item);
+                result = ModelContext.SaveChanges();
+            }
+            return result;
+        }
+
         public TEntity GetById(int id)
         {
             return DbSet.FirstOrDefault(entity => entity.Id == id);

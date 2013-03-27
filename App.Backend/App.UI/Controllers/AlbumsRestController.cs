@@ -39,5 +39,11 @@ namespace App.UI.Controllers
         {
             return _albumsCollectorAppService.GetPreviousAlbum(Guid.Parse(Request.Properties[SessionIdHandler.SessionIdToken].ToString()));
         }
+
+        [HttpDelete]
+        public int Delete(int[] ids)
+        {
+            return _albumsCollectorAppService.DeleteAlbums(ids);
+        }
     }
 }
