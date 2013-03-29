@@ -11,5 +11,6 @@ namespace App.Domain.AppServiceContracts
         AlbumDTO GetNextAlbum(Guid guid);
         AlbumDTO GetPreviousAlbum(Guid guid);
         int DeleteAlbums(int[] ids);
+        int UpdateAlbum(Album toAlbum);
     }
 }

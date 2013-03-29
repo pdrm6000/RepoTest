@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using App.Domain.AppServiceContracts;
+using App.Domain.Extensions;
 using App.Domain.ValueObjects.DTO;
 using App.UI.Metadata;
 
@@ -44,6 +45,12 @@ namespace App.UI.Controllers
         public int Delete(int[] ids)
         {
             return _albumsCollectorAppService.DeleteAlbums(ids);
+        }
+
+        [HttpPut]
+        public int Put(int id, AlbumEditingDTO value)
+        {
+            return _albumsCollectorAppService.UpdateAlbum(value.ToAlbum());
         }
     }
 }

@@ -84,6 +84,17 @@
             }
         });
     },
+    updateAlbum = function (album) {
+        return $.ajax({
+            url: urlBase + "AlbumsRest/Put/" + album.Id,
+            data: JSON.stringify(album),
+            type: "PUT",
+            contentType: "application/json;charset=utf-8",
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert('Error: ' + textStatus);
+            }
+        });
+    },
     downloadArtistsWithAlbums = function () {
         return $.ajax({
             url: urlBase + "ArtistsRest/GetWithAlbums",
@@ -104,5 +115,6 @@
         addAlbum: addAlbum,
         downloadArtistsWithAlbums: downloadArtistsWithAlbums,
         deleteAlbums: deleteAlbums,
+        updateAlbum: updateAlbum,
     };
 });

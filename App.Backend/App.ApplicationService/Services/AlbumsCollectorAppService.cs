@@ -83,5 +83,10 @@ namespace App.ApplicationService.Services
             }
             return result;
         }
+
+        public int UpdateAlbum(Album album)
+        {
+            return _albumsRepository.Modify(album);
+        }
     }
 }

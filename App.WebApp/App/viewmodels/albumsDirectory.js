@@ -2,6 +2,7 @@
     function (artistsWithAlbums, datacontext) {
 
         var lastaddpopup;
+        var editedAlbum;
         var vm =
             activate = function () {
                 artistsWithAlbums.isLoading(true);
@@ -55,6 +56,35 @@
                 data.removeVisible(false);
                 data.addVisible(false);
             },
+            editAlbum = function (data) {
+                editedAlbum = data;
+                artistsWithAlbums.selectedAlbum.id(data.Id());
+                artistsWithAlbums.selectedAlbum.name(data.AlbumName());
+                artistsWithAlbums.selectedAlbum.year(data.Year());
+                artistsWithAlbums.selectedAlbum.coverUrl(data.CoverUrl());
+                artistsWithAlbums.selectedAlbum.artistId(data.ArtistId());
+                $('#editDialog').modal('show');
+            },
+            finishAlbumEditing = function (data) {
+                lastaddpopup = toastr.info('Saving album...');
+                datacontext.updateAlbum(artistsWithAlbums.selectedAlbum.getAlbumDTO()).then(notifyAlbumEdited);
+            },
+            notifyAlbumEdited = function () {
+                var artist = ko.utils.arrayFirst(artistsWithAlbums.artistCollection(), function (item) {
+                    return item.Id() == editedAlbum.ArtistId();
+                });
+                var replacedAlbum = artistsWithAlbums.getNewAlbumModel({
+                    Id: editedAlbum.Id,
+                    AlbumName: artistsWithAlbums.selectedAlbum.name(),
+                    Year: artistsWithAlbums.selectedAlbum.year(),
+                    CoverUrl: artistsWithAlbums.selectedAlbum.coverUrl(),
+                    ArtistId: artistsWithAlbums.selectedAlbum.artistId(),
+                });
+                var index = artist.Albums.indexOf(editedAlbum);
+                artist.Albums.replace(artist.Albums()[index], replacedAlbum);
+                toastr.success('<h4>Completed</h4>Album saved succesfully');
+                toastr.clear(lastaddpopup);
+            },
             confirmAlbumRemoving = function (data) {
                 var dataFiltered = ko.utils.arrayFilter(data.Albums(), function (item) { return item.toDelete() == true; });
                 var dataFlat = ko.utils.arrayMap(dataFiltered, function (item) { return item.Id(); });
@@ -65,7 +95,8 @@
             },
             processAlbumsDeleted = function (data, array) {
                 ko.utils.arrayForEach(data, function (item) {
-                    ko.utils.arrayRemoveItem(array, item);
+                    array.remove(item);
+                    //ko.utils.arrayRemoveItem(array, item);
                 });
                 toastr.success('<h4>Completed</h4>Albums deleted succesfully');
             },
@@ -88,7 +119,9 @@
             finishAlbumAdding: finishAlbumAdding,
             removeAlbum: removeAlbum,
             confirmAlbumRemoving: confirmAlbumRemoving,
-            cancelAlbumRemoving: cancelAlbumRemoving
+            cancelAlbumRemoving: cancelAlbumRemoving,
+            editAlbum: editAlbum,
+            finishAlbumEditing: finishAlbumEditing,
         };
         return self;
 
