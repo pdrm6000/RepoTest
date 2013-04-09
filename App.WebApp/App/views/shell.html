@@ -5,11 +5,12 @@
         <div class="navbar">
             <div id="pagetop" class="container">
                 <div class="row-fluid">
-                    <div class="navbar-inner">
+                    <div id="topbar" class="navbar-inner">
                         <div class="span10">
                             <div class="pull-left">
                                 <p class="site-title">My Musicator</p>
                             </div>
+                            <div class="row-fluid visible-phone"></div>
                             <div class="pull-right">
                                 <nav>
                                     <ul id="menu">
@@ -20,9 +21,9 @@
                                     </ul>
                                 </nav>
                             </div>
-                        </div>
-                        <div class="loader pull-right" data-bind="css: { active: router.isNavigating }">
-                            <i class="icon-spinner icon-2x icon-spin"></i>
+                            <div class="loader pull-right" data-bind="css: { active: router.isNavigating }">
+                                <i class="icon-spinner icon-2x icon-spin"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,7 +51,7 @@
                 </div>-->
 
     <div class="container-fluid">
-        <div class="row-fluid">
+        <div id="mainContainer" class="row-fluid">
             <div class="span10">
                 <div id="pagehoststyle" class="container-fluid page-host min-height">
                     <!--ko compose: { 

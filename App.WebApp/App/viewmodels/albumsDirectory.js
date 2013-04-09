@@ -110,6 +110,13 @@
                 data.confirmVisible(false);
                 data.removeVisible(true);
                 data.addVisible(true);
+            },
+            viewAttached = function (view) {
+                //$(".albumImg").hover(function () {
+                //    $(this).animate({ boxShadow : '0 1px 20px rgba(0, 0, 0, 0.5)' }, 100);
+                //}, function () {
+                //    $(this).animate({ boxShadow : '0 1px 3px rgba(0, 0, 0, 0.1)' }, 100);
+                //});
             };
 
         var self = {
@@ -122,6 +129,7 @@
             cancelAlbumRemoving: cancelAlbumRemoving,
             editAlbum: editAlbum,
             finishAlbumEditing: finishAlbumEditing,
+            viewAttached: viewAttached,
         };
         return self;
 
