@@ -31,9 +31,17 @@
             return datacontext.downloadAllArtists().then(processArtistsDownloaded);
         },
         processArtistsDownloaded = function (data) {
-            ko.utils.arrayPushAll(artistModel.artistsCollection, data);
+            artistModel.artistsCollection = ko.mapping.fromJS(data, mapArtistCollection);
+            //ko.utils.arrayPushAll(artistModel.artistsCollection, data);
             //artistEffects();
             artistModel.isLoading(false);
+        },
+        mapArtistCollection = {
+            '': {
+                create: function (options) {
+                    return new artistModel.artistNew(options.data);
+                }
+            }
         },
         finishArtistEditing = function () {
             lasteditpopup = toastr.info('Saving artist...');
@@ -80,7 +88,7 @@
             finishArtistAdding: finishArtistAdding,
             activate: activate,
             viewAttached: viewAttached,
-            afterBind : viewAttached,
+            afterBind: viewAttached,
         };
         return self;
     });

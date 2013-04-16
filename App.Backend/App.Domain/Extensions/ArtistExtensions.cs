@@ -16,7 +16,6 @@ namespace App.Domain.Extensions
                        {
                            Id = artist.Id,
                            Name = artist.Name,
-                           FullImageUrl = "background: url(App.WebApp/Images/Artist/" + artist.ImageUrl + ") no-repeat; background-size: 100%;",
                            ImageUrl = artist.ImageUrl
                        };
         }

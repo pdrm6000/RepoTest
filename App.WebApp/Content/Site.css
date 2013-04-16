@@ -161,7 +161,14 @@ ul#menu {
 }
 
 /*Customization ****************************************************/
-
+#artistDir .row-fluid [class*="span"]:first-child {
+    margin-left: 0;
+    position: relative;
+}
+#artistDir .span3 {
+    height: 200px;
+    position: relative;
+}
 
 
 .AlbumBox {
@@ -313,7 +320,6 @@ ul#menu {
 }
 
 .ArtistTitle {
-    width: 740px;
     float: left;
     margin-bottom: 50px;
 }
@@ -337,20 +343,17 @@ ul#menu {
     width: 200px;
     height: 200px;
     float: left;
-    margin: 10px 15px;
-    border: 10px solid #fdfdfd;
 }
 
 .AlbumsDirArtist {
     color: white;
     font-size: 19px;
-    width: 200px;
     height: 50px;
     margin-top: 150px;
-    float: left;
-    background: black;
     opacity: 0.7;
-    filter: alpha(opacity=70); /* For IE8 and earlier */
+    position: absolute;
+    width: 100%;
+    z-index: 20;
 }
 
 .AlbumDirEditPhoto {

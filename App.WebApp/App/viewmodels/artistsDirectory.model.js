@@ -10,9 +10,19 @@
         isLoading: isLoading,
         artistsCollection: artistsCollection,
         selectedArtist: selectedArtist,
-        clear: clear
+        clear: clear,
+        artistNew: artistNew
     };
 
+    function artistNew(data) {
+        var self = this;
+        ko.mapping.fromJS(data, {}, self);
+        self.toDelete = ko.observable(false);
+        self.FullImageUrl = ko.computed(function () {
+            return 'App.WebApp/Images/Artist/' + self.ImageUrl();
+        }, self);
+    };
+    
     function artist() {
         this.id = ko.observable();
         this.name = ko.observable();
