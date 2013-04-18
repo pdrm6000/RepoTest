@@ -20,9 +20,9 @@
         },
         editArtist = function (data, event) {
             editedArtist = data;
-            artistModel.selectedArtist.id(data.Id);
-            artistModel.selectedArtist.name(data.Name);
-            artistModel.selectedArtist.imageUrl(data.ImageUrl);
+            artistModel.selectedArtist.id(data.Id());
+            artistModel.selectedArtist.name(data.Name());
+            artistModel.selectedArtist.imageUrl(data.ImageUrl());
             $("#editDialog").modal('show');
         },
         activate = function () {
@@ -58,22 +58,19 @@
         },
         notifyArtistEdited = function () {
             var index = artistModel.artistsCollection.indexOf(editedArtist);
-            var replaceArtist = {
+            var replaceArtist = new artistModel.artistNew({
                 Id: editedArtist.Id,
                 Name: artistModel.selectedArtist.name(),
-                ImageUrl: artistModel.selectedArtist.imageUrl(),
-                FullImageUrl: editedArtist.FullImageUrl
-            };
+                ImageUrl: artistModel.selectedArtist.imageUrl()
+            });
             artistModel.artistsCollection.replace(artistModel.artistsCollection()[index], replaceArtist);
             toastr.success('<h4>Completed</h4>Artist saved succesfully');
             toastr.clear(lasteditpopup);
         },
         viewAttached = function (view) {
             $(".AlbumsDirItem").hover(function () {
-                $(this).animate({ borderColor: "#5c5c5c" }, 150);
                 $(this).find(".AlbumsDirArtist").animate({ marginTop: 140, height: 60 }, 150);
             }, function () {
-                $(this).animate({ borderColor: "fdfdfd" }, 150);
                 $(this).find(".AlbumsDirArtist").animate({ marginTop: 150, height: 50 }, 150);
             });
         };

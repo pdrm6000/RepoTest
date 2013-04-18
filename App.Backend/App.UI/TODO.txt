@@ -10,6 +10,7 @@ Implementar single page application SPA
 	- usar brezze.js
 	- Resiseño de albumreview 
 	- Segunda pasada de bootstrap
+	- Agregar appfabric en azure
 
 
 

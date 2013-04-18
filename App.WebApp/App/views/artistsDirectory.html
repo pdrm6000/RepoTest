@@ -7,13 +7,19 @@
 <br />
 <div id="artistDir" class="span9" data-bind="foreach: artists.artistsCollection">
     <div class="span3">
-        <img style="position: absolute;z-index: 10;" data-bind="attr: { src: FullImageUrl }" width="200" height="200" />
-        <div class="AlbumsDirArtist" data-bind="text: Name"></div>
+        <a data-bind="click: $root.editArtist" href=".">
+            <img style="position: absolute;z-index: 10;" data-bind="attr: { src: FullImageUrl }" 
+                 width="200" height="200"
+                 class="img-polaroid"
+                 onmouseout="$(this).stop().animate({boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'})" 
+                 onmouseover="$(this).stop().animate({boxShadow: '0 1px 20px rgba(0, 0, 0, 0.7)'})" />
+            <div class="AlbumsDirArtist" data-bind="text: Name"></div>
+        </a>
     </div>
 </div>
-<div class="span3 well">
-    Select one artist to edit<br />
-    Click add button to create new artist<br />
+<div class="span2 well">
+    Select one artist to edit<br /><br />
+    Click add button to create new artist<br /><br />
     Click delete button to remove artist selected
 </div>
 
