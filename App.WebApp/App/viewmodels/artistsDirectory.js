@@ -68,7 +68,7 @@
             toastr.clear(lasteditpopup);
         },
         viewAttached = function (view) {
-            $(".AlbumsDirItem").hover(function () {
+            $(".span3").hover(function () {
                 $(this).find(".AlbumsDirArtist").animate({ marginTop: 140, height: 60 }, 150);
             }, function () {
                 $(this).find(".AlbumsDirArtist").animate({ marginTop: 150, height: 50 }, 150);

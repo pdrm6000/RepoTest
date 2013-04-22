@@ -7,13 +7,19 @@ Implementar single page application SPA
 	- crear logo
 	- Crear el metodo first para el init de Review
 	- ravenDB
-	- usar brezze.js
 	- Resiseño de albumreview 
 	- Segunda pasada de bootstrap
+
+	- edit artist in mobile
 	- Agregar appfabric en azure
+	- app phonegap
+	- usar brezze.js
+	- usar signalR
 
 
 
+
+	Bugs:
 	- hover de artists directory a partir de la segunda carga
 	- isActive en el menu
 	- el tooltip del menu no va muy bien
