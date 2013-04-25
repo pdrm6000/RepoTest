@@ -285,6 +285,7 @@ ul#menu {
     color: #C4C4C4;
     line-height: 0px;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .AlbumYear {
@@ -293,6 +294,7 @@ ul#menu {
     color: #626262;
     line-height: 0px;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .AlbumArtistName {

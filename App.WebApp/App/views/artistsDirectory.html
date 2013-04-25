@@ -40,16 +40,16 @@
 
 
 
-<div id="editDialog" style="width: 580px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit artist" aria-hidden="true">
+<div id="editDialog" class="albumEditDialog modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit artist" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabelEdit">Edit artist</h3>
     </div>
     <div class="modal-body">
-        <div class="AlbumDirEditPhoto">
-            <img data-bind="attr: { src: artists.selectedArtist.fullImageUrl }" width="200" height="200" />
+        <div class="span5 visible-desktop">
+            <img data-bind="attr: { src: artists.selectedArtist.fullImageUrl }" width="100%"/>
         </div>
-        <div class="AlbumDirEditRightPanel">
+        <div class="span6 offset1">
             <p>Artist name</p>
             <input type="text" data-bind="value: artists.selectedArtist.name" />
             <p>Image</p>

@@ -8,9 +8,7 @@ Implementar single page application SPA
 	- Crear el metodo first para el init de Review
 	- ravenDB
 	- Resiseño de albumreview 
-	- Segunda pasada de bootstrap
 
-	- edit artist in mobile
 	- Agregar appfabric en azure
 	- app phonegap
 	- usar brezze.js
