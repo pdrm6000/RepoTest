@@ -9,7 +9,6 @@ Implementar single page application SPA
 	- ravenDB
 	- Resiseño de albumreview 
 
-	- Agregar appfabric en azure
 	- app phonegap
 	- usar brezze.js
 	- usar signalR
@@ -18,7 +17,6 @@ Implementar single page application SPA
 
 
 	Bugs:
-	- hover de artists directory a partir de la segunda carga
 	- isActive en el menu
 	- el tooltip del menu no va muy bien
 	- segunda linea de albunes en albumsDirectory no se ve bien

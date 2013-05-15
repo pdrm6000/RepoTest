@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="App.WebForms.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>
+                <%--Framework Scripts--%>
+
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="jquery.ui.combined" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <header>
+            <div class="navbar">
+                <div id="pagetop" class="container">
+                    <div class="row-fluid">
+                        <div id="topbar" class="navbar-inner">
+                            <div class="span10">
+                                <div class="pull-left">
+                                    <p class="site-title">My Musicator</p>
+                                </div>
+                                <div class="row-fluid visible-phone"></div>
+                                <div class="pull-right">
+                                    <nav>
+                                        <ul id="menu">
+                                            <li><a href="/" rel="tooltip" title="Go to the main page">Home</a></li>
+                                            <li><a href="/Artists" rel="tooltip" title="Go to artist directory">Artists</a></li>
+                                            <li><a href="/Albums" rel="tooltip" title="Go to albums directory">Albums</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="loader pull-right" data-bind="css: { active: router.isNavigating }">
+                                    <i class="icon-spinner icon-2x icon-spin"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div id="mainContainer" class="row-fluid">
+                <div class="span10">
+                    <div id="pagehoststyle" class="container-fluid page-host min-height">
+                        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                        <section class="content-wrapper main-content clear-fix">
+                            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span10">
+                        <div class="pull-left">
+                            <p>&copy; 2013 - My Musicator</p>
+                        </div>
+                        <div class="pull-right">
+                            <ul id="social">
+                                <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
+                                <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
