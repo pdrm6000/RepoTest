@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>WebFormsMvp.Unity</id>
+    <version>1.4.1.0</version>
+    <title>Web Forms MVP + Unity</title>
+    <authors>Damian Edwards,  Tatham Oddie</authors>
+    <owners>Damian Edwards,  Tatham Oddie</owners>
+    <licenseUrl>http://webformsmvp.codeplex.com/license</licenseUrl>
+    <projectUrl>http://webformsmvp.codeplex.com/</projectUrl>
+    <iconUrl>http://webformsmvp.com/nugetlogo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides Unity integration for Web Forms MVP presenter resolution.</description>
+    <summary>Provides Unity integration for Web Forms MVP presenter resolution.</summary>
+    <dependencies>
+      <dependency id="webformsmvp" version="1.4.1.0" />
+      <dependency id="Unity" version="2.0" />
+    </dependencies>
+    <references>
+      <reference file="WebFormsMvp.Unity.dll" />
+    </references>
+  </metadata>
+</package>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Artists.aspx.cs" Inherits="App.WebForms.About" %>
+﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Artists.aspx.cs" Inherits="App.WebForms.Artists" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div class="ArtistTitle span12">
@@ -8,12 +8,14 @@
     </div>
     <br />
     <br />
+    <%#: Model.PageTitle %>
+    <asp:Button ID="ButtonArtists" Text="GetArtists" runat="server" OnClick="GetArtists"/>
     <div id="artistDir">
         <div class="span9">
             <asp:ListView ID="categoryList"
                 ItemType="App.Domain.ValueObjects.DTO.ArtistDTO"
                 runat="server"
-                SelectMethod="GetArtists">
+                DataSource="<%# Model.ArtistCollection %>">
                 <ItemTemplate>
                     <div class="span3">
                         <a href=".">
