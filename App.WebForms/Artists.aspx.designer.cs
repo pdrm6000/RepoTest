@@ -13,21 +13,12 @@ namespace App.WebForms {
     public partial class Artists {
         
         /// <summary>
-        /// ButtonArtists control.
+        /// ArtistsGridDir control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonArtists;
-        
-        /// <summary>
-        /// categoryList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView categoryList;
+        protected global::App.WebForms.Controls.Artists.ArtistsGrid ArtistsGridDir;
     }
 }

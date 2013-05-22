@@ -38,22 +38,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Backend\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>packages\Unity.2.0\lib\20\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.dll</HintPath>
+      <HintPath>..\App.Backend\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
-      <HintPath>packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Interception">
-      <HintPath>packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
-      <HintPath>packages\Unity.2.0\lib\20\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Backend\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,6 +60,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http.Data">
       <HintPath>..\packages\AspNetWebApi.Data.4.0.20221.15125\lib\net40\System.Web.Http.Data.dll</HintPath>
@@ -93,9 +93,6 @@
     </Reference>
     <Reference Include="Microsoft.ScriptManager.WebForms, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.4.5.6\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
@@ -211,8 +208,42 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Controls\Artists\ArtistsGrid.ascx" />
     <Content Include="Images\accent.png" />
+    <Content Include="Images\Artist\acdc.jpg" />
+    <Content Include="Images\Artist\foofighter.jpg" />
+    <Content Include="Images\Artist\jackwhite.jpg" />
+    <Content Include="Images\Artist\ledzepellin.jpg" />
+    <Content Include="Images\Artist\linkinpark.jpg" />
+    <Content Include="Images\Artist\paparoach.jpg" />
+    <Content Include="Images\Artist\tenaciousd.jpg" />
+    <Content Include="Images\Artist\thebeatles.jpg" />
+    <Content Include="Images\Artist\whitestripes.jpg" />
     <Content Include="Images\bullet.png" />
+    <Content Include="Images\Covers\abbeyroad.jpg" />
+    <Content Include="Images\Covers\backinblack.jpg" />
+    <Content Include="Images\Covers\blunderbuss.jpg" />
+    <Content Include="Images\Covers\elephant.jpg" />
+    <Content Include="Images\Covers\getbehindmesatan.jpg" />
+    <Content Include="Images\Covers\highvoltage.jpg" />
+    <Content Include="Images\Covers\highwaytohell.jpg" />
+    <Content Include="Images\Covers\inyourhonor.jpg" />
+    <Content Include="Images\Covers\ledzeppelinII.jpg" />
+    <Content Include="Images\Covers\letitbe.jpg" />
+    <Content Include="Images\Covers\letthereberock.jpg" />
+    <Content Include="Images\Covers\liveatriverplate.jpg" />
+    <Content Include="Images\Covers\livingthings.jpg" />
+    <Content Include="Images\Covers\meteora.jpg" />
+    <Content Include="Images\Covers\minutestomidnight.jpg" />
+    <Content Include="Images\Covers\onebyone.jpg" />
+    <Content Include="Images\Covers\paparoach.jpg" />
+    <Content Include="Images\Covers\physicalgraffiti.jpg" />
+    <Content Include="Images\Covers\pickofdestiny.jpg" />
+    <Content Include="Images\Covers\powerrage.jpg" />
+    <Content Include="Images\Covers\riseofthefenix.jpg" />
+    <Content Include="Images\Covers\roadtorevolution.jpg" />
+    <Content Include="Images\Covers\wastinglight.jpg" />
+    <Content Include="Images\Covers\yellowsubmarine.jpg" />
     <Content Include="Images\heroAccent.png" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
@@ -226,11 +257,13 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -277,6 +310,17 @@
     <Compile Include="Albums.aspx.designer.cs">
       <DependentUpon>Albums.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Artists\ArtistsGrid.ascx.cs">
+      <DependentUpon>ArtistsGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Artists\ArtistsGrid.ascx.designer.cs">
+      <DependentUpon>ArtistsGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ArtistEventArgs.cs" />
+    <Compile Include="Model\ArtistsModel.cs" />
+    <Compile Include="Model\DefaultPageModel.cs" />
+    <Compile Include="Presenters\Artists\ArtistsGridPresenter.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,6 +331,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\Artists\ArtistsPresenter.cs" />
+    <Compile Include="Views\Artists\IArtistView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -314,6 +360,10 @@
     <ProjectReference Include="..\App.Backend\App.ApplicationService\App.ApplicationService.csproj">
       <Project>{3dbc9bf7-77ff-405c-b367-ef43c32abbae}</Project>
       <Name>App.ApplicationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Backend\App.CrossCutting\App.CrossCutting.csproj">
+      <Project>{ba020eb8-218c-4978-a577-8769b07d1b47}</Project>
+      <Name>App.CrossCutting</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.Backend\App.Domain\App.Domain.csproj">
       <Project>{976c7a43-40df-476c-af2f-c6028d7ae019}</Project>

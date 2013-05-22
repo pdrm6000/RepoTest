@@ -11,11 +11,14 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic+SC' rel='stylesheet' type='text/css'>
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>
                 <%--Framework Scripts--%>
@@ -93,5 +96,7 @@
             </div>
         </footer>
     </form>
+    <script language="javascript" src="Scripts/bootstrap.js"></script>
+    <script language="javascript" src="Scripts/site.js"></script>
 </body>
 </html>
