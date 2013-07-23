@@ -31,7 +31,7 @@
             return datacontext.downloadAllArtists().then(processArtistsDownloaded);
         },
         processArtistsDownloaded = function (data) {
-            artistModel.artistsCollection = ko.mapping.fromJS(data, mapArtistCollection);
+            artistModel.artistsCollection = ko.mapping.fromJS(data.results, mapArtistCollection);
             //ko.utils.arrayPushAll(artistModel.artistsCollection, data);
             //artistEffects();
             artistModel.isLoading(false);

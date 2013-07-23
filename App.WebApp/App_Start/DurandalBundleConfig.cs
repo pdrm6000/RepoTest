@@ -20,6 +20,8 @@ namespace App.WebApp
                 .Include("~/Scripts/sammy-{version}.js")
                 .Include("~/Scripts/bootstrap.min.js")
                 .Include("~/Scripts/toastr.js")
+                .Include("~/Scripts/q.js")
+                .Include("~/Scripts/breeze.debug.js")
               );
 
             bundles.Add(

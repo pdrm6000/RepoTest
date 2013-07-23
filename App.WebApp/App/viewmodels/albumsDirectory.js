@@ -9,7 +9,7 @@
                 return datacontext.downloadArtistsWithAlbums().then(processArtistsWithAlbums);
             },
             processArtistsWithAlbums = function (data) {
-                artistsWithAlbums.artistCollection = ko.mapping.fromJS(data, mapAlbumsCollection);
+                artistsWithAlbums.artistCollection = ko.mapping.fromJS(data.results, mapAlbumsCollection);
                 artistsWithAlbums.isLoading(false);
             },
             mapAlbumsCollection = {

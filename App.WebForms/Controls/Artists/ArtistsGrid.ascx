@@ -42,8 +42,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <asp:Button runat="server" OnClick="AddArtist" Text="Add" class="btn btn-primary"/>
-        <button onclick="sendArtist('<%= ResolveUrl("~/Artists.aspx/AddArtist") %>'); return false;" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Add</button>
+        <asp:Button runat="server" OnClick="AddArtist" Text="Add webforms" class="btn btn-primary"/>
+        <button onclick="sendArtist('<%= ResolveUrl("~/Artists.aspx/AddArtist") %>'); return false;" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Add ajax</button>
         <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
     </div>
 </div>

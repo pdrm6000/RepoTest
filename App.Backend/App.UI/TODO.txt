@@ -11,6 +11,8 @@ Implementar single page application SPA
 
 	- app phonegap
 	- usar brezze.js
+		manage null values
+
 	- usar signalR
 
 

@@ -1,6 +1,18 @@
 ﻿define("viewmodels/datacontext", [], function () {
 
     var urlBase = "../api/";
+    var artistsRestManager = new breeze.EntityManager({ dataService: new breeze.DataService({
+        serviceName: urlBase + 'ArtistsRest',
+        hasServerMetadata: false // don't ask the server for metadata
+        })
+    });
+    var albumsRestManager = new breeze.EntityManager({
+        dataService: new breeze.DataService({
+            serviceName: urlBase + 'AlbumsRest',
+            hasServerMetadata: false // don't ask the server for metadata
+        })
+    });
+    
 
     $(document).ajaxError(function (event, jqxhr, settings, exception) {
         if (settings.url == "ajax/missing.html") {
@@ -10,35 +22,23 @@
 
     downloadNextAlbum = function () {
         var nextAlbum = downloadAlbum('Next');
-        return nextAlbum.done();
+        return nextAlbum;
     },
     downloadPreviousAlbum = function () {
         var previousAlbum = downloadAlbum('Previous');
-        return previousAlbum.done();
+        return previousAlbum;
     },
     downloadAlbum = function (action) {
-        return $.ajax({
-            url: urlBase + "AlbumsRest/" + action,
-            accepts: "application/json",
-            cache: false,
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+        var query = new breeze.EntityQuery().from(action);
+        return albumsRestManager.executeQuery(query);
     },
     downloadArtist = function (action) {
-        return $.ajax({
-            url: urlBase + "ArtistsRest/" + action,
-            accepts: "application/json",
-            cache: false,
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+        var query = new breeze.EntityQuery().from(action);
+        return artistsRestManager.executeQuery(query);
     },
     downloadAllArtists = function () {
         var allArtists = downloadArtist('GET');
-        return allArtists.done();
+        return allArtists;
     },
     addArtist = function (artist) {
         return $.ajax({
@@ -52,15 +52,19 @@
         });
     },
     addAlbum = function (artist) {
-        return $.ajax({
-            url: urlBase + "AlbumsRest/Post/",
-            data: JSON.stringify(artist),
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+        var value = albumsRestManager.createEntity('AlbumDTO', artist);
+        albumsRestManager.addEntity(value); // attach the entity as a new entity; it's EntityState is "Added"
+        return albumsRestManager.saveChanges();
+
+        //return $.ajax({
+        //    url: urlBase + "AlbumsRest/Post/",
+        //    data: JSON.stringify(artist),
+        //    type: "POST",
+        //    contentType: "application/json;charset=utf-8",
+        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //        alert('Error: ' + textStatus);
+        //    }
+        //});
     },
     deleteAlbums = function (ids) {
         return $.ajax({
@@ -96,6 +100,9 @@
         });
     },
     downloadArtistsWithAlbums = function () {
+        var query = new breeze.EntityQuery().from('GetWithAlbums');
+        return artistsRestManager.executeQuery(query);
+        
         return $.ajax({
             url: urlBase + "ArtistsRest/GetWithAlbums",
             accepts: "application/json",

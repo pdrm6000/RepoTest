@@ -18,37 +18,31 @@ define("viewmodels/albumsReview", ['viewmodels/datacontext', 'viewmodels/albumsR
                 myReviewAnimator.init();
                 albumreviewModel.IsLoading(true);
                 myReviewAnimator.setAreControlsLocked(true);
-                return datacontext.downloadNextAlbum().then(function(data) {
-                    myBinder.bindCurrentAlbum(data, albumreviewModel);
+                return datacontext.downloadNextAlbum().then(function (data) {
+                    myBinder.bindCurrentAlbum(data.results[0], albumreviewModel);
                     myReviewAnimator.setAreControlsLocked(false);
                 });
             },
             processNextAlbumDownloaded = function (data) {
-                if (data == null) {
-                    albumreviewModel.IsLoading(false);
-                    myReviewAnimator.animationNoNextData();
-                } else {
-                    var bindFunc = myBinder.getBindingFunction();
-                    bindFunc(data, albumreviewModel);
-                    myReviewAnimator.setLeftAnimation();
-                    myReviewAnimator.slideOutCurrentAlbum();
-                }
+                var bindFunc = myBinder.getBindingFunction();
+                bindFunc(data.results[0], albumreviewModel);
+                myReviewAnimator.setLeftAnimation();
+                myReviewAnimator.slideOutCurrentAlbum();
             },
             processPreviousAlbumDownloaded = function (data) {
-                if (data == null) {
-                    albumreviewModel.IsLoading(false);
-                    myReviewAnimator.animationNoPreviousData();
-                } else {
-                    var bindFunc = myBinder.getBindingFunction();
-                    bindFunc(data, albumreviewModel);
-                    myReviewAnimator.setRightAnimation();
-                    myReviewAnimator.slideOutCurrentAlbum();
-                }
+                var bindFunc = myBinder.getBindingFunction();
+                bindFunc(data.results[0], albumreviewModel);
+                myReviewAnimator.setRightAnimation();
+                myReviewAnimator.slideOutCurrentAlbum();
+            },
+            queryFailed = function (data) {
+                albumreviewModel.IsLoading(false);
+                myReviewAnimator.animationNoPreviousData();
             },
             tryDownload = function (downloadFunction, callbackFunction) {
                 if (!myReviewAnimator.areControlsLocked()) {
                     myReviewAnimator.setAreControlsLocked(true);
-                    downloadFunction().then(callbackFunction);
+                    downloadFunction().then(callbackFunction).fail(queryFailed);
                 } else {
                     albumreviewModel.IsLoading(false);
                 }

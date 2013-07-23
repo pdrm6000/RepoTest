@@ -15,6 +15,10 @@ namespace App.WebForms
         [WebMethod]
         public static void AddArtist(ArtistDTO artistDTO)
         {
+            /*
+             * enviar datos con los controles reales 
+             * enlazar directamente el get artist en el load
+             */
             var service = (IArtistCollectorAppService)UnityInstanceProvider.Container.Resolve(typeof (IArtistCollectorAppService), "");
             service.AddArtist(artistDTO);
         }
