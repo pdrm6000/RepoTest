@@ -60,9 +60,9 @@ namespace App.Repositories.BaseTypes
             return DbSet.FirstOrDefault(entity => entity.Id == id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
-            return DbSet.AsEnumerable();
+            return DbSet.AsQueryable();
         }
 
         public IEnumerable<TEntity> GetByCondition(Expression<Func<TEntity, bool>> predicate)
