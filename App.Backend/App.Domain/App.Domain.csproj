@@ -48,8 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServiceContracts\IAlbumsCollectorAppService.cs" />
-    <Compile Include="AppServiceContracts\IArtistCollectorAppService.cs" />
     <Compile Include="DomainServices\Contracts\IRandomAlbumSelector.cs" />
     <Compile Include="DomainServices\Implementations\RandomAlbumSelector.cs" />
     <Compile Include="DomainServices\Implementations\AlbumDTOGeneratorService.cs" />
@@ -64,6 +62,7 @@
     <Compile Include="RepositoryContracts\IEntityTracker.cs" />
     <Compile Include="ValueObjects\Caching\UserAlbumsNavigation.cs" />
     <Compile Include="ValueObjects\DTO\AlbumDTO.cs" />
+    <Compile Include="ValueObjects\DTO\AlbumEditingDTO.cs" />
     <Compile Include="ValueObjects\DTO\ArtistDTO.cs" />
     <Compile Include="ValueObjects\DTO\ArtistWithAlbumsDTO.cs" />
     <Compile Include="ValueObjects\EntityContract\IEntity.cs" />

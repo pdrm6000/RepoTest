@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 using App.CrossCutting.Caching;
-using App.Domain.AppServiceContracts;
 using App.Domain.DomainServices.Contracts;
 using App.Domain.Extensions;
 using App.Domain.RepositoryContracts;
 using App.Domain.Model;
 using App.Domain.ValueObjects.DTO;
+using IAlbumsCollectorAppService = App.ApplicationService.Services.AppServiceContracts.IAlbumsCollectorAppService;
 
-namespace App.ApplicationService.Services
+namespace App.ApplicationService.Services.Implementations
 {
     public class AlbumsCollectorAppService : IAlbumsCollectorAppService
     {

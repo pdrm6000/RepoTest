@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
 using System.Web.Http;
-using App.Domain.AppServiceContracts;
+using App.ApplicationService.Services.AppServiceContracts;
 using App.Domain.ValueObjects.DTO;
 using Breeze.WebApi;
+using Newtonsoft.Json.Linq;
 
 namespace App.UI.Controllers
 {
@@ -26,8 +25,7 @@ namespace App.UI.Controllers
         // GET api/<controller>
         public IQueryable<ArtistDTO> Get()
         {
-            var result = _artistCollectorAppService.GetAll();
-            return result.AsQueryable();
+            return _artistCollectorAppService.Entities;
         }
 
         // GET api/<controller>
@@ -36,22 +34,27 @@ namespace App.UI.Controllers
             return _artistCollectorAppService.GetAllWithAlbums();
         }
 
-        // POST api/<controller>
-        public HttpResponseMessage Post(ArtistDTO artist)
+        public SaveResult SaveChanges(JObject saveBundle)
         {
-            var newArtist = _artistCollectorAppService.AddArtist(artist);
-            return Request.CreateResponse<ArtistDTO>(HttpStatusCode.OK, newArtist);
+            return _artistCollectorAppService.SaveChanges(saveBundle);
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, ArtistDTO value)
-        {
-            _artistCollectorAppService.UpdateArtist(value);
-        }
+        //// POST api/<controller>
+        //public HttpResponseMessage Post(ArtistDTO artist)
+        //{
+        //    var newArtist = _artistCollectorAppService.AddArtist(artist);
+        //    return Request.CreateResponse<ArtistDTO>(HttpStatusCode.OK, newArtist);
+        //}
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
+        //// PUT api/<controller>/5
+        //public void Put(int id, ArtistDTO value)
+        //{
+        //    _artistCollectorAppService.UpdateArtist(value);
+        //}
+
+        //// DELETE api/<controller>/5
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

@@ -2,7 +2,7 @@
 using App.Domain.Model;
 using App.Domain.ValueObjects.DTO;
 
-namespace App.Domain.AppServiceContracts
+namespace App.ApplicationService.Services.AppServiceContracts
 {
     public interface IAlbumsCollectorAppService
     {

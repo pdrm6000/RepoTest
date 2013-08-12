@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using App.Domain.AppServiceContracts;
+using App.ApplicationService.Services.AppServiceContracts;
 using App.Domain.Extensions;
 using App.Domain.ValueObjects.DTO;
 using App.UI.Metadata;
