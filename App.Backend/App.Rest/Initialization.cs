@@ -1,9 +1,8 @@
 ﻿using App.CrossCutting.Caching;
-using App.UI.Metadata;
 using Microsoft.Practices.Unity;
 using App.CrossCutting.IoC;
 
-namespace App.UI
+namespace App.Rest
 {
     public class Initialization : IDependencyInitializer
     {

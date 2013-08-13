@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "App.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.CrossCutting", "App.Backend\App.CrossCutting\App.CrossCutting.csproj", "{BA020EB8-218C-4978-A577-8769B07D1B47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI", "App.Backend\App.UI\App.UI.csproj", "{F6373638-6E43-436D-A67C-238DAE007B62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Rest", "App.Backend\App.Rest\App.Rest.csproj", "{F6373638-6E43-436D-A67C-238DAE007B62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{94A0A35A-FBE4-496B-A7F5-C66881ECC31E}"
 EndProject
@@ -58,11 +58,11 @@ Global
 		SccAuxPath4 = https://pablo6000.visualstudio.com/defaultcollection
 		SccLocalPath4 = App.Backend\\App.ApplicationService
 		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName5 = App.Backend\\App.UI\\App.UI.csproj
+		SccProjectUniqueName5 = App.Backend\\App.Rest\\App.Rest.csproj
 		SccProjectTopLevelParentUniqueName5 = App.sln
-		SccProjectName5 = $/App.Backend/App.UI
+		SccProjectName5 = $/App.Backend/App.Rest
 		SccAuxPath5 = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath5 = App.Backend\\App.UI
+		SccLocalPath5 = App.Backend\\App.Rest
 		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

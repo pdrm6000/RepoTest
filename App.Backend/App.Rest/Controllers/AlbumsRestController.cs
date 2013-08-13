@@ -5,9 +5,9 @@ using System.Web.Http;
 using App.ApplicationService.Services.AppServiceContracts;
 using App.Domain.Extensions;
 using App.Domain.ValueObjects.DTO;
-using App.UI.Metadata;
+using App.Rest.Metadata;
 
-namespace App.UI.Controllers
+namespace App.Rest.Controllers
 {
     public class AlbumsRestController : ApiController
     {

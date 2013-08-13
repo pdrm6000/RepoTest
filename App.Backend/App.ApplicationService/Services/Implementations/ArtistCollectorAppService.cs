@@ -25,7 +25,14 @@ namespace App.ApplicationService.Services.Implementations
 
         public override IQueryable<ArtistDTO> Entities
         {
-            get { return _artistsRepository.GetAll().Select(x => x.ToArtistDTO()); }
+            get 
+            { 
+                return _artistsRepository
+                    .GetAll()
+                    .ToList()
+                    .Select(x => x.ToArtistDTO())
+                    .AsQueryable();
+            }
         }
 
         protected override ArtistDTO OnAdd(ArtistDTO value)

@@ -4,12 +4,12 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using App.UI.App_Start;
+using App.Rest.App_Start;
 using Microsoft.Practices.Unity;
 using App.CrossCutting.Provider;
 using App.CrossCutting.IoC;
 
-namespace App.UI
+namespace App.Rest
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801

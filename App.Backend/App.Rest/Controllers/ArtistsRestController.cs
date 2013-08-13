@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using App.ApplicationService.Services.AppServiceContracts;
 using App.Domain.ValueObjects.DTO;
 using Breeze.WebApi;
 using Newtonsoft.Json.Linq;
 
-namespace App.UI.Controllers
+namespace App.Rest.Controllers
 {
     //[HttpHeader("Access-Control-Allow-Origin", "*")].
 

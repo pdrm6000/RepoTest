@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="App.CloudSite" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2012-10.1.8">
-  <Role name="App.UI">
+  <Role name="App.Rest">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=publishingstorage;AccountKey=AlkCnrtuUH2t4oJ42AwpLVQJhivDfN35+rrTpBjEXctu4EmIfNDTRwbRpAiy1ZvgWieZdrblkUr1RdDp5Kr/ag==" />

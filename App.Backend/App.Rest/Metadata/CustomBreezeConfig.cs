@@ -1,7 +1,7 @@
 using Breeze.WebApi;
 using Newtonsoft.Json;
 
-namespace App.UI.Metadata
+namespace App.Rest.Metadata
 {
     public class CustomBreezeConfig : BreezeConfig
     {

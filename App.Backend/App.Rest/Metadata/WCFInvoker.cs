@@ -3,7 +3,7 @@ using System.ServiceModel.Configuration;
 using System.ServiceModel;
 using System.Configuration;
 
-namespace App.UI.Metadata
+namespace App.Rest.Metadata
 {
     public class WCFInvoker<T> where T : class
     {

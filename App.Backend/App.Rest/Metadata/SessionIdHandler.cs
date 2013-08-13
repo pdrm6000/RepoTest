@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace App.UI.Metadata
+namespace App.Rest.Metadata
 {
     public class SessionIdHandler : DelegatingHandler
     {

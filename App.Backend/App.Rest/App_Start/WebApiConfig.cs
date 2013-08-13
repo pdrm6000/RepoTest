@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
-using App.UI.Metadata;
+using App.Rest.Metadata;
 
-namespace App.UI.App_Start
+namespace App.Rest.App_Start
 {
     public static class WebApiConfig
     {
