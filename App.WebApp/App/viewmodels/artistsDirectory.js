@@ -1,5 +1,5 @@
-﻿define("viewmodels/artistsDirectory", ['viewmodels/artistsDirectory.model', 'viewmodels/datacontext'],
-    function (artistModel, datacontext) {
+﻿define("viewmodels/artistsDirectory", ['viewmodels/datacontext', 'viewmodels/artistsDirectory.model'],
+    function (datacontext, artistModel) {
 
         var artistModelLocal = artistModel;
         var editedArtist;
@@ -26,22 +26,11 @@
             $("#editDialog").modal('show');
         },
         activate = function () {
-            artistModel.isLoading(true);
             artistModel.clear();
             return datacontext.downloadAllArtists().then(processArtistsDownloaded);
         },
         processArtistsDownloaded = function (data) {
-            artistModel.artistsCollection = ko.mapping.fromJS(data.results, mapArtistCollection);
-            //ko.utils.arrayPushAll(artistModel.artistsCollection, data);
-            //artistEffects();
-            artistModel.isLoading(false);
-        },
-        mapArtistCollection = {
-            '': {
-                create: function (options) {
-                    return new artistModel.artistNew(options.data);
-                }
-            }
+            artistModel.artistsCollection(data.results);
         },
         finishArtistEditing = function () {
             lasteditpopup = toastr.info('Saving artist...');

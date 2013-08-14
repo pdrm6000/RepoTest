@@ -20,6 +20,9 @@
         }
     });
 
+
+    artistsMetadataStore = artistsRestManager.metadataStore,
+    albumsMetadataStore = albumsRestManager.metadataStore,
     downloadNextAlbum = function () {
         var nextAlbum = downloadAlbum('Next');
         return nextAlbum;
@@ -114,6 +117,8 @@
     };
 
     return {
+        artistsMetadataStore: artistsMetadataStore,
+        albumsMetadataStore: albumsMetadataStore,
         downloadNextAlbum: downloadNextAlbum,
         downloadPreviousAlbum: downloadPreviousAlbum,
         downloadAllArtists: downloadAllArtists,
