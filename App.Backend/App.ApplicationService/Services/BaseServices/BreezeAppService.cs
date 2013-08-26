@@ -14,15 +14,18 @@ namespace App.ApplicationService.Services.BaseServices
 
         private List<KeyMapping> Save(IEnumerable<EntityInfoTyped<T>> entitiesToSave)
         {
+            var result = new List<KeyMapping>();
             foreach (var entityInfoTyped in entitiesToSave)
             {
                 switch (entityInfoTyped.ChangeType)
                 {
                     case EntityState.Added:
                         OnAdd(entityInfoTyped.Entity);
+                        result.Add(new KeyMapping() { EntityTypeName = typeof(T).FullName, RealValue = entityInfoTyped.Entity, TempValue = entityInfoTyped.Entity });
                         break;
                     case EntityState.Deleted:
                         OnDelete(entityInfoTyped.Entity);
+
                         break;
                     case EntityState.Modified:
                         OnUpdate(entityInfoTyped.Entity);
@@ -30,7 +33,7 @@ namespace App.ApplicationService.Services.BaseServices
                 }
             }
             //TODO track changes
-            return null;
+            return result;
         }
 
         protected override string BuildJsonMetadata()

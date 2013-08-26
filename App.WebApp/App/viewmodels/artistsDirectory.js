@@ -6,8 +6,6 @@
         var lasteditpopup;
         var lastaddpopup;
 
-
-
         var vm =
         addArtist = function () {
             artistModel.selectedArtist.id(0);
@@ -18,11 +16,11 @@
         deleteArtist = function () {
 
         },
-        editArtist = function (data, event) {
+        editArtist = function (data) {
             editedArtist = data;
-            artistModel.selectedArtist.id(data.Id());
-            artistModel.selectedArtist.name(data.Name());
-            artistModel.selectedArtist.imageUrl(data.ImageUrl());
+            artistModel.selectedArtist.Name(data.Name());
+            artistModel.selectedArtist.FullImageUrl(data.FullImageUrl());
+            artistModel.selectedArtist.ImageUrl(data.ImageUrl());
             $("#editDialog").modal('show');
         },
         activate = function () {
@@ -34,7 +32,9 @@
         },
         finishArtistEditing = function () {
             lasteditpopup = toastr.info('Saving artist...');
-            datacontext.updateArtist(artistModel.selectedArtist.getArtistDTO()).then(notifyArtistEdited);
+            editedArtist.ImageUrl(artistModel.selectedArtist.ImageUrl());
+            editedArtist.Name(artistModel.selectedArtist.Name());
+            datacontext.updateArtist().then(notifyArtistEdited);
         },
         finishArtistAdding = function () {
             lastaddpopup = toastr.info('Adding artist...');
@@ -45,14 +45,7 @@
             toastr.success('<h4>Completed</h4>Artist added succesfully');
             toastr.clear(lastaddpopup);
         },
-        notifyArtistEdited = function () {
-            var index = artistModel.artistsCollection.indexOf(editedArtist);
-            var replaceArtist = new artistModel.artistNew({
-                Id: editedArtist.Id,
-                Name: artistModel.selectedArtist.name(),
-                ImageUrl: artistModel.selectedArtist.imageUrl()
-            });
-            artistModel.artistsCollection.replace(artistModel.artistsCollection()[index], replaceArtist);
+        notifyArtistEdited = function (e,result) {
             toastr.success('<h4>Completed</h4>Artist saved succesfully');
             toastr.clear(lasteditpopup);
         },

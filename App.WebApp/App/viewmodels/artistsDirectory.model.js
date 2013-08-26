@@ -1,9 +1,9 @@
 ﻿define("viewmodels/artistsDirectory.model", ['viewmodels/datacontext'], function (datacontext) {
 
-    var privMethods = { };
+    var privMethods = {};
     privMethods.isLoading = ko.observable(true),
     privMethods.artistsCollection = ko.observableArray(),
-    privMethods.selectedArtist = new artist(),
+    privMethods.selectedArtist = { FullImageUrl: ko.observable(''), ImageUrl: ko.observable(''), Name: ko.observable('') },
     privMethods.clear = function () {
         privMethods.artistsCollection.removeAll();
     },
@@ -22,14 +22,14 @@
                 Id: { dataType: DataType.Int32, isNullable: false, isPartOfKey: true },
                 Name: {
                     dataType: DataType.String, maxLength: 100, isNullable: false,
-                    validators: [Validator.required(), Validator.maxLength({ maxLength: 10 })]
+                    validators: [Validator.required(), Validator.maxLength({ maxLength: 100 })]
                 },
                 ImageUrl: { dataType: DataType.String, isNullable: false },
             },
         });
         breezeStore.registerEntityTypeCtor("ArtistDTO", null, privMethods.artistDTOInitializer);
     };
-    
+
 
     // Extract Breeze metadata definition types
     var DataType = breeze.DataType;
@@ -40,8 +40,7 @@
     var Validator = breeze.Validator;
 
     // The empty metadataStore to which we add types
-    var store = datacontext.artistsMetadataStore;
-    privMethods.createArtistModel(store);
+    privMethods.createArtistModel(datacontext.artistsMetadataStore);
 
     return {
         isLoading: privMethods.isLoading,
@@ -60,21 +59,4 @@ function artistNew(data) {
     self.FullImageUrl = ko.computed(function () {
         return 'App.WebApp/Images/Artist/' + self.ImageUrl();
     }, self);
-};
-
-function artist() {
-    this.id = ko.observable();
-    this.name = ko.observable();
-    this.imageUrl = ko.observable();
-    this.fullImageUrl = ko.computed(function () {
-        return "App.WebApp/Images/Artist/" + this.imageUrl();
-    }, this),
-    this.getArtistDTO = function () {
-        return {
-            Id: this.id(),
-            Name: this.name(),
-            ImageUrl: this.imageUrl(),
-            FullImageUrl: '',
-        };
-    };
 };

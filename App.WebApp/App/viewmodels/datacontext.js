@@ -80,16 +80,8 @@
             }
         });
     },
-    updateArtist = function (artist) {
-        return $.ajax({
-            url: urlBase + "ArtistsRest/Put/" + artist.Id,
-            data: JSON.stringify(artist),
-            type: "PUT",
-            contentType: "application/json;charset=utf-8",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+    updateArtist = function () {
+        return artistsRestManager.saveChanges();
     },
     updateAlbum = function (album) {
         return $.ajax({
