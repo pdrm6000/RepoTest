@@ -14,6 +14,8 @@ define(function(require) {
     system.debug(true);
     //>>excludeEnd("build");
 
+
+    
     app.title = 'My Musicator';
     app.start().then(function () {
         //Replace 'viewmodels' in the moduleId with 'views' to locate the view.

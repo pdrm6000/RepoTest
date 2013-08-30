@@ -13,13 +13,11 @@
         })
     });
     
-
     $(document).ajaxError(function (event, jqxhr, settings, exception) {
         if (settings.url == "ajax/missing.html") {
             $("div.log").text("Triggered ajaxError handler.");
         }
     });
-
 
     artistsMetadataStore = artistsRestManager.metadataStore,
     albumsMetadataStore = albumsRestManager.metadataStore,
@@ -42,6 +40,9 @@
     downloadAllArtists = function () {
         var allArtists = downloadArtist('GET');
         return allArtists;
+    },
+    createArtist = function (initialValues) {
+        return artistsRestManager.createEntity("ArtistDTO", initialValues);
     },
     addArtist = function (artist) {
         return $.ajax({
@@ -80,7 +81,7 @@
             }
         });
     },
-    updateArtist = function () {
+    saveArtists = function () {
         return artistsRestManager.saveChanges();
     },
     updateAlbum = function (album) {
@@ -114,11 +115,11 @@
         downloadNextAlbum: downloadNextAlbum,
         downloadPreviousAlbum: downloadPreviousAlbum,
         downloadAllArtists: downloadAllArtists,
-        updateArtist: updateArtist,
         addArtist: addArtist,
         addAlbum: addAlbum,
         downloadArtistsWithAlbums: downloadArtistsWithAlbums,
         deleteAlbums: deleteAlbums,
-        updateAlbum: updateAlbum,
+        saveArtists: saveArtists,
+        createArtist: createArtist,
     };
 });
