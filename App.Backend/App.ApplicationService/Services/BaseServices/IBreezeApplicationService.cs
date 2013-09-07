@@ -7,6 +7,6 @@ namespace App.ApplicationService.Services.BaseServices
     public interface IBreezeApplicationService<T>
     {
         IQueryable<T> Entities { get; }
-        SaveResult SaveChanges(JObject saveBundle);
+        SaveResult SaveChanges(JObject saveBundle, TransactionSettings transactionSettings = null);
     }
 }

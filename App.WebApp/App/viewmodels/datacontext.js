@@ -1,5 +1,8 @@
-﻿define("viewmodels/datacontext", [], function () {
+﻿define("viewmodels/datacontext", ['breeze','knockout'], function (breeze,ko) {
 
+    window["ko"] = ko;
+    breeze.config.initializeAdapterInstance("modelLibrary", "ko", true);
+    
     var urlBase = "../api/";
     var artistsRestManager = new breeze.EntityManager({ dataService: new breeze.DataService({
         serviceName: urlBase + 'ArtistsRest',
@@ -12,6 +15,7 @@
             hasServerMetadata: false // don't ask the server for metadata
         })
     });
+    
     
     $(document).ajaxError(function (event, jqxhr, settings, exception) {
         if (settings.url == "ajax/missing.html") {
@@ -34,7 +38,7 @@
         return albumsRestManager.executeQuery(query);
     },
     downloadArtist = function (action) {
-        var query = new breeze.EntityQuery().from(action);
+        var query = new breeze.EntityQuery().from(action).toType('ArtistDTO');
         return artistsRestManager.executeQuery(query);
     },
     downloadAllArtists = function () {

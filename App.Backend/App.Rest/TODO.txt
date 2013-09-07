@@ -16,8 +16,11 @@ Implementar single page application SPA
 	- usar signalR
 	- usar automapper
 	- revision de arquitectura y dependencias
-
-
+	- 
+	- usar sql de azure
+	- revisar dependencias en durandal (inyecciones)
+	- revision de todos los models y viewmodels y responsabilidades de cada uno
+	- limpiar funciones innecesarias (isloading etc)
 
 
 	Bugs:

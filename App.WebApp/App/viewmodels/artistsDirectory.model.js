@@ -1,13 +1,14 @@
-﻿define("viewmodels/artistsDirectory.model", ['viewmodels/datacontext'], function (datacontext) {
+﻿define("viewmodels/artistsDirectory.model", ['viewmodels/datacontext', 'breeze', 'knockout'], function (datacontext, breeze, ko) {
 
     var privMethods = {};
     privMethods.isLoading = ko.observable(true),
     privMethods.artistsCollection = ko.observableArray(),
-    privMethods.selectedArtist = { FullImageUrl: ko.observable(''), ImageUrl: ko.observable(''), Name: ko.observable('') },
+    privMethods.test = { name: ko.observable('test111') },
+    privMethods.selectedArtist = { FullImageUrl: ko.observable('/App.WebApp/Images/orderedList2.png'), ImageUrl: ko.observable(''), Name: ko.observable('') },
     privMethods.clear = function () {
         privMethods.artistsCollection.removeAll();
     },
-    privMethods.artistDTOInitializer = function (artist) {
+    privMethods.artistDtoInitializer = function (artist) {
         artist.toDelete = ko.observable(false);
         artist.FullImageUrl = ko.computed(function () {
             return 'App.WebApp/Images/Artist/' + artist.ImageUrl();
@@ -27,7 +28,7 @@
                 ImageUrl: { dataType: DataType.String, isNullable: false },
             },
         });
-        breezeStore.registerEntityTypeCtor("ArtistDTO", null, privMethods.artistDTOInitializer);
+        breezeStore.registerEntityTypeCtor("ArtistDTO", null, privMethods.artistDtoInitializer);
     };
 
 
@@ -46,8 +47,9 @@
         isLoading: privMethods.isLoading,
         artistsCollection: privMethods.artistsCollection,
         selectedArtist: privMethods.selectedArtist,
+        test: privMethods.test,
         clear: privMethods.clear,
-        artistNew: privMethods.artistNew
+        //artistNew: privMethods.artistNew
     };
 });
 

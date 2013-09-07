@@ -15,7 +15,9 @@
                     onmouseout="$(this).stop().animate({boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'})"
                     onmouseover="$(this).stop().animate({boxShadow: '0 1px 20px rgba(0, 0, 0, 0.7)'})" />
                 <div class="AlbumsDirArtist" data-bind="text: Name"></div>
+
             </a>
+            <input type="text" data-bind="value: Name" />
         </div>
     </div>
 </div>
@@ -29,8 +31,6 @@
 
 
 
-
-
 <div id="editAlert" class="hide">
     <h4>Saving artist</h4>
     Artist saved succesfully
@@ -40,7 +40,7 @@
 
 
 
-<div id="editDialog" class="albumEditDialog modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit artist" aria-hidden="true">
+<!--<div id="editDialog" class="albumEditDialog modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit artist" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabelEdit">Edit artist</h3>
@@ -49,7 +49,7 @@
         <div class="span5 visible-desktop">
             <img data-bind="attr: { src: artists.selectedArtist.FullImageUrl }" width="100%"/>
         </div>
-        <div class="span6 offset1">
+          <div class="span6 offset1">
             <p>Artist name</p>
             <input type="text" data-bind="value: artists.selectedArtist.Name" />
             <p>Image</p>
@@ -60,7 +60,7 @@
         <button data-bind="click: finishArtistEditing" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Save</button>
         <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
     </div>
-</div>
+</div>-->
 
 
 
@@ -87,3 +87,34 @@
     </div>
 </div>
 
+
+<div class="span12">
+    <input type="text" data-bind="value: artists.test.name" />
+    <div style="height: 100px; width: 100px; background: yellow">
+        <span data-bind="text: artists.test.name"></span>
+    </div>
+</div>
+
+<div class="span12">
+    <div id="editDialog" class="albumEditDialog " tabindex="-1" role="dialog" aria-labelledby="Edit artist" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabelEdit">Edit artist</h3>
+        </div>
+        <div class="modal-body">
+            <div class="span5 visible-desktop">
+                <img data-bind="attr: { src: artists.selectedArtist.FullImageUrl }" width="100%" />
+            </div>
+            <div class="span6 offset1">
+                <p>Artist name</p>
+                <input type="text" data-bind="value: artists.selectedArtist.Name" />
+                <p>Image</p>
+                <input type="text" data-bind="value: artists.selectedArtist.ImageUrl" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button data-bind="click: finishArtistEditing" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Save</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>
+    </div>
+</div>

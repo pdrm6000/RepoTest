@@ -42,16 +42,30 @@ namespace App.ApplicationService.Services.BaseServices
             return null;
         }
 
-        protected override List<KeyMapping> SaveChangesCore(Dictionary<Type, List<EntityInfo>> saveMap)
+        protected override void SaveChangesCore(SaveWorkState saveWorkState)
         {
-            if (saveMap.Any())
+            if (saveWorkState.SaveMap.Any())
             {
-                return Save(saveMap
+                Save(saveWorkState.SaveMap
                                 .First()
                                 .Value
                                 .Select(e => new EntityInfoTyped<T>(e)));
             }
+        }
+
+        protected override void CloseDbConnection()
+        {
+             
+        }
+
+        public override System.Data.IDbConnection GetDbConnection()
+        {
             return null;
+        }
+
+        protected override void OpenDbConnection()
+        {
+            
         }
     }
 }
