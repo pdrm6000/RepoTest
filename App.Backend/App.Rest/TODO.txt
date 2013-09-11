@@ -10,8 +10,6 @@ Implementar single page application SPA
 	- Resiseño de albumreview 
 
 	- app phonegap
-	- usar brezze.js
-		manage null values
 
 	- usar signalR
 	- usar automapper
@@ -20,7 +18,11 @@ Implementar single page application SPA
 	- usar sql de azure
 	- revisar dependencias en durandal (inyecciones)
 	- revision de todos los models y viewmodels y responsabilidades de cada uno
+	- revision js correcto patron object oriented
 	- limpiar funciones innecesarias (isloading etc)
+	- revisar responsive
+	- implementar Albums y Review
+
 
 
 	Bugs:

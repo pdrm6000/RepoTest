@@ -155,6 +155,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App\shell.html" />
     <Content Include="App\shell.js" />
+    <Content Include="App\viewmodels\addArtistModal.js" />
+    <Content Include="App\viewmodels\editArtistModal.js" />
+    <Content Include="App\views\addArtistModal.html" />
     <Content Include="Scripts\breeze\Adapters\breeze.ajax.jQuery.js" />
     <Content Include="Scripts\breeze\Adapters\breeze.dataService.odata.js" />
     <Content Include="Scripts\breeze\Adapters\breeze.dataService.webApi.js" />
@@ -203,7 +206,7 @@
     <Content Include="App\views\albumsDirectory.html" />
     <Content Include="App\views\albumsReview.html" />
     <Content Include="App\views\artistsDirectory.html" />
-    <Content Include="App\views\editArtist.html" />
+    <Content Include="App\views\editArtistModal.html" />
     <Content Include="App\views\myPage.html" />
     <Content Include="App\views\detail.html" />
     <Content Include="App\views\flickr.html" />

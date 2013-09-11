@@ -6,7 +6,7 @@
                 { route: ['', 'home'], moduleId: 'viewmodels/home', title: 'Home', nav: true },
                 { route: 'albumsReview', moduleId: 'viewmodels/albumsReview', title: 'Review', nav: true },
                 { route: 'artistsDirectory', moduleId: 'viewmodels/artistsDirectory', title: 'Artists', nav: true },
-                { route: 'albumsDirectory', moduleId: 'viewmodels/albumsDirectory',  title: 'Albums', nav: true },
+                { route: 'albumsDirectory', moduleId: 'viewmodels/albumsDirectory', title: 'Albums', nav: true },
             ]).buildNavigationModel()
               .mapUnknownRoutes('home', 'not-found')
               .activate();

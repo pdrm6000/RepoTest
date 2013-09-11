@@ -1,29 +1,11 @@
-﻿//define(function (require) {
-//    var app = require('durandal/app');
+﻿define(function (require) {
 
-//    return {
-//        displayName: 'My Page',
-//        showMessage: function () {
-//            app.showMessage('Hello there!');
-//        }
-//    };
-//});
+    activate = function() {
 
+    };
 
-define(function (require) {
-
-        init = function () {
-
-        },
-        isGlobalLoading = ko.observable(true),
-        canShowView = ko.computed(function () {
-            return !isGlobalLoading();
-        }, this);
-
-        var self = {
-            activate: init,
-            isGlobalLoading: isGlobalLoading,
-            canShowView: canShowView,
-        };
-        return self;
-    });
+    var self = {
+        activate: activate,
+    };
+    return self;
+});

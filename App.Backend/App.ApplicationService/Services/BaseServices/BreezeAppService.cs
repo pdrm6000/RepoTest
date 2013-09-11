@@ -46,26 +46,27 @@ namespace App.ApplicationService.Services.BaseServices
         {
             if (saveWorkState.SaveMap.Any())
             {
-                Save(saveWorkState.SaveMap
-                                .First()
-                                .Value
-                                .Select(e => new EntityInfoTyped<T>(e)));
+                saveWorkState.KeyMappings = Save(saveWorkState.SaveMap
+                                                .First()
+                                                .Value
+                                                .Select(e => new EntityInfoTyped<T>(e)));
             }
         }
 
         protected override void CloseDbConnection()
         {
-             
+             //There isn't db context in this layer
         }
 
         public override System.Data.IDbConnection GetDbConnection()
         {
+            //There isn't db context in this layer
             return null;
         }
 
         protected override void OpenDbConnection()
         {
-            
+            //There isn't db context in this layer
         }
     }
 }

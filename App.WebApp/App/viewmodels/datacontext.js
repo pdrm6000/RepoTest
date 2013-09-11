@@ -38,7 +38,7 @@
         return albumsRestManager.executeQuery(query);
     },
     downloadArtist = function (action) {
-        var query = new breeze.EntityQuery().from(action).toType('ArtistDTO');
+        var query = new breeze.EntityQuery().from(action);
         return artistsRestManager.executeQuery(query);
     },
     downloadAllArtists = function () {
@@ -46,18 +46,12 @@
         return allArtists;
     },
     createArtist = function (initialValues) {
-        return artistsRestManager.createEntity("ArtistDTO", initialValues);
+        //return artistsRestManager.createEntity("ArtistDTO", initialValues);
+        var customerType = artistsRestManager.metadataStore.getEntityType('ArtistDTO'); 
+        return customerType.createEntity(initialValues);
     },
     addArtist = function (artist) {
-        return $.ajax({
-            url: urlBase + "ArtistsRest/Post/",
-            data: JSON.stringify(artist),
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+        artistsRestManager.addEntity(artist);
     },
     addAlbum = function (artist) {
         var value = albumsRestManager.createEntity('AlbumDTO', artist);
