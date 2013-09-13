@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
-using App.Domain.ValueObjects;
-using App.Domain.ValueObjects.EntityContract;
+﻿using System.Runtime.Serialization;
+using App.Domain.EntityContract;
 
 namespace App.Domain.Model
 {

@@ -1,8 +1,9 @@
 using System;
-using App.Domain.ValueObjects.Caching;
-using App.Domain.ValueObjects.DTO;
+using App.ApplicationService.DTO;
+using App.ApplicationService.Services.AppServiceContracts;
+using App.CrossCutting.Caching;
 
-namespace App.CrossCutting.Caching
+namespace App.ApplicationService.Services.Implementations
 {
     public class AlbumsNavigationCache : IAlbumsNavigationCache
     {

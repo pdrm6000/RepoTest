@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using App.CrossCutting.Caching;
+using App.ApplicationService.DTO;
+using App.ApplicationService.Extensions;
+using App.ApplicationService.Services.AppServiceContracts;
 using App.Domain.DomainServices.Contracts;
-using App.Domain.Extensions;
 using App.Domain.RepositoryContracts;
 using App.Domain.Model;
-using App.Domain.ValueObjects.DTO;
 using IAlbumsCollectorAppService = App.ApplicationService.Services.AppServiceContracts.IAlbumsCollectorAppService;
 
 namespace App.ApplicationService.Services.Implementations
@@ -14,29 +14,15 @@ namespace App.ApplicationService.Services.Implementations
     {
         private readonly IAlbumsRepository _albumsRepository;
         private readonly IArtistsRepository _artistsRepository;
-        private readonly IAlbumDTOGeneratorService _albumDTOGeneratorService;
         private readonly IRandomAlbumSelector _randomAlbumSelector;
         private readonly IAlbumsNavigationCache _albumsNavigationCache;
 
-        public AlbumsCollectorAppService(IAlbumsRepository albumRepository, IArtistsRepository artistsRepository, IAlbumDTOGeneratorService albumDTOGeneratorService, IRandomAlbumSelector randomAlbumSelector, IAlbumsNavigationCache albumsNavigationCache)
+        public AlbumsCollectorAppService(IAlbumsRepository albumRepository, IArtistsRepository artistsRepository, IRandomAlbumSelector randomAlbumSelector, IAlbumsNavigationCache albumsNavigationCache)
         {
             _albumsRepository = albumRepository;
             _artistsRepository = artistsRepository;
-            _albumDTOGeneratorService = albumDTOGeneratorService;
             _randomAlbumSelector = randomAlbumSelector;
             _albumsNavigationCache = albumsNavigationCache;
-        }
-
-        public Album GetAlbumById(int id)
-        {
-            return _albumsRepository.GetById(id);
-        }
-
-        public AlbumEditingDTO AddAlbum(AlbumEditingDTO album)
-        {
-            var entity = album.ToAlbum();
-            _albumsRepository.Add(entity);
-            return entity.ToAlbumEditingDTO();
         }
 
         /// <summary>
@@ -54,7 +40,7 @@ namespace App.ApplicationService.Services.Implementations
             if (album != null)
             {
                 var artist = _artistsRepository.GetById(album.ArtistId);
-                result = _albumDTOGeneratorService.GetAlbumDTO(album, artist);
+                result.FillAlbumDTO(album, artist);
             }
             _albumsNavigationCache.AddAlbum(guid, result);
             return result;
@@ -68,6 +54,19 @@ namespace App.ApplicationService.Services.Implementations
         public AlbumDTO GetPreviousAlbum(Guid guid)
         {
             return _albumsNavigationCache.GetPreviousAlbum(guid);
+        }
+
+
+        public Album GetAlbumById(int id)
+        {
+            return _albumsRepository.GetById(id);
+        }
+
+        public AlbumEditingDTO AddAlbum(AlbumEditingDTO album)
+        {
+            var entity = album.ToAlbum();
+            _albumsRepository.Add(entity);
+            return entity.ToAlbumEditingDTO();
         }
 
         public int DeleteAlbums(int[] ids)

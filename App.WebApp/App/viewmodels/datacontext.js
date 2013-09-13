@@ -38,7 +38,7 @@
         return albumsRestManager.executeQuery(query);
     },
     downloadArtist = function (action) {
-        var query = new breeze.EntityQuery().from(action);
+        var query = new breeze.EntityQuery().from(action).orderBy("Name");
         return artistsRestManager.executeQuery(query);
     },
     downloadAllArtists = function () {
@@ -46,7 +46,6 @@
         return allArtists;
     },
     createArtist = function (initialValues) {
-        //return artistsRestManager.createEntity("ArtistDTO", initialValues);
         var customerType = artistsRestManager.metadataStore.getEntityType('ArtistDTO'); 
         return customerType.createEntity(initialValues);
     },

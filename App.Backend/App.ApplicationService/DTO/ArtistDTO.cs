@@ -1,6 +1,6 @@
-namespace App.Domain.ValueObjects.DTO
+namespace App.ApplicationService.DTO
 {
-    public class ArtistDTO
+    public class ArtistDTO : IDataTransferObject
     {
         public int Id { get; set; }
         public string Name { get; set; }

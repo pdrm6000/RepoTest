@@ -1,7 +1,7 @@
 ﻿using System;
-using App.Domain.ValueObjects.DTO;
+using App.ApplicationService.DTO;
 
-namespace App.CrossCutting.Caching
+namespace App.ApplicationService.Services.AppServiceContracts
 {
     public interface IAlbumsNavigationCache
     {

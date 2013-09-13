@@ -1,6 +1,6 @@
 ﻿using System;
+using App.ApplicationService.DTO;
 using App.Domain.Model;
-using App.Domain.ValueObjects.DTO;
 
 namespace App.ApplicationService.Services.AppServiceContracts
 {

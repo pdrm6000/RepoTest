@@ -71,9 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caching\AlbumsNavigationCache.cs" />
     <Compile Include="Caching\CacheService.cs" />
-    <Compile Include="Caching\IAlbumsNavigationCache.cs" />
     <Compile Include="Caching\ICacheService.cs" />
     <Compile Include="IoC\IDependencyInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

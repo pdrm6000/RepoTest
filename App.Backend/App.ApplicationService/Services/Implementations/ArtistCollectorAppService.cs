@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using App.ApplicationService.DTO;
+using App.ApplicationService.Extensions;
 using App.ApplicationService.Services.BaseServices;
-using App.Domain.Extensions;
 using App.Domain.RepositoryContracts;
-using App.Domain.ValueObjects.DTO;
 using App.ApplicationService.Services.AppServiceContracts;
 
 namespace App.ApplicationService.Services.Implementations

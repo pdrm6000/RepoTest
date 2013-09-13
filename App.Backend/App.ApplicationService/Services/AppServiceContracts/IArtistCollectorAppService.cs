@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using App.ApplicationService.DTO;
 using App.ApplicationService.Services.BaseServices;
-using App.Domain.ValueObjects.DTO;
 
 namespace App.ApplicationService.Services.AppServiceContracts
 {

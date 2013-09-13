@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using App.Domain.ValueObjects.DTO;
 
-namespace App.Domain.ValueObjects.Caching
+namespace App.ApplicationService.DTO
 {
     public class UserAlbumsNavigation
     {

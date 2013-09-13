@@ -11,7 +11,6 @@ namespace App.ApplicationService
         public void RegisterDependencies(Microsoft.Practices.Unity.IUnityContainer container)
         {
             container.RegisterType(typeof(IAlbumsCollectorAppService), typeof(AlbumsCollectorAppService), "", null);
-            container.RegisterType(typeof(IAlbumDTOGeneratorService), typeof(AlbumDTOGeneratorService), "", null);
             container.RegisterType(typeof(IRandomAlbumSelector), typeof(RandomAlbumSelector), "", null);
             container.RegisterType(typeof (IArtistCollectorAppService), typeof (ArtistCollectorAppService), "", null);
             var initializer = new Repositories.Initialization();

@@ -1,4 +1,6 @@
-﻿using App.CrossCutting.Caching;
+﻿using App.ApplicationService.Services.AppServiceContracts;
+using App.ApplicationService.Services.Implementations;
+using App.CrossCutting.Caching;
 using Microsoft.Practices.Unity;
 using App.CrossCutting.IoC;
 

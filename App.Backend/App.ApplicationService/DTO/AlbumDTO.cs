@@ -1,4 +1,4 @@
-﻿namespace App.Domain.ValueObjects.DTO
+﻿namespace App.ApplicationService.DTO
 {
 
     public class AlbumDTO

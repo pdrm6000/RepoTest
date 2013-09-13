@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using App.ApplicationService.DTO;
 using App.Domain.Model;
-using App.Domain.ValueObjects.DTO;
 
-namespace App.Domain.Extensions
+namespace App.ApplicationService.Extensions
 {
-    public static class ArtistExtensions
+    public static class MappingExtensions
     {
         public static ArtistDTO ToArtistDTO(this Artist artist)
         {
@@ -61,6 +58,19 @@ namespace App.Domain.Extensions
                 Id = artistDTO.Id,
                 Name = artistDTO.Name,
                 ImageUrl = artistDTO.ImageUrl
+            };
+        }
+
+        public static AlbumDTO FillAlbumDTO(this AlbumDTO artistDTO, Album album, Artist artist)
+        {
+            return new AlbumDTO
+            {
+                ActualRating = 10,
+                AlbumName = album.Name,
+                ArtistName = artist.Name,
+                Comments = "10 comments",
+                CoverUrl = album.CoverUrl,
+                Year = album.Year.ToString(CultureInfo.InvariantCulture)
             };
         }
     }

@@ -3,7 +3,7 @@
 
         var lasteditpopup;
         var lastaddpopup;
-
+        
         var viewmodel = {
 
             addArtist: function () {
@@ -32,12 +32,14 @@
             finishArtistAdding: function (artistAdded) {
                 if (artistAdded) {
                     lastaddpopup = toastr.info('Adding artist...');
+                    artistModel.newArtist = artistAdded; // keep a reference
                     datacontext.addArtist(artistAdded);
                     datacontext.saveArtists().then(viewmodel.notifyArtistAdded);
                 }
             },
             notifyArtistAdded: function (data) {
-                artistModel.artistsCollection.push(data);
+                artistModel.artistsCollection.push(artistModel.newArtist); // use the reference changed
+                artistModel.newArtist.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
                 toastr.success('<h4>Completed</h4>Artist added succesfully');
                 toastr.clear(lastaddpopup);
             },

@@ -1,4 +1,4 @@
-﻿namespace App.Domain.ValueObjects.EntityContract
+﻿namespace App.Domain.EntityContract
 {
     public interface IEntity
     {

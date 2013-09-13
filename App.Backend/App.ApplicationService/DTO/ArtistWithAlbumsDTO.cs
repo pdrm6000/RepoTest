@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace App.Domain.ValueObjects.DTO
+namespace App.ApplicationService.DTO
 {
     public class ArtistWithAlbumsDTO
     {

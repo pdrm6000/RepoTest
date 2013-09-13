@@ -1,11 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using App.ApplicationService.DTO;
 using Breeze.WebApi;
 
 namespace App.ApplicationService.Services.BaseServices
 {
-    public abstract class BreezeAppService<T> : ContextProvider
+    public abstract class BreezeAppService<T> : ContextProvider where T : IDataTransferObject
     {
         public abstract IQueryable<T> Entities { get; }
         protected abstract T OnAdd(T entity);
@@ -20,8 +20,9 @@ namespace App.ApplicationService.Services.BaseServices
                 switch (entityInfoTyped.ChangeType)
                 {
                     case EntityState.Added:
-                        OnAdd(entityInfoTyped.Entity);
-                        result.Add(new KeyMapping() { EntityTypeName = typeof(T).FullName, RealValue = entityInfoTyped.Entity, TempValue = entityInfoTyped.Entity });
+                        var tempId = entityInfoTyped.Entity.Id;
+                        var entityAdded  = OnAdd(entityInfoTyped.Entity);
+                        result.Add(new KeyMapping { EntityTypeName = typeof(T).FullName, RealValue = entityAdded.Id, TempValue = tempId });
                         break;
                     case EntityState.Deleted:
                         OnDelete(entityInfoTyped.Entity);

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using App.ApplicationService.DTO;
 using App.ApplicationService.Services.AppServiceContracts;
-using App.Domain.ValueObjects.DTO;
 using Breeze.WebApi;
 using Newtonsoft.Json.Linq;
 
@@ -37,22 +37,5 @@ namespace App.Rest.Controllers
             return _artistCollectorAppService.SaveChanges(saveBundle);
         }
 
-        //// POST api/<controller>
-        //public HttpResponseMessage Post(ArtistDTO artist)
-        //{
-        //    var newArtist = _artistCollectorAppService.AddArtist(artist);
-        //    return Request.CreateResponse<ArtistDTO>(HttpStatusCode.OK, newArtist);
-        //}
-
-        //// PUT api/<controller>/5
-        //public void Put(int id, ArtistDTO value)
-        //{
-        //    _artistCollectorAppService.UpdateArtist(value);
-        //}
-
-        //// DELETE api/<controller>/5
-        //public void Delete(int id)
-        //{
-        //}
     }
 }
