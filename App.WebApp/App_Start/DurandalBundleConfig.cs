@@ -15,13 +15,13 @@ namespace App.WebApp
                 .Include("~/Scripts/jquery-{version}.js")
                 .Include("~/Scripts/jquery-ui-1.9.2.min.js")
                 .Include("~/Scripts/jquery.animate-shadow.js")
-                .Include("~/Scripts/knockout-{version}.js")
-                .Include("~/Scripts/knockout.mapping.js")
-                .Include("~/Scripts/sammy-{version}.js")
+                //.Include("~/Scripts/knockout/knockout-2.3.0.debug.js")
+                //.Include("~/Scripts/knockout/knockout.mapping.js")
+                //.Include("~/Scripts/sammy-{version}.js")
                 .Include("~/Scripts/bootstrap.min.js")
                 .Include("~/Scripts/toastr.js")
-                .Include("~/Scripts/q.js")
-                .Include("~/Scripts/breeze.debug.js")
+                .Include("~/Scripts/breeze/q.js")
+                //.Include("~/Scripts/breeze/breeze.debug.js")
               );
 
             bundles.Add(

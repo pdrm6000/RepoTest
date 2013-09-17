@@ -38,6 +38,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="App.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.ApplicationService\bin\Debug\App.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -48,13 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServiceContracts\IAlbumsCollectorAppService.cs" />
-    <Compile Include="AppServiceContracts\IArtistCollectorAppService.cs" />
     <Compile Include="DomainServices\Contracts\IRandomAlbumSelector.cs" />
     <Compile Include="DomainServices\Implementations\RandomAlbumSelector.cs" />
-    <Compile Include="DomainServices\Implementations\AlbumDTOGeneratorService.cs" />
-    <Compile Include="DomainServices\Contracts\IAlbumDTOGeneratorService.cs" />
-    <Compile Include="Extensions\ArtistExtensions.cs" />
     <Compile Include="Model\Album.cs" />
     <Compile Include="Model\Artist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,11 +61,7 @@
     <Compile Include="RepositoryContracts\IArtistRepository.cs" />
     <Compile Include="RepositoryContracts\IBaseRepository.cs" />
     <Compile Include="RepositoryContracts\IEntityTracker.cs" />
-    <Compile Include="ValueObjects\Caching\UserAlbumsNavigation.cs" />
-    <Compile Include="ValueObjects\DTO\AlbumDTO.cs" />
-    <Compile Include="ValueObjects\DTO\ArtistDTO.cs" />
-    <Compile Include="ValueObjects\DTO\ArtistWithAlbumsDTO.cs" />
-    <Compile Include="ValueObjects\EntityContract\IEntity.cs" />
+    <Compile Include="EntityContract\IEntity.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

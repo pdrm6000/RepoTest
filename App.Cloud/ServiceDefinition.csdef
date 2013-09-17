@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="App.CloudSite" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-10.1.8">
-  <WebRole name="App.UI" vmsize="Small">
+  <WebRole name="App.Rest" vmsize="Small">
     <Sites>
       <Site name="Web">
         <VirtualApplication name="App.WebApp" physicalDirectory="..\..\..\App.WebApp">

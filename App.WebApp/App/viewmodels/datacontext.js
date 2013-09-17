@@ -1,5 +1,8 @@
-﻿define("viewmodels/datacontext", [], function () {
+﻿define("viewmodels/datacontext", ['breeze','knockout'], function (breeze,ko) {
 
+    window["ko"] = ko;
+    breeze.config.initializeAdapterInstance("modelLibrary", "ko", true);
+    
     var urlBase = "../api/";
     var artistsRestManager = new breeze.EntityManager({ dataService: new breeze.DataService({
         serviceName: urlBase + 'ArtistsRest',
@@ -13,13 +16,15 @@
         })
     });
     
-
+    
     $(document).ajaxError(function (event, jqxhr, settings, exception) {
         if (settings.url == "ajax/missing.html") {
             $("div.log").text("Triggered ajaxError handler.");
         }
     });
 
+    artistsMetadataStore = artistsRestManager.metadataStore,
+    albumsMetadataStore = albumsRestManager.metadataStore,
     downloadNextAlbum = function () {
         var nextAlbum = downloadAlbum('Next');
         return nextAlbum;
@@ -33,23 +38,19 @@
         return albumsRestManager.executeQuery(query);
     },
     downloadArtist = function (action) {
-        var query = new breeze.EntityQuery().from(action);
+        var query = new breeze.EntityQuery().from(action).orderBy("Name");
         return artistsRestManager.executeQuery(query);
     },
     downloadAllArtists = function () {
         var allArtists = downloadArtist('GET');
         return allArtists;
     },
+    createArtist = function (initialValues) {
+        var customerType = artistsRestManager.metadataStore.getEntityType('ArtistDTO'); 
+        return customerType.createEntity(initialValues);
+    },
     addArtist = function (artist) {
-        return $.ajax({
-            url: urlBase + "ArtistsRest/Post/",
-            data: JSON.stringify(artist),
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+        artistsRestManager.addEntity(artist);
     },
     addAlbum = function (artist) {
         var value = albumsRestManager.createEntity('AlbumDTO', artist);
@@ -77,16 +78,8 @@
             }
         });
     },
-    updateArtist = function (artist) {
-        return $.ajax({
-            url: urlBase + "ArtistsRest/Put/" + artist.Id,
-            data: JSON.stringify(artist),
-            type: "PUT",
-            contentType: "application/json;charset=utf-8",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+    saveArtists = function () {
+        return artistsRestManager.saveChanges();
     },
     updateAlbum = function (album) {
         return $.ajax({
@@ -114,14 +107,16 @@
     };
 
     return {
+        artistsMetadataStore: artistsMetadataStore,
+        albumsMetadataStore: albumsMetadataStore,
         downloadNextAlbum: downloadNextAlbum,
         downloadPreviousAlbum: downloadPreviousAlbum,
         downloadAllArtists: downloadAllArtists,
-        updateArtist: updateArtist,
         addArtist: addArtist,
         addAlbum: addAlbum,
         downloadArtistsWithAlbums: downloadArtistsWithAlbums,
         deleteAlbums: deleteAlbums,
-        updateAlbum: updateAlbum,
+        saveArtists: saveArtists,
+        createArtist: createArtist,
     };
 });

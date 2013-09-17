@@ -1,92 +1,72 @@
-﻿define("viewmodels/artistsDirectory", ['viewmodels/artistsDirectory.model', 'viewmodels/datacontext'],
-    function (artistModel, datacontext) {
+﻿define("viewmodels/artistsDirectory", ['viewmodels/datacontext', 'viewmodels/artistsDirectory.model', 'viewmodels/editArtistModal', 'viewmodels/addArtistModal'],
+    function (datacontext, artistModel, editArtistModal, addArtistModal) {
 
-        var artistModelLocal = artistModel;
-        var editedArtist;
         var lasteditpopup;
         var lastaddpopup;
+        
+        var viewmodel = {
 
+            addArtist: function () {
+                addArtistModal.show().then(viewmodel.finishArtistAdding);
+            },
+            deleteArtist: function () {
 
-
-        var vm =
-        addArtist = function () {
-            artistModel.selectedArtist.id(0);
-            artistModel.selectedArtist.name('');
-            artistModel.selectedArtist.imageUrl('');
-            $('#addDialog').modal('show');
-        },
-        deleteArtist = function () {
-
-        },
-        editArtist = function (data, event) {
-            editedArtist = data;
-            artistModel.selectedArtist.id(data.Id());
-            artistModel.selectedArtist.name(data.Name());
-            artistModel.selectedArtist.imageUrl(data.ImageUrl());
-            $("#editDialog").modal('show');
-        },
-        activate = function () {
-            artistModel.isLoading(true);
-            artistModel.clear();
-            return datacontext.downloadAllArtists().then(processArtistsDownloaded);
-        },
-        processArtistsDownloaded = function (data) {
-            artistModel.artistsCollection = ko.mapping.fromJS(data.results, mapArtistCollection);
-            //ko.utils.arrayPushAll(artistModel.artistsCollection, data);
-            //artistEffects();
-            artistModel.isLoading(false);
-        },
-        mapArtistCollection = {
-            '': {
-                create: function (options) {
-                    return new artistModel.artistNew(options.data);
+            },
+            editArtist: function (item) {
+                editArtistModal.show(item).then(viewmodel.finishArtistEditing);
+            },
+            activate: function () {
+                artistModel.init(datacontext.artistsMetadataStore);
+                artistModel.clear();
+                return datacontext.downloadAllArtists().then(viewmodel.processArtistsDownloaded);
+            },
+            processArtistsDownloaded: function (data) {
+                artistModel.artistsCollection(data.results);
+            },
+            finishArtistEditing: function (artistEdited) {
+                if (artistEdited) {
+                    lasteditpopup = toastr.info('Saving artist...');
+                    datacontext.saveArtists().then(viewmodel.notifyArtistEdited);
                 }
+            },
+            finishArtistAdding: function (artistAdded) {
+                if (artistAdded) {
+                    lastaddpopup = toastr.info('Adding artist...');
+                    artistModel.newArtist = artistAdded; // keep a reference
+                    datacontext.addArtist(artistAdded);
+                    datacontext.saveArtists().then(viewmodel.notifyArtistAdded);
+                }
+            },
+            notifyArtistAdded: function (data) {
+                artistModel.artistsCollection.push(artistModel.newArtist); // use the reference changed
+                artistModel.newArtist.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
+                toastr.success('<h4>Completed</h4>Artist added succesfully');
+                toastr.clear(lastaddpopup);
+            },
+            notifyArtistEdited: function (e, result) {
+                toastr.success('<h4>Completed</h4>Artist saved succesfully');
+                toastr.clear(lasteditpopup);
+            },
+            viewAttached: function (view) {
+                $(".span3").hover(function () {
+                    $(this).find(".AlbumsDirArtist").animate({ marginTop: 140, height: 60 }, 150);
+                }, function () {
+                    $(this).find(".AlbumsDirArtist").animate({ marginTop: 150, height: 50 }, 150);
+                });
             }
-        },
-        finishArtistEditing = function () {
-            lasteditpopup = toastr.info('Saving artist...');
-            datacontext.updateArtist(artistModel.selectedArtist.getArtistDTO()).then(notifyArtistEdited);
-        },
-        finishArtistAdding = function () {
-            lastaddpopup = toastr.info('Adding artist...');
-            datacontext.addArtist(artistModel.selectedArtist.getArtistDTO()).then(notifyArtistAdded);
-        },
-        notifyArtistAdded = function (data) {
-            artistModel.artistsCollection.push(data);
-            toastr.success('<h4>Completed</h4>Artist added succesfully');
-            toastr.clear(lastaddpopup);
-        },
-        notifyArtistEdited = function () {
-            var index = artistModel.artistsCollection.indexOf(editedArtist);
-            var replaceArtist = new artistModel.artistNew({
-                Id: editedArtist.Id,
-                Name: artistModel.selectedArtist.name(),
-                ImageUrl: artistModel.selectedArtist.imageUrl()
-            });
-            artistModel.artistsCollection.replace(artistModel.artistsCollection()[index], replaceArtist);
-            toastr.success('<h4>Completed</h4>Artist saved succesfully');
-            toastr.clear(lasteditpopup);
-        },
-        viewAttached = function (view) {
-            $(".span3").hover(function () {
-                $(this).find(".AlbumsDirArtist").animate({ marginTop: 140, height: 60 }, 150);
-            }, function () {
-                $(this).find(".AlbumsDirArtist").animate({ marginTop: 150, height: 50 }, 150);
-            });
         };
 
 
-        var self = {
+        return {
             artists: artistModel,
-            addArtist: addArtist,
-            editArtist: editArtist,
-            deleteArtist: deleteArtist,
-            finishArtistEditing: finishArtistEditing,
-            finishArtistAdding: finishArtistAdding,
-            activate: activate,
-            viewAttached: viewAttached,
-            afterBind: viewAttached,
+            addArtist: viewmodel.addArtist,
+            editArtist: viewmodel.editArtist,
+            deleteArtist: viewmodel.deleteArtist,
+            finishArtistEditing: viewmodel.finishArtistEditing,
+            finishArtistAdding: viewmodel.finishArtistAdding,
+            activate: viewmodel.activate,
+            viewAttached: viewmodel.viewAttached,
+            afterBind: viewmodel.viewAttached,
         };
-        return self;
     });
 
