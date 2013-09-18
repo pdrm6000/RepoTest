@@ -9,7 +9,7 @@
         artistDtoInitializer: function (artist) {
             artist.toDelete = ko.observable(false);
             artist.FullImageUrl = ko.computed(function () {
-               return 'App.WebApp/Images/Artist/' + artist.ImageUrl();
+               return 'Images/Artist/' + artist.ImageUrl();
             }, artist);
         },
         init: function (breezeStore) {
