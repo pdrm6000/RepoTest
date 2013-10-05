@@ -3,7 +3,6 @@
 
         var lasteditpopup;
         var lastaddpopup;
-        
         var viewmodel = {
 
             addArtist: function () {
@@ -66,7 +65,7 @@
             finishArtistAdding: viewmodel.finishArtistAdding,
             activate: viewmodel.activate,
             viewAttached: viewmodel.viewAttached,
-            afterBind: viewmodel.viewAttached,
+            bindingComplete: viewmodel.viewAttached,
         };
     });
 

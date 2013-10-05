@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using App.ApplicationService.DTO;
 using App.Domain.Model;
@@ -17,19 +18,27 @@ namespace App.ApplicationService.Extensions
                        };
         }
 
-        public static ArtistWithAlbumsDTO ToArtistWithAlbumsDTO(this Artist artist)
+        public static IQueryable<AlbumCatalogDTO> ToAlbumCatalog(this Artist artist)
         {
-            return new ArtistWithAlbumsDTO()
+            if (artist.Albums != null)
             {
-                Id = artist.Id,
-                Name = artist.Name,
-                Albums = artist.Albums.Select(a => a.ToAlbumEditingDTO())
-            };
+                return artist.Albums.Select(album => new AlbumCatalogDTO
+                                                         {
+                                                             AlbumName = album.Name,
+                                                             ArtistId = album.ArtistId,
+                                                             ArtistName = artist.Name,
+                                                             CoverUrl = album.CoverUrl,
+                                                             Id = album.Id,
+                                                             Year = album.Year
+                                                         })
+                                                        .AsQueryable();
+            }
+            return null;
         }
 
-        public static AlbumEditingDTO ToAlbumEditingDTO(this Album album)
+        public static AlbumCatalogDTO ToAlbumCatalogDTO(this Album album)
         {
-            return new AlbumEditingDTO()
+            return new AlbumCatalogDTO()
             {
                 Id = album.Id,
                 AlbumName = album.Name,
@@ -39,7 +48,7 @@ namespace App.ApplicationService.Extensions
             };
         }
 
-        public static Album ToAlbum(this AlbumEditingDTO album)
+        public static Album ToAlbum(this AlbumCatalogDTO album)
         {
             return new Album()
             {
