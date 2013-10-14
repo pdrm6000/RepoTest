@@ -15,13 +15,6 @@
             hasServerMetadata: false // don't ask the server for metadata
         })
     });
-    
-    
-    $(document).ajaxError(function (event, jqxhr, settings, exception) {
-        if (settings.url == "ajax/missing.html") {
-            $("div.log").text("Triggered ajaxError handler.");
-        }
-    });
 
     artistsMetadataStore = artistsRestManager.metadataStore,
     albumsMetadataStore = albumsRestManager.metadataStore,
@@ -93,17 +86,8 @@
         });
     },
     downloadArtistsWithAlbums = function () {
-        var query = new breeze.EntityQuery().from('GetWithAlbums');
-        return artistsRestManager.executeQuery(query);
-        
-        return $.ajax({
-            url: urlBase + "ArtistsRest/GetWithAlbums",
-            accepts: "application/json",
-            cache: false,
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
+        var query = new breeze.EntityQuery().from('GET').orderBy("ArtistName");
+        return albumsRestManager.executeQuery(query);
     };
 
     return {

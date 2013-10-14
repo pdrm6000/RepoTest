@@ -15,12 +15,12 @@ Implementar single page application SPA
 	- usar automapper
 	- revision de arquitectura y dependencias
 	- 
-	- usar sql de azure
-	- revisar dependencias en durandal (inyecciones)
-	- revision de todos los models y viewmodels y responsabilidades de cada uno
-	- revision js correcto patron object oriented
-	- limpiar funciones innecesarias (isloading etc)
-	- revisar responsive
+
+	- *revisar dependencias en durandal (inyecciones)
+	- *revision de todos los models y viewmodels y responsabilidades de cada uno
+	- *revision js correcto patron object oriented
+	- *limpiar funciones innecesarias (isloading etc)
+	- *revisar responsive
 	- implementar Albums y Review
 
 

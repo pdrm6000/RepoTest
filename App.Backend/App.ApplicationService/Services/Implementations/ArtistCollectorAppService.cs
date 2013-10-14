@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using App.ApplicationService.DTO;
 using App.ApplicationService.Extensions;
@@ -15,12 +14,6 @@ namespace App.ApplicationService.Services.Implementations
         public ArtistCollectorAppService(IArtistsRepository artistsRepository)
         {
             _artistsRepository = artistsRepository;
-        }
-
-        public IEnumerable<ArtistWithAlbumsDTO> GetAllWithAlbums()
-        {
-            var artist = _artistsRepository.GetAllWithAlbums();
-            return artist.Select(x => x.ToArtistWithAlbumsDTO());
         }
 
         public override IQueryable<ArtistDTO> Entities

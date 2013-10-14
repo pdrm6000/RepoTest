@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Net;
-using System.Net.Http;
+using System.Linq;
 using System.Web.Http;
 using App.ApplicationService.DTO;
-using App.ApplicationService.Extensions;
 using App.ApplicationService.Services.AppServiceContracts;
 using App.Rest.Metadata;
+using Breeze.WebApi;
+using Newtonsoft.Json.Linq;
 
 namespace App.Rest.Controllers
 {
@@ -18,15 +18,14 @@ namespace App.Rest.Controllers
             _albumsCollectorAppService = albumsCollectorAppService;
         }
 
-        public string Get()
+        public IQueryable<AlbumCatalogDTO> Get()
         {
-            return "Not Implemented method";
+            return _albumsCollectorAppService.Entities;
         }
 
-        public HttpResponseMessage Post(AlbumEditingDTO album)
+        public SaveResult SaveChanges(JObject saveBundle)
         {
-            var newAlbum = _albumsCollectorAppService.AddAlbum(album);
-            return Request.CreateResponse<AlbumEditingDTO>(HttpStatusCode.OK, newAlbum);
+            return _albumsCollectorAppService.SaveChanges(saveBundle);
         }
 
         [HttpGet]
@@ -41,16 +40,5 @@ namespace App.Rest.Controllers
             return _albumsCollectorAppService.GetPreviousAlbum(Guid.Parse(Request.Properties[SessionIdHandler.SessionIdToken].ToString()));
         }
 
-        [HttpDelete]
-        public int Delete(int[] ids)
-        {
-            return _albumsCollectorAppService.DeleteAlbums(ids);
-        }
-
-        [HttpPut]
-        public int Put(int id, AlbumEditingDTO value)
-        {
-            return _albumsCollectorAppService.UpdateAlbum(value.ToAlbum());
-        }
     }
 }

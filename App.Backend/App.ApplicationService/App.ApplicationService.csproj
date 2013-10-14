@@ -64,9 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AlbumDTO.cs" />
-    <Compile Include="DTO\AlbumEditingDTO.cs" />
+    <Compile Include="DTO\AlbumCatalogDTO.cs" />
     <Compile Include="DTO\ArtistDTO.cs" />
-    <Compile Include="DTO\ArtistWithAlbumsDTO.cs" />
     <Compile Include="DTO\IDataTransferObject.cs" />
     <Compile Include="DTO\UserAlbumsNavigation.cs" />
     <Compile Include="Extensions\MappingExtensions.cs" />
