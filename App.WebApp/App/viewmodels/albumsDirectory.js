@@ -5,16 +5,16 @@
         var editedAlbum;
         var viewmodel = {
             activate: function () {
-                albumsModel.init(datacontext.artistsMetadataStore);
-                return datacontext.downloadArtistsWithAlbums().then(processArtistsWithAlbums);
+                albumsModel.init(datacontext.albumsMetadataStore);
+                return datacontext.downloadArtistsWithAlbums().then(viewmodel.processArtistsWithAlbums);
             },
             processArtistsWithAlbums: function (data) {
                 var previousArtistId = 0;
-                $.each(data.result, function (index, album) {
+                $.each(data.results, function (index, album) {
                     if (album.ArtistId() == previousArtistId) {
-                        $(albumsModel.artistsCollection).last().Albums.push(album);
+                        $(albumsModel.artistCollection()).last().Albums().push(album);
                     } else {
-                        albumsModel.artistsCollection.push({
+                        albumsModel.artistCollection.push({
                             Name: ko.observable(album.ArtistName()),
                             Id: album.ArtistId(),
                             Albums: ko.observableArray([album]),
@@ -22,7 +22,8 @@
                         previousArtistId = album.ArtistId();
                     }
                 });
-                artistsWithAlbums.artistCollection(data.result);
+                console.warn(albumsModel.artistCollection());
+                //artistsWithAlbums.artistCollection(data.result);
             },
             addAlbum: function(data) {
                 var currentTime = new Date();
