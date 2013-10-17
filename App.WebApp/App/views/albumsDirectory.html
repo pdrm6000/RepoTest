@@ -2,9 +2,6 @@
     <div class="span12">
         <h1>Albums directory</h1>
         <br />
-        <div data-bind="visible: artistsWithAlbums.isLoading" style="text-align: center">
-            <img src="App.WebApp/Images/ajax_loader_page.gif" />
-        </div>
         <br />
         <div id="ArtistCollection" data-bind="foreach: artistsWithAlbums.artistCollection">
             <div class="row-fluid pull-left">
@@ -40,7 +37,7 @@
     </div>
 
 
-    <div id="editDialog" class="albumEditDialog modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit album" aria-hidden="true">
+<!--    <div id="editDialog" class="albumEditDialog modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit album" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="H1">Edit album</h3>
@@ -92,5 +89,5 @@
             <button data-bind="click: finishAlbumAdding" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Add</button>
             <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
         </div>
-    </div>
+    </div>-->
 </div>

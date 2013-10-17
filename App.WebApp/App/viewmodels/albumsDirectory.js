@@ -4,6 +4,7 @@
         var lastaddpopup;
         var editedAlbum;
         var viewmodel = {
+            artistsWithAlbums: albumsModel,
             activate: function () {
                 albumsModel.init(datacontext.albumsMetadataStore);
                 return datacontext.downloadArtistsWithAlbums().then(viewmodel.processArtistsWithAlbums);
@@ -11,19 +12,16 @@
             processArtistsWithAlbums: function (data) {
                 var previousArtistId = 0;
                 $.each(data.results, function (index, album) {
-                    if (album.ArtistId() == previousArtistId) {
-                        $(albumsModel.artistCollection()).last().Albums().push(album);
-                    } else {
+                    if (album.ArtistId() != previousArtistId) {
                         albumsModel.artistCollection.push({
                             Name: ko.observable(album.ArtistName()),
                             Id: album.ArtistId(),
-                            Albums: ko.observableArray([album]),
+                            Albums: ko.observableArray(),
                         });
                         previousArtistId = album.ArtistId();
                     }
+                    $(albumsModel.artistCollection()).last()[0].Albums().push(album);
                 });
-                console.warn(albumsModel.artistCollection());
-                //artistsWithAlbums.artistCollection(data.result);
             },
             addAlbum: function(data) {
                 var currentTime = new Date();
