@@ -4,7 +4,7 @@
             artistCollection: ko.observableArray(),
             initializeAlbumDto: function (album) {
                 album.toDelete = ko.observable(false);
-                album.FullImageUrl = ko.computed(function () {
+                album.FullCoverUrl = ko.computed(function () {
                     return 'App.WebApp/Images/Covers/' + album.CoverUrl();
                 }, album);
             },

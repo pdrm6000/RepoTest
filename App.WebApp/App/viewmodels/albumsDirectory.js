@@ -1,5 +1,5 @@
-﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext'],
-    function (albumsModel, datacontext) {
+﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext', 'viewmodels/editAlbumModal', "viewmodels/addAlbumModal"],
+    function (albumsModel, datacontext, editAlbumModal, addAlbumModal) {
 
         var lastaddpopup;
         var editedAlbum;
@@ -17,6 +17,10 @@
                             Name: ko.observable(album.ArtistName()),
                             Id: album.ArtistId(),
                             Albums: ko.observableArray(),
+                            removeVisible: true,
+                            addVisible: true,
+                            cancelVisible: false,
+                            confirmVisible: false,
                         });
                         previousArtistId = album.ArtistId();
                     }
@@ -24,25 +28,19 @@
                 });
             },
             addAlbum: function(data) {
-                var currentTime = new Date();
-                artistsWithAlbums.selectedAlbum.id(0);
-                artistsWithAlbums.selectedAlbum.name('');
-                artistsWithAlbums.selectedAlbum.year(currentTime.getFullYear());
-                artistsWithAlbums.selectedAlbum.coverUrl('');
-                artistsWithAlbums.selectedAlbum.artistName(data.Name());
-                artistsWithAlbums.selectedAlbum.artistId(data.Id());
-                $('#addDialog').modal('show');
+                addAlbumModal.show().then(viewmodel.finishAlbumAdding);
             },
-            finishAlbumAdding: function() {
-                lastaddpopup = toastr.info('Adding album...');
-                datacontext.addAlbum(artistsWithAlbums.selectedAlbum.getAlbumDTO()).then(notifyAlbumAdded);
+            finishAlbumAdding: function (albumAdded) {
+                if (albumAdded) {
+                    lastaddpopup = toastr.info('Adding album...');
+                    albumsModel.newAlbum = albumAdded; // keep a reference
+                    datacontext.addAlbum(albumAdded);
+                    datacontext.saveAlbums().then(viewmodel.notifyAlbumAdded);
+                }
             },
-            notifyAlbumAdded: function(data) {
-                var artist = ko.utils.arrayFirst(artistsWithAlbums.artistCollection(), function(item) {
-                    return data.ArtistId === item.Id();
-                });
-                var vmLocal = ko.mapping.fromJS(data, mapAlbum);
-                artist.Albums.push(vmLocal);
+            notifyAlbumAdded: function (data) {
+                albumsModel.artistCollection.push(albumsModel.newAlbum); // use the reference changed
+                artistModel.newAlbum.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
                 toastr.success('<h4>Completed</h4>Album added succesfully');
                 toastr.clear(lastaddpopup);
             },
@@ -53,32 +51,16 @@
                 data.removeVisible(false);
                 data.addVisible(false);
             },
-            editAlbum: function(data) {
-                editedAlbum = data;
-                artistsWithAlbums.selectedAlbum.id(data.Id());
-                artistsWithAlbums.selectedAlbum.name(data.AlbumName());
-                artistsWithAlbums.selectedAlbum.year(data.Year());
-                artistsWithAlbums.selectedAlbum.coverUrl(data.CoverUrl());
-                artistsWithAlbums.selectedAlbum.artistId(data.ArtistId());
-                $('#editDialog').modal('show');
+            editAlbum: function (data) {
+                editAlbumModal.show(data).then(viewmodel.finishAlbumEditing);
             },
-            finishAlbumEditing: function(data) {
-                lastaddpopup = toastr.info('Saving album...');
-                datacontext.updateAlbum(artistsWithAlbums.selectedAlbum.getAlbumDTO()).then(notifyAlbumEdited);
+            finishAlbumEditing: function (data) {
+                if (data) {
+                    lastaddpopup = toastr.info('Saving album...');
+                    datacontext.saveAlbums().then(viewmodel.notifyAlbumEdited);
+                }
             },
             notifyAlbumEdited: function() {
-                var artist = ko.utils.arrayFirst(artistsWithAlbums.artistCollection(), function(item) {
-                    return item.Id() == editedAlbum.ArtistId();
-                });
-                var replacedAlbum = artistsWithAlbums.getNewAlbumModel({
-                    Id: editedAlbum.Id,
-                    AlbumName: artistsWithAlbums.selectedAlbum.name(),
-                    Year: artistsWithAlbums.selectedAlbum.year(),
-                    CoverUrl: artistsWithAlbums.selectedAlbum.coverUrl(),
-                    ArtistId: artistsWithAlbums.selectedAlbum.artistId(),
-                });
-                var index = artist.Albums.indexOf(editedAlbum);
-                artist.Albums.replace(artist.Albums()[index], replacedAlbum);
                 toastr.success('<h4>Completed</h4>Album saved succesfully');
                 toastr.clear(lastaddpopup);
             },

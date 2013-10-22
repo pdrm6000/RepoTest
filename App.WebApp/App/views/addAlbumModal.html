@@ -1,0 +1,26 @@
+﻿<div class="messageBox">
+    <div id="addDialog" class="albumAddDialog modal" tabindex="-1" role="dialog" aria-labelledby="Add new album" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabelAdd">Add new album</h3>
+        </div>
+        <div class="modal-body">
+            <div class="AlbumDirEditRightPanel">
+                <p class="visible-desktop">Artist name</p>
+                <b class="visible-desktop"><span data-bind="text: albumToAdd.ArtistName" /></b>
+                <br class="visible-desktop" />
+                <br class="visible-desktop"/>
+                <p>Album name</p>
+                <input type="text" data-bind="value: albumToAdd.Name" />
+                <p>Cover</p>
+                <input type="text" data-bind="value: albumToAdd.CoverUrl" />
+                <p>Year</p>
+                <input type="text" data-bind="value: albumToAdd.Year" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button data-bind="click: ok" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Add</button>
+            <button data-bind="click: cancel" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        </div>
+    </div>
+</div>
