@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace App.Rest.Controllers
 {
+    [BreezeController]
     public class AlbumsRestController : ApiController
     {
         private readonly IAlbumsCollectorAppService _albumsCollectorAppService;

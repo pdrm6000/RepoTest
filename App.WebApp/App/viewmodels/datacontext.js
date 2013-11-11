@@ -42,23 +42,15 @@
         var customerType = artistsRestManager.metadataStore.getEntityType('ArtistDTO'); 
         return customerType.createEntity(initialValues);
     },
+    createAlbum = function (initialValues) {
+        var customerType = albumsRestManager.metadataStore.getEntityType('AlbumCatalogDTO');
+        return customerType.createEntity(initialValues);
+    },
     addArtist = function (artist) {
         artistsRestManager.addEntity(artist);
     },
-    addAlbum = function (artist) {
-        var value = albumsRestManager.createEntity('AlbumDTO', artist);
-        albumsRestManager.addEntity(value); // attach the entity as a new entity; it's EntityState is "Added"
-        return albumsRestManager.saveChanges();
-
-        //return $.ajax({
-        //    url: urlBase + "AlbumsRest/Post/",
-        //    data: JSON.stringify(artist),
-        //    type: "POST",
-        //    contentType: "application/json;charset=utf-8",
-        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
-        //        alert('Error: ' + textStatus);
-        //    }
-        //});
+    addAlbum = function (album) {
+        albumsRestManager.addEntity(album);
     },
     deleteAlbums = function (ids) {
         return $.ajax({
@@ -73,6 +65,9 @@
     },
     saveArtists = function () {
         return artistsRestManager.saveChanges();
+    },
+    saveAlbums = function () {
+        return albumsRestManager.saveChanges();
     },
     updateAlbum = function (album) {
         return $.ajax({
@@ -101,6 +96,8 @@
         downloadArtistsWithAlbums: downloadArtistsWithAlbums,
         deleteAlbums: deleteAlbums,
         saveArtists: saveArtists,
+        saveAlbums: saveAlbums,
         createArtist: createArtist,
+        createAlbum: createAlbum,
     };
 });
