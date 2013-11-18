@@ -1,9 +1,8 @@
 ﻿define("viewmodels/addAlbumModal", ['viewmodels/datacontext', 'plugins/dialog'], function (datacontext, dialog) {
 
-    var addAlbumModal = function () {
-        this.albumToAdd = datacontext.createAlbum();
+    var addAlbumModal = function (artistId, artistName) {
         var currentTime = new Date();
-        this.albumToAdd.Year(currentTime.getFullYear());
+        this.albumToAdd = datacontext.createAlbum({ ArtistId: artistId, ArtistName: artistName, Year: currentTime.getFullYear() });
     };
 
     addAlbumModal.prototype.ok = function () {
@@ -18,8 +17,8 @@
         return true;
     };
 
-    addAlbumModal.show = function () {
-        return dialog.show(new addAlbumModal());
+    addAlbumModal.show = function (artistId, artistName) {
+        return dialog.show(new addAlbumModal(artistId, artistName));
     };
 
     return addAlbumModal;

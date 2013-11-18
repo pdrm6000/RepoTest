@@ -27,8 +27,9 @@
                     $(albumsModel.artistCollection()).last()[0].Albums().push(album);
                 });
             },
-            addAlbum: function(data) {
-                addAlbumModal.show().then(viewmodel.finishAlbumAdding);
+            addAlbum: function (data) {
+                albumsModel.selectedArtist = data;
+                addAlbumModal.show(data.Id, data.Name()).then(viewmodel.finishAlbumAdding);
             },
             finishAlbumAdding: function (albumAdded) {
                 if (albumAdded) {
@@ -39,7 +40,7 @@
                 }
             },
             notifyAlbumAdded: function (data) {
-                albumsModel.artistCollection.push(albumsModel.newAlbum); // use the reference changed
+                albumsModel.selectedArtist.Albums.push(albumsModel.newAlbum); // use the reference changed
                 artistModel.newAlbum.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
                 toastr.success('<h4>Completed</h4>Album added succesfully');
                 toastr.clear(lastaddpopup);
