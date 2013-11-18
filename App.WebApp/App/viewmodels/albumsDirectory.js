@@ -2,7 +2,6 @@
     function (albumsModel, datacontext, editAlbumModal, addAlbumModal) {
 
         var lastaddpopup;
-        var editedAlbum;
         var viewmodel = {
             artistsWithAlbums: albumsModel,
             activate: function () {
@@ -17,10 +16,11 @@
                             Name: ko.observable(album.ArtistName()),
                             Id: album.ArtistId(),
                             Albums: ko.observableArray(),
-                            removeVisible: true,
-                            addVisible: true,
-                            cancelVisible: false,
-                            confirmVisible: false,
+                            removeVisible: ko.observable(true),
+                            addVisible: ko.observable(true),
+                            cancelVisible: ko.observable(false),
+                            confirmVisible: ko.observable(false),
+                        	isDeleting : ko.observable(false),
                         });
                         previousArtistId = album.ArtistId();
                     }
@@ -41,7 +41,7 @@
             },
             notifyAlbumAdded: function (data) {
                 albumsModel.selectedArtist.Albums.push(albumsModel.newAlbum); // use the reference changed
-                artistModel.newAlbum.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
+                albumsModel.newAlbum.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
                 toastr.success('<h4>Completed</h4>Album added succesfully');
                 toastr.clear(lastaddpopup);
             },
@@ -67,11 +67,10 @@
             },
             confirmAlbumRemoving: function(data) {
                 var dataFiltered = ko.utils.arrayFilter(data.Albums(), function(item) { return item.toDelete() == true; });
-                var dataFlat = ko.utils.arrayMap(dataFiltered, function(item) { return item.Id(); });
                 data.isDeleting(false);
                 resetButtons(data);
                 toastr.info('Deleting albums...');
-                datacontext.deleteAlbums(dataFlat).then(processAlbumsDeleted(dataFiltered, data.Albums));
+                datacontext.saveAlbums().then(processAlbumsDeleted(dataFiltered, data.Albums));
             },
             processAlbumsDeleted: function(data, array) {
                 ko.utils.arrayForEach(data, function(item) {

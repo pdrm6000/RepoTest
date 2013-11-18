@@ -3,7 +3,7 @@
         var model = {
             artistCollection: ko.observableArray(),
             initializeAlbumDto: function (album) {
-                album.toDelete = ko.observable(false);
+            	album.toDelete = ko.observable(false);
                 album.FullCoverUrl = ko.computed(function () {
                     return 'App.WebApp/Images/Covers/' + album.CoverUrl();
                 }, album);

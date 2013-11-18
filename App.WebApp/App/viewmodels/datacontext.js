@@ -52,33 +52,11 @@
     addAlbum = function (album) {
         albumsRestManager.addEntity(album);
     },
-    deleteAlbums = function (ids) {
-        return $.ajax({
-            url: urlBase + "AlbumsRest/Delete/",
-            data: JSON.stringify(ids),
-            type: "DELETE",
-            contentType: "application/json;charset=utf-8",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
-    },
     saveArtists = function () {
         return artistsRestManager.saveChanges();
     },
     saveAlbums = function () {
         return albumsRestManager.saveChanges();
-    },
-    updateAlbum = function (album) {
-        return $.ajax({
-            url: urlBase + "AlbumsRest/Put/" + album.Id,
-            data: JSON.stringify(album),
-            type: "PUT",
-            contentType: "application/json;charset=utf-8",
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert('Error: ' + textStatus);
-            }
-        });
     },
     downloadArtistsWithAlbums = function () {
         var query = new breeze.EntityQuery().from('GET').orderBy("ArtistName");
@@ -94,7 +72,6 @@
         addArtist: addArtist,
         addAlbum: addAlbum,
         downloadArtistsWithAlbums: downloadArtistsWithAlbums,
-        deleteAlbums: deleteAlbums,
         saveArtists: saveArtists,
         saveAlbums: saveAlbums,
         createArtist: createArtist,
