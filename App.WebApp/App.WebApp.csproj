@@ -207,7 +207,6 @@
     <Content Include="App\viewmodels\flickr.js" />
     <Content Include="App\viewmodels\home.js" />
     <Content Include="App\viewmodels\myPage.js" />
-    <Content Include="App\viewmodels\shell.js" />
     <Content Include="App\viewmodels\viewsRenderer.js" />
     <Content Include="App\viewmodels\welcome.js" />
     <Content Include="App\views\albumsDirectory.html" />
@@ -218,7 +217,6 @@
     <Content Include="App\views\detail.html" />
     <Content Include="App\views\flickr.html" />
     <Content Include="App\views\home.html" />
-    <Content Include="App\views\shell.html" />
     <Content Include="App\views\welcome.html" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap-responsive.css" />
