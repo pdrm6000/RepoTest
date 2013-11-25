@@ -15,19 +15,7 @@
                 </div>
                 <div class="span12">
                     <div class="albums" data-bind="foreach: Albums">
-                        <div class="span3">
-                                <div style="width: 170px; height: 250px">
-                                    <input type="checkbox" data-bind="checked: toDelete, visible: $parent.isDeleting" />
-                                    <a data-bind="click: $root.editAlbum" href=".">
-                                    <img    onmouseout="$(this).stop().animate({boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'})" 
-                                            onmouseover="$(this).stop().animate({boxShadow: '0 1px 20px rgba(0, 0, 0, 0.7)'})"
-                                            data-bind="attr: { src: FullCoverUrl }" width="170" height="170" class="img-polaroid" />
-                                    </a>
-                                    <div style="text-align: center; width: 100%">
-                                        <div data-bind="text: AlbumName"></div>
-                                        <div data-bind="text: Year"></div>
-                                    </div>
-                                </div>
+                        <div class="span3" data-bind="compose: 'album'">
                         </div>
                     </div>
                 </div>
@@ -37,57 +25,4 @@
     </div>
 
 
-<!--    <div id="editDialog" class="albumEditDialog modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Edit album" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="H1">Edit album</h3>
-        </div>
-        <div class="modal-body">
-            <div class="span5 visible-desktop">
-                <img data-bind="attr: { src: artistsWithAlbums.selectedAlbum.fullCoverUrl }" width="100%" class="img-polaroid" />
-            </div>
-            <div class="span6 offset1">
-                <p>Album name</p>
-                <input width="80%" type="text" data-bind="value: artistsWithAlbums.selectedAlbum.name" />
-                <p>Cover</p>
-                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.coverUrl" />
-                <p>Year</p>
-                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.year" />
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button data-bind="click: finishAlbumEditing" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Save</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        </div>
-    </div>
-
-
-
-
-
-
-    <div id="addDialog" class="albumAddDialog modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Add new album" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabelAdd">Add new album</h3>
-        </div>
-        <div class="modal-body">
-            <div class="AlbumDirEditRightPanel">
-                <p class="visible-desktop">Artist name</p>
-                <b class="visible-desktop"><span data-bind="text: artistsWithAlbums.selectedAlbum.artistName" /></b>
-                <br class="visible-desktop" />
-                <br class="visible-desktop"/>
-                <p>Album name</p>
-                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.name" />
-                <p>Cover</p>
-                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.coverUrl" />
-                <p>Year</p>
-                <input type="text" data-bind="value: artistsWithAlbums.selectedAlbum.year" />
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button data-bind="click: finishAlbumAdding" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Add</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        </div>
-    </div>-->
 </div>

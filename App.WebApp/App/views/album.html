@@ -1,0 +1,12 @@
+﻿<div style="width: 170px; height: 250px">
+    <input type="checkbox" data-bind="checked: toDelete, visible: $parent.isDeleting" />
+    <a data-bind="click: $root.editAlbum" href=".">
+    <img    onmouseout="$(this).stop().animate({boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'})" 
+            onmouseover="$(this).stop().animate({boxShadow: '0 1px 20px rgba(0, 0, 0, 0.7)'})"
+            data-bind="attr: { src: FullCoverUrl }" width="170" height="170" class="img-polaroid albumImg" />
+    </a>
+    <div style="text-align: center; width: 100%">
+        <div data-bind="text: AlbumName"></div>
+        <div data-bind="text: Year"></div>
+    </div>
+</div>

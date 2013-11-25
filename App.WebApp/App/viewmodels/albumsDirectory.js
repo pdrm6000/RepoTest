@@ -1,5 +1,5 @@
-﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext', 'viewmodels/editAlbumModal', "viewmodels/addAlbumModal"],
-	function (albumsModel, datacontext, editAlbumModal, addAlbumModal) {
+﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext', 'viewmodels/editAlbumModal', "viewmodels/addAlbumModal", "viewmodels/album"],
+	function (albumsModel, datacontext, editAlbumModal, addAlbumModal, album) {
 
 		var lastaddpopup;
 		var viewmodel = {
@@ -95,11 +95,11 @@
 				data.addVisible(true);
 			},
 			viewAttached: function(view) {
-				//$(".albumImg").hover(function () {
-				//    $(this).animate({ boxShadow : '0 1px 20px rgba(0, 0, 0, 0.5)' }, 100);
-				//}, function () {
-				//    $(this).animate({ boxShadow : '0 1px 3px rgba(0, 0, 0, 0.1)' }, 100);
-				//});
+				$(".albumImg").hover(function () {
+				    $(this).animate({ boxShadow : '0 1px 20px rgba(0, 0, 0, 0.5)' }, 100);
+				}, function () {
+				    $(this).animate({ boxShadow : '0 1px 3px rgba(0, 0, 0, 0.1)' }, 100);
+				});
 			}
 		};
 
