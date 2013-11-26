@@ -1,5 +1,5 @@
-﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext', 'viewmodels/editAlbumModal', "viewmodels/addAlbumModal", "viewmodels/album"],
-	function (albumsModel, datacontext, editAlbumModal, addAlbumModal, album) {
+﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext', "viewmodels/addAlbumModal"],
+	function (albumsModel, datacontext, addAlbumModal) {
 
 		var lastaddpopup;
 		var viewmodel = {
@@ -43,19 +43,6 @@
 				albumsModel.selectedArtist.Albums.push(albumsModel.newAlbum); // use the reference changed
 				albumsModel.newAlbum.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
 				toastr.success('<h4>Completed</h4>Album added succesfully');
-				toastr.clear(lastaddpopup);
-			},
-			editAlbum: function (data) {
-				editAlbumModal.show(data).then(viewmodel.finishAlbumEditing);
-			},
-			finishAlbumEditing: function (data) {
-				if (data) {
-					lastaddpopup = toastr.info('Saving album...');
-					datacontext.saveAlbums().then(viewmodel.notifyAlbumEdited);
-				}
-			},
-			notifyAlbumEdited: function() {
-				toastr.success('<h4>Completed</h4>Album saved succesfully');
 				toastr.clear(lastaddpopup);
 			},
 			removeAlbum: function (data) {
@@ -111,8 +98,6 @@
 			removeAlbum: viewmodel.removeAlbum,
 			confirmAlbumRemoving: viewmodel.confirmAlbumRemoving,
 			cancelAlbumRemoving: viewmodel.cancelAlbumRemoving,
-			editAlbum: viewmodel.editAlbum,
-			finishAlbumEditing: viewmodel.finishAlbumEditing,
 			viewAttached: viewmodel.viewAttached,
 		};
 
