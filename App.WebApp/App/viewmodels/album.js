@@ -6,11 +6,11 @@
 			albumModel: null,
 			isDeleting: ko.observable(),
 			activate: function (param) {
-				viewmodel.albumModel = param.data;
-				viewmodel.isDeleting = param.parent;
+				this.albumModel = param.data;
+				this.isDeleting = param.parent;
 			},
-			editAlbum: function (data) {
-				editAlbumModal.show(data).then(viewmodel.finishAlbumEditing);
+			editAlbum: function (data,x,y) {
+				editAlbumModal.show(data.albumModel).then(viewmodel.finishAlbumEditing);
 			},
 			finishAlbumEditing: function (data) {
 				if (data) {
@@ -22,15 +22,6 @@
 				toastr.success('<h4>Completed</h4>Album saved succesfully');
 				toastr.clear(viewmodel.lastaddpopup);
 			},
-			getView: function() {
-				var x = "";
-			},
-			binding: function() {
-				var x = "";
-			},
-			bindingComplete: function() {
-				var x = "";
-			}
 		};
 		
 		return {
@@ -38,9 +29,6 @@
 			albumModel: viewmodel.albumModel,
 			editAlbum: viewmodel.editAlbum,
 			isDeleting: viewmodel.isDeleting,
-			getView: viewmodel.getView,
-			binding: viewmodel.binding,
-			bindingComplete: viewmodel.bindingComplete,
 		};
 		
 	});
