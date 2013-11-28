@@ -15,7 +15,7 @@
                 </div>
                 <div class="span12">
                     <div class="albums" data-bind="foreach: Albums">
-                        <div class="span3" data-bind="compose: { model: 'viewmodels/album', activationData: { data: $data, parent: $parent.isDeleting }, cacheViews: false }">
+                        <div class="span3" data-bind="compose: { view:'views/album.html', model: 'viewmodels/album', activationData: { data: $data, parent: $parent.isDeleting }, cacheViews: false }">
                         </div>
                     </div>
                 </div>

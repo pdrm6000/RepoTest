@@ -1,34 +1,31 @@
 ﻿define("viewmodels/album", ['viewmodels/datacontext', 'viewmodels/editAlbumModal'],
 	function (datacontext, editAlbumModal) {
 
-		var viewmodel = {
-			lastaddpopup :null,
-			albumModel: null,
-			isDeleting: ko.observable(),
-			activate: function (param) {
-				this.albumModel = param.data;
-				this.isDeleting = param.parent;
-			},
-			editAlbum: function (data,x,y) {
+		var viewmodel = function () {
+			var self = this;
+			self.lastaddpopup = null;
+			self.albumModel = null;
+			self.isDeleting = ko.observable();
+			self.editAlbum = function (data) {
 				editAlbumModal.show(data.albumModel).then(viewmodel.finishAlbumEditing);
-			},
-			finishAlbumEditing: function (data) {
+			};
+			self.finishAlbumEditing = function (data) {
 				if (data) {
 					viewmodel.lastaddpopup = toastr.info('Saving album...');
 					datacontext.saveAlbums().then(viewmodel.notifyAlbumEdited);
 				}
-			},
-			notifyAlbumEdited: function () {
+			};
+			self.notifyAlbumEdited = function () {
 				toastr.success('<h4>Completed</h4>Album saved succesfully');
 				toastr.clear(viewmodel.lastaddpopup);
-			},
+			};
 		};
-		
-		return {
-			activate: viewmodel.activate,
-			albumModel: viewmodel.albumModel,
-			editAlbum: viewmodel.editAlbum,
-			isDeleting: viewmodel.isDeleting,
+
+		viewmodel.prototype.activate = function (param) {
+			this.albumModel = param.data;
+			this.isDeleting = param.parent;
 		};
-		
+
+		return viewmodel;
+
 	});
