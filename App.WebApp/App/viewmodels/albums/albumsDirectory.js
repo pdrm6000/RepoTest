@@ -1,6 +1,10 @@
-﻿define("viewmodels/albumsDirectory", ['viewmodels/albumsDirectory.model', 'viewmodels/datacontext', "viewmodels/addAlbumModal"],
-	function (albumsModel, datacontext, addAlbumModal) {
-
+﻿define("viewmodels/albums/albumsDirectory",
+	[
+		'viewmodels/albums/albumsDirectory.model',
+		'viewmodels/data/datacontext',
+		'viewmodels/albums/addAlbumModal'
+	],
+	function (albumsModel, datacontext, addAlbumModal){
 		var lastaddpopup;
 		var viewmodel = {
 			artistsWithAlbums: albumsModel,

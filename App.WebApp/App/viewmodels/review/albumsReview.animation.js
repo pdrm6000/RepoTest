@@ -1,4 +1,4 @@
-﻿define("viewmodels/albumsReview.animation", [],
+﻿define("viewmodels/review/albumsReview.animation", [],
     function () {
 
         var boxOut;

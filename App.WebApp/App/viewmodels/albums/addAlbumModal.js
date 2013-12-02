@@ -1,4 +1,9 @@
-﻿define("viewmodels/addAlbumModal", ['viewmodels/datacontext', 'plugins/dialog'], function (datacontext, dialog) {
+﻿define("viewmodels/albums/addAlbumModal",
+	[
+		'viewmodels/data/datacontext',
+		'plugins/dialog'
+	],
+	function (datacontext, dialog) {
 
     var addAlbumModal = function (artistId, artistName) {
         var currentTime = new Date();

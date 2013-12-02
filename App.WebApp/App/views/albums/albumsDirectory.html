@@ -1,0 +1,30 @@
+﻿<div id="AlbumsConfig">
+    <div class="span12">
+        <h1>Albums directory</h1>
+        <br />
+        <br />
+	    <div id="ArtistCollection" data-bind="foreach: artistsWithAlbums.artistCollection">
+		    <div>
+			    <div class="row-fluid pull-left">
+				    <div class="breadcrumb" style="height: 45px">
+					    <h2 class="pull-left" data-bind="text: Name"></h2>
+					    <a id="removeAlbumButton" data-bind="visible: removeVisible, click: $parent.removeAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-minus"></i></a>
+					    <a id="addAlbumButton" data-bind="visible: addVisible, click: $parent.addAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-plus"></i></a>
+
+					    <a id="cancelRemovingButton" style="display: none;" data-bind="visible: cancelVisible, click: $parent.cancelAlbumRemoving" class="btn btn-mini pull-right" href="#"><i class="icon-remove"></i></a>
+					    <a id="confirmRemovingButton" style="display: none;" data-bind="visible: confirmVisible, click: $parent.confirmAlbumRemoving" class="btn btn-mini pull-right" href="#"><i class="icon-ok"></i></a>
+				    </div>
+				    <div class="span12">
+					    <div class="albums" data-bind="foreach: Albums">
+						    <div class="span3" data-bind="compose: { model: 'viewmodels/albums/album', activationData: { data: $data, parent: $parent.isDeleting }, cacheViews: false }">
+						    </div>
+					    </div>
+				    </div>
+			    </div>
+			</div>
+	    </div>
+
+    </div>
+
+
+</div>

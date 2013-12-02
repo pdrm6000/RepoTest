@@ -1,4 +1,8 @@
-﻿define("viewmodels/albumsDirectory.model", ['breeze', 'knockout'],
+﻿define("viewmodels/albums/albumsDirectory.model",
+	[
+		'breeze',
+		'knockout'
+	],
     function (breeze, ko) {
         var model = {
             artistCollection: ko.observableArray(),

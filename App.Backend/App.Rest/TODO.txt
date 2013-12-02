@@ -14,14 +14,6 @@ Implementar single page application SPA
 	- usar signalR
 	- usar automapper
 	- revision de arquitectura y dependencias
-	- 
-
-	- *revisar dependencias en durandal (inyecciones)
-	- *revision de todos los models y viewmodels y responsabilidades de cada uno
-	- *revision js correcto patron object oriented
-	- *limpiar funciones innecesarias (isloading etc)
-	- *revisar responsive
-	- implementar Albums y Review
 
 
 

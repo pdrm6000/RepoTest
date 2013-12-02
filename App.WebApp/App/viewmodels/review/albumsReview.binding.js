@@ -1,4 +1,4 @@
-﻿define("viewmodels/albumsReview.binding", [],
+﻿define("viewmodels/review/albumsReview.binding", [],
     function () {
 
         var bindingUsed = 0;

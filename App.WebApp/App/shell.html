@@ -13,13 +13,6 @@
                             <div class="row-fluid visible-phone"></div>
                             <div class="pull-right">
                                 <nav>
-                                    <!-- <ul id="menu">
-                                        <li><a href="#/viewmodels/home" rel="tooltip" title="Go to the main page">Home</a></li>
-                                        <li><a href="#/viewmodels/albumsReview" rel="tooltip" title="Review and rate albums">Review</a></li>
-                                        <li><a href="#/viewmodels/artistsDirectory" rel="tooltip" title="Go to artist directory">Artists</a></li>
-                                        <li><a href="#/viewmodels/albumsDirectory" rel="tooltip" title="Go to albums directory">Albums</a></li>
-                                    </ul> -->
-									
 									<ul id="menu" data-bind="foreach: router.navigationModel">
 										<li data-bind="css: { active: isActive }">
 											<a rel="tooltip" data-bind="attr: { href: hash }, html: title"></a>

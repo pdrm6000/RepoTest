@@ -1,4 +1,8 @@
-﻿define("viewmodels/album", ['viewmodels/datacontext', 'viewmodels/editAlbumModal'],
+﻿define("viewmodels/albums/album",
+	[
+		'viewmodels/data/datacontext',
+		'viewmodels/albums/editAlbumModal'
+	],
 	function (datacontext, editAlbumModal) {
 
 		var viewmodel = function () {
@@ -7,17 +11,17 @@
 			self.albumModel = null;
 			self.isDeleting = ko.observable();
 			self.editAlbum = function (data) {
-				editAlbumModal.show(data.albumModel).then(viewmodel.finishAlbumEditing);
+				editAlbumModal.show(data.albumModel).then(self.finishAlbumEditing);
 			};
 			self.finishAlbumEditing = function (data) {
 				if (data) {
-					viewmodel.lastaddpopup = toastr.info('Saving album...');
-					datacontext.saveAlbums().then(viewmodel.notifyAlbumEdited);
+					self.lastaddpopup = toastr.info('Saving album...');
+					datacontext.saveAlbums().then(self.notifyAlbumEdited);
 				}
 			};
 			self.notifyAlbumEdited = function () {
 				toastr.success('<h4>Completed</h4>Album saved succesfully');
-				toastr.clear(viewmodel.lastaddpopup);
+				toastr.clear(self.lastaddpopup);
 			};
 		};
 
