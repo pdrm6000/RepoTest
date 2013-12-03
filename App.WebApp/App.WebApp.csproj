@@ -158,11 +158,13 @@
     <Content Include="App\shell.html" />
     <Content Include="App\shell.js" />
     <Content Include="App\viewmodels\albums\addAlbumModal.js" />
+    <Content Include="App\viewmodels\albums\albumsGroupedByArtist.js" />
     <Content Include="App\viewmodels\artists\addArtistModal.js" />
     <Content Include="App\viewmodels\albums\album.js" />
     <Content Include="App\viewmodels\albums\editAlbumModal.js" />
     <Content Include="App\viewmodels\artists\editArtistModal.js" />
     <Content Include="App\views\albums\addAlbumModal.html" />
+    <Content Include="App\views\albums\albumsGroupedByArtist.html" />
     <Content Include="App\views\artists\addArtistModal.html" />
     <Content Include="App\views\albums\album.html" />
     <Content Include="App\views\albums\editAlbumModal.html" />

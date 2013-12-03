@@ -1,17 +1,17 @@
 ﻿define("viewmodels/albums/albumsDirectory",
 	[
 		'viewmodels/albums/albumsDirectory.model',
-		'viewmodels/data/datacontext',
-		'viewmodels/albums/addAlbumModal'
+		'viewmodels/data/datacontext'
 	],
-	function (albumsModel, datacontext, addAlbumModal){
-		var lastaddpopup;
+	function (albumsModel, datacontext){
 		var viewmodel = {
 			artistsWithAlbums: albumsModel,
+			
 			activate: function () {
 				albumsModel.init(datacontext.albumsMetadataStore);
 				return datacontext.downloadArtistsWithAlbums().then(viewmodel.processArtistsWithAlbums);
 			},
+			
 			processArtistsWithAlbums: function (data) {
 				var previousArtistId = 0;
 				$.each(data.results, function (index, album) {
@@ -24,67 +24,14 @@
 							addVisible: ko.observable(true),
 							cancelVisible: ko.observable(false),
 							confirmVisible: ko.observable(false),
-                        	isDeleting : ko.observable(false),
+							isDeleting : ko.observable(false),
 						});
 						previousArtistId = album.ArtistId();
 					}
 					$(albumsModel.artistCollection()).last()[0].Albums().push(album);
 				});
 			},
-			addAlbum: function (data) {
-				albumsModel.selectedArtist = data;
-				addAlbumModal.show(data.Id, data.Name()).then(viewmodel.finishAlbumAdding);
-			},
-			finishAlbumAdding: function (albumAdded) {
-				if (albumAdded) {
-					lastaddpopup = toastr.info('Adding album...');
-					albumsModel.newAlbum = albumAdded; // keep a reference
-					datacontext.addAlbum(albumAdded);
-					datacontext.saveAlbums().then(viewmodel.notifyAlbumAdded);
-				}
-			},
-			notifyAlbumAdded: function (data) {
-				albumsModel.selectedArtist.Albums.push(albumsModel.newAlbum); // use the reference changed
-				albumsModel.newAlbum.entityAspect.setUnchanged(); //TODO (investigate): I don't know why i have to do this, it is like after added the change is not reflected on client collection
-				toastr.success('<h4>Completed</h4>Album added succesfully');
-				toastr.clear(lastaddpopup);
-			},
-			removeAlbum: function (data) {
-				data.isDeleting(true);
-				data.cancelVisible(true);
-				data.confirmVisible(true);
-				data.removeVisible(false);
-				data.addVisible(false);
-			},
-			confirmAlbumRemoving: function (data) {
-				data.isDeleting(false);
-				viewmodel.resetButtons(data);
-				var dataFiltered = ko.utils.arrayFilter(data.Albums(), function (item) { return item.toDelete() == true; });
-				if (dataFiltered) {
-					ko.utils.arrayForEach(dataFiltered, function (entity) {
-						entity.entityAspect.setDeleted();
-					});
-					toastr.info('Deleting albums...');
-					datacontext.saveAlbums().then(viewmodel.processAlbumsDeleted(dataFiltered, data.Albums));
-				}
-			},
-			processAlbumsDeleted: function (data, array) {
-				//TODO: invetigate how apply deleting automatically
-				ko.utils.arrayForEach(data, function (item) {
-					array.remove(item);
-				});
-				toastr.success('<h4>Completed</h4>Albums deleted succesfully');
-			},
-			cancelAlbumRemoving: function(data) {
-				data.isDeleting(false);
-				viewmodel.resetButtons(data);
-			},
-			resetButtons: function(data) {
-				data.cancelVisible(false);
-				data.confirmVisible(false);
-				data.removeVisible(true);
-				data.addVisible(true);
-			},
+			
 			viewAttached: function(view) {
 				$(".albumImg").hover(function () {
 				    $(this).animate({ boxShadow : '0 1px 20px rgba(0, 0, 0, 0.5)' }, 100);
@@ -94,14 +41,9 @@
 			}
 		};
 
-		return  {
+		return {
 			artistsWithAlbums: viewmodel.artistsWithAlbums,
 			activate: viewmodel.activate,
-			addAlbum: viewmodel.addAlbum,
-			finishAlbumAdding: viewmodel.finishAlbumAdding,
-			removeAlbum: viewmodel.removeAlbum,
-			confirmAlbumRemoving: viewmodel.confirmAlbumRemoving,
-			cancelAlbumRemoving: viewmodel.cancelAlbumRemoving,
 			viewAttached: viewmodel.viewAttached,
 		};
 

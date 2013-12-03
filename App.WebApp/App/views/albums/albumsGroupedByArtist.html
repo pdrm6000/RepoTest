@@ -1,0 +1,16 @@
+﻿<div class="row-fluid pull-left">
+	<div class="breadcrumb" style="height: 45px">
+		<h2 class="pull-left" data-bind="text: model.Name"></h2>
+		<a id="removeAlbumButton" data-bind="visible: model.removeVisible, click: removeAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-minus"></i></a>
+		<a id="addAlbumButton" data-bind="visible: model.addVisible, click: addAlbum" class="btn btn-mini pull-right" href="#"><i class="icon-plus"></i></a>
+
+		<a id="cancelRemovingButton" style="display: none;" data-bind="visible: model.cancelVisible, click: cancelAlbumRemoving" class="btn btn-mini pull-right" href="#"><i class="icon-remove"></i></a>
+		<a id="confirmRemovingButton" style="display: none;" data-bind="visible: model.confirmVisible, click: confirmAlbumRemoving" class="btn btn-mini pull-right" href="#"><i class="icon-ok"></i></a>
+	</div>
+	<div class="span12">
+		<div class="albums" data-bind="foreach: model.Albums">
+			<div class="span3" data-bind="compose: { model: 'viewmodels/albums/album', activationData: { data: $data, parent: $parent.model.isDeleting }, cacheViews: false }">
+			</div>
+		</div>
+	</div>
+</div>
