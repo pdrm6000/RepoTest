@@ -34,10 +34,11 @@ namespace App.ApplicationService.Services.Implementations
 		{
 			get
 			{
-				return _albumDomainService
-						.GetAll()
-						.Select(x => x.ToAlbumCatalog())
-						.AsQueryable();
+                return _albumDomainService
+                        .GetAll()
+                        .ToList()
+                        .Select(x => x.ToAlbumCatalog())
+                        .AsQueryable();
 			}
 		}
 
