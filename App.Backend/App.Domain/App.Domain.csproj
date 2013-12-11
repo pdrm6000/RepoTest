@@ -52,15 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DomainServices\Contracts\IRandomAlbumSelector.cs" />
-    <Compile Include="DomainServices\Implementations\RandomAlbumSelector.cs" />
     <Compile Include="Model\Album.cs" />
     <Compile Include="Model\Artist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryContracts\IAlbumsRepository.cs" />
-    <Compile Include="RepositoryContracts\IArtistRepository.cs" />
-    <Compile Include="RepositoryContracts\IBaseRepository.cs" />
-    <Compile Include="RepositoryContracts\IEntityTracker.cs" />
     <Compile Include="EntityContract\IEntity.cs" />
   </ItemGroup>
   <ItemGroup />

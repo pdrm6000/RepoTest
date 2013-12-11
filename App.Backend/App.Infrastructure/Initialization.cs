@@ -1,6 +1,7 @@
 ﻿using App.CrossCutting.IoC;
-using App.Domain.RepositoryContracts;
 using App.Repositories.Repositories;
+using App.Repositories.Repositories.Contracts;
+using App.Repositories.Repositories.Implementations;
 
 namespace App.Repositories
 {

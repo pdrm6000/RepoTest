@@ -87,13 +87,13 @@
       <Project>{BA020EB8-218C-4978-A577-8769B07D1B47}</Project>
       <Name>App.CrossCutting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.DomainServices\App.DomainServices.csproj">
+      <Project>{8f0c9e30-5071-49c4-9b68-443950757988}</Project>
+      <Name>App.DomainServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Domain\App.Domain.csproj">
       <Project>{976C7A43-40DF-476C-AF2F-C6028D7AE019}</Project>
       <Name>App.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj">
-      <Project>{4A7E64CE-02C1-47CE-A679-236A89E3A938}</Project>
-      <Name>App.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

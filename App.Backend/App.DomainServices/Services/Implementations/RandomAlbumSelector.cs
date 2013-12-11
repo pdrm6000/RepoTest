@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using App.Domain.DomainServices.Contracts;
-using App.Domain.RepositoryContracts;
+using App.DomainServices.Services.Contracts;
+using App.Repositories.Repositories.Contracts;
 
-namespace App.Domain.DomainServices.Implementations
+namespace App.DomainServices.Services.Implementations
 {
     public class RandomAlbumSelector : IRandomAlbumSelector
     {

@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain", "App.Backend\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.ApplicationService", "App.Backend\App.ApplicationService\App.ApplicationService.csproj", "{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.DBModel", "App.Backend\App.DataModel\App.DBModel.csproj", "{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "App.Backend\App.Infrastructure\App.Infrastructure.csproj", "{4A7E64CE-02C1-47CE-A679-236A89E3A938}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.CrossCutting", "App.Backend\App.CrossCutting\App.CrossCutting.csproj", "{BA020EB8-218C-4978-A577-8769B07D1B47}"
@@ -23,48 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cloud", "Cloud", "{B6219B52
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "App.CloudSite", "App.Cloud\App.CloudSite.ccproj", "{5A909BA1-718C-4346-A675-DEAAB039742F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.DomainServices", "App.Backend\App.DomainServices\App.DomainServices.csproj", "{8F0C9E30-5071-49C4-9B68-443950757988}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://pablo6000.visualstudio.com/defaultcollection
-		SccProjectUniqueName0 = App.Backend\\App.Domain\\App.Domain.csproj
-		SccProjectTopLevelParentUniqueName0 = App.sln
-		SccProjectName0 = $/App.Backend/App.Domain
-		SccAuxPath0 = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath0 = App.Backend\\App.Domain
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName1 = App.Backend\\App.CrossCutting\\App.CrossCutting.csproj
-		SccProjectTopLevelParentUniqueName1 = App.sln
-		SccProjectName1 = $/App.Backend/App.CrossCutting
-		SccAuxPath1 = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath1 = App.Backend\\App.CrossCutting
-		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName2 = App.Backend\\App.DataModel\\App.DBModel.csproj
-		SccProjectTopLevelParentUniqueName2 = App.sln
-		SccProjectName2 = $/App.Backend/App.DataModel
-		SccAuxPath2 = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath2 = App.Backend\\App.DataModel
-		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName3 = App.Backend\\App.Infrastructure\\App.Infrastructure.csproj
-		SccProjectTopLevelParentUniqueName3 = App.sln
-		SccProjectName3 = $/App.Backend/App.Infrastructure
-		SccAuxPath3 = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath3 = App.Backend\\App.Infrastructure
-		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName4 = App.Backend\\App.ApplicationService\\App.ApplicationService.csproj
-		SccProjectTopLevelParentUniqueName4 = App.sln
-		SccProjectName4 = $/App.Backend/App.ApplicationService
-		SccAuxPath4 = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath4 = App.Backend\\App.ApplicationService
-		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName5 = App.Backend\\App.Rest\\App.Rest.csproj
-		SccProjectTopLevelParentUniqueName5 = App.sln
-		SccProjectName5 = $/App.Backend/App.Rest
-		SccAuxPath5 = https://pablo6000.visualstudio.com/defaultcollection
-		SccLocalPath5 = App.Backend\\App.Rest
-		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -78,10 +37,6 @@ Global
 		{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDD36140-60EB-4982-A6F8-BBB6E347BFC3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4A7E64CE-02C1-47CE-A679-236A89E3A938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A7E64CE-02C1-47CE-A679-236A89E3A938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A7E64CE-02C1-47CE-A679-236A89E3A938}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -102,17 +57,21 @@ Global
 		{5A909BA1-718C-4346-A675-DEAAB039742F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A909BA1-718C-4346-A675-DEAAB039742F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A909BA1-718C-4346-A675-DEAAB039742F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F0C9E30-5071-49C4-9B68-443950757988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F0C9E30-5071-49C4-9B68-443950757988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F0C9E30-5071-49C4-9B68-443950757988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F0C9E30-5071-49C4-9B68-443950757988}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3DBC9BF7-77FF-405C-B367-EF43C32ABBAE} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
-		{EDD36140-60EB-4982-A6F8-BBB6E347BFC3} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
 		{4A7E64CE-02C1-47CE-A679-236A89E3A938} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
 		{BA020EB8-218C-4978-A577-8769B07D1B47} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
 		{F6373638-6E43-436D-A67C-238DAE007B62} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
 		{976C7A43-40DF-476C-AF2F-C6028D7AE019} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
+		{8F0C9E30-5071-49C4-9B68-443950757988} = {94A0A35A-FBE4-496B-A7F5-C66881ECC31E}
 		{095E5F49-523B-4680-802F-F3F6A3D088D6} = {E7EC5211-6FA2-4ED4-8204-DB59B720F55B}
 		{5A909BA1-718C-4346-A675-DEAAB039742F} = {B6219B52-DC15-4985-9ED9-356CF0A74927}
 	EndGlobalSection
