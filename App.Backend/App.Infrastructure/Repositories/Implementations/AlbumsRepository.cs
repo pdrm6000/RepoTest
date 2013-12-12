@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using App.Domain.Model;
 using App.Repositories.BaseTypes;
@@ -30,6 +31,11 @@ namespace App.Repositories.Repositories.Implementations
 				.AlbumsSet
 				.Select(a => a.Id)
 				.ToList();
+		}
+
+		public IQueryable<Album> GetAllAlbumsWithArtist()
+		{
+			return DbSet.Include(a => a.Artist).AsQueryable();
 		}
 	}
 }

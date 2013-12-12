@@ -4,8 +4,6 @@ using App.ApplicationService.DTO;
 using App.ApplicationService.Extensions;
 using App.ApplicationService.Services.AppServiceContracts;
 using App.ApplicationService.Services.BaseServices;
-using App.Domain.Model;
-using App.DomainServices.BaseTypes;
 using App.DomainServices.Services.Contracts;
 using IAlbumsCollectorAppService = App.ApplicationService.Services.AppServiceContracts.IAlbumsCollectorAppService;
 
@@ -34,11 +32,11 @@ namespace App.ApplicationService.Services.Implementations
 		{
 			get
 			{
-                return _albumDomainService
-                        .GetAll()
-                        .ToList()
-                        .Select(x => x.ToAlbumCatalog())
-                        .AsQueryable();
+				return _albumDomainService
+						.GetAllWithArtist()
+						.ToList()
+						.Select(x => x.ToAlbumCatalog())
+						.AsQueryable();
 			}
 		}
 
@@ -46,7 +44,8 @@ namespace App.ApplicationService.Services.Implementations
 		{
 			var entity = album.ToAlbum();
 			_albumDomainService.Add(entity);
-			return entity.ToAlbumCatalog();
+			album.Id = entity.Id;
+			return album;
 		}
 
 		protected override int OnDelete(AlbumCatalogDTO entity)

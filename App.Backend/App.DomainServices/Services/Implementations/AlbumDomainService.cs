@@ -1,7 +1,9 @@
-﻿using App.Domain.Model;
+﻿using System.Linq;
+using App.Domain.Model;
 using App.DomainServices.BaseTypes;
 using App.DomainServices.Services.Contracts;
 using App.Repositories.Repositories.Contracts;
+using App.Repositories.Repositories.Implementations;
 
 namespace App.DomainServices.Services.Implementations
 {
@@ -10,6 +12,11 @@ namespace App.DomainServices.Services.Implementations
 		public AlbumDomainService(IAlbumsRepository albumsRepository)
 		{
 			Repository = albumsRepository;
+		}
+
+		public IQueryable<Album> GetAllWithArtist()
+		{
+			return (Repository as IAlbumsRepository).GetAllAlbumsWithArtist();
 		}
 	}
 }
