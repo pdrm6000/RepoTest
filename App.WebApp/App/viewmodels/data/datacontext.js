@@ -23,48 +23,55 @@
 
 		artistsMetadataStore = artistsRestManager.metadataStore,
 		albumsMetadataStore = albumsRestManager.metadataStore,
-		downloadNextAlbum = function () {
+		downloadNextAlbum = function() {
 			var nextAlbum = downloadAlbum('Next');
 			return nextAlbum;
 		},
-		downloadPreviousAlbum = function () {
+		downloadPreviousAlbum = function() {
 			var previousAlbum = downloadAlbum('Previous');
 			return previousAlbum;
 		},
-		downloadAlbum = function (action) {
+		downloadAlbum = function(action) {
 			var query = new breeze.EntityQuery().from(action);
 			return albumsRestManager.executeQuery(query);
 		},
-		downloadArtist = function (action) {
+		downloadArtist = function(action) {
 			var query = new breeze.EntityQuery().from(action).orderBy("Name");
 			return artistsRestManager.executeQuery(query);
 		},
-		downloadAllArtists = function () {
+		downloadAllArtists = function() {
 			var allArtists = downloadArtist('GET');
 			return allArtists;
 		},
-		createArtist = function (initialValues) {
-			var customerType = artistsRestManager.metadataStore.getEntityType('ArtistDTO'); 
+		createArtist = function(initialValues) {
+			var customerType = artistsRestManager.metadataStore.getEntityType('ArtistDTO');
 			return customerType.createEntity(initialValues);
 		},
-		createAlbum = function (initialValues) {
+		createAlbum = function(initialValues) {
 			var customerType = albumsRestManager.metadataStore.getEntityType('AlbumCatalogDTO');
 			return customerType.createEntity(initialValues);
 		},
-		addArtist = function (artist) {
+		addArtist = function(artist) {
 			artistsRestManager.addEntity(artist);
 		},
-		addAlbum = function (album) {
+		addAlbum = function(album) {
 			albumsRestManager.addEntity(album);
 		},
-		saveArtists = function () {
+		saveArtists = function() {
 			return artistsRestManager.saveChanges();
 		},
-		saveAlbums = function () {
+		saveAlbums = function() {
 			return albumsRestManager.saveChanges();
 		},
-		downloadArtistsWithAlbums = function () {
+		getAlbums = function() {
 			var query = new breeze.EntityQuery().from('GET').orderBy("ArtistName");
+			return albumsRestManager.executeQuery(query);
+		},
+		getAlbumsForReview = function(count) {
+			var query = new breeze
+				.EntityQuery()
+				.from('GetAlbumsForReview')
+				.withParameters({ albumsCount: count });
 			return albumsRestManager.executeQuery(query);
 		};
 
@@ -76,7 +83,8 @@
 			downloadAllArtists: downloadAllArtists,
 			addArtist: addArtist,
 			addAlbum: addAlbum,
-			downloadArtistsWithAlbums: downloadArtistsWithAlbums,
+			getAlbums: getAlbums,
+			getAlbumsForReview: getAlbumsForReview,
 			saveArtists: saveArtists,
 			saveAlbums: saveAlbums,
 			createArtist: createArtist,

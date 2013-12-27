@@ -163,11 +163,14 @@
     <Content Include="App\viewmodels\albums\album.js" />
     <Content Include="App\viewmodels\albums\editAlbumModal.js" />
     <Content Include="App\viewmodels\artists\editArtistModal.js" />
+    <Content Include="App\viewmodels\review\review.js" />
+    <Content Include="App\viewmodels\review\reviewModel.js" />
     <Content Include="App\views\albums\addAlbumModal.html" />
     <Content Include="App\views\albums\albumsGroupedByArtist.html" />
     <Content Include="App\views\artists\addArtistModal.html" />
     <Content Include="App\views\albums\album.html" />
     <Content Include="App\views\albums\editAlbumModal.html" />
+    <Content Include="App\views\review\review.html" />
     <Content Include="Images\Artist\noimage.jpg" />
     <Content Include="Scripts\breeze\Adapters\breeze.ajax.jQuery.js" />
     <Content Include="Scripts\breeze\Adapters\breeze.dataService.odata.js" />

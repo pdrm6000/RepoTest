@@ -2,7 +2,6 @@
 using System.Linq;
 using App.ApplicationService.DTO;
 using App.ApplicationService.Extensions;
-using App.ApplicationService.Services.AppServiceContracts;
 using App.ApplicationService.Services.BaseServices;
 using App.DomainServices.Services.Contracts;
 using IAlbumsCollectorAppService = App.ApplicationService.Services.AppServiceContracts.IAlbumsCollectorAppService;
@@ -12,20 +11,14 @@ namespace App.ApplicationService.Services.Implementations
 	public class AlbumsCollectorAppService : BreezeAppService<AlbumCatalogDTO>, IAlbumsCollectorAppService
 	{
 		private readonly IAlbumsDomainService _albumDomainService;
-		private readonly IArtistsDomainService _artistsDomainService;
-		private readonly IRandomAlbumSelector _randomAlbumSelector;
-		private readonly IAlbumsNavigationCache _albumsNavigationCache;
+		private readonly ISelectionPolicyService _selectionPolicyService;
 
 		public AlbumsCollectorAppService(
 			IAlbumsDomainService albumDomainService,
-			IArtistsDomainService artistsDomainService,
-			IRandomAlbumSelector randomAlbumSelector,
-			IAlbumsNavigationCache albumsNavigationCache)
+			ISelectionPolicyService selectionPolicyService)
 		{
 			_albumDomainService = albumDomainService;
-			_artistsDomainService = artistsDomainService;
-			_randomAlbumSelector = randomAlbumSelector;
-			_albumsNavigationCache = albumsNavigationCache;
+			_selectionPolicyService = selectionPolicyService;
 		}
 
 		public override IQueryable<AlbumCatalogDTO> Entities
@@ -38,6 +31,13 @@ namespace App.ApplicationService.Services.Implementations
 						.Select(x => x.ToAlbumCatalog())
 						.AsQueryable();
 			}
+		}
+
+		public IQueryable<AlbumCatalogDTO> GetAlbumsForReview(Guid parse, int albumsCount)
+		{
+			return _selectionPolicyService
+					.GetAlbumsForReview(albumsCount)
+					.Select(a => a.ToAlbumCatalog());
 		}
 
 		protected override AlbumCatalogDTO OnAdd(AlbumCatalogDTO album)
@@ -56,37 +56,6 @@ namespace App.ApplicationService.Services.Implementations
 		protected override int OnUpdate(AlbumCatalogDTO album)
 		{
 			return _albumDomainService.Modify(album.ToAlbum());
-		}
-
-		/// <summary>
-		/// Next album is selected using ramdon function (if not cache)
-		/// </summary>
-		/// <param name="guid"></param>
-		/// <returns></returns>
-		public AlbumDTO GetNextAlbum(Guid guid)
-		{
-			if (_albumsNavigationCache.CanUseCache(guid))
-				return _albumsNavigationCache.GetNextAlbum(guid);
-			var result = new AlbumDTO();
-			var albumId = _randomAlbumSelector.GetAlbumId();
-			var album = _albumDomainService.GetById(albumId);
-			if (album != null)
-			{
-				var artist = _artistsDomainService.GetById(album.ArtistId);
-				result.FillAlbumDTO(album, artist);
-			}
-			_albumsNavigationCache.AddAlbum(guid, result);
-			return result;
-		}
-
-		/// <summary>
-		/// Previous albums are always token from cache
-		/// </summary>
-		/// <param name="guid"></param>
-		/// <returns></returns>
-		public AlbumDTO GetPreviousAlbum(Guid guid)
-		{
-			return _albumsNavigationCache.GetPreviousAlbum(guid);
 		}
 
 	}

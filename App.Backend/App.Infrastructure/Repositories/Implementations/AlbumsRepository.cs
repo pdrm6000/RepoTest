@@ -25,14 +25,6 @@ namespace App.Repositories.Repositories.Implementations
 			ModelContext = null;
 		}
 
-		public IEnumerable<int> GetAlbumsIds()
-		{
-			return ModelContext
-				.AlbumsSet
-				.Select(a => a.Id)
-				.ToList();
-		}
-
 		public IQueryable<Album> GetAllAlbumsWithArtist()
 		{
 			return DbSet.Include(a => a.Artist).AsQueryable();

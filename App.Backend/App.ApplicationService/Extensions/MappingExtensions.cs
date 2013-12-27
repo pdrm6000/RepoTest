@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-using System.Linq;
-using App.ApplicationService.DTO;
+﻿using App.ApplicationService.DTO;
 using App.Domain.Model;
 
 namespace App.ApplicationService.Extensions
@@ -53,19 +51,6 @@ namespace App.ApplicationService.Extensions
                 Id = artistDTO.Id,
                 Name = artistDTO.Name,
                 ImageUrl = artistDTO.ImageUrl
-            };
-        }
-
-        public static AlbumDTO FillAlbumDTO(this AlbumDTO artistDTO, Album album, Artist artist)
-        {
-            return new AlbumDTO
-            {
-                ActualRating = 10,
-                AlbumName = album.Name,
-                ArtistName = artist.Name,
-                Comments = "10 comments",
-                CoverUrl = album.CoverUrl,
-                Year = album.Year.ToString(CultureInfo.InvariantCulture)
             };
         }
     }

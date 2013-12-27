@@ -9,10 +9,10 @@
 			
 			activate: function () {
 				albumsModel.init(datacontext.albumsMetadataStore);
-				return datacontext.downloadArtistsWithAlbums().then(viewmodel.processArtistsWithAlbums);
+				return datacontext.getAlbums().then(viewmodel.groupAlbumsByArtist);
 			},
 			
-			processArtistsWithAlbums: function (data) {
+			groupAlbumsByArtist: function (data) {
 				var previousArtistId = 0;
 				$.each(data.results, function (index, album) {
 					if (album.ArtistId() != previousArtistId) {

@@ -9,37 +9,31 @@ using Newtonsoft.Json.Linq;
 
 namespace App.Rest.Controllers
 {
-    [BreezeController]
-    public class AlbumsRestController : ApiController
-    {
-        private readonly IAlbumsCollectorAppService _albumsCollectorAppService;
+	[BreezeController]
+	public class AlbumsRestController : ApiController
+	{
+		private readonly IAlbumsCollectorAppService _albumsCollectorAppService;
 
-        public AlbumsRestController(IAlbumsCollectorAppService albumsCollectorAppService)
-        {
-            _albumsCollectorAppService = albumsCollectorAppService;
-        }
+		public AlbumsRestController(IAlbumsCollectorAppService albumsCollectorAppService)
+		{
+			_albumsCollectorAppService = albumsCollectorAppService;
+		}
 
-        public IQueryable<AlbumCatalogDTO> Get()
-        {
-            return _albumsCollectorAppService.Entities;
-        }
+		public IQueryable<AlbumCatalogDTO> Get()
+		{
+			return _albumsCollectorAppService.Entities;
+		}
 
-        public SaveResult SaveChanges(JObject saveBundle)
-        {
-            return _albumsCollectorAppService.SaveChanges(saveBundle);
-        }
+		public SaveResult SaveChanges(JObject saveBundle)
+		{
+			return _albumsCollectorAppService.SaveChanges(saveBundle);
+		}
 
-        [HttpGet]
-        public AlbumDTO Next()
-        {
-            return _albumsCollectorAppService.GetNextAlbum(Guid.Parse(Request.Properties[SessionIdHandler.SessionIdToken].ToString()));
-        }
+		[HttpGet]
+		public IQueryable<AlbumCatalogDTO> GetAlbumsForReview(int albumsCount)
+		{
+			return _albumsCollectorAppService.GetAlbumsForReview(Guid.Parse(Request.Properties[SessionIdHandler.SessionIdToken].ToString()), albumsCount);
+		}
 
-        [HttpGet]
-        public AlbumDTO Previous()
-        {
-            return _albumsCollectorAppService.GetPreviousAlbum(Guid.Parse(Request.Properties[SessionIdHandler.SessionIdToken].ToString()));
-        }
-
-    }
+	}
 }

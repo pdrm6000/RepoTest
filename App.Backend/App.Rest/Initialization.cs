@@ -11,7 +11,6 @@ namespace App.Rest
         public void RegisterDependencies(IUnityContainer container)
         {
             container
-                .RegisterType<IAlbumsNavigationCache, AlbumsNavigationCache>()
                 .RegisterType<ICacheService, CacheService>(new ContainerControlledLifetimeManager());
             IDependencyInitializer initializer = new App.ApplicationService.Initialization();
             initializer.RegisterDependencies(container);

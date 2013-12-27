@@ -3,7 +3,6 @@ using App.Domain.Model;
 using App.DomainServices.BaseTypes;
 using App.DomainServices.Services.Contracts;
 using App.Repositories.Repositories.Contracts;
-using App.Repositories.Repositories.Implementations;
 
 namespace App.DomainServices.Services.Implementations
 {
