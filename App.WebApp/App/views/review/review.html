@@ -1,6 +1,9 @@
 ﻿<div class="span12">
 	<h1>Albums review</h1>
+	<a href="javascript:void(0)" data-bind="click: setCustomView">Custom</a>
+	<a href="javascript:void(0)" data-bind="click: setMiniatureView">Miniatures</a>
+	<a href="javascript:void(0)" data-bind="click: setLandscapeView">Landscape</a>
 	<div id="Albums" data-bind="foreach: albums">
-		<div data-bind="text: AlbumName"></div>
+		<div data-bind="compose: { model: 'viewmodels/review/reviewAlbum', view: AlbumView, activationData: $data }"></div>
 	</div>
 </div>
