@@ -1,4 +1,28 @@
-﻿.splash {
+﻿body {
+  margin: 0;
+  font-family: Georgia;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #333333;
+  background-color: #efeeef;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 20px;
+  color: inherit;
+    font-family: 'Oswald';
+  text-rendering: optimizelegibility;
+}
+
+.splash {
     position: fixed;
     text-align: center;
     width: 100%;
