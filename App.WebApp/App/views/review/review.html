@@ -3,7 +3,14 @@
 	<a href="javascript:void(0)" data-bind="click: setCustomView">Custom</a>
 	<a href="javascript:void(0)" data-bind="click: setMiniatureView">Miniatures</a>
 	<a href="javascript:void(0)" data-bind="click: setLandscapeView">Landscape</a>
-	<div id="Albums" data-bind="foreach: albums">
-		<div data-bind="compose: { model: 'viewmodels/review/reviewAlbum', view: AlbumView, activationData: $data }"></div>
+</div>
+<div class="span12" style="margin: 0">
+	<div class="span10" id="Albums" data-bind="foreach: albums">
+		<!-- containerless composition -->
+		<!-- ko compose: { model: 'viewmodels/review/reviewAlbum', view: AlbumView, activationData: $data }--><!--/ko-->
+	</div>
+	<div class="span2 well visible-desktop" style="margin: 0">
+		<h3>Activity window</h3> 
+		Here will be all activities
 	</div>
 </div>

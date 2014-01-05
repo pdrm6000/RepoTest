@@ -87,6 +87,10 @@ div.img-polaroid.gray {
 	position: relative;
 }
 
+.margin-review {
+	margin: 10px 10px 0px 0px !important;
+}
+
 
 
 .number-rating {
@@ -103,6 +107,22 @@ div.img-polaroid.gray {
 	bottom: 20px;
     
 }
+
+.number-rating-mini {
+	background: none repeat scroll 0 0 #A5DF00;
+    color: #FFFFFF;
+	width: 20%;
+	height: 15%;
+	max-width: 40px;
+    max-height: 40px;
+    padding-left: 3px;
+    padding-top: 10px;
+    position: absolute;
+    right: 5px;
+	bottom: 35px;
+    
+}
+
 /*stars rate
 
 
@@ -114,6 +134,9 @@ D7DF01
 A5DF00
 	
 	*/
+
+
+
 .star-rating {
   font-size: 0;
   white-space: nowrap;
@@ -189,4 +212,8 @@ A5DF00
 .star-rating i ~ i ~ i ~ i ~ i ~ i ~ i ~ i ~ i ~ i{
   background-size: 10% 100%;
   width: 100%;
+}
+
+.mini {
+  height: 12px;
 }
