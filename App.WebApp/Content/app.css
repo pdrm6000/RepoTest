@@ -88,7 +88,7 @@ div.img-polaroid.gray {
 }
 
 .margin-review {
-	margin: 10px 10px 0px 0px !important;
+	margin: 15px 15px 0px 0px !important;
 }
 
 
@@ -121,6 +121,12 @@ div.img-polaroid.gray {
     right: 5px;
 	bottom: 35px;
     
+}
+.margin-large-top {
+  margin-top: 10px;
+}
+.margin-large-bottom {
+  margin-bottom: 30px;
 }
 
 /*stars rate

@@ -17,9 +17,9 @@
 			
 			self.setCustomView = function() {
 				self.albums()[0].AlbumView('views/review/reviewAlbumLarge.html');
-				self.albums()[1].AlbumView('views/review/reviewAlbumLandscape.html');
+				self.albums()[1].AlbumView('views/review/reviewAlbumMinuature.html');
 				self.albums()[2].AlbumView('views/review/reviewAlbumMinuature.html');
-				self.albums()[3].AlbumView('views/review/reviewAlbumMinuature.html');
+				self.albums()[3].AlbumView('views/review/reviewAlbumLandscape.html');
 				//self.albums()[4].AlbumView('views/review/reviewAlbumLandscape.html');
 			};
 

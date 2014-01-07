@@ -21,3 +21,12 @@ Implementar single page application SPA
 	- isActive en el menu
 	- el tooltip del menu no va muy bien
 	- segunda linea de albunes en albumsDirectory no se ve bien
+
+
+	modificar margen del numero en todas las vistas
+	modificar tamaño de estrellas en landscape
+	dejar un margen inferior
+	iconos para todos los tipos de vistas
+	revisar el error de view not found
+	ajustar activities
+	botones next y previous
