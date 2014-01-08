@@ -23,10 +23,6 @@ Implementar single page application SPA
 	- segunda linea de albunes en albumsDirectory no se ve bien
 
 
-	modificar margen del numero en todas las vistas
-	modificar tamaño de estrellas en landscape
-	dejar un margen inferior
-	iconos para todos los tipos de vistas
 	revisar el error de view not found
-	ajustar activities
-	botones next y previous
+	inicializar todos los modelos de cliente en el arranque de la app
+

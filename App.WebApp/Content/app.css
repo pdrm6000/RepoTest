@@ -87,8 +87,12 @@ div.img-polaroid.gray {
 	position: relative;
 }
 
+.margin-title-land {
+	margin: 20px 0 20px 0;
+}
+
 .margin-review {
-	margin: 15px 15px 0px 0px !important;
+	margin: 15px 25px 0px 0px !important;
 }
 
 
@@ -100,7 +104,7 @@ div.img-polaroid.gray {
 	height: 15%;
 	max-width: 60px;
     max-height: 60px;
-    padding-left: 10px;
+    padding-left: 7px;
     padding-top: 20px;
     position: absolute;
     right: 20px;
@@ -120,13 +124,39 @@ div.img-polaroid.gray {
     position: absolute;
     right: 5px;
 	bottom: 35px;
-    
 }
+
+.number-rating-land {
+	background: none repeat scroll 0 0 #A5DF00;
+    color: #FFFFFF;
+	width: 20%;
+	height: 25%;
+	max-width: 40px;
+    max-height: 45px;
+    padding-left: 3px;
+    padding-top: 10px;
+    position: absolute;
+    right: 15px;
+	bottom: 30px;
+}
+
+.activities {
+	margin: 13px 0 0 0 !important;
+	min-height: 500px !important;
+	position:absolute; 
+	left:78%; 
+	width: 20%
+}
+
 .margin-large-top {
   margin-top: 10px;
 }
 .margin-large-bottom {
   margin-bottom: 30px;
+}
+
+.view-buttons {
+	float: right;
 }
 
 /*stars rate
@@ -221,5 +251,13 @@ A5DF00
 }
 
 .mini {
-  height: 12px;
+  height: 14px;
+}
+
+.land {
+  height: 17px;
+}
+
+.margin-review2 {
+	margin: 0 0 20px 0 !important;
 }
