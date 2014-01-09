@@ -171,6 +171,7 @@
     <Content Include="App\views\albums\album.html" />
     <Content Include="App\views\albums\editAlbumModal.html" />
     <Content Include="App\views\review\review.html" />
+    <Content Include="App\views\review\reviewAlbum.html" />
     <Content Include="App\views\review\reviewAlbumLandscape.html" />
     <Content Include="App\views\review\reviewAlbumLarge.html" />
     <Content Include="App\views\review\reviewAlbumMinuature.html" />

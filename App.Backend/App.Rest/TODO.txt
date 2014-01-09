@@ -25,4 +25,11 @@ Implementar single page application SPA
 
 	revisar el error de view not found
 	inicializar todos los modelos de cliente en el arranque de la app
+	transicion entre carga de vistas 
+	loading despues de todas las cargas
 
+	bindar en el activate con un objeto generico que tenga un flag para saber cuando llegan los datos
+	hacer la llamada ajax
+	al recibir los datos marcar el flag como datos recibidos
+	al cambiar el flag disparar un evento dentro del viewmodel de la vista
+	rebindar la vista usando el el binder https://github.com/BlueSpire/Durandal/blob/master/src/durandal/js/binder.js

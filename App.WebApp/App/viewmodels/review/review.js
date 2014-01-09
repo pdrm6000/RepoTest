@@ -20,7 +20,6 @@
 				self.albums()[1].AlbumView('views/review/reviewAlbumMinuature.html');
 				self.albums()[2].AlbumView('views/review/reviewAlbumMinuature.html');
 				self.albums()[3].AlbumView('views/review/reviewAlbumLandscape.html');
-				//self.albums()[4].AlbumView('views/review/reviewAlbumLandscape.html');
 			};
 
 			self.setMiniatureView = function() {
