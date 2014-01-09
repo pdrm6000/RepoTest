@@ -11,15 +11,19 @@
 
 			self.albums = ko.observableArray();
 			self.bindAlbums = function (data) {
+				self.setCustomViewCollection(data.results);
 				self.albums(data.results);
-				self.setCustomView();
+			};
+
+			self.setCustomViewCollection = function(albums) {
+				albums[0].AlbumView('views/review/reviewAlbumLarge.html');
+				albums[1].AlbumView('views/review/reviewAlbumMinuature.html');
+				albums[2].AlbumView('views/review/reviewAlbumMinuature.html');
+				albums[3].AlbumView('views/review/reviewAlbumLandscape.html');
 			};
 			
 			self.setCustomView = function() {
-				self.albums()[0].AlbumView('views/review/reviewAlbumLarge.html');
-				self.albums()[1].AlbumView('views/review/reviewAlbumMinuature.html');
-				self.albums()[2].AlbumView('views/review/reviewAlbumMinuature.html');
-				self.albums()[3].AlbumView('views/review/reviewAlbumLandscape.html');
+				self.setCustomViewCollection(self.albums());
 			};
 
 			self.setMiniatureView = function() {
