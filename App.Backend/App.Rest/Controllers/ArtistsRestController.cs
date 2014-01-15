@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using App.ApplicationService.DTO;
-using App.ApplicationService.Services.AppServiceContracts;
+using App.ApplicationService.Services.BaseServices;
 using Breeze.WebApi;
 using Newtonsoft.Json.Linq;
 
@@ -12,9 +12,9 @@ namespace App.Rest.Controllers
     [BreezeController]
     public class ArtistsRestController : ApiController
     {
-        private readonly IArtistCollectorAppService _artistCollectorAppService;
+        private readonly IBreezeApplicationService<ArtistDTO> _artistCollectorAppService;
 
-        public ArtistsRestController(IArtistCollectorAppService artistCollectorAppService)
+        public ArtistsRestController(IBreezeApplicationService<ArtistDTO> artistCollectorAppService)
         {
             _artistCollectorAppService = artistCollectorAppService;
         }

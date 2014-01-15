@@ -1,5 +1,5 @@
 ﻿using App.CrossCutting.IoC;
-using App.Repositories.Repositories;
+using App.Domain.Model;
 using App.Repositories.Repositories.Contracts;
 using App.Repositories.Repositories.Implementations;
 
@@ -11,6 +11,8 @@ namespace App.Repositories
         {
             container.RegisterType(typeof(IAlbumsRepository), typeof(AlbumsRepository), "", null);
             container.RegisterType(typeof(IArtistsRepository), typeof(ArtistRepository), "", null);
+            container.RegisterType(typeof(IBaseRepository<Rate>), typeof(RatesRepository), "", null);
+            container.RegisterType(typeof(IBaseRepository<Comment>), typeof(CommentsRepository), "", null);
         }
     }
 }

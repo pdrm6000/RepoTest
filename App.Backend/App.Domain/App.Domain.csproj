@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="Model\Album.cs" />
     <Compile Include="Model\Artist.cs" />
+    <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\Rate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EntityContract\IEntity.cs" />
   </ItemGroup>

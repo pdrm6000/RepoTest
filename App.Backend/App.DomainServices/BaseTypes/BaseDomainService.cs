@@ -7,9 +7,9 @@ using App.Repositories.Repositories.Contracts;
 
 namespace App.DomainServices.BaseTypes
 {
-	public class BaseDomainService<T> : IDomainService<T> where T : IEntity
+	public abstract class BaseDomainService<T> : IDomainService<T> where T : IEntity
 	{
-		protected virtual IBaseRepository<T> Repository { get; set; }
+        protected IBaseRepository<T> Repository { get; set; }
 
 		public int Add(T item)
 		{

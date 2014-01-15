@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Initialization.cs" />
     <Compile Include="Services\Contracts\IAlbumsDomainService.cs" />
+    <Compile Include="Services\Contracts\IRateCalculator.cs" />
+    <Compile Include="Services\Implementations\CommentsDomainService.cs" />
+    <Compile Include="Services\Contracts\ICommentsDomainService.cs" />
+    <Compile Include="Services\Contracts\IRatesDomainService.cs" />
     <Compile Include="Services\Implementations\RandomSelectionPolicyService.cs" />
     <Compile Include="Services\Implementations\AlbumDomainService.cs" />
     <Compile Include="Services\Implementations\ArtistsDomainService.cs" />
@@ -52,7 +56,9 @@
     <Compile Include="Services\Contracts\IArtistsDomainService.cs" />
     <Compile Include="BaseTypes\IDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Contracts\ISelectionPolicyService.cs" />
+    <Compile Include="Services\Contracts\IAlbumsSelectionPolicyService.cs" />
+    <Compile Include="Services\Implementations\RateAverageCalculator.cs" />
+    <Compile Include="Services\Implementations\RatesDomainService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.CrossCutting\App.CrossCutting.csproj">

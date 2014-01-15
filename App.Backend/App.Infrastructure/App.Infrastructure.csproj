@@ -64,11 +64,13 @@
     <Compile Include="DataModel\ModelContext.cs" />
     <Compile Include="Initialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Implementations\CommentsRepository.cs" />
     <Compile Include="Repositories\Implementations\AlbumsRepository.cs" />
     <Compile Include="Repositories\Implementations\ArtistRepository.cs" />
     <Compile Include="Repositories\Contracts\IAlbumsRepository.cs" />
     <Compile Include="Repositories\Contracts\IArtistRepository.cs" />
     <Compile Include="Repositories\Contracts\IBaseRepository.cs" />
+    <Compile Include="Repositories\Implementations\RatesRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

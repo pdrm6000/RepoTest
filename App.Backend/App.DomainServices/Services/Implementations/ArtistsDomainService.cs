@@ -8,8 +8,6 @@ namespace App.DomainServices.Services.Implementations
 {
 	public class ArtistsDomainService : BaseDomainService<Artist>, IArtistsDomainService
 	{
-		protected override sealed IBaseRepository<Artist> Repository { get; set; }
-
 		public ArtistsDomainService(IArtistsRepository artistsRepository)
 		{
 			Repository = artistsRepository;

@@ -14,17 +14,31 @@ namespace App.Repositories.DataModel
 
 		public DbSet<Album> AlbumsSet { get; set; }
 		public DbSet<Artist> ArtistsSet { get; set; }
+        public DbSet<Comment> CommentsSet { get; set; }
+        public DbSet<Rate> RatesSet { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
+            //Model definition
 			modelBuilder.Entity<Artist>().ToTable("t_artists");
 			modelBuilder.Entity<Artist>().HasKey(p => p.Id);
 
 			modelBuilder.Entity<Album>().ToTable("t_albums");
 			modelBuilder.Entity<Album>().HasKey(p => p.Id);
 
-			modelBuilder.Entity<Artist>().HasMany(c => c.Albums);
-			
+            modelBuilder.Entity<Comment>().ToTable("t_comments");
+            modelBuilder.Entity<Comment>().HasKey(p => p.Id);
+
+            modelBuilder.Entity<Rate>().ToTable("t_rates");
+            modelBuilder.Entity<Rate>().HasKey(p => p.Id);
+            
+            //Relationships
+            modelBuilder.Entity<Artist>().HasMany(c => c.Albums);
+            modelBuilder.Entity<Album>().HasOptional(c => c.Artist);
+            modelBuilder.Entity<Comment>().HasOptional(c => c.Album);
+            modelBuilder.Entity<Rate>().HasOptional(c => c.Album);
+
+
 			base.OnModelCreating(modelBuilder);
 		}
 	}

@@ -53,5 +53,30 @@ namespace App.ApplicationService.Extensions
                 ImageUrl = artistDTO.ImageUrl
             };
         }
+
+
+        public static CommentDTO ToCommentDTO(this Comment comment)
+        {
+            return new CommentDTO
+            {
+                Id = comment.Id,
+                AlbumId = comment.AlbumId,
+                Body = comment.Body,
+                Date = comment.Date,
+                UserId = comment.UserId,
+            };
+        }
+
+        public static RateDTO ToRateDTO(this Rate rate)
+        {
+            return new RateDTO
+            {
+                Id = rate.Id,
+                AlbumId = rate.AlbumId,
+                Date = rate.Date,
+                UserId = rate.UserId,
+                Value = rate.Value,
+            };
+        }
     }
 }

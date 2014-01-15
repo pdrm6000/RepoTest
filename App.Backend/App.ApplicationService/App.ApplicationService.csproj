@@ -65,17 +65,22 @@
   <ItemGroup>
     <Compile Include="DTO\AlbumCatalogDTO.cs" />
     <Compile Include="DTO\ArtistDTO.cs" />
+    <Compile Include="DTO\CommentDTO.cs" />
     <Compile Include="DTO\IDataTransferObject.cs" />
+    <Compile Include="DTO\RateDTO.cs" />
     <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="Initialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppServiceContracts\IAlbumsCollectorAppService.cs" />
-    <Compile Include="Services\AppServiceContracts\IArtistCollectorAppService.cs" />
     <Compile Include="Services\Implementations\AlbumsCollectorAppService.cs" />
     <Compile Include="Services\Implementations\ArtistCollectorAppService.cs" />
     <Compile Include="Services\BaseServices\BreezeAppService.cs" />
     <Compile Include="Services\BaseServices\EntityInfoTyped.cs" />
     <Compile Include="Services\BaseServices\IBreezeApplicationService.cs" />
+    <Compile Include="Services\Implementations\CommentsCollectorAppService.cs" />
+    <Compile Include="Services\AppServiceContracts\ICommentsCollectorAppService.cs" />
+    <Compile Include="Services\AppServiceContracts\IRatesCollectorAppService.cs" />
+    <Compile Include="Services\Implementations\RatesCollectorAppService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

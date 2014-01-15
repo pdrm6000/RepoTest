@@ -5,7 +5,7 @@ using App.DomainServices.Services.Contracts;
 
 namespace App.DomainServices.Services.Implementations
 {
-	public class RandomSelectionPolicyService : ISelectionPolicyService
+	public class RandomSelectionPolicyService : IAlbumsSelectionPolicyService
 	{
 		private readonly IAlbumsDomainService _albumsDomainService;
 

@@ -13,7 +13,11 @@ namespace App.DomainServices
 		{
 			container.RegisterType(typeof(IArtistsDomainService), typeof(ArtistsDomainService), "", null);
 			container.RegisterType(typeof(IAlbumsDomainService), typeof(AlbumDomainService), "", null);
-			container.RegisterType(typeof(ISelectionPolicyService), typeof(RandomSelectionPolicyService), "", null);
+			container.RegisterType(typeof(IAlbumsSelectionPolicyService), typeof(RandomSelectionPolicyService), "", null);
+            container.RegisterType(typeof(ICommentsDomainService), typeof(CommentsDomainService), "", null);
+            container.RegisterType(typeof(IRatesDomainService), typeof(RatesDomainService), "", null);
+            container.RegisterType(typeof(IRateCalculator), typeof(RateAverageCalculator), "", null);
+
 
 			var initializer = new Repositories.Initialization();
 			initializer.RegisterDependencies(container);

@@ -24,7 +24,7 @@ namespace App.Repositories.Repositories.Implementations
 		}
 
 		public void Dispose()
-			{
+		{
 			ModelContext.Dispose();
 			ModelContext = null;
 		}

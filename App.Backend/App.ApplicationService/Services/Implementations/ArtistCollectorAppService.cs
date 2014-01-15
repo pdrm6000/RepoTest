@@ -2,12 +2,11 @@ using System.Linq;
 using App.ApplicationService.DTO;
 using App.ApplicationService.Extensions;
 using App.ApplicationService.Services.BaseServices;
-using App.ApplicationService.Services.AppServiceContracts;
 using App.DomainServices.Services.Contracts;
 
 namespace App.ApplicationService.Services.Implementations
 {
-	public class ArtistCollectorAppService : BreezeAppService<ArtistDTO>, IArtistCollectorAppService
+	public class ArtistCollectorAppService : BreezeAppService<ArtistDTO>, IBreezeApplicationService<ArtistDTO>
 	{
 		private readonly IArtistsDomainService _artistsDomainService;
 

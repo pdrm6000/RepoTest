@@ -11,11 +11,11 @@ namespace App.ApplicationService.Services.Implementations
 	public class AlbumsCollectorAppService : BreezeAppService<AlbumCatalogDTO>, IAlbumsCollectorAppService
 	{
 		private readonly IAlbumsDomainService _albumDomainService;
-		private readonly ISelectionPolicyService _selectionPolicyService;
+		private readonly IAlbumsSelectionPolicyService _selectionPolicyService;
 
 		public AlbumsCollectorAppService(
 			IAlbumsDomainService albumDomainService,
-			ISelectionPolicyService selectionPolicyService)
+			IAlbumsSelectionPolicyService selectionPolicyService)
 		{
 			_albumDomainService = albumDomainService;
 			_selectionPolicyService = selectionPolicyService;
