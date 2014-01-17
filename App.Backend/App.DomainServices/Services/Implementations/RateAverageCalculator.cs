@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using App.Domain.Model;
@@ -9,7 +10,7 @@ namespace App.DomainServices.Services.Implementations
     {
         public double Calculate(IEnumerable<Rate> rates)
         {
-            return rates.Average(r => r.Value);
+            return rates.Average(r => Convert.ToDouble(r.Value));
         }
     }
 }

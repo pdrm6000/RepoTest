@@ -225,6 +225,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlbumsRestController.cs" />
     <Compile Include="Controllers\ArtistsRestController.cs" />
+    <Compile Include="Controllers\CommentsRestController.cs" />
+    <Compile Include="Controllers\RatesRestController.cs" />
     <Compile Include="Metadata\CustomBreezeConfig.cs" />
     <Compile Include="Metadata\SessionIdHandler.cs" />
     <Compile Include="Global.asax.cs">

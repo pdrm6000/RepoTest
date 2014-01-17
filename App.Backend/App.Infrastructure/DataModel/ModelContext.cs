@@ -34,9 +34,9 @@ namespace App.Repositories.DataModel
             
             //Relationships
             modelBuilder.Entity<Artist>().HasMany(c => c.Albums);
-            modelBuilder.Entity<Album>().HasOptional(c => c.Artist);
-            modelBuilder.Entity<Comment>().HasOptional(c => c.Album);
-            modelBuilder.Entity<Rate>().HasOptional(c => c.Album);
+            modelBuilder.Entity<Album>().HasRequired(c => c.Artist);
+            modelBuilder.Entity<Comment>().HasRequired(c => c.Album);
+            modelBuilder.Entity<Rate>().HasRequired(c => c.Album);
 
 
 			base.OnModelCreating(modelBuilder);
