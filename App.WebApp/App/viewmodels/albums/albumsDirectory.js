@@ -8,7 +8,6 @@
 			artistsWithAlbums: albumsModel,
 			
 			activate: function () {
-				albumsModel.init(datacontext.albumsMetadataStore);
 				return datacontext.getAlbums().then(viewmodel.groupAlbumsByArtist);
 			},
 			

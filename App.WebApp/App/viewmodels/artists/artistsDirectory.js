@@ -21,7 +21,6 @@
 				editArtistModal.show(item).then(viewmodel.finishArtistEditing);
 			},
 			activate: function () {
-				artistModel.init(datacontext.artistsMetadataStore);
 				artistModel.clear();
 				return datacontext.downloadAllArtists().then(viewmodel.processArtistsDownloaded);
 			},

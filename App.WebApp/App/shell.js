@@ -1,7 +1,9 @@
-﻿define(['plugins/router'], function (router) {
+﻿define(['plugins/router', 'viewmodels/data/metadata'], function (router, metadata) {
     return {
         router: router,
         activate: function () {
+            metadata.prototype.init();
+            
             return router.map([
                 { route: ['', 'home'], moduleId: 'viewmodels/home/home', title: 'Home', nav: true },
                 { route: 'review', moduleId: 'viewmodels/review/review', title: 'Review', nav: true },

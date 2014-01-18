@@ -20,9 +20,24 @@
 				hasServerMetadata: false // don't ask the server for metadata
 			})
 		});
+		var commentsRestManager = new breeze.EntityManager({
+		    dataService: new breeze.DataService({
+		        serviceName: urlBase + 'CommentsRest',
+		        hasServerMetadata: false // don't ask the server for metadata
+		    })
+		});
+		var ratesRestManager = new breeze.EntityManager({
+		    dataService: new breeze.DataService({
+		        serviceName: urlBase + 'RatesRest',
+		        hasServerMetadata: false // don't ask the server for metadata
+		    })
+		});
 
 		artistsMetadataStore = artistsRestManager.metadataStore,
 		albumsMetadataStore = albumsRestManager.metadataStore,
+		commentsMetadataStore = commentsRestManager.metadataStore,
+		ratesMetadataStore = ratesRestManager.metadataStore,
+
 		downloadNextAlbum = function() {
 			var nextAlbum = downloadAlbum('Next');
 			return nextAlbum;
@@ -36,7 +51,7 @@
 			return albumsRestManager.executeQuery(query);
 		},
 		downloadArtist = function(action) {
-			var query = new breeze.EntityQuery().from(action).orderBy("Name");
+		    var query = new breeze.EntityQuery().from(action).orderBy("Name");
 			return artistsRestManager.executeQuery(query);
 		},
 		downloadAllArtists = function() {
@@ -67,6 +82,13 @@
 			var query = new breeze.EntityQuery().from('GET').orderBy("ArtistName");
 			return albumsRestManager.executeQuery(query);
 		},
+		getCommentsByAlbums= function (ids) {
+		    var query = new breeze
+		        .EntityQuery()
+		        .from('GetCommentsByAlbums')
+		        .withParameters({albumIds: ids});
+		    return commentsRestManager.executeQuery(query);
+		},
 		getAlbumsForReview = function(count) {
 			var query = new breeze
 				.EntityQuery()
@@ -74,10 +96,13 @@
 				.withParameters({ albumsCount: count });
 			return albumsRestManager.executeQuery(query);
 		};
+	    
 
 		return {
 			artistsMetadataStore: artistsMetadataStore,
 			albumsMetadataStore: albumsMetadataStore,
+			commentsMetadataStore: commentsMetadataStore,
+			ratesMetadataStore: ratesMetadataStore,
 			downloadNextAlbum: downloadNextAlbum,
 			downloadPreviousAlbum: downloadPreviousAlbum,
 			downloadAllArtists: downloadAllArtists,
@@ -89,5 +114,6 @@
 			saveAlbums: saveAlbums,
 			createArtist: createArtist,
 			createAlbum: createAlbum,
+			getCommentsByAlbums: getCommentsByAlbums,
 		};
 });

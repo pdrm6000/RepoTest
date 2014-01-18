@@ -163,6 +163,7 @@
     <Content Include="App\viewmodels\albums\album.js" />
     <Content Include="App\viewmodels\albums\editAlbumModal.js" />
     <Content Include="App\viewmodels\artists\editArtistModal.js" />
+    <Content Include="App\viewmodels\data\metadata.js" />
     <Content Include="App\viewmodels\review\review.js" />
     <Content Include="App\viewmodels\review\reviewAlbum.js" />
     <Content Include="App\views\albums\addAlbumModal.html" />

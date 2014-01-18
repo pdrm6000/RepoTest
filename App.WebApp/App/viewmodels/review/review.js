@@ -13,7 +13,25 @@
 			self.bindAlbums = function (data) {
 				self.setCustomViewCollection(data.results);
 				self.albums(data.results);
+			    self.processComments();
 			};
+
+		    self.processComments = function() {
+		        var albumIds = self.getAlbumIds();
+		        datacontext.getCommentsByAlbums(albumIds).then(self.bindComments);
+		    };
+
+		    self.bindComments = function(comments) {
+		        console.log(comments);
+		    };
+
+		    self.getAlbumIds = function() {
+		        var ids = [];
+		        ko.utils.arrayForEach(self.albums(), function (entity) {
+		            ids.push(entity.Id());
+		        });
+		        return [71,67];
+		    };
 
 			self.setCustomViewCollection = function(albums) {
 				albums[0].AlbumView('views/review/reviewAlbumLarge.html');
@@ -40,7 +58,6 @@
 		};
 
 		viewmodel.prototype.activate = function (param) {
-			albumsModel.init(datacontext.albumsMetadataStore);
 			datacontext.getAlbumsForReview(4).then(this.bindAlbums);
 		};
 		
