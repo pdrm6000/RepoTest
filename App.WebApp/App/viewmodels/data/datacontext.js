@@ -89,6 +89,13 @@
 		        .withParameters({albumIds: ids});
 		    return commentsRestManager.executeQuery(query);
 		},
+		getRatesByAlbums = function (ids) {
+			var query = new breeze
+                .EntityQuery()
+                .from('GetRatesByAlbums')
+                .withParameters({ albumIds: ids });
+			return ratesRestManager.executeQuery(query);
+		},
 		getAlbumsForReview = function(count) {
 			var query = new breeze
 				.EntityQuery()
@@ -115,5 +122,6 @@
 			createArtist: createArtist,
 			createAlbum: createAlbum,
 			getCommentsByAlbums: getCommentsByAlbums,
+			getRatesByAlbums: getRatesByAlbums,
 		};
 });

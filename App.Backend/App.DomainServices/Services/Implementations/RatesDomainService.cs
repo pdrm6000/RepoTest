@@ -10,16 +10,18 @@ namespace App.DomainServices.Services.Implementations
     public sealed class RatesDomainService : BaseDomainService<Rate>, IRatesDomainService
     {
         private readonly IRateCalculator _rateCalculator;
+        private readonly IBaseRepository<Rate> _rateRepository;
 
-        public RatesDomainService(IRateCalculator rateCalculator, IBaseRepository<Rate> rateRepository)
+        public RatesDomainService(IRateCalculator rateCalculator, IBaseRepository<Rate> rateRepository) 
+            : base(rateRepository)
         {
             _rateCalculator = rateCalculator;
-            Repository = rateRepository;
+            _rateRepository = rateRepository;
         }
 
         public Dictionary<int, double> GetRatesByAlbums(int[] albumIds)
         {
-            return Repository
+            return _rateRepository
                     .GetByCondition(r => albumIds.Contains(r.AlbumId))
                     .GroupBy(r => r.AlbumId)
                     .ToDictionary(a => a.Key, b => _rateCalculator.Calculate(b));

@@ -9,14 +9,17 @@ namespace App.DomainServices.Services.Implementations
 {
     public sealed class CommentsDomainService : BaseDomainService<Comment>, ICommentsDomainService
     {
-        public CommentsDomainService(IBaseRepository<Comment> commentRepository)
+        private readonly IBaseRepository<Comment> _commentRepository;
+
+        public CommentsDomainService(IBaseRepository<Comment> commentRepository) 
+            : base(commentRepository)
         {
-            Repository = commentRepository;
+            _commentRepository = commentRepository;
         }
 
         public Dictionary<int, IEnumerable<Comment>> GetCommentsByAlbums(int[] albumIds)
         {
-            return Repository
+            return _commentRepository
                     .GetByCondition(c => albumIds.Contains(c.AlbumId))
                     .GroupBy(c => c.AlbumId)
                     .ToDictionary(

@@ -8,14 +8,17 @@ namespace App.DomainServices.Services.Implementations
 {
 	public sealed class AlbumDomainService : BaseDomainService<Album>, IAlbumsDomainService
 	{
-		public AlbumDomainService(IAlbumsRepository albumsRepository)
+	    private readonly IAlbumsRepository _albumsRepository;
+
+	    public AlbumDomainService(IAlbumsRepository albumsRepository) 
+            : base(albumsRepository)
 		{
-			Repository = albumsRepository;
+		    _albumsRepository = albumsRepository;
 		}
 
-		public IQueryable<Album> GetAllWithArtist()
+	    public IQueryable<Album> GetAllWithArtist()
 		{
-			return (Repository as IAlbumsRepository).GetAllAlbumsWithArtist();
+			return _albumsRepository.GetAllAlbumsWithArtist();
 		}
 	}
 }

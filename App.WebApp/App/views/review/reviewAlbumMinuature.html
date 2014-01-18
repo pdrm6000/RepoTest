@@ -1,11 +1,11 @@
 ﻿<div class="margin-review span3 img-polaroid gray ">
-	<img data-bind="attr: { src: albumModel.FullCoverUrl }"
+	<img data-bind="attr: { src: albumModel.album.FullCoverUrl }"
 	     class=""
 	     width="100%"
 	     height="100%" />
-	<h3 data-bind="text: albumModel.AlbumName"></h3> 
-	<div style="font-size: 18px" data-bind="text: albumModel.ArtistName"></div>
-	<div  data-bind="text: albumModel.Year"></div>
+	<h3 data-bind="text: albumModel.album.AlbumName"></h3> 
+	<div style="font-size: 18px" data-bind="text: albumModel.album.ArtistName"></div>
+	<div  data-bind="text: albumModel.album.Year"></div>
 	
 	
 	<span class="star-rating mini">
@@ -21,7 +21,7 @@
 		<input type="radio" name="rating" value="10"><i></i>
 	</span>
 	<div class="number-rating-mini">
-		<h3>6.6</h3>
+		<h3 data-bind="text: albumModel.rate"></h3>
 	</div>
 	
 	<div><span class="icon-align-justify"></span> Comments <span class="badge">10</span> </div>

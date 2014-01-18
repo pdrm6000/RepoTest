@@ -5,16 +5,12 @@
 Despliegue en apphabor
 Implementar single page application SPA
 	- crear logo
-	- Crear el metodo first para el init de Review
 	- ravenDB
-	- Resiseño de albumreview 
 
 	- app phonegap
 
 	- usar signalR
 	- usar automapper
-	- revision de arquitectura y dependencias
-
 
 
 	Bugs:
@@ -22,14 +18,11 @@ Implementar single page application SPA
 	- el tooltip del menu no va muy bien
 	- segunda linea de albunes en albumsDirectory no se ve bien
 
+	- revisar patrones de diseño para los modulos js, unificar un unico criterio
+	- eliminar los .model, unificarlos con los viewmodels
+	- dividir la seccion de artistas en pequeños modulos
 
-	revisar el error de view not found
-	inicializar todos los modelos de cliente en el arranque de la app
+
+
 	transicion entre carga de vistas 
 	loading despues de todas las cargas
-
-	bindar en el activate con un objeto generico que tenga un flag para saber cuando llegan los datos
-	hacer la llamada ajax
-	al recibir los datos marcar el flag como datos recibidos
-	al cambiar el flag disparar un evento dentro del viewmodel de la vista
-	rebindar la vista usando el el binder https://github.com/BlueSpire/Durandal/blob/master/src/durandal/js/binder.js

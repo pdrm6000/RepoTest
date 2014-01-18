@@ -8,14 +8,17 @@ namespace App.DomainServices.Services.Implementations
 {
 	public class ArtistsDomainService : BaseDomainService<Artist>, IArtistsDomainService
 	{
-		public ArtistsDomainService(IArtistsRepository artistsRepository)
+	    private readonly IArtistsRepository _artistsRepository;
+
+	    public ArtistsDomainService(IArtistsRepository artistsRepository) 
+            : base(artistsRepository)
 		{
-			Repository = artistsRepository;
+		    _artistsRepository = artistsRepository;
 		}
 
-		public IEnumerable<Artist> GetAllWithAlbums()
+	    public IEnumerable<Artist> GetAllWithAlbums()
 		{
-			return ((IArtistsRepository) Repository).GetAllWithAlbums();
+			return _artistsRepository.GetAllWithAlbums();
 		}
 	}
 }

@@ -1,8 +1,8 @@
 ﻿define("viewmodels/review/reviewAlbum",
 	[
-		'viewmodels/data/datacontext'
+		'knockout'
 	],
-	function (datacontext) {
+	function (ko) {
 
 		var viewmodel = function () {
 			var self = this;
@@ -10,7 +10,7 @@
 		};
 
 		viewmodel.prototype.activate = function (param) {
-			this.albumModel = param;
+		    this.albumModel = param;
 		};
 
 		return viewmodel;
