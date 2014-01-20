@@ -1,18 +1,20 @@
 ﻿define("viewmodels/review/comments",
 	[
+	    'jquery',
+	    'bootstrap',
 	],
-	function () {
+	function ($,bootstrap) {
 
 		var viewmodel = function () {
 			var self = this;
 			self.model = null;
 		};
 
-		viewmodel.prototype.viewAttached = function () {
-			$('#popover' + self.model.albumId()).popover({
-				html: true,
+		viewmodel.prototype.attached = function () {
+			$('#popover' + this.model.albumId()).popover({
+			    html: true,
 				content: function () {
-					return $('#comments' + self.model.albumId()).html();
+				    return $('#' + this.id.replace('popover', 'comments')).html();
 				}
 			});
 		};
