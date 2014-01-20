@@ -21,13 +21,11 @@
 			<input type="radio" name="rating" value="9"><i></i>
 			<input type="radio" name="rating" value="10"><i></i>
 		</span>
-	    <div class="number-rating-land">
-	        <h3 data-bind="text: albumModel.rate"></h3>
-	    </div>
-		<div>
-			<span class="icon-align-justify"></span> Comments <span class="badge">10</span> 
+		<div class="number-rating-land">
+			<h3 data-bind="text: albumModel.rate"></h3>
 		</div>
 
+		<div data-bind="compose: { model: 'viewmodels/review/comments', activationData: { albumId: albumModel.album.Id, comments: albumModel.comments } }"></div>
 	</div>
 </div>
 

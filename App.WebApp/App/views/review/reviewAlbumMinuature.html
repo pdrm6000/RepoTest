@@ -24,6 +24,8 @@
 		<h3 data-bind="text: albumModel.rate"></h3>
 	</div>
 	
-	<div><span class="icon-align-justify"></span> Comments <span class="badge">10</span> </div>
+	<div data-bind="compose: { model: 'viewmodels/review/comments', activationData: { albumId : albumModel.album.Id, comments: albumModel.comments} }"></div>
 </div>
+
+
 

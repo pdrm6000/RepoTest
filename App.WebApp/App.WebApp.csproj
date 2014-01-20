@@ -164,6 +164,7 @@
     <Content Include="App\viewmodels\albums\editAlbumModal.js" />
     <Content Include="App\viewmodels\artists\editArtistModal.js" />
     <Content Include="App\viewmodels\data\metadata.js" />
+    <Content Include="App\viewmodels\review\comments.js" />
     <Content Include="App\viewmodels\review\review.js" />
     <Content Include="App\viewmodels\review\reviewAlbum.js" />
     <Content Include="App\views\albums\addAlbumModal.html" />
@@ -171,6 +172,7 @@
     <Content Include="App\views\artists\addArtistModal.html" />
     <Content Include="App\views\albums\album.html" />
     <Content Include="App\views\albums\editAlbumModal.html" />
+    <Content Include="App\views\review\comments.html" />
     <Content Include="App\views\review\review.html" />
     <Content Include="App\views\review\reviewAlbumLandscape.html" />
     <Content Include="App\views\review\reviewAlbumLarge.html" />

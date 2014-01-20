@@ -1,0 +1,13 @@
+﻿<a href="javascript:void(0)" data-bind="attr: { id: 'popover' + model.albumId }" data-title="Comments">
+	<span class="icon-align-justify"></span> Comments <span class="badge" data-bind="text: model.comments().length"></span>
+</a>
+<div data-bind="attr: { id: 'comments' + model.albumId }" style="display:none;">
+	<ul data-bind="foreach: model.comments">
+		<li>
+			<blockquote class="pull-right">
+				<p data-bind="text: Body"></p>
+				<small data-bind="text: UserId"></small>
+			</blockquote>
+		</li>
+	</ul>
+</div>
