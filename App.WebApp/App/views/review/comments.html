@@ -1,13 +1,26 @@
-﻿<a href="javascript:void(0)" data-bind="attr: { id: 'popover' + model.albumId() }" data-title="Comments">
+﻿<a href="javascript:void(0)" data-bind="attr: { id: 'popover' + model.albumId() }, click: showPopover" >
 	<span class="icon-align-justify"></span> Comments <span class="badge" data-bind="text: model.comments().length"></span>
 </a>
-<div data-bind="attr: { id: 'comments' + model.albumId() }" style="display:none;">
-	<ul class="comments" data-bind="foreach: model.comments">
-		<li>
-			<blockquote class="pull-left">
-				<p data-bind="text: Body"></p>
-				<small data-bind="text: UserId"></small>
-			</blockquote>
-		</li>
-	</ul>
+
+
+<div data-bind="attr: { id: 'comments' + model.albumId() } " class="popover fade right in popover-position">
+	<div class="arrow"></div>
+	<div class="popover-title">
+		<h3>Comments</h3>
+		<button type="button" id="close" class="close" data-bind="click: closePopover">&times;</button>
+	</div>
+		
+	<div class="popover-content">
+		<ul class="comments" data-bind="foreach: model.comments">
+			<li>
+				<blockquote class="pull-left">
+					<p data-bind="text: Body"></p>
+					<small data-bind="text: UserId"></small>
+				</blockquote>
+			</li>
+		</ul>
+		<textarea class="send-comment" rows="2" placeholder="Send your comments..."></textarea>
+		<button class="btn btn-small btn-primary" type="button">Comment</button>
+		<button class="btn btn-small" type="button" data-bind="click: closePopover">Cancel</button>
+	</div>
 </div>
