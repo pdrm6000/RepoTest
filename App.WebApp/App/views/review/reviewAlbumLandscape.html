@@ -10,16 +10,16 @@
 		<div style="font-size: 18px" data-bind="text: albumModel.album.ArtistName"></div>
 		<div  data-bind="text: albumModel.album.Year"></div>
 		<span class="star-rating land">
-			<input type="radio" name="rating" value="1"><i></i>
-			<input type="radio" name="rating" value="2"><i></i>
-			<input type="radio" name="rating" value="3"><i></i>
-			<input type="radio" name="rating" value="4"><i></i>
-			<input type="radio" name="rating" value="5"><i></i>
-			<input type="radio" name="rating" value="6"><i></i>
-			<input type="radio" name="rating" value="7"><i></i>
-			<input type="radio" name="rating" value="7"><i></i>
-			<input type="radio" name="rating" value="9"><i></i>
-			<input type="radio" name="rating" value="10"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="1"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="2"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="3"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="4"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="5"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="6"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="7"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="7"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="9"><i></i>
+			<input type="radio" name="rating" data-bind="click: rateAlbum" value="10"><i></i>
 		</span>
 		<div class="number-rating-land">
 			<h3 data-bind="text: albumModel.rate"></h3>
