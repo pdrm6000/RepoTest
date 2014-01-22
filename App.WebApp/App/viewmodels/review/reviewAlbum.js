@@ -10,6 +10,12 @@
 			self.rateAlbum = function(param) {
 				//TODO process rating
 			};
+
+		    self.isSelected = function(value) {
+		        return ko.computed(function() {
+		            return self.albumModel.Value().toFixed(2) == value;
+		        });
+		    };
 		};
 
 		viewmodel.prototype.activate = function (param) {
