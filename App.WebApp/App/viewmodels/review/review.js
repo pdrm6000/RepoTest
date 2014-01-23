@@ -16,7 +16,7 @@
 	                self.model.push({
 	                    album: entity,
 	                    comments: ko.observableArray(),
-	                    rate: ko.observable(),
+	                    rate: ko.observable(0),
 	                });
 	            });
 	        };

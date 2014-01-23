@@ -9,11 +9,11 @@
 	
 	
 	<span class="star-rating mini">
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }" value="1"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }" value="2"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }" value="3"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }" value="4"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }" value="5"><i></i>
+		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected, click: rateAlbum" value="1"><i></i>
+		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected, click: rateAlbum" value="2"><i></i>
+		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected, click: rateAlbum" value="3"><i></i>
+		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected, click: rateAlbum" value="4"><i></i>
+		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected, click: rateAlbum" value="5"><i></i>
 	</span>
 	<div class="number-rating-mini">
 		<h3 data-bind="text: albumModel.rate"></h3>

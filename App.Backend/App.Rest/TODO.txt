@@ -21,7 +21,7 @@ Implementar single page application SPA
 	- revisar patrones de diseño para los modulos js, unificar un unico criterio
 	- eliminar los .model, unificarlos con los viewmodels
 	- dividir la seccion de artistas en pequeños modulos
-
+	- estudiar la posibiildad de usar medias estrellas en los rates
 
 
 	transicion entre carga de vistas 

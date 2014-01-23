@@ -6,20 +6,24 @@
 		var viewmodel = function () {
 			var self = this;
 			self.albumModel = null;
+			self.isSelected = ko.observable(0);
 
 			self.rateAlbum = function(param) {
 				//TODO process rating
+				console.log(param);
+				self.isSelected(self.isSelected());
+				return false;
 			};
 
-		    self.isSelected = function(value) {
-		        return ko.computed(function() {
-		            return self.albumModel.Value().toFixed(2) == value;
-		        });
-		    };
+			self.rateHasChanged = function(newValue) {
+				self.isSelected(Math.round(newValue));
+			};
+
 		};
 
 		viewmodel.prototype.activate = function (param) {
 			this.albumModel = param;
+			this.albumModel.rate.subscribe(this.rateHasChanged);
 		};
 
 		return viewmodel;
