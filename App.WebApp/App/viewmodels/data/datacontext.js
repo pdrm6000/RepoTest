@@ -58,6 +58,7 @@
 			var allArtists = downloadArtist('GET');
 			return allArtists;
 		},
+		
 		createArtist = function(initialValues) {
 			var customerType = artistsRestManager.metadataStore.getEntityType('ArtistDTO');
 			return customerType.createEntity(initialValues);
@@ -66,18 +67,41 @@
 			var customerType = albumsRestManager.metadataStore.getEntityType('AlbumCatalogDTO');
 			return customerType.createEntity(initialValues);
 		},
+		createRate = function (initialValues) {
+			var customerType = ratesRestManager.metadataStore.getEntityType('RateDTO');
+			return customerType.createEntity(initialValues);
+		},
+		createComment = function (initialValues) {
+			var customerType = commentsRestManager.metadataStore.getEntityType('CommentDTO');
+			return customerType.createEntity(initialValues);
+		},
+		
+		addComment = function (comment) {
+		    commentsRestManager.addEntity(comment);
+		},
+		addRate = function (rate) {
+		    ratesRestManager.addEntity(rate);
+		},
 		addArtist = function(artist) {
 			artistsRestManager.addEntity(artist);
 		},
 		addAlbum = function(album) {
 			albumsRestManager.addEntity(album);
 		},
+		
 		saveArtists = function() {
 			return artistsRestManager.saveChanges();
 		},
 		saveAlbums = function() {
 			return albumsRestManager.saveChanges();
 		},
+		saveComments = function () {
+		    return commentsRestManager.saveChanges();
+        },
+		saveRates = function () {
+		    return ratesRestManager.saveChanges();
+		},
+		
 		getAlbums = function() {
 			var query = new breeze.EntityQuery().from('GET').orderBy("ArtistName");
 			return albumsRestManager.executeQuery(query);
@@ -113,14 +137,24 @@
 			downloadNextAlbum: downloadNextAlbum,
 			downloadPreviousAlbum: downloadPreviousAlbum,
 			downloadAllArtists: downloadAllArtists,
+			
 			addArtist: addArtist,
 			addAlbum: addAlbum,
-			getAlbums: getAlbums,
-			getAlbumsForReview: getAlbumsForReview,
+			addRate: addRate,
+			addComment: addComment,
+
 			saveArtists: saveArtists,
 			saveAlbums: saveAlbums,
+			saveComments: saveComments,
+			saveRates: saveRates,
+
 			createArtist: createArtist,
 			createAlbum: createAlbum,
+			createRate: createRate,
+			createComment: createComment,
+			
+			getAlbums: getAlbums,
+			getAlbumsForReview: getAlbumsForReview,
 			getCommentsByAlbums: getCommentsByAlbums,
 			getRatesByAlbums: getRatesByAlbums,
 		};

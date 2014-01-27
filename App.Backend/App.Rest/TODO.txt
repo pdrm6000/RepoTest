@@ -17,6 +17,7 @@ Implementar single page application SPA
 	- isActive en el menu
 	- el tooltip del menu no va muy bien
 	- segunda linea de albunes en albumsDirectory no se ve bien
+	- cuando se cambian los tipos de vistas en review, se pierden los valores de las estrellas
 
 	- revisar patrones de diseño para los modulos js, unificar un unico criterio
 	- eliminar los .model, unificarlos con los viewmodels

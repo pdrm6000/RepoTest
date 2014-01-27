@@ -37,9 +37,11 @@ namespace App.ApplicationService.Services.Implementations
                     .GetRatesByAlbums(albumIds);
         }
 
-        protected override RateDTO OnAdd(RateDTO album)
+        protected override RateDTO OnAdd(RateDTO entity)
         {
-            throw new NotImplementedException();
+            var rate = entity.ToRate();
+            _ratesDomainService.Add(rate);
+            return rate.ToRateDTO();
         }
 
         protected override int OnDelete(RateDTO entity)

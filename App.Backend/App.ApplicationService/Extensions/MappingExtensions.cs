@@ -67,11 +67,33 @@ namespace App.ApplicationService.Extensions
             };
         }
 
+        public static Comment ToComment(this CommentDTO comment)
+        {
+            return new Comment
+            {
+                AlbumId = comment.AlbumId,
+                Body = comment.Body,
+                Date = comment.Date,
+                UserId = comment.UserId,
+            };
+        }
+
         public static RateDTO ToRateDTO(this Rate rate)
         {
             return new RateDTO
             {
                 Id = rate.Id,
+                AlbumId = rate.AlbumId,
+                Date = rate.Date,
+                UserId = rate.UserId,
+                Value = rate.Value,
+            };
+        }
+
+        public static Rate ToRate(this RateDTO rate)
+        {
+            return new Rate
+            {
                 AlbumId = rate.AlbumId,
                 Date = rate.Date,
                 UserId = rate.UserId,

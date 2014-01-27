@@ -40,9 +40,11 @@ namespace App.ApplicationService.Services.Implementations
                         b => b.Value.Select(c => c.ToCommentDTO()));
         }
 
-        protected override CommentDTO OnAdd(CommentDTO album)
+        protected override CommentDTO OnAdd(CommentDTO entity)
         {
-            throw new NotImplementedException();
+            var comment = entity.ToComment();
+            _commentsDomainService.Add(comment);
+            return comment.ToCommentDTO();
         }
 
         protected override int OnDelete(CommentDTO entity)
@@ -50,7 +52,7 @@ namespace App.ApplicationService.Services.Implementations
             throw new NotImplementedException();
         }
 
-        protected override int OnUpdate(CommentDTO album)
+        protected override int OnUpdate(CommentDTO entity)
         {
             throw new NotImplementedException();
         }

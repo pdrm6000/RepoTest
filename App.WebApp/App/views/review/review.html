@@ -9,15 +9,15 @@
 			<button class="btn" data-bind="click: setLandscapeView"><i class="icon-th-list"></i></button>
 		</div>
 		<div class="btn-group">
-			<button class="btn" data-bind="click: null"><i class="icon-circle-arrow-up"></i></button>
-			<button class="btn" data-bind="click: null"><i class="icon-circle-arrow-down"></i></button>
+			<button class="btn" data-bind="click: getPreviousAlbums"><i class="icon-circle-arrow-up"></i></button>
+			<button class="btn" data-bind="click: getNextAlbums"><i class="icon-circle-arrow-down"></i></button>
 		</div>
 	</div>
 </div>
 <div class="span12 margin-review2">
-	<div class="span10" id="Albums" data-bind="foreach: model">
+	<div class="span10 albums" id="Albums" data-bind="foreach: model">
 		<!-- containerless composition -->
-	    <!-- ko compose: { view: album.AlbumView, model: 'viewmodels/review/reviewAlbum', activationData: $data }--><!--/ko-->
+	    <!-- ko compose: { view: album.AlbumView, model: 'viewmodels/review/reviewAlbum', activationData: $data, transition: 'entrance' }--><!--/ko-->
 	</div>
 	<div class="well visible-desktop activities">
 		<h3>Activity window</h3> 

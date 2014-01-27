@@ -49,7 +49,7 @@
 	        self.bindRates = function (rates) {
 	            ko.utils.arrayForEach(self.model(), function (entity) {
 	                if (rates && rates.results && rates.results[0][entity.album.Id()]) {
-	                    entity.rate(rates.results[0][entity.album.Id()]);
+	                    entity.rate(rates.results[0][entity.album.Id()].toFixed(1));
 	                }
 	            });
 	        };
@@ -70,19 +70,36 @@
 	        };
 
 	        self.setCustomView = function () {
-	            self.setCustomViewCollection(self.albums());
+	            var albums = [];
+	            ko.utils.arrayForEach(self.model(), function (entity) {
+	                albums.push(entity.album);
+	            });
+	            self.setCustomViewCollection(albums);
 	        };
 
 	        self.setMiniatureView = function () {
-	            ko.utils.arrayForEach(self.albums(), function (entity) {
-	                entity.AlbumView('views/review/reviewAlbumMinuature.html');
+	            ko.utils.arrayForEach(self.model(), function (entity) {
+	                entity.album.AlbumView('views/review/reviewAlbumMinuature.html');
 	            });
 	        };
 
 	        self.setLandscapeView = function () {
-	            ko.utils.arrayForEach(self.albums(), function (entity) {
-	                entity.AlbumView('views/review/reviewAlbumLandscape.html');
+	            ko.utils.arrayForEach(self.model(), function (entity) {
+	                entity.album.AlbumView('views/review/reviewAlbumLandscape.html');
 	            });
+	        };
+
+	        self.getNextAlbums = function () {
+	            self.fadeOutCurrentAlbums();
+	            datacontext.getAlbumsForReview(4).then(this.bindAlbums);
+	        };
+
+	        self.getPreviousAlbums = function() {
+
+	        };
+
+	        self.fadeOutCurrentAlbums = function() {
+	            self.model.removeAll();
 	        };
 	    };
 

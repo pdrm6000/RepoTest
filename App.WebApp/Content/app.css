@@ -190,6 +190,10 @@ ul {
 	width: 20%
 }
 
+.albums {
+    min-height: 500px !important;
+}
+
 .margin-large-top {
   margin-top: 5px;
 }
