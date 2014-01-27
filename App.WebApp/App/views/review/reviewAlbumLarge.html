@@ -1,23 +1,25 @@
-﻿<div class="margin-review span5 img-polaroid gray">
-	<img data-bind="attr: { src: albumModel.album.FullCoverUrl }"
-	     class=""
-	     width="100%"
-	     height="100%" />
-	<h2 data-bind="text: albumModel.album.AlbumName"></h2> 
-	<div style="font-size: 22px" data-bind="text: albumModel.album.ArtistName"></div>
-	<div  data-bind="text: albumModel.album.Year"></div>
+﻿<div data-bind="attr: { id: 'album' + albumModel.album.Id() }" class="hidden-block">
+	<div class="margin-review span5 img-polaroid gray">
+		<img data-bind="attr: { src: albumModel.album.FullCoverUrl }"
+			 class=""
+			 width="100%"
+			 height="100%" />
+		<h2 data-bind="text: albumModel.album.AlbumName"></h2> 
+		<div style="font-size: 22px" data-bind="text: albumModel.album.ArtistName"></div>
+		<div  data-bind="text: albumModel.album.Year"></div>
 	
 	
-	<span class="star-rating margin-large-top">
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="1"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="2"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="3"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="4"><i></i>
-		<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="5"><i></i>
-	</span>
-	<div class="number-rating">
-		<h1 data-bind="text: albumModel.rate"></h1>
+		<span class="star-rating margin-large-top">
+			<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="1"><i></i>
+			<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="2"><i></i>
+			<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="3"><i></i>
+			<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="4"><i></i>
+			<input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="5"><i></i>
+		</span>
+		<div class="number-rating">
+			<h1 data-bind="text: albumModel.rate"></h1>
+		</div>
+	
+		<div class="margin-large-bottom black-font" data-bind="compose: { model: 'viewmodels/review/comments', activationData: { albumId: albumModel.album.Id, comments: albumModel.comments, albumCover: albumModel.album.FullCoverUrl() } }"></div>
 	</div>
-	
-	<div class="margin-large-bottom black-font" data-bind="compose: { model: 'viewmodels/review/comments', activationData: { albumId: albumModel.album.Id, comments: albumModel.comments, albumCover: albumModel.album.FullCoverUrl() } }"></div>
 </div>

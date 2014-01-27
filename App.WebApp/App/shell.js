@@ -2,8 +2,9 @@
     return {
         router: router,
         activate: function () {
-            metadata.prototype.init();
-            
+
+        	metadata.prototype.init();
+
             return router.map([
                 { route: ['', 'home'], moduleId: 'viewmodels/home/home', title: 'Home', nav: true },
                 { route: 'review', moduleId: 'viewmodels/review/review', title: 'Review', nav: true },

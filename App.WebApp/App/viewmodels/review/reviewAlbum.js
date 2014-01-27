@@ -1,8 +1,9 @@
 ﻿define("viewmodels/review/reviewAlbum",
 	[
-	    'viewmodels/data/datacontext'
+	    'viewmodels/data/datacontext',
+		'durandal/app',
 	],
-	function (datacontext) {
+	function (datacontext, app) {
 
 		var viewmodel = function () {
 			var self = this;
@@ -36,7 +37,10 @@
 		viewmodel.prototype.activate = function (param) {
 			this.albumModel = param;
 			this.albumModel.rate.subscribe(this.rateHasChanged);
-		    
+		};
+
+		viewmodel.prototype.compositionComplete = function(param) {
+			app.trigger('albumToReview:event', this.albumModel.album.Id());
 		};
 
 		return viewmodel;

@@ -205,6 +205,11 @@ ul {
 	float: right;
 }
 
+.hidden-block {
+  display: none;
+}
+
+
 /*stars rate
 
 
