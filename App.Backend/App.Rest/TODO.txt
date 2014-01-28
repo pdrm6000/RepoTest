@@ -24,6 +24,13 @@ Implementar single page application SPA
 	- dividir la seccion de artistas en pequeños modulos
 	- estudiar la posibiildad de usar medias estrellas en los rates
 
+	-no funcionan los cambios de vistas
 
 	transicion entre carga de vistas 
 	loading despues de todas las cargas
+
+	Feats:
+	- previous con cache
+	- acabar el next
+	- signalR activities
+	- pagination en comments
