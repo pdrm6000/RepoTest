@@ -4,9 +4,10 @@
 		'viewmodels/data/datacontext',
 		'knockout',
 		'durandal/app',
+	    'jquery',
 		'viewmodels/review/reviewAnimator',
 	],
-	function (albumsModel, datacontext, ko, app, animator) {
+	function (albumsModel, datacontext, ko, app, $, animator) {
 
 	    var viewmodel = function () {
 	        var self = this;
@@ -79,17 +80,27 @@
 	                albums.push(entity.album);
 	            });
 	            self.setCustomViewCollection(albums);
+	            self.showAlbumView();
 	        };
 
 	        self.setMiniatureView = function () {
 	            ko.utils.arrayForEach(self.model(), function (entity) {
 	                entity.album.AlbumView('views/review/reviewAlbumMinuature.html');
 	            });
+	            self.showAlbumView();
 	        };
 
 	        self.setLandscapeView = function () {
 	            ko.utils.arrayForEach(self.model(), function (entity) {
 	                entity.album.AlbumView('views/review/reviewAlbumLandscape.html');
+	            });
+	            self.showAlbumView();
+	        };
+
+	        self.showAlbumView = function() {
+	            var ids = self.getAlbumIds();
+	            ko.utils.arrayForEach(ids, function (entity) {
+	                $('#album' + entity).show();
 	            });
 	        };
 

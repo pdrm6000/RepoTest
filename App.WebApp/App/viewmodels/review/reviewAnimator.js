@@ -15,7 +15,7 @@
 	    };
 
 	    viewmodel.prototype.hideAlbums = function (albumIds, callback) {
-	        $.each(albumIds, function (key, value) {
+	        $.each(albumIds.reverse(), function (key, value) {
 	            var options = null;
 	            if (albumIds.length - 1 == key) {
 	                options = { duration: 300, complete: callback };
