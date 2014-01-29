@@ -6,9 +6,7 @@ Despliegue en apphabor
 Implementar single page application SPA
 	- crear logo
 	- ravenDB
-
 	- app phonegap
-
 	- usar signalR
 	- usar automapper
 
@@ -17,20 +15,16 @@ Implementar single page application SPA
 	- isActive en el menu
 	- el tooltip del menu no va muy bien
 	- segunda linea de albunes en albumsDirectory no se ve bien
-	- cuando se cambian los tipos de vistas en review, se pierden los valores de las estrellas
 
 	- revisar patrones de diseño para los modulos js, unificar un unico criterio
 	- eliminar los .model, unificarlos con los viewmodels
 	- dividir la seccion de artistas en pequeños modulos
 	- estudiar la posibiildad de usar medias estrellas en los rates
 
-	-no funcionan los cambios de vistas
-
-	transicion entre carga de vistas 
-	loading despues de todas las cargas
+	cuando se cargan submodulos deberian mantenerse el loading hasta que esten cargados todos los submodulos, no solo el principal, pasa en review y album, donde mas se nota es en review
+	refactor en review.js separar binder, animator, viewswitcher
 
 	Feats:
 	- previous con cache
-	- acabar el next
 	- signalR activities
 	- pagination en comments

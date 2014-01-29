@@ -9,7 +9,7 @@
 			var self = this;
 			self.albumModel = null;
 			self.isSelected = ko.observable(0);
-		    self.lastPopup = null;
+			self.lastPopup = null;
 
 			self.rateAlbum = function (param) {
 			    self.lastPopup = toastr.info('Rating album...');
@@ -28,15 +28,22 @@
 		    };
 
 			self.rateHasChanged = function(newValue) {
-			    self.isSelected(Math.round(newValue));
-			    self.isSelected.subscribe(self.rateAlbum);
+				self.isSelected(Math.round(newValue));
+				self.isSelected.subscribe(self.rateAlbum);
 			};
 
+			self.subscribeRate = function() {
+				if (self.albumModel.rate.getSubscriptionsCount() == 0) {
+					self.albumModel.rate.subscribe(self.rateHasChanged);
+				} else {
+					self.rateHasChanged(self.albumModel.rate());
+				}
+			};
 		};
 
 		viewmodel.prototype.activate = function (param) {
 			this.albumModel = param;
-			this.albumModel.rate.subscribe(this.rateHasChanged);
+			this.subscribeRate();
 		};
 
 		viewmodel.prototype.compositionComplete = function(param) {
