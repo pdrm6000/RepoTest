@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using System.Threading;
 using App.ApplicationService.DTO;
 using App.ApplicationService.Extensions;
 using App.ApplicationService.Services.BaseServices;
@@ -19,6 +21,7 @@ namespace App.ApplicationService.Services.Implementations
 		{
 			get
 			{
+				Thread.Sleep(4000);
 				return _artistsDomainService
 					.GetAll()
 					.ToList()

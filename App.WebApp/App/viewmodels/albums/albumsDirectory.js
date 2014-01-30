@@ -1,9 +1,10 @@
 ﻿define("viewmodels/albums/albumsDirectory",
 	[
+		'viewmodels/data/globalConfig',
 		'viewmodels/albums/albumsDirectory.model',
 		'viewmodels/data/datacontext'
 	],
-	function (albumsModel, datacontext){
+	function (globalConfig ,albumsModel, datacontext){
 		var viewmodel = {
 			artistsWithAlbums: albumsModel,
 			
@@ -29,6 +30,7 @@
 					}
 					$(albumsModel.artistCollection()).last()[0].Albums().push(album);
 				});
+				globalConfig.prototype.moduleIsFullyLoaded();
 			},
 			
 			viewAttached: function(view) {

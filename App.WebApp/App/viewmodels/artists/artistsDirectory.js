@@ -1,11 +1,12 @@
 ﻿define("viewmodels/artists/artistsDirectory",
 	[
+		'viewmodels/data/globalConfig',
 		'viewmodels/data/datacontext',
 		'viewmodels/artists/artistsDirectory.model',
 		'viewmodels/artists/editArtistModal',
 		'viewmodels/artists/addArtistModal'
 	],
-	function (datacontext, artistModel, editArtistModal, addArtistModal) {
+	function (globalConfig, datacontext, artistModel, editArtistModal, addArtistModal) {
 
 		var lasteditpopup;
 		var lastaddpopup;
@@ -26,6 +27,7 @@
 			},
 			processArtistsDownloaded: function (data) {
 				artistModel.artistsCollection(data.results);
+				globalConfig.prototype.moduleIsFullyLoaded();
 			},
 			finishArtistEditing: function (artistEdited) {
 				if (artistEdited) {

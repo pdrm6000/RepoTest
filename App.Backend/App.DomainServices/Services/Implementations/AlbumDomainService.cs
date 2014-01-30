@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading;
 using App.Domain.Model;
 using App.DomainServices.BaseTypes;
 using App.DomainServices.Services.Contracts;
@@ -18,6 +19,7 @@ namespace App.DomainServices.Services.Implementations
 
 	    public IQueryable<Album> GetAllWithArtist()
 		{
+			Thread.Sleep(4000);
 			return _albumsRepository.GetAllAlbumsWithArtist();
 		}
 	}

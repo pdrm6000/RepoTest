@@ -3,10 +3,11 @@
 		'durandal/app',
 		'knockout',
 		'jquery',
+		'viewmodels/data/globalConfig',
 		'viewmodels/data/datacontext',
 		'viewmodels/review/reviewAnimator',
 	],
-	function (app, ko, $, datacontext, animator) {
+	function (app, ko, $, globalConfig, datacontext, animator) {
 
 		var viewmodel = function () {
 			var self = this;
@@ -56,6 +57,7 @@
 						entity.rate(rates.results[0][entity.album.Id()].toFixed(1));
 					}
 				});
+				globalConfig.prototype.moduleIsFullyLoaded();
 			};
 
 			self.getAlbumIds = function () {
@@ -136,7 +138,7 @@
 
 		viewmodel.prototype.activate = function (param) {
 			app.on('albumToReview:event').then(this.onAlbumLoaded);
-			datacontext.getAlbumsForReview(this.albumsCount).then(this.bindAlbums);
+			return datacontext.getAlbumsForReview(this.albumsCount).then(this.bindAlbums);
 		};
 
 		viewmodel.prototype.compositionComplete = function (param) {

@@ -1,11 +1,13 @@
-﻿define(function (require) {
-
-    activate = function() {
-
-    };
+﻿define("viewmodels/home/home",
+	[
+		'viewmodels/data/globalConfig'
+	],
+	function (globalConfig) {
 
     var self = {
-        activate: activate,
+    	activate: function() {
+    		globalConfig.prototype.moduleIsFullyLoaded();
+    	},
     };
     return self;
 });
