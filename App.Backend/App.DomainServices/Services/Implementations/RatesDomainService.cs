@@ -22,7 +22,6 @@ namespace App.DomainServices.Services.Implementations
 
         public Dictionary<int, double> GetRatesByAlbums(int[] albumIds)
         {
-			Thread.Sleep(4000);
             return _rateRepository
                     .GetByCondition(r => albumIds.Contains(r.AlbumId))
                     .GroupBy(r => r.AlbumId)

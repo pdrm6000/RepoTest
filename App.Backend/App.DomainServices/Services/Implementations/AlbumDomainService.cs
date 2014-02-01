@@ -19,7 +19,6 @@ namespace App.DomainServices.Services.Implementations
 
 	    public IQueryable<Album> GetAllWithArtist()
 		{
-			Thread.Sleep(4000);
 			return _albumsRepository.GetAllAlbumsWithArtist();
 		}
 	}

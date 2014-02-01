@@ -21,7 +21,6 @@ namespace App.ApplicationService.Services.Implementations
 		{
 			get
 			{
-				Thread.Sleep(4000);
 				return _artistsDomainService
 					.GetAll()
 					.ToList()
