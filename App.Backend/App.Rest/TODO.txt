@@ -12,14 +12,14 @@ Implementar single page application SPA
 
 
 	Bugs:
-	- isActive en el menu
 	- el tooltip del menu no va muy bien
 	- segunda linea de albunes en albumsDirectory no se ve bien
 
 	- revisar patrones de diseño para los modulos js, unificar un unico criterio
 	- eliminar los .model, unificarlos con los viewmodels
 	- dividir la seccion de artistas en pequeños modulos
-	- estudiar la posibiildad de usar medias estrellas en los rates
+	- estudiar la posibiildad de usar medias estrellas en los rates (guito opina que no)
+	- revisar porq no cargan los albunes
 
 	cuando se cargan submodulos deberian mantenerse el loading hasta que esten cargados todos los submodulos, no solo el principal, pasa en review y album, donde mas se nota es en review
 	refactor en review.js separar binder, animator, viewswitcher
@@ -28,3 +28,15 @@ Implementar single page application SPA
 	- previous con cache
 	- signalR activities
 	- pagination en comments
+	- escala de colores segun rate
+	- lista de artistas debe tener albumes ordenados por año
+	-
+
+	REGLAS:
+	los rates no son anonimos
+	estado de un album no votado
+		estrellas grises -> puedo votar
+		rate numerico con la votacion del pueblo
+	estado de un album ya votado
+		estrellas con el voto del usuario -> modificable
+		rate numerico con la votacion del pueblo (tu incluido)

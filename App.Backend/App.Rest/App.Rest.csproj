@@ -279,10 +279,6 @@
       <Project>{BA020EB8-218C-4978-A577-8769B07D1B47}</Project>
       <Name>App.CrossCutting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App.Domain\App.Domain.csproj">
-      <Project>{976C7A43-40DF-476C-AF2F-C6028D7AE019}</Project>
-      <Name>App.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\AppUI_Production.pubxml" />

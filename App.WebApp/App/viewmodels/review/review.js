@@ -142,7 +142,7 @@
 		};
 
 		viewmodel.prototype.compositionComplete = function (param) {
-			console.log(param);
+			
 		};
 
 		return viewmodel;
