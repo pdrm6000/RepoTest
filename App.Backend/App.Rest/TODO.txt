@@ -21,7 +21,7 @@ Implementar single page application SPA
 	- estudiar la posibiildad de usar medias estrellas en los rates (guito opina que no)
 	- revisar porq no cargan los albunes
 
-	cuando se cargan submodulos deberian mantenerse el loading hasta que esten cargados todos los submodulos, no solo el principal, pasa en review y album, donde mas se nota es en review
+	
 	refactor en review.js separar binder, animator, viewswitcher
 
 	Feats:

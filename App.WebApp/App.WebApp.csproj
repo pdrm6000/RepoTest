@@ -165,10 +165,12 @@
     <Content Include="App\viewmodels\artists\editArtistModal.js" />
     <Content Include="App\viewmodels\data\globalConfig.js" />
     <Content Include="App\viewmodels\data\metadata.js" />
+    <Content Include="App\viewmodels\review\binder.js" />
     <Content Include="App\viewmodels\review\comments.js" />
     <Content Include="App\viewmodels\review\review.js" />
     <Content Include="App\viewmodels\review\reviewAlbum.js" />
-    <Content Include="App\viewmodels\review\reviewAnimator.js" />
+    <Content Include="App\viewmodels\review\animator.js" />
+    <Content Include="App\viewmodels\review\viewswitcher.js" />
     <Content Include="App\views\albums\addAlbumModal.html" />
     <Content Include="App\views\albums\albumsGroupedByArtist.html" />
     <Content Include="App\views\artists\addArtistModal.html" />
