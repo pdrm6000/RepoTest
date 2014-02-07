@@ -294,3 +294,28 @@ A5DF00
 	margin: 0 0 20px 0 !important;
 	min-height: 500px;
 }
+
+
+.rate0 {
+	background-color: #DF3A01;
+}
+
+.rate1 {
+	background-color: #DF3A01;
+}
+
+.rate2 {
+	background-color: #DF7401;
+}
+
+.rate3 {
+	background-color: #DBA901;
+}
+
+.rate4 {
+	background-color: #D7DF01;
+}
+
+.rate5 {
+	background-color: #A5DF00;
+}

@@ -17,7 +17,7 @@
             <input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="4"><i></i>
             <input type="radio" data-bind="attr: { name: 'rating' + albumModel.album.Id() }, checked: isSelected" value="5"><i></i>
         </span>
-        <div class="number-rating">
+        <div data-bind="attr: { class: 'number-rating ' + albumModel.rateStyle() }" >
             <h1 data-bind="text: albumModel.rate"></h1>
         </div>
 	

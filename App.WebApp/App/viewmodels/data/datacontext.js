@@ -126,6 +126,14 @@
 				.from('GetAlbumsForReview')
 				.withParameters({ albumsCount: count });
 			return albumsRestManager.executeQuery(query);
+		},
+		getAlbumsForReviewLocal = function(count) {
+			var query = new breeze
+				.EntityQuery()
+				.from('GetAlbumsForReview')
+				.withParameters({ albumsCount: count })
+				.toType('AlbumCatalogDTO');
+			return albumsRestManager.executeQueryLocally(query);
 		};
 	    
 
@@ -155,6 +163,7 @@
 			
 			getAlbums: getAlbums,
 			getAlbumsForReview: getAlbumsForReview,
+			getAlbumsForReviewLocal: getAlbumsForReviewLocal,
 			getCommentsByAlbums: getCommentsByAlbums,
 			getRatesByAlbums: getRatesByAlbums,
 		};

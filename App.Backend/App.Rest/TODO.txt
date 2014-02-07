@@ -22,8 +22,6 @@ Implementar single page application SPA
 	- revisar porq no cargan los albunes
 
 	
-	refactor en review.js separar binder, animator, viewswitcher
-
 	Feats:
 	- previous con cache
 	- signalR activities

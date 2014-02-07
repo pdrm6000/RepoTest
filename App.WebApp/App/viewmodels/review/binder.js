@@ -9,12 +9,37 @@
 	    };
 
 	    binder.prototype.addToModel = function (model, albums) {
-	        ko.utils.arrayForEach(albums, function (entity) {
-	            model.push({
-	                album: entity,
-	                comments: ko.observableArray(),
-	                rate: ko.observable(0),
-	            });
+	    	ko.utils.arrayForEach(albums, function (entity) {
+	    		var modelObject = {
+	    			album: entity,
+	    			comments: ko.observableArray(),
+	    			rate: ko.observable(0),
+	    		};
+	    		modelObject.rateStyle = ko.computed(function() {
+	    			var returnStyle = "";
+	    			switch (Math.round(modelObject.rate())) {
+	    			case 1:
+	    				returnStyle = "rate1";
+	    				break;
+	    			case 2:
+	    				returnStyle = "rate2";
+	    				break;
+	    			case 3:
+	    				returnStyle = "rate3";
+	    				break;
+	    			case 4:
+	    				returnStyle = "rate4";
+	    				break;
+	    			case 5:
+	    				returnStyle = "rate5";
+	    				break;
+	    			default:
+	    				returnStyle = "rate0";
+	    				break;
+	    			}
+	    			return returnStyle;
+	    		});
+	            model.push(modelObject);
 	        });
 	    };
 

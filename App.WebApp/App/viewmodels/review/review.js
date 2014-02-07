@@ -71,9 +71,16 @@
 	        };
 
 	        self.getPreviousAlbums = function () {
-
+	        	animator.prototype.hideAlbums(self.getAlbumIds(), self.findPreviousAlbums);
 	        };
 
+	        self.findPreviousAlbums = function () {
+	        	self.model.removeAll();
+	        	self.albumsLoaded = 0;
+	        	var prevAlbums = datacontext.getAlbumsForReviewLocal(self.albumsCount);
+		        self.bindAlbums({results: prevAlbums});
+	        };
+		    
 	        self.findNextAlbums = function () {
 	            self.model.removeAll();
 	            self.albumsLoaded = 0;

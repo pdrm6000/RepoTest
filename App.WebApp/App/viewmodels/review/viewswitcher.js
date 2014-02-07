@@ -10,7 +10,7 @@
 
 	        function viewswitcher() {
 	        }
-	        
+
 	        var setAlbumView = function (album, albumView) {
 	            if (album.AlbumView() == albumView) {
 	                app.trigger('albumToReview:event', album.Id()); // no changes needed
@@ -18,7 +18,7 @@
 	                album.AlbumView(albumView);
 	            }
 	        };
-	        
+
 	        var setCustomViewCollection = function (albums) {
 	            setAlbumView(albums[0], 'views/review/reviewAlbumLarge.html');
 	            setAlbumView(albums[1], 'views/review/reviewAlbumMinuature.html');
