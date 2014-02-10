@@ -1,12 +1,11 @@
 ﻿define("viewmodels/albums/albumsDirectory",
 	[
 		'viewmodels/data/globalConfig',
-		'viewmodels/albums/albumsDirectory.model',
 		'viewmodels/data/datacontext'
 	],
-	function (globalConfig ,albumsModel, datacontext){
+	function (globalConfig , datacontext){
 		var viewmodel = {
-			artistsWithAlbums: albumsModel,
+			artistsWithAlbums: ko.observableArray(),
 			
 			activate: function () {
 				return datacontext.getAlbums().then(viewmodel.groupAlbumsByArtist);
@@ -16,7 +15,7 @@
 				var previousArtistId = 0;
 				$.each(data.results, function (index, album) {
 					if (album.ArtistId() != previousArtistId) {
-						albumsModel.artistCollection.push({
+						viewmodel.artistsWithAlbums().push({
 							Name: ko.observable(album.ArtistName()),
 							Id: album.ArtistId(),
 							Albums: ko.observableArray(),
@@ -28,24 +27,15 @@
 						});
 						previousArtistId = album.ArtistId();
 					}
-					$(albumsModel.artistCollection()).last()[0].Albums().push(album);
+					$(viewmodel.artistsWithAlbums()).last()[0].Albums().push(album);
 				});
 				globalConfig.prototype.moduleIsFullyLoaded();
 			},
-			
-			viewAttached: function(view) {
-				$(".albumImg").hover(function () {
-				    $(this).animate({ boxShadow : '0 1px 20px rgba(0, 0, 0, 0.5)' }, 100);
-				}, function () {
-				    $(this).animate({ boxShadow : '0 1px 3px rgba(0, 0, 0, 0.1)' }, 100);
-				});
-			}
 		};
 
 		return {
 			artistsWithAlbums: viewmodel.artistsWithAlbums,
 			activate: viewmodel.activate,
-			viewAttached: viewmodel.viewAttached,
 		};
 
 	});

@@ -3,7 +3,7 @@
 		<h1>Albums directory</h1>
 		<br />
 		<br />
-		<div id="ArtistCollection" data-bind="foreach: artistsWithAlbums.artistCollection">
+		<div id="ArtistCollection" data-bind="foreach: artistsWithAlbums">
 			<div data-bind="compose: { model: 'viewmodels/albums/albumsGroupedByArtist', view: 'views/albums/albumsGroupedByArtist.html', activationData: $data }">
 			</div>
 		</div>

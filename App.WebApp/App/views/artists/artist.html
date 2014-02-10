@@ -1,0 +1,10 @@
+﻿<div class="span3">
+	<a data-bind="click: editArtist" href=".">
+		<img style="z-index: 10;" data-bind="attr: { src: model.FullImageUrl }"
+			width="200" height="200"
+			class="img-polaroid"
+			onmouseout="$(this).stop().animate({boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'})"
+			onmouseover="$(this).stop().animate({boxShadow: '0 1px 20px rgba(0, 0, 0, 0.7)'})" />
+		<div class="AlbumsDirArtist" data-bind="text: model.Name"></div>
+	</a>
+</div>

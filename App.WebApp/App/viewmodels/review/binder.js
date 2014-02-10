@@ -16,7 +16,7 @@
 	    			rate: ko.observable(0),
 	    		};
 	    		modelObject.rateStyle = ko.computed(function() {
-	    			var returnStyle = "";
+	    			var returnStyle;
 	    			switch (Math.round(modelObject.rate())) {
 	    			case 1:
 	    				returnStyle = "rate1";

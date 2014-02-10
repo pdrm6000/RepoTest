@@ -1,36 +1,20 @@
 ﻿<div class="ArtistTitle span12">
-    <h1>Artist directory</h1>
-    <a id="removeAlbumButton" data-bind="click: addArtist" class="btn btn-small pull-right" href="#"><i class="icon-minus"></i></a>
-    <a id="addAlbumButton" data-bind="click: addArtist" class="btn btn-small pull-right" href="#"><i class="icon-plus"></i></a>
+	<h1>Artist directory</h1>
+	<a id="removeAlbumButton" data-bind="click: addArtist" class="btn btn-small pull-right" href="#"><i class="icon-minus"></i></a>
+	<a id="addAlbumButton" data-bind="click: addArtist" class="btn btn-small pull-right" href="#"><i class="icon-plus"></i></a>
 </div>
 <br />
 <br />
 <div id="artistDir">
-    <div class="span9" data-bind="foreach: artists.artistsCollection">
-        <div class="span3">
-            <a data-bind="click: $root.editArtist" href=".">
-                <img style="z-index: 10;" data-bind="attr: { src: FullImageUrl }"
-                    width="200" height="200"
-                    class="img-polaroid"
-                    onmouseout="$(this).stop().animate({boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'})"
-                    onmouseover="$(this).stop().animate({boxShadow: '0 1px 20px rgba(0, 0, 0, 0.7)'})" />
-                <div class="AlbumsDirArtist" data-bind="text: Name"></div>
-
-            </a>
-        </div>
-    </div>
+	<div class="span9" data-bind="foreach: artists">
+		<!-- ko compose: { model: 'viewmodels/artists/artist', activationData: $data }-->
+		<!--/ko-->
+	</div>
 </div>
 <div class="span2 well visible-desktop">
-    Select one artist to edit<br />
-    <br />
-    Click add button to create new artist<br />
-    <br />
-    Click delete button to remove artist selected
-</div>
-
-
-
-<div id="editAlert" class="hide">
-    <h4>Saving artist</h4>
-    Artist saved succesfully
+	Select one artist to edit<br />
+	<br />
+	Click add button to create new artist<br />
+	<br />
+	Click delete button to remove artist selected
 </div>

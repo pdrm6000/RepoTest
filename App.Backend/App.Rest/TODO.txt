@@ -16,8 +16,6 @@ Implementar single page application SPA
 	- segunda linea de albunes en albumsDirectory no se ve bien
 
 	- revisar patrones de diseño para los modulos js, unificar un unico criterio
-	- eliminar los .model, unificarlos con los viewmodels
-	- dividir la seccion de artistas en pequeños modulos
 	- estudiar la posibiildad de usar medias estrellas en los rates (guito opina que no)
 	- revisar porq no cargan los las estrellas al comienzo 
 	
@@ -27,9 +25,7 @@ Implementar single page application SPA
 	- previous con cache
 	- signalR activities
 	- pagination en comments
-	- escala de colores segun rate
 	- lista de artistas debe tener albumes ordenados por año
-	-
 
 	REGLAS:
 	los rates no son anonimos

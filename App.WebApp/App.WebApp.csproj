@@ -162,6 +162,7 @@
     <Content Include="App\viewmodels\artists\addArtistModal.js" />
     <Content Include="App\viewmodels\albums\album.js" />
     <Content Include="App\viewmodels\albums\editAlbumModal.js" />
+    <Content Include="App\viewmodels\artists\artist.js" />
     <Content Include="App\viewmodels\artists\editArtistModal.js" />
     <Content Include="App\viewmodels\data\globalConfig.js" />
     <Content Include="App\viewmodels\data\metadata.js" />
@@ -176,6 +177,7 @@
     <Content Include="App\views\artists\addArtistModal.html" />
     <Content Include="App\views\albums\album.html" />
     <Content Include="App\views\albums\editAlbumModal.html" />
+    <Content Include="App\views\artists\artist.html" />
     <Content Include="App\views\review\comments.html" />
     <Content Include="App\views\review\review.html" />
     <Content Include="App\views\review\reviewAlbumLandscape.html" />
@@ -213,9 +215,7 @@
     <Content Include="Scripts\durandal\viewLocator.js" />
     <Content Include="App\main.js" />
     <Content Include="App\viewmodels\albums\albumsDirectory.js" />
-    <Content Include="App\viewmodels\albums\albumsDirectory.model.js" />
     <Content Include="App\viewmodels\artists\artistsDirectory.js" />
-    <Content Include="App\viewmodels\artists\artistsDirectory.model.js" />
     <Content Include="App\viewmodels\data\datacontext.js" />
     <Content Include="App\viewmodels\home\home.js" />
     <Content Include="App\views\albums\albumsDirectory.html" />
