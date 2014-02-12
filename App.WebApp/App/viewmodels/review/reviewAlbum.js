@@ -33,7 +33,7 @@
 			};
 
 			self.subscribeRate = function() {
-				if (self.albumModel.rate.getSubscriptionsCount() == 0) {
+				if (self.albumModel.rate.getSubscriptionsCount() <= 1) {
 					self.albumModel.rate.subscribe(self.rateHasChanged);
 				} else {
 					self.rateHasChanged(self.albumModel.rate());
