@@ -120,18 +120,20 @@
                 .withParameters({ albumIds: ids });
 			return ratesRestManager.executeQuery(query);
 		},
-		getAlbumsForReview = function(count) {
+		getAlbumsForReview = function(count, page) {
 			var query = new breeze
 				.EntityQuery()
 				.from('GetAlbumsForReview')
-				.withParameters({ albumsCount: count });
+				.withParameters({ albumsCount: count, page: page });
 			return albumsRestManager.executeQuery(query);
 		},
-		getAlbumsForReviewLocal = function(count) {
+		getAlbumsForReviewLocal = function(count, page) {
 			var query = new breeze
 				.EntityQuery()
 				.from('GetAlbumsForReview')
-				.withParameters({ albumsCount: count })
+				.withParameters({ albumsCount: count, page: page })
+		        .skip(count * page)
+                .take(count)
 				.toType('AlbumCatalogDTO');
 			return albumsRestManager.executeQueryLocally(query);
 		};

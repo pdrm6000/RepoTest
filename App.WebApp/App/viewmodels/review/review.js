@@ -16,6 +16,7 @@
 	        self.model = ko.observableArray();
 	        self.albumsCount = 4;
 	        self.albumsLoaded = 0;
+	        self.page = 0;
 
 	        self.bindAlbums = function (data) {
 	            viewswitcher.prototype.setCustomViewCollection(data.results);
@@ -71,20 +72,25 @@
 	        };
 
 	        self.getPreviousAlbums = function () {
-	        	animator.prototype.hideAlbums(self.getAlbumIds(), self.findPreviousAlbums);
+	            if (self.page > 0) {
+	                animator.prototype.hideAlbums(self.getAlbumIds(), self.findPreviousAlbums);
+	            }
 	        };
 
 	        self.findPreviousAlbums = function () {
-	        	self.model.removeAll();
-	        	self.albumsLoaded = 0;
-	        	var prevAlbums = datacontext.getAlbumsForReviewLocal(self.albumsCount);
-		        self.bindAlbums({results: prevAlbums});
+	            self.model.removeAll();
+	            self.albumsLoaded = 0;
+	            self.page--;
+	            var prevAlbums = datacontext.getAlbumsForReviewLocal(self.albumsCount, self.page);
+	            console.log(prevAlbums);
+	            self.bindAlbums({ results: prevAlbums });
 	        };
-		    
+
 	        self.findNextAlbums = function () {
 	            self.model.removeAll();
 	            self.albumsLoaded = 0;
-	            datacontext.getAlbumsForReview(self.albumsCount).then(self.bindAlbums);
+	            self.page++;
+	            datacontext.getAlbumsForReview(self.albumsCount, self.page).then(self.bindAlbums);
 	        };
 
 	        self.onAlbumLoaded = function (albumId) {
@@ -96,9 +102,9 @@
 	        };
 	    };
 
-	    viewmodel.prototype.activate = function(param) {
+	    viewmodel.prototype.activate = function (param) {
 	        app.on('albumToReview:event').then(this.onAlbumLoaded);
-	        return datacontext.getAlbumsForReview(this.albumsCount).then(this.bindAlbums);
+	        return datacontext.getAlbumsForReview(this.albumsCount, this.page).then(this.bindAlbums);
 	    };
 
 	    return viewmodel;
