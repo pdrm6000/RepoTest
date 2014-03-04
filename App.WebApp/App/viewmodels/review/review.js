@@ -82,7 +82,9 @@
 	            self.albumsLoaded = 0;
 	            self.page--;
 	            var prevAlbums = datacontext.getAlbumsForReviewLocal(self.albumsCount, self.page);
-	            console.log(prevAlbums);
+	            ko.utils.arrayForEach(prevAlbums, function (entity) {
+	                entity.AlbumView('');
+	            });
 	            self.bindAlbums({ results: prevAlbums });
 	        };
 
