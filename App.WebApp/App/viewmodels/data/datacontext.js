@@ -127,13 +127,11 @@
 				.withParameters({ albumsCount: count, page: page });
 			return albumsRestManager.executeQuery(query);
 		},
-		getAlbumsForReviewLocal = function(count, page) {
+		getAlbumsForReviewLocal = function(albumIds) {
 			var query = new breeze
 				.EntityQuery()
 				.from('GetAlbumsForReview')
-				.withParameters({ albumsCount: count, page: page })
-		        .skip(count * page)
-                .take(count)
+		        .where('AlbumName',)
 				.toType('AlbumCatalogDTO');
 			return albumsRestManager.executeQueryLocally(query);
 		};

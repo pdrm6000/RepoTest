@@ -17,10 +17,14 @@
 	        self.albumsCount = 4;
 	        self.albumsLoaded = 0;
 	        self.page = 0;
+	        self.albumIds = [];
 
 	        self.bindAlbums = function (data) {
 	            viewswitcher.prototype.setCustomViewCollection(data.results);
 	            binder.prototype.addToModel(self.model, data.results);
+	            if (self.page > self.albumIds.length - 1) {
+	                self.albumIds.push(self.getAlbumIds());
+	            }
 	            self.processComments();
 	        };
 
@@ -81,7 +85,7 @@
 	            self.model.removeAll();
 	            self.albumsLoaded = 0;
 	            self.page--;
-	            var prevAlbums = datacontext.getAlbumsForReviewLocal(self.albumsCount, self.page);
+	            var prevAlbums = datacontext.getAlbumsForReviewLocal(self.albumIds[self.page]);
 	            ko.utils.arrayForEach(prevAlbums, function (entity) {
 	                entity.AlbumView('');
 	            });
