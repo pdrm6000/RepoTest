@@ -85,18 +85,27 @@
 	            self.model.removeAll();
 	            self.albumsLoaded = 0;
 	            self.page--;
-	            var prevAlbums = datacontext.getAlbumsForReviewLocal(self.albumIds[self.page]);
-	            ko.utils.arrayForEach(prevAlbums, function (entity) {
-	                entity.AlbumView('');
-	            });
-	            self.bindAlbums({ results: prevAlbums });
+	            self.bindCachedAlbums(datacontext.getAlbumsForReviewLocal(self.albumIds[self.page]));
 	        };
 
 	        self.findNextAlbums = function () {
 	            self.model.removeAll();
 	            self.albumsLoaded = 0;
 	            self.page++;
-	            datacontext.getAlbumsForReview(self.albumsCount, self.page).then(self.bindAlbums);
+	            if (self.page > self.albumIds.length - 1) {
+	                //new albums
+	                datacontext.getAlbumsForReview(self.albumsCount, self.page).then(self.bindAlbums);
+	            } else {
+	                // albums from cache
+	                self.bindCachedAlbums(datacontext.getAlbumsForReviewLocal(self.albumIds[self.page]));
+	            }
+	        };
+
+	        self.bindCachedAlbums = function (albums) {
+	            ko.utils.arrayForEach(albums, function (entity) {
+	                entity.AlbumView('');
+	            });
+	            self.bindAlbums({ results: albums });
 	        };
 
 	        self.onAlbumLoaded = function (albumId) {

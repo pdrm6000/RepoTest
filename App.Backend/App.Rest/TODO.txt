@@ -7,25 +7,19 @@ Implementar single page application SPA
 	- crear logo
 	- ravenDB
 	- app phonegap
-	- usar signalR
 	- usar automapper
-
 
 	Bugs:
 	- el tooltip del menu no va muy bien
 	- segunda linea de albunes en albumsDirectory no se ve bien
-
-	- revisar patrones de diseño para los modulos js, unificar un unico criterio
 	- estudiar la posibiildad de usar medias estrellas en los rates (guito opina que no)
-	- revisar porq no cargan los las estrellas al comienzo 
-	
-
 	
 	Feats:
-	- previous con cache
+	- autenticacion (render servidor- login- spa)
 	- signalR activities
-	- pagination en comments
-	- lista de artistas debe tener albumes ordenados por año
+	- revisar patrones de diseño para los modulos js, unificar un unico criterio
+	- *pagination en comments
+	- *lista de artistas debe tener albumes ordenados por año
 
 	REGLAS:
 	los rates no son anonimos

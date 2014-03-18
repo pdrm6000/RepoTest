@@ -164,6 +164,7 @@
     <Content Include="App\viewmodels\albums\editAlbumModal.js" />
     <Content Include="App\viewmodels\artists\artist.js" />
     <Content Include="App\viewmodels\artists\editArtistModal.js" />
+    <Content Include="App\viewmodels\data\authentication.js" />
     <Content Include="App\viewmodels\data\globalConfig.js" />
     <Content Include="App\viewmodels\data\metadata.js" />
     <Content Include="App\viewmodels\review\binder.js" />

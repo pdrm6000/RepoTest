@@ -127,13 +127,18 @@
 				.withParameters({ albumsCount: count, page: page });
 			return albumsRestManager.executeQuery(query);
 		},
-		getAlbumsForReviewLocal = function(albumIds) {
-			var query = new breeze
-				.EntityQuery()
-				.from('GetAlbumsForReview')
-		        .where('AlbumName',)
-				.toType('AlbumCatalogDTO');
-			return albumsRestManager.executeQueryLocally(query);
+		getAlbumsForReviewLocal = function (albumIds) {
+		    var result = [];
+		    $.each(albumIds, function(index, item) {
+		        var query = new breeze
+		            .EntityQuery()
+		            .from('GetAlbumsForReview')
+		            .where("Id", "==", item)
+		            .toType('AlbumCatalogDTO');
+
+		        result.push(albumsRestManager.executeQueryLocally(query)[0]);
+		    });
+		    return result;
 		};
 	    
 
