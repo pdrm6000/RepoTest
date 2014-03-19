@@ -12,9 +12,6 @@
         twitterLogin: function () {
             authentication.getTwitterRequestToken().done(self.processTwitterResponse);
         },
-        processTwitterResponse: function (response) {
-            alert(response);
-        },
     };
     return self;
 });

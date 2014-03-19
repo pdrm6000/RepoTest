@@ -9,12 +9,13 @@
 	    };
 	    
 	    mData.getTwitterRequestToken = function () {
-	        //return $.post("https://api.twitter.com/oauth/request_token", { oauth_callback: encodeURIComponent(location.href) });
 	        return $.ajax({
 	            url: 'https://api.twitter.com/oauth/request_token',
 	            type: 'POST',
 	            beforeSend: function (request) {
-	                request.setRequestHeader("oauth_callback", encodeURIComponent(location.href));
+	            	request.setRequestHeader("oauth_callback", encodeURIComponent(location.href));
+	            	request.setRequestHeader("oauth_consumer_key", 'ZDvqm68goomg4XnOUZjRWg');
+	            	request.setRequestHeader("oauth_consumer_secret", 'PSNcQwMvDD0p2uaoyJVsgWkyYt8FhyHpmiG867bJ0');
 	            },
 	        });
 	    };
