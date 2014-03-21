@@ -10,23 +10,27 @@ namespace App.Rest.App_Start
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapHttpRoute(
+			var route1 = routes.MapHttpRoute(
                 name: "ActionApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            routes.MapHttpRoute(
+            var route2 = routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            routes.MapRoute(
+			var route3 = routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+			route1.RouteHandler = new MyHttpControllerRouteHandler();
+			route2.RouteHandler = new MyHttpControllerRouteHandler();
+			route3.RouteHandler = new MyHttpControllerRouteHandler();
         }
     }
 }

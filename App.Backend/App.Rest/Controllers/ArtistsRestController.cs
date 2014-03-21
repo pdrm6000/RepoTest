@@ -19,6 +19,7 @@ namespace App.Rest.Controllers
             _artistCollectorAppService = artistCollectorAppService;
         }
 
+		[Authorize]
         public IQueryable<ArtistDTO> Get()
         {
             return _artistCollectorAppService.Entities;

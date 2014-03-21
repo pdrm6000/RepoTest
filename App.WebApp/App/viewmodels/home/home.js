@@ -10,7 +10,7 @@
     		globalConfig.prototype.moduleIsFullyLoaded();
     	},
         twitterLogin: function () {
-            authentication.getTwitterRequestToken().done(self.processTwitterResponse);
+	        authentication.twitterLogin();
         },
     };
     return self;
