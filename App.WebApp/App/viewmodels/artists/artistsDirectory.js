@@ -2,9 +2,10 @@
 	[
 		'viewmodels/data/globalConfig',
 		'viewmodels/data/datacontext',
-		'viewmodels/artists/addArtistModal'
+		'viewmodels/artists/addArtistModal',
+		'plugins/router'
 	],
-	function (globalConfig, datacontext, addArtistModal) {
+	function (globalConfig, datacontext, addArtistModal, router) {
 
 		var lastaddpopup;
 		var viewmodel = {
@@ -40,7 +41,10 @@
 			
 			activate: function () {
 				viewmodel.artistsCollection.removeAll();
-				return datacontext.downloadAllArtists().then(viewmodel.processArtistsDownloaded);
+				return datacontext.downloadAllArtists().then(viewmodel.processArtistsDownloaded).fail(function () {
+					globalConfig.prototype.moduleIsFullyLoaded();
+					router.navigate('');
+				});
 			},
 		};
 
