@@ -197,7 +197,6 @@
     <Content Include="Scripts\breeze\breeze.base.debug.js" />
     <Content Include="Scripts\breeze\breeze.base.min.js" />
     <Content Include="Scripts\breeze\breeze.debug.js" />
-    <Content Include="App\views\albums\Web.config" />
     <None Include="Scripts\breeze\breeze.intellisense.js" />
     <Content Include="Scripts\breeze\breeze.min.js" />
     <Content Include="Scripts\breeze\q.js" />
